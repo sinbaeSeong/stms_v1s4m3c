@@ -490,7 +490,7 @@
                                     </targetConnections>
                                     <children/>
                                     <filterProperty/>
-                                    <name>message</name>
+                                    <name>데이터 message</name>
                                   </target>
                                   <bendpoints/>
                                 </net.java.amateras.uml.usecasediagram.model.UsecaseRelationModel>

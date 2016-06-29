@@ -62,7 +62,7 @@
       <div class="collapse navbar-collapse"
         id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li class="hidden"><a href="#page-top">Home</a></li>
+          <li class="hidden"><a href="#page-top"></a></li>
           <li class="page-scroll"><a href="#portfolio">menu</a></li>
           <li class="page-scroll"><a href="#about">About us</a></li>
           <li class="page-scroll"><a href="#contact">Contact me</a>
@@ -81,7 +81,7 @@
         <div class="col-lg-12">
           <img class="img-responsive" src="img/profile.png" alt="">
           <div class="intro-text">
-            <span class="name">STMS 짱</span>
+            <span class="name">STMS </span>
             <hr class="star-light">
             <span class="skills">Smart Trash Management System</span>
           </div>
@@ -90,64 +90,6 @@
     </div>
   </header>
 
-  <!-- login -->
-  <div class="portfolio-modal modal fade" id="login" tabindex="-1"
-    role="dialog" aria-hidden="true">
-    <div class="modal-content">
-      <div class="close-modal" data-dismiss="modal">
-        <div class="lr">
-          <div class="rl"></div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2">
-            <div class="modal-body">
-              <h2>Login</h2>
-              <hr class="star-primary">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-              <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-              <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-              <form name="sentMessage" id="contactForm" novalidate>
-                <div class="row control-group">
-                  <div
-                    class="form-group col-xs-12 floating-label-form-group controls">
-                    <label>ID :</label> <input type="text"
-                      class="form-control" placeholder="Id" id="id"
-                      required
-                      data-validation-required-message="Please enter your id.">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                </div>
-                <div class="row control-group">
-                  <div
-                    class="form-group col-xs-12 floating-label-form-group controls">
-                    <label>Password</label> <input type="password"
-                      class="form-control" placeholder="Password"
-                      id="passwd" required
-                      data-validation-required-message="Please enter your password">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                </div>
-
-                <br>
-                <div id="success"></div>
-                <div class="row">
-                  <div class="form-group col-xs-12">
-                    <button type="submit" class="sumbit">Check</button>
-
-                  </div>
-                </div>
-              </form>
-           </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
 
     <!-- Portfolio Grid Section -->
@@ -216,14 +158,13 @@
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
-            <a href="#portfolioModal6" class="portfolio-link"
-              data-toggle="modal">
-              <div class="caption">
-                <div class="caption-content">
-                  <i class="fa fa-search-plus fa-3x"></i>
+            <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+              <div class ="caption">
+                <div class ="caption-content">
+                  <i class ="fa fa-search-plus fa-3x"></i>
                 </div>
-              </div> <img src="img/portfolio/submarine.png"
-              class="img-responsive" alt="">
+               </div>
+             <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
             </a>
           </div>
         </div>
@@ -408,14 +349,18 @@
                   with 146 icons for only $12!
                 </p>
                 <ul class="list-inline item-details">
-                  <li>Client: <strong><a
-                      href="http://stms.com">Smart Trash Managemet
-                        System</a> </strong>
+                  <li>
+                    Client: 
+                    <strong>
+                      <a href="http://stms.com">Smart Trash Managemet System</a> 
+                    </strong>
                   </li>
-                  <li>Date: <strong>Jurn 2016</a>
+                  <li>
+                   Date:
+                    <strong>Jurn 2016
                   </strong>
                   </li>
-                  <li>Service: <strong>Web Development</a>
+                  <li>Service: <strong>Web Development
                   </strong>
                   </li>
                 </ul>

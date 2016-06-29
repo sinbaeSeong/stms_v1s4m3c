@@ -43,9 +43,8 @@
           <th class="th">No</th>
           <th class="th">Trash identify</th>
           <th class="th">Location</th>
-          <th class="th">Maximize Capacity</th>
-          <th class="th">Current Capacity</th>          
-          <th class="th">Batched cleaner</th>
+          <th class="th">Current capacity</th>          
+          <th class="th">Cleaner</th>
           <th class="th">Etc.</th>
         </tr>
       
@@ -56,15 +55,14 @@
       
         <c:forEach var="vo" items="${list }">
           <tr>
-            <td class="td">${vo.tno}</td>
+            <td class="td">1 ${vo.tno}</td>
             <td class="td_l">
-              <a href="./read.do?tno=${vo.tno}&uno=${vo.uno}">${vo.title}</a> 
+              <a href="./read.do?tno=${vo.tno}&uno=${vo.uno}"> a type ${vo.title}</a> 
             </td> 
-            <td class="td">${vo.tname}</td>
-            <td class="td">${vo.location}</td>
-            <td class="td">${vo.maxcapa}</td>
-            <td class="td">${vo.currentcapa}</td>
-            <td class="td">${vo.uname}</td>
+            <td class="td">hong${vo.tname}</td>
+            <td class="td">b local${vo.location}</td>
+            <td class="td">0 ${vo.currentcapa}</td>
+            <td class="td">2 ${vo.uname}</td>
             <td class="td">
               <a href="./update.do?blogno=${vo.blogno}"><img src="./images/update.png" title="수정" border='0'/></a>
               <a href="./delete.do?blogno=${vo.blogno}"><img src="./images/delete.png" title="삭제"  border='0'/></a>
