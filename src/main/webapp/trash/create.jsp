@@ -56,10 +56,10 @@
               <div class="row control-group">
               <%--  <input type = "hidden" name='blogcategoryno' id='blogcategoryno' value='${blogVO.blogcategoryno }' >   --%>
                 <div class="form-group col-xs-12">
-                  <label>Trash Id : 
+                  <label>Trash Id </label>
                   <input type="text" class="form-control" placeholder="Type" id="title" required data-validation-required-message="Please enter something capacity.">    
                   <p class="help-block text-danger"></p>
-                  </label>
+                  
                 </div>
               </div>
               <div class="row control-group">
