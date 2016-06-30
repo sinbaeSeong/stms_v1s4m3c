@@ -53,7 +53,7 @@
  <FORM name='frm' method='POST' >
  <fieldset style='width:50%;'>
  <ul>
- <li><input type="text" name="id" id="id" placeholder="id" maxlength="16" style="width:100%;"></li>
+ <li><input type="text" name="id" id="id" placeholder="id" maxlength="16" autofocus style="width:100%;"></li>
  <li><input type="password" name="passwd" id="passwd"  placeholder="password" style="width:100%;"></li>
  <li><input type="password" name="repasswd" id="repasswd"  placeholder="password confirm" style="width:100%;"></li>
  <li><input type="text" name="name" id="name" placeholder="name" maxlength="16" style="width:100%;"></li>
