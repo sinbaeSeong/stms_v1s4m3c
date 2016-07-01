@@ -30,12 +30,9 @@
 <script type="text/javascript" src="../js/tool.js"></script>
  
 <script type="text/JavaScript">
-  $(function(){
-    CKEDITOR.replace('content');  // <TEXTAREA>태그 id 값
-  });
   
-  function close() {
-   var win=window.open(“”,”_self”);
+  function closeMe() {
+   var win=window.open("","_self");
    win.close();
 }
 </script>
@@ -93,7 +90,7 @@
               <div class="row">
                   <div class="form-group col-xs-12">
                   <button type="submit" class="btn btn-success btn-lg">Submit</button>
-                  <button type="button" class="btn btn-success btn-lg" onclick="close();">Cancel</button>
+                  <button type="button" class="btn btn-success btn-lg" onclick="closeMe();">Cancel</button>
               </div>
               </div>
               <br>

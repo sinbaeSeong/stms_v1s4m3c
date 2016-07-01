@@ -75,7 +75,7 @@
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
                  <label>Password</label>
-                    <input type="password" class="form-control" placeholder="Password" id="passwd"
+                    <input type="password" class="form-control" placeholder="password" id="passwd"
                     name="passwd" maxlength="16" required>
                  <p class="help-block text-danger"></p>
               </div>
@@ -86,7 +86,7 @@
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
                   <label>Confirm password</label>
-                    <input type="password" class="form-control" placeholder="Confirm password" id="repasswd"
+                    <input type="password" class="form-control" placeholder="confirm password" id="repasswd"
                     name="repasswd" maxlength="16" required>
                  <p class="help-block text-danger"></p>
               </div>

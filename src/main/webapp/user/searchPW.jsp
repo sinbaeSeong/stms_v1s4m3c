@@ -30,9 +30,11 @@
 <script type="text/javascript" src="../js/tool.js"></script>
  
 <script type="text/JavaScript">
-  $(function(){
-    CKEDITOR.replace('content');  // <TEXTAREA>태그 id 값
-  });
+  
+  function closeMe() {
+     var win=window.open("","_self");
+     win.close();
+  }
 </script>
  
 </head> 
@@ -64,7 +66,7 @@
               <div class="row control-group">
               <div class="form-group col-xs-12">
                   <label>Name </label>
-                     <input type="text" class="form-control" placeholder="Type" id="name"
+                     <input type="text" class="form-control" placeholder="name" id="name"
                      name="name" maxlength="16" autofocus required>    
                   <p class="help-block text-danger"></p>
               </div>
@@ -75,7 +77,7 @@
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
                  <label>Password</label>
-                    <input type="password" class="form-control" placeholder="Password" id="passwd"
+                    <input type="password" class="form-control" placeholder="password" id="passwd"
                     name="passwd" maxlength="16" required>
                  <p class="help-block text-danger"></p>
               </div>
@@ -99,6 +101,7 @@
               <div class="row">
                   <div class="form-group col-xs-12">
                   <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                  <button type="button" class="btn btn-success btn-lg" onclick="closeMe();">Cancel</button>
               </div>
               </div>
               <br>
