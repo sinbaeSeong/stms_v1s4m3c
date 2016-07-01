@@ -40,6 +40,8 @@
 <%-- body 시작 --%>
 <body>
 <%-- ---------------------------------------------------------------------------------------------- --%>
+ <FORM name='frm' method='POST' action='./list.do' >
+
  <section id="contact">
       <div class="container">
         <div class="row">
@@ -105,6 +107,7 @@
   </div>
 </div>
 </section>
+</FORM>
  
 <!-- -------------------------------------------- -->
 </body>

@@ -85,10 +85,10 @@ $(function(){
              <div id="success"></div>
              <div class="row">
              <div class="form-group col-xs-12">
-            <button type="submit" class="btn btn-success btn-lg">List</button>
-            <button type="submit" class="btn btn-success btn-lg">Reply</button>
-            <button type="submit" class="btn btn-success btn-lg">Update</button>
-            <button type="submit" class="btn btn-success btn-lg">Delete</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list.jsp'">List</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./Reply.jsp'">Reply</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./update.jsp'">Update</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./delete.jsp'">Delete</button>
            </div>
            </div>
            </form> 
