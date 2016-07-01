@@ -26,7 +26,6 @@
 <script type="text/JavaScript"
           src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="../js/jquery.cookie.js"></script>
-<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 
 <script type="text/javascript" src="../js/tool.js"></script>
  
@@ -34,6 +33,24 @@
   $(function(){
     CKEDITOR.replace('content');  // <TEXTAREA>태그 id 값
   });
+  
+    function search_ID(){
+    var win = window.open('./searchID.jsp', '중복 이메일 검사', 'width=500px, height=650px');
+    
+    var x = (screen.width - 500) / 2;
+    var y = (screen.height - 650) / 2;
+    
+    win.moveTo(x, y); // 화면 가운데로 이동
+    }
+    
+    function search_PW(){
+    var win = window.open('./searchPW.jsp', '중복 이메일 검사', 'width=500px, height=750px');
+    
+    var x = (screen.width - 500) / 2;
+    var y = (screen.height - 750) / 2;
+    
+    win.moveTo(x, y); // 화면 가운데로 이동
+    }
 </script>
  
 </head> 
@@ -58,7 +75,7 @@
           <!-- Form Start -->
           <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-          <FORM name='frm' method='POST' action='./create.do' enctype="multipart/form-data">
+          <FORM name='frm' method='POST' action='./create.do'>
               
               
               <!-- Input Id -->
@@ -95,9 +112,9 @@
               
               
               <!-- Add link -->
-              Signup <br> 
-              I forgot my ID<br>
-              I forgot my Password
+              <a href='./agreement.jsp'>Sign up</a><br> 
+              <A href='javascript: search_ID();'>I forgot my ID!</A><br>
+              <A href='javascript: search_PW();'>I forgot my Password!</A>
               
               
             <!-- Form end -->

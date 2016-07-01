@@ -5,7 +5,7 @@
 <html lang="ko"> 
 <head> 
 <meta charset="UTF-8"> 
-<title>The rules</title> 
+<title>Login</title> 
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="">
@@ -26,6 +26,7 @@
 <script type="text/JavaScript"
           src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 
 <script type="text/javascript" src="../js/tool.js"></script>
  
@@ -48,43 +49,14 @@
         
         <!-- Title Sign up -->
         <div class="row">
-        <DIV class='col-lg-12 text-center'><h2>Rules</h2>
+        <DIV class='col-lg-12 text-center'><h2>Login</h2>
           <hr class="star-primary"/>
         </DIV>
         </div>   
          
-                
-          <!-- Form Start -->
-          <div class="row">
-          <div class="col-lg-8 col-lg-offset-2">
-          <FORM name='frm' method='POST' action='./create.do' enctype="multipart/form-data">
-              
-              
-              <!-- Input agreement -->
-              <div class="row control-group">
-              <div class="form-group col-xs-12">
-                  <label>Rules</label>
-                   <textarea class="form-control" readonly="readonly" >ㅇㅈ? ㅇ ㅇㅈ? 어그리? 어 어그리?</textarea>
-                  <p class="help-block text-danger"></p>
-              </div>
-              </div>
-              
-              
-              <!-- button -->
-              <br>
-              <div id="success"></div>
-              <div class="row">
-                  <div class="form-group col-xs-12">
-                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='./create.jsp'">Agreement</button>
-                  <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Back</button> 
-              </div>
-              </div>
-              
-              
-            <!-- Form end -->
-            </form>
-            </div>
-            </div>
+         <table>
+         
+         </table>
         
         
       <!-- Bootstrap CSS end -->

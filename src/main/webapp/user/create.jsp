@@ -26,7 +26,6 @@
 <script type="text/JavaScript"
           src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="../js/jquery.cookie.js"></script>
-<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 
 <script type="text/javascript" src="../js/tool.js"></script>
  
@@ -58,7 +57,7 @@
           <!-- Form Start -->
           <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-          <FORM name='frm' method='POST' action='./create.do' enctype="multipart/form-data">
+          <FORM name='frm' method='POST' action='./create.do'>
               
               
               <!-- Input Id -->
@@ -83,7 +82,7 @@
               </div>
               
               
-              <!-- Input Password confirm -->
+              <!-- Input Confirm password -->
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
                   <label>Confirm password</label>
@@ -110,7 +109,7 @@
               <div class="form-group col-xs-12 ">
                  <label>Email</label>
                     <input type="email" class="form-control" placeholder="email" id="email"
-                    name="email" maxlength="40">
+                    name="email" maxlength="40" required>
                  <p class="help-block text-danger"></p>
               </div>
               </div>
@@ -121,8 +120,9 @@
               <div id="success"></div>
               <div class="row">
                 <div class="form-group col-xs-12">
-                  <button type="submit" class="btn btn-success btn-lg">Sign up</button>
+                  <button type="submit" class="btn btn-success btn-lg">Submit</button>
                   <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Back</button> 
+                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='./login.jsp'">Cancel</button> 
               </div>
               </div>
               

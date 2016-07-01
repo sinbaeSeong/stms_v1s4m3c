@@ -5,7 +5,7 @@
 <html lang="ko"> 
 <head> 
 <meta charset="UTF-8"> 
-<title>The rules</title> 
+<title>Search ID</title> 
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="">
@@ -33,6 +33,10 @@
   $(function(){
     CKEDITOR.replace('content');  // <TEXTAREA>태그 id 값
   });
+  
+  function close() {
+ window.close();
+}
 </script>
  
 </head> 
@@ -44,28 +48,40 @@
     <!-- Bootstrap CSS Start -->
     <section id="contact">
     <div class="container">
-        
-        
-        <!-- Title Sign up -->
-        <div class="row">
-        <DIV class='col-lg-12 text-center'><h2>Rules</h2>
-          <hr class="star-primary"/>
-        </DIV>
-        </div>   
          
                 
           <!-- Form Start -->
           <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-          <FORM name='frm' method='POST' action='./create.do' enctype="multipart/form-data">
+          <FORM name='frm' method='POST' action='./create.do'>
               
               
-              <!-- Input agreement -->
+              <!-- Title Sign up -->
+        <div class="row">
+        <DIV class='col-lg-12 text-center'><h2>Search ID</h2>
+          <hr class="star-primary"/>
+        </DIV>
+        </div>   
+              
+              
+              <!-- Input Name -->
               <div class="row control-group">
               <div class="form-group col-xs-12">
-                  <label>Rules</label>
-                   <textarea class="form-control" readonly="readonly" >ㅇㅈ? ㅇ ㅇㅈ? 어그리? 어 어그리?</textarea>
+                  <label>Name </label>
+                     <input type="text" class="form-control" placeholder="Type" id="name"
+                     name="name" maxlength="16" autofocus required>    
                   <p class="help-block text-danger"></p>
+              </div>
+              </div>
+              
+              
+              <!-- Input Email -->
+              <div class="row control-group">
+              <div class="form-group col-xs-12 ">
+                 <label>Email</label>
+                    <input type="email" class="form-control" placeholder="email" id="email"
+                    name="email" maxlength="40" required>
+                 <p class="help-block text-danger"></p>
               </div>
               </div>
               
@@ -75,10 +91,11 @@
               <div id="success"></div>
               <div class="row">
                   <div class="form-group col-xs-12">
-                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='./create.jsp'">Agreement</button>
-                  <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Back</button> 
+                  <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                  <button type="button" class="btn btn-success btn-lg" onclick="close();">Cancel</button>
               </div>
               </div>
+              <br>
               
               
             <!-- Form end -->
