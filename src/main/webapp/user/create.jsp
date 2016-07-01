@@ -64,7 +64,7 @@
               <div class="row control-group">
               <div class="form-group col-xs-12">
                   <label>Id </label>
-                     <input type="text" class="form-control" placeholder="Type" id="id"
+                     <input type="text" class="form-control" placeholder="id" id="id"
                      name="id" maxlength="16" autofocus required>    
                   <p class="help-block text-danger"></p>
               </div>

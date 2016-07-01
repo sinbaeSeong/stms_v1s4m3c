@@ -5,7 +5,7 @@
 <html lang="ko"> 
 <head> 
 <meta charset="UTF-8"> 
-<title>The rules</title> 
+<title>The rule</title> 
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="">

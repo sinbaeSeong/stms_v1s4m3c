@@ -44,10 +44,10 @@
     }
     
     function search_PW(){
-    var win = window.open('./searchPW.jsp', '중복 이메일 검사', 'width=500px, height=750px');
+    var win = window.open('./searchPW.jsp', '중복 이메일 검사', 'width=500px, height=800px');
     
     var x = (screen.width - 500) / 2;
-    var y = (screen.height - 750) / 2;
+    var y = (screen.height - 800) / 2;
     
     win.moveTo(x, y); // 화면 가운데로 이동
     }

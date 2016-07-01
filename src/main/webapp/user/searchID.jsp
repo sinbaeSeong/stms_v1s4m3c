@@ -35,7 +35,8 @@
   });
   
   function close() {
- window.close();
+   var win=window.open(“”,”_self”);
+   win.close();
 }
 </script>
  
@@ -68,7 +69,7 @@
               <div class="row control-group">
               <div class="form-group col-xs-12">
                   <label>Name </label>
-                     <input type="text" class="form-control" placeholder="Type" id="name"
+                     <input type="text" class="form-control" placeholder="name" id="name"
                      name="name" maxlength="16" autofocus required>    
                   <p class="help-block text-danger"></p>
               </div>
