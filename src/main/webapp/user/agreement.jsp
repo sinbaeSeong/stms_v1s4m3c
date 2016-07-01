@@ -29,11 +29,6 @@
 
 <script type="text/javascript" src="../js/tool.js"></script>
  
-<script type="text/JavaScript">
-  $(function(){
-    CKEDITOR.replace('content');  // <TEXTAREA>태그 id 값
-  });
-</script>
  
 </head> 
 <!-- ----------------------------------------- -->
