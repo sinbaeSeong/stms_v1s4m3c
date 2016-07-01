@@ -86,8 +86,8 @@
               <!-- Input Password confirm -->
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
-                  <label>Password confirm</label>
-                    <input type="password" class="form-control" placeholder="Password confirm" id="repasswd"
+                  <label>Confirm password</label>
+                    <input type="password" class="form-control" placeholder="Confirm password" id="repasswd"
                     name="repasswd" maxlength="16" required>
                  <p class="help-block text-danger"></p>
               </div>

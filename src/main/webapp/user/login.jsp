@@ -89,9 +89,15 @@
               <div class="row">
                   <div class="form-group col-xs-12">
                   <button type="submit" class="btn btn-success btn-lg">Login</button>
-                  <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Back</button> 
               </div>
               </div>
+              <br>
+              
+              
+              <!-- Add link -->
+              Signup <br> 
+              I forgot my ID<br>
+              I forgot my Password
               
               
             <!-- Form end -->

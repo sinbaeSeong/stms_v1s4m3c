@@ -5,7 +5,7 @@
 <html lang="ko"> 
 <head> 
 <meta charset="UTF-8"> 
-<title>Agreement</title> 
+<title>The rules</title> 
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="">
@@ -65,7 +65,7 @@
               <div class="row control-group">
               <div class="form-group col-xs-12">
                   <label>약관</label>
-                   <textarea class="form-control" readonly="readonly" >약관</textarea>
+                   <textarea class="form-control" readonly="readonly" >ㅇㅈ? ㅇ ㅇㅈ? 어그리? 어 어그리?</textarea>
                   <p class="help-block text-danger"></p>
               </div>
               </div>
