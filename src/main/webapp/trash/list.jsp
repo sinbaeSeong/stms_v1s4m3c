@@ -46,12 +46,28 @@
           <DIV class='col-lg-12 text-center'><h2>Trash List</h2>
           <hr class="star-primary"/>
           </DIV>
-         </div>       
-
+         </div>     
+         
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <select id='email_dns' class='input-sm' style="width: 20%;">
+          <option value='none'>Total List</option>
+          <option value='gmail.com'>ID</option>
+          <option value='naver.com'>Location</option>
+          <option value='naver.com'>Capacity</option>
+          <option value='daum.net'>Email</option>
+      </select>
+      <input type="text" class="input-sm" placeholder="search" id="search"
+                     name="search" maxlength="16" style="width: 30%; ">
+    </div>
+  </div>       
+  
+  
+  <!--  테이블 시작 -->
+           
   <div class="content" style='width: 90%;'>
     <table class="table" style='width: 100%;'>
-          
-      <%-- table 컬럼 내용 --%>
+   
       <thead>
         <tr class="row control-group" style="font-size: 23px;">
           <th class="col-lg-8 col-lg-offset-2" style="width:100px; ">No</th>
@@ -72,7 +88,6 @@
             <td class="td_l">
               <a href="./read.do?tno=${vo.tno}&uno=${vo.uno}"> a type </a> 
             </td> 
-            <td class="col-lg-8 col-lg-offset-2" style="width: 100px; ">Sin</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">b-local</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">0 </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">2 </td>
