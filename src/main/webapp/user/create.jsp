@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.ArrayList" %>
-  
+<% request.setCharacterEncoding("UTF-8"); %>
+
 <!DOCTYPE html> 
 <html lang="ko"> 
 <head> 
@@ -28,12 +29,7 @@
 <script type="text/javascript" src="../js/jquery.cookie.js"></script>
 
 <script type="text/javascript" src="../js/tool.js"></script>
- 
-<script type="text/JavaScript">
-  $(function(){
-    CKEDITOR.replace('content');  // <TEXTAREA>태그 id 값
-  });
-</script>
+
  
 </head> 
 <!-- ----------------------------------------- -->
@@ -47,13 +43,16 @@
         
         
         <!-- Title Sign up -->
+
         <div class="row">
-        <DIV class='col-lg-12 text-center'><h2>Sign up</h2>
+        <DIV class='col-lg-12 text-center'>
+        <div class="intro-text"><H2>Sign up</H2>
           <hr class="star-primary"/>
         </DIV>
         </div>   
-         
-                
+        </div>            
+
+
           <!-- Form Start -->
           <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
