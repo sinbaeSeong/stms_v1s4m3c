@@ -1,4 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
  
 <!DOCTYPE html> 
 <html lang="ko"> 
@@ -6,75 +9,87 @@
 <meta charset="UTF-8"> 
 <title></title> 
  
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="author" content="">
+
 <style type="text/css">
-  *{ font-size: 26px; margin:0px;}
+
 </style>
+
+ <!-- Basic CSS -->
+<!-- <link href="../css/style.css" rel="Stylesheet" type="text/css"> -->
+
+<!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../css/freelancer.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+ 
 </head> 
 <!-- ----------------------------------------- -->
-<body>
+
 <!-- ----------------------------------------- -->
  
 
 <%-- body 시작 --%>
 <body>
-
 <%-- ---------------------------------------------------------------------------------------------- --%>
-  <div class='content_menu' style='width: 90%;'>
-    <A href='../blogcategory/list.do'>Trash list</A> ｜
-    <A href='./list.do'>Notice</A>｜
-    <A href='./create.do'>Create</A>｜
-    <A href="javascript:location.reload();">Reload</A>
-  </div>
+ <section id="contact">
+      <div class="container">
+        <div class="row">
+          <DIV class='col-lg-12 text-center'><h2>Trash List</h2>
+          <hr class="star-primary"/>
+          </DIV>
+         </div>       
+
   <div class="content" style='width: 90%;'>
     <table class="table" style='width: 100%;'>
-      <colgroup>
-        <col style="width: 10%;"></col>
-        <col style="width: 30%;"></col>
-        <col style="width: 15%;"></col>
-        <col style="width: 10%;"></col>
-        <col style="width: 10%;"></col>
-        <col style="width: 15%;"></col>
-        <col style="width: 10%;"></col>       
-      </colgroup>
           
       <%-- table 컬럼 --%>
       <thead>
-        <tr>
-          <th class="th">No</th>
-          <th class="th">Trash identify</th>
-          <th class="th">Location</th>
-          <th class="th">Current capacity</th>          
-          <th class="th">Cleaner</th>
-          <th class="th">Etc.</th>
+        <tr class="row control-group" style="font-size: 23px;">
+          <th class="col-lg-8 col-lg-offset-2" style="width:100px; ">No</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width:200px;">Trash identify</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width:200px;">Location</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width: 200px; ">Now capacity</th>          
+          <th class="col-lg-8 col-lg-offset-2" style="width: 127px; ">Cleaner</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width:120px">Etc..</th>
         </tr>
       
       </thead>
       
-      <%-- table 내용 --%>
+      <%-- table --%>
       <tbody>
-      
-        <c:forEach var="vo" items="${list }">
-          <tr>
+  
+          <tr class="row control-group" style="font-size: 20px;">
             <td class="td">1 ${vo.tno}</td>
             <td class="td_l">
-              <a href="./read.do?tno=${vo.tno}&uno=${vo.uno}"> a type ${vo.title}</a> 
+              <a href="./read.do?tno=${vo.tno}&uno=${vo.uno}"> a type </a> 
             </td> 
-            <td class="td">hong${vo.tname}</td>
-            <td class="td">b local${vo.location}</td>
-            <td class="td">0 ${vo.currentcapa}</td>
-            <td class="td">2 ${vo.uname}</td>
-            <td class="td">
+            <td class="col-lg-8 col-lg-offset-2" style="width: 100px; ">Sin</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">b local</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">0 </td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">2 </td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
               <a href="./update.do?blogno=${vo.blogno}"><img src="./images/update.png" title="수정" border='0'/></a>
               <a href="./delete.do?blogno=${vo.blogno}"><img src="./images/delete.png" title="삭제"  border='0'/></a>
       
             </td>
           </tr>
-        </c:forEach>
+      
         
       </tbody>
     </table>
     <br><br>
   </div>
+</div>
+</section>
  
 <!-- -------------------------------------------- -->
 </body>
