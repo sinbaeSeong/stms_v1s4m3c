@@ -51,7 +51,7 @@
   <div class="content" style='width: 90%;'>
     <table class="table" style='width: 100%;'>
           
-      <%-- table 컬럼 --%>
+      <%-- table 컬럼 내용 --%>
       <thead>
         <tr class="row control-group" style="font-size: 23px;">
           <th class="col-lg-8 col-lg-offset-2" style="width:100px; ">No</th>
@@ -73,7 +73,7 @@
               <a href="./read.do?tno=${vo.tno}&uno=${vo.uno}"> a type </a> 
             </td> 
             <td class="col-lg-8 col-lg-offset-2" style="width: 100px; ">Sin</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">b local</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">b-local</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">0 </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">2 </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
