@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dev.mvc.trash.TrashMapperInter">
+   
+   <!-- create -->
+    <insert id="create" parameterType="TrashVO">
+    INSERT INTO table(tname, maxcapa, nowcapa, loaction, uno, mdate)
+    VALUES( #{uno}, #{tname}, #{maxcapa}, #{nowcapa}, #{loaction}, now())
+         
+   </insert> 
+
+   <!-- list -->
+ <!--   <select id="list" resultType="TrashVO" parameterType="int">
+    SELECT tno, tname, nowcapa, loaction
+    FROM trash
+    WHERE uno=#{uno}
+    ORDER BY tno DESC
+  </select> -->
+  
+     <!-- list _ 검색기반-->
+ <!--  <select id="list5" resultType="TrashVO" parameterType="HashMap" >
+   SELECT tno, tname, nowcapa, loaction, ansnum, r
+      FROM(
+        SELECT tno, tname, nowcapa, loaction, ansnum, rownum as r
+          FROM(
+            SELECT tno, tname, nowcapa, loaction, ansnum
+              FROM trash
+                 WHERE uno=#{uno}
+    
+                  <choose>
+                   <when test="col == 'id'">
+                   AND tname LIKE '%' || #{word} || '%' 
+                   </when>
+                   <when test="col == 'location'">
+                   AND location  LIKE '%' || #{word} || '%' 
+                   </when>
+                   <when test="col == 'capacity'">
+                   AND capacity  LIKE '%' || #{word} || '%' 
+                   </when>
+                   <when test="col == 'capacity'">
+                   AND tname LIKE '%' || #{word} || '%'  OR location LIKE '%' || #{word} || '%' OR capacity LIKE '%' || #{word} ||
+                   </when>      
+                  </choose>
+                   ORDER BY stmsno DESC, ansnum ASC
+          )
+   )
+   WHERE <![CDATA[r >=#{startNum} AND r <= #{endNum}]]>
+  </select>         -->
+  
+  <!-- ********** 검색에 따른 변경 종료 ********** -->     
+  
+  
+  <!-- <select id="read" resultType="TrashVO" parameterType="int">
+    SELECT tno, uno, tname, maxcapa, nowcapa, loaction
+    FROM trash
+    WHERE tno=#{tno}
+  </select>
+  
+  <update id="update" parameterType="TrashVO">
+    UPDATE trash
+    SET tname=#{tname}, maxcapa=#{maxcapa}, location=#{location} 
+    WHERE tno=#{tno}
+  </update>
+  
+   <delete id="delete" parameterType="int">
+    DELETE FROM trash
+    WHERE tno=#{tno}
+  </delete>
+  -->
+   
+  
+  
+  
+  </mapper>
