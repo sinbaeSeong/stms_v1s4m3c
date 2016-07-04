@@ -78,18 +78,87 @@ public class UserCont {
            mav.setViewName("/user/list"); // /webapp/member/create.jsp
 
            ArrayList<UserVO> list = userDAO.list();
-           Iterator<UserVO> iter = list.iterator();
-           
-           while (iter.hasNext() == true) { 
-              UserVO vo = iter.next(); 
-           }
-           
+
            mav.addObject("list", list);
            
            return mav;
      }
   
+  /**
+   * get - update.do 개인정보 출력
+   * post - update.do 변경 실행
+   * 
+   * @return
+   */
   
+  @RequestMapping(value = "/user/update.do", 
+        method = RequestMethod.GET)
+  public ModelAndView read(int uno) {
+     ModelAndView mav = new ModelAndView();
+     mav.setViewName("/user/update"); // /webapp/member/create.jsp
+
+     UserVO userVO = userDAO.read(uno);
+
+     mav.addObject("userVO", userVO);
+     
+     return mav;
+   }
   
+  @RequestMapping(value = "/user/update.do", 
+        method = RequestMethod.POST)
+  public ModelAndView update(UserVO userVO) {
+     ModelAndView mav = new ModelAndView();
+     mav.setViewName("/user/message"); // /webapp/member/create.jsp
+
+     ArrayList<String> msgs = new ArrayList<String>();
+     ArrayList<String> links = new ArrayList<String>();
+     
+     if(userDAO.update(userVO)==1){
+        mav.setViewName("redirect:/user/list.do");
+        
+      } else {
+         
+         msgs.add("실패했습니다.");
+         msgs.add("이 현상이 지속되면 관리자에게 문의 해주세요");
+         mav.addObject("msgs", msgs);
+         mav.addObject("links", links);
+         
+         links.add("<button type='button' onclick=\"location.href='./list.do'\">돌아가기</button>");
+     }
+     
+     return mav;
+   }
+  
+  /**
+   * 
+   * 
+   * 딜리트 삭제 아구아구
+   * @param userVO
+   * @return
+   */
+  
+  @RequestMapping(value = "/user/delete.do", 
+        method = RequestMethod.POST)
+  public ModelAndView delete(int uno) {
+     ModelAndView mav = new ModelAndView();
+     mav.setViewName("/user/message");
+     
+     ArrayList<String> msgs = new ArrayList<String>();
+     ArrayList<String> links = new ArrayList<String>();
+
+        if (userDAO.delete(uno) == 1) {
+           mav.setViewName("redirect:/user/list.do");
+
+        } else {
+           msgs.add("실패했습니다.");
+           msgs.add("이 현상이 지속되면 관리자에게 문의 해주세요");
+           mav.addObject("msgs", msgs);
+           mav.addObject("links", links);
+           
+           links.add("<button type='button' onclick=\"location.href='./list.do'\">돌아가기</button>");
+        }
+
+     return mav;
+  }
 }
 

@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page import="java.util.ArrayList" %>
-<% request.setCharacterEncoding("UTF-8"); %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html> 
 <html lang="ko"> 
@@ -56,14 +56,14 @@
           <!-- Form Start -->
           <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-          <FORM name='frm' method='POST' action='./create.do'>
-              
+          <FORM name='frm' method='POST' action='./update.do'>
+              <input type='hidden' name='uno' id='uno' value='${userVO.uno}'>
               
               <!-- Input Id -->
               <div class="row control-group">
               <div class="form-group col-xs-12">
                   <label>Id </label>
-                     <input type="text" class="form-control" value="id" id="id"
+                     <input type="text" class="form-control" value="${userVO.id}" id="id"
                      name="id" maxlength="16" autofocus required readonly>    
                   <p class="help-block text-danger"></p>
               </div>
@@ -74,7 +74,7 @@
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
                  <label>Password</label>
-                    <input type="password" class="form-control" placeholder="password" id="passwd"
+                    <input type="password" class="form-control" value="${userVO.passwd}" id="passwd"
                     name="passwd" maxlength="16" required>
                  <p class="help-block text-danger"></p>
               </div>
@@ -85,7 +85,7 @@
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
                   <label>Confirm password</label>
-                    <input type="password" class="form-control" placeholder="confirm password" id="repasswd"
+                    <input type="password" class="form-control" value="${userVO.passwd}"  id="repasswd"
                     name="repasswd" maxlength="16" required>
                  <p class="help-block text-danger"></p>
               </div>
@@ -96,8 +96,8 @@
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
                  <label>Name</label>
-                    <input type="text" class="form-control" placeholder="name" id="name"
-                    name="name" maxlength="16" required>
+                    <input type="text" class="form-control" value="${userVO.uname}" id="uname"
+                   name ="uname" maxlength="16" required>
                  <p class="help-block text-danger"></p>
               </div>
               </div>
@@ -107,7 +107,7 @@
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
                  <label>Email</label>
-                    <input type="email" class="form-control" placeholder="email" id="email"
+                    <input type="email" class="form-control" value="${userVO.email}"  id="email"
                     name="email" maxlength="40" required>
                  <p class="help-block text-danger"></p>
               </div>

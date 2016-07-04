@@ -36,6 +36,15 @@ public class UserDAO {
      return mapper().update(vo);
   }
   
+  /** 유저 개인 정보 출력 */ //<select id='read' resultType='UserVO' parameterType='int'>
+  public UserVO read(int uno){
+     return mapper().read(uno);
+  }
+  
+  /** 유저 삭제 */ //<delete id="delete" parameterType='int'>
+  public int delete(int uno){
+     return mapper().delete(uno);
+  }
 }
 
 

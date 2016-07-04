@@ -1,5 +1,4 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
  
@@ -13,9 +12,26 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<style type="text/css">
-
-</style>
+<script type="text/JavaScript">
+function del(uno){
+   if(!confirm("정말 삭제하시겠습니까?")){
+      return;
+   } else {
+      var f = document.createElement("form");
+      f.setAttribute("method","post");
+      f.setAttribute("action","./delete.do");
+      document.body.appendChild(f);
+      
+      var i = document.createElement("input");
+      i.setAttribute("type","hidden");
+      i.setAttribute("name","uno");
+      i.setAttribute("value", uno);
+      f.appendChild(i);
+      
+      f.submit();
+   }
+}
+</script>
 
  <!-- Basic CSS -->
 <!-- <link href="../css/style.css" rel="Stylesheet" type="text/css"> -->
@@ -88,18 +104,18 @@
       
       <%-- table --%>
       <tbody>
-      <c:forEach var="vo" items="${list }">
+      <c:forEach var="userVO" items="${list }">
           <tr class="row control-group" style="font-size: 20px;">
-            <td class="td">${vo.uno}</td>
-            <td class="td_l">${vo.id}</td> 
-            <td class="col-lg-8 col-lg-offset-2" style="width: 100px; ">${vo.uname}</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${vo.email}</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${vo.act}</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${vo.udate}</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">${vo.confirm}</td>
+            <td class="td">${userVO.uno}</td>
+            <td class="td_l">${userVO.id}</td> 
+            <td class="col-lg-8 col-lg-offset-2" style="width: 100px; ">${userVO.uname}</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${userVO.email}</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${userVO.act}</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${userVO.udate}</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">${userVO.confirm}</td>
             <td class="td">
-              <a href="./update.do?uno=${vo.uno}">Update</a>
-              <a href="./delete.do?uno=${vo.uno}">Delete</a>
+              <a href="./update.do?uno=${userVO.uno}">Update</a>
+              <a href="javascript:del(${userVO.uno })">Delete</a>
             </td>
           </tr>
         </c:forEach>
@@ -113,6 +129,7 @@
   
 </div>
 </section>
+
 
 <!-- -------------------------------------------- -->
 </body>

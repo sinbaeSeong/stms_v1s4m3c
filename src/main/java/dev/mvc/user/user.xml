@@ -18,11 +18,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     ORDER BY uno ASC;
   </select>
   
+  <!-- Read -->
+  <select id='read' resultType='UserVO' parameterType='int'>
+    SELECT uno, id, act, uname, email, udate, confirm, passwd
+    FROM user1
+    WHERE uno = #{uno}
+  </select>
+
   <!-- Update -->
   <update id="update" parameterType="UserVO">
     UPDATE user1
     SET passwd=#{passwd}, uname=#{uname}, email=#{email}
     WHERE uno=#{uno}
   </update>
+  
+  <!--  Delete -->
+  <delete id="delete" parameterType='int'>
+    DELETE FROM user1
+    WHERE uno = #{uno}
+  </delete>
   
 </mapper>
