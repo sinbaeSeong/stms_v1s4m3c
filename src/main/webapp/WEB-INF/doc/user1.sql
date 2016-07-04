@@ -1,5 +1,4 @@
 /* ------------- user1 --------------- */
-
 -- 1 > Create Table
 -- 2 > Drop Table
 -- 3 > Create(insert)
@@ -149,18 +148,18 @@ WHERE email LIKE '%email%';
 SELECT uno, id, act, uname, email, udate, confirm
 FROM user1
 WHERE id LIKE '%id%'
-ORDER BY uno ASC;
+ORDER BY uno ASC
 LIMIT 0, 5;
 
 SELECT uno, id, act, uname, email, udate, confirm
 FROM user1
 WHERE uname LIKE '%uname%'
-ORDER BY uno ASC;
+ORDER BY uno ASC
 LIMIT 0, 5;
 
 SELECT uno, id, act, uname, email, udate, confirm
 FROM user1
 WHERE email LIKE '%email%'
-ORDER BY uno ASC;
+ORDER BY uno ASC
 LIMIT 0, 5;
 

@@ -54,7 +54,6 @@
 <div class="col-lg-12 text-center">
       <select id='email_dns' class='input-sm' style="width: 20%;">
           <option value='none'>Total List</option>
-          <option value='gmail.com'>Title</option>
           <option value='naver.com'>Content</option>
           <option value='daum.net'>ID</option>
       </select>
