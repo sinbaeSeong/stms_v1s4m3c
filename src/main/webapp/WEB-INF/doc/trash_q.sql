@@ -37,8 +37,8 @@ INSERT INTO table(tname, maxcapa, nowcapa, loaction, uno, mdate)
 VALUES ('C-Type', 1.5, 29, 'B-location', 2, now());
 
 4. List
-SELECT tno, tname, nowcapa, loaction
-FROM trash;
+SELECT tno, tname, nowcapa, location
+FROM trash
 ORDER BY tno ASC;
 
 5. Read

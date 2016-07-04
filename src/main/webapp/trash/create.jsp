@@ -52,20 +52,20 @@
          </div>          
       <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-            <FORM name='frm' method='POST' action='./create.do' enctype="multipart/form-data">
+            <FORM name='frm' method='POST' action='./create.do' >
               <div class="row control-group">
-              <%--  <input type = "hidden" name='blogcategoryno' id='blogcategoryno' value='${blogVO.blogcategoryno }' >   --%>
+          <%--      <input type = "hidden" name='uno' id='uno' value='${TrashVO.uno }' >  --%>
                 <div class="form-group col-xs-12">
                   <label>Trash Id </label>
-                  <input type="text" class="form-control" placeholder="Type" id="title" required data-validation-required-message="Please enter something capacity.">    
+                  <input type="text" class="form-control" placeholder="Type" id="tname" name="tname" required data-validation-required-message="Please enter something capacity.">    
                   <p class="help-block text-danger"></p>
                   
                 </div>
               </div>
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
-                    <label for='file1'>Capacity</label>
-                    <input type="text" class="form-control" placeholder="Capacity" id="title" required data-validation-required-message="Please enter something capacity.">
+                    <label for="capa">Capacity</label>
+                    <input type="text" class="form-control" placeholder="Capacity" id="maxcapa" name="maxcapa" required data-validation-required-message="Please enter something capacity.">
                  <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -74,7 +74,7 @@
                 <div
                   class="form-group col-xs-12">
                   <label>Location</label>
-                  <textarea rows="5" class="form-control" id="map sorce" placeholder="map" required ></textarea>
+                  <textarea rows="5" class="form-control" id="location" name="location" placeholder="map" required ></textarea>
                   <p class="help-block text-danger"></p>
                 </div>
               </div>

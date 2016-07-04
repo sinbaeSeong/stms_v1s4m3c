@@ -1,8 +1,11 @@
 package dev.mvc.trash;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 
 @Repository("dev.mvc.trash.TrashDAO")
 public class TrashDAO {
@@ -20,7 +23,7 @@ public class TrashDAO {
   }
 
   /**
-   * 신규 회원을 생성합니다.
+   * trash type을 생성합니다.
    * 
    * @param vo
    * @return 성공여부
@@ -28,6 +31,17 @@ public class TrashDAO {
   public int create(TrashVO vo) {
     return mapper().create(vo);
   }
+ 
+  
+   /**
+   * 검색 + 페이징 목록 
+   */
+    public ArrayList<TrashVO> list() {
+      // TODO Auto-generated method stub
+      return mapper().list();
+    }
+  
+  
 }
 
 

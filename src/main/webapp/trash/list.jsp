@@ -13,6 +13,27 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
+<script type="text/JavaScript">
+function del(uno){
+   if(!confirm("정말 삭제하시겠습니까?")){
+      return;
+   } else {
+      var f = document.createElement("form");
+      f.setAttribute("method","post");
+      f.setAttribute("action","./delete.do");
+      document.body.appendChild(f);
+      
+      var i = document.createElement("input");
+      i.setAttribute("type","hidden");
+      i.setAttribute("name","uno");
+      i.setAttribute("value", uno);
+      f.appendChild(i);
+      
+      f.submit();
+   }
+}
+</script>
+
 <style type="text/css">
 
 </style>
@@ -33,7 +54,7 @@
  
 </head> 
 <!-- ----------------------------------------- -->
-
+<jsp:include page="/menu/top.jsp" flush='false' />
 <!-- ----------------------------------------- -->
  
 
@@ -44,6 +65,7 @@
 
  <section id="contact">
       <div class="container">
+      
         <div class="row">
           <DIV class='col-lg-12 text-center'><h2>Trash List</h2>
           <hr class="star-primary"/>
@@ -76,7 +98,7 @@
           <th class="col-lg-8 col-lg-offset-2" style="width:200px;">Trash identify</th>
           <th class="col-lg-8 col-lg-offset-2" style="width:200px;">Location</th>
           <th class="col-lg-8 col-lg-offset-2" style="width: 200px; ">Now capacity</th>          
-          <th class="col-lg-8 col-lg-offset-2" style="width: 127px; ">Cleaner</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width: 127px; ">Date</th>
           <th class="col-lg-8 col-lg-offset-2" style="width:120px">Etc..</th>
         </tr>
       
@@ -84,27 +106,28 @@
       
       <%-- table --%>
       <tbody>
-  
+         <c:forEach var="trashVO" items="${list }">
           <tr class="row control-group" style="font-size: 20px;">
-            <td class="td">1 ${vo.tno}</td>
+            <td class="td">${trashVO.tno}</td>
             <td class="td_l">
-              <a href="./read.do?tno=${vo.tno}&uno=${vo.uno}"> a type </a> 
+              <a href="./read.do?tno=${trashVO.tno}&uno=1"> ${trashVO.tname }</a> 
             </td> 
-            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">b-local</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">0 </td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">2 </td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${trashVO.location }</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${trashVO.nowcapa }</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${trashVO.mdate } </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
-              <a href="./update.do?blogno=${vo.blogno}"><img src="./images/update.png" title="수정" border='0'/></a>
-              <a href="./delete.do?blogno=${vo.blogno}"><img src="./images/delete.png" title="삭제"  border='0'/></a>
+              <a href="./update.do?blogno=${trashVO.tno}"><img src="./images/update.png" title="Update" border='0'/></a>
+              <a href="./delete.do?blogno=${trashVO.tno}"><img src="./images/delete.png" title="Delete"  border='0'/></a>
       
             </td>
           </tr>
-      
+      </c:forEach>
         
       </tbody>
     </table>
-    <br><br>
+   
   </div>
+  <%-- table end --%>
 </div>
 </section>
 </FORM>

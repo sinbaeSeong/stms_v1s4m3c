@@ -13,11 +13,11 @@
 
 1. Create Table
 CREATE TABLE trash(
-    tno INT NOT NULL PRIMARY KEY,
+    tno INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     tname VARCHAR(10) NOT NULL,
     maxcapa DOUBLE NOT NULL,
-    nowcapa DOUBLE NOT NULL,
-    location VARCHAR(20) NOT NULL,
+    nowcapa DOUBLE NULL,
+    location VARCHAR(20) NOT NULL,  
     mdate   DATETIME     NULL ,
     uno INT,
   FOREIGN KEY (uno) REFERENCES user1 (uno)

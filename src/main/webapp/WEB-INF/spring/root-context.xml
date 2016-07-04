@@ -15,7 +15,7 @@
 
   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
     <property name="driverClassName" value="org.gjt.mm.mysql.Driver" />
-    <property name="url" value="jdbc:mysql://172.16.7.8:3306/web?useUnicode=true&amp;characterEncoding=euckr" />
+    <property name="url" value="jdbc:mysql://172.16.7.8:3306/stms?useUnicode=true&amp;characterEncoding=euckr" />
     <property name="username" value="stms" />
     <property name="password" value="1234" />
   </bean> 

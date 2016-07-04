@@ -12,11 +12,12 @@ public class TrashVO {
   
   private int tno;
   private int uno;
-  private int tname;
+  private String tname;
   private Double maxcapa;
   private Double nowcapa;
   private String location;
   private String mdate;
+  
   public int getTno() {
     return tno;
   }
@@ -29,10 +30,10 @@ public class TrashVO {
   public void setUno(int uno) {
     this.uno = uno;
   }
-  public int getTname() {
+  public String getTname() {
     return tname;
   }
-  public void setTname(int tname) {
+  public void setTname(String tname) {
     this.tname = tname;
   }
   public Double getMaxcapa() {

@@ -7,49 +7,44 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    
    <!-- create -->
     <insert id="create" parameterType="TrashVO">
-    INSERT INTO table(tname, maxcapa, nowcapa, loaction, uno, mdate)
-    VALUES( #{uno}, #{tname}, #{maxcapa}, #{nowcapa}, #{loaction}, now())
+    INSERT INTO trash(uno, tname, maxcapa, location, mdate)
+    VALUES( 1, #{tname}, #{maxcapa}, #{location}, now())
          
    </insert> 
+   
+    <!-- List -->
+  <select id='list' resultType='TrashVO'>
+    SELECT tno, tname, nowcapa, location, mdate
+    FROM trash
+    ORDER BY tno ASC
+  </select>
+   
+   
 
-   <!-- list -->
- <!--   <select id="list" resultType="TrashVO" parameterType="int">
-    SELECT tno, tname, nowcapa, loaction
+<!-- 
+    <select id="list" resultType="TrashVO" parameterType="HashMap" >
+    SELECT tno, tname, nowcapa, loaction, mdate
     FROM trash
     WHERE uno=#{uno}
-    ORDER BY tno DESC
-  </select> -->
-  
-     <!-- list _ 검색기반-->
- <!--  <select id="list5" resultType="TrashVO" parameterType="HashMap" >
-   SELECT tno, tname, nowcapa, loaction, ansnum, r
-      FROM(
-        SELECT tno, tname, nowcapa, loaction, ansnum, rownum as r
-          FROM(
-            SELECT tno, tname, nowcapa, loaction, ansnum
-              FROM trash
-                 WHERE uno=#{uno}
+        
+      <choose>
+        <when test="col == 'id'">
+         AND tname LIKE '%' || #{word} || '%' 
+        </when>
+        <when test="col == 'location'">
+         AND location  LIKE '%' || #{word} || '%' 
+        </when>
+        <when test="col == 'capacity'">
+         AND nowcapa  LIKE '%' || #{word} || '%' 
+        </when>
+        <when test="col == 'id_location_capacity'">
+         AND tname LIKE '%' || #{word} || '%'  OR location LIKE '%' || #{word} || '%' OR nowcapa LIKE '%' || #{word} || '%' 
+        </when>      
+      </choose>   
     
-                  <choose>
-                   <when test="col == 'id'">
-                   AND tname LIKE '%' || #{word} || '%' 
-                   </when>
-                   <when test="col == 'location'">
-                   AND location  LIKE '%' || #{word} || '%' 
-                   </when>
-                   <when test="col == 'capacity'">
-                   AND capacity  LIKE '%' || #{word} || '%' 
-                   </when>
-                   <when test="col == 'capacity'">
-                   AND tname LIKE '%' || #{word} || '%'  OR location LIKE '%' || #{word} || '%' OR capacity LIKE '%' || #{word} ||
-                   </when>      
-                  </choose>
-                   ORDER BY stmsno DESC, ansnum ASC
-          )
-   )
-   WHERE <![CDATA[r >=#{startNum} AND r <= #{endNum}]]>
-  </select>         -->
-  
+      ORDER BY tno DESC
+    </select>      -->   
+
   <!-- ********** 검색에 따른 변경 종료 ********** -->     
   
   

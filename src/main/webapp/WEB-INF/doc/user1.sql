@@ -44,7 +44,7 @@ VALUES ('id', 'passwd', 'normal', 'uname', 'email', now());
 -- 4 > List
 
 SELECT uno, id, act, uname, email, udate, confirm
-FROM user1;
+FROM user1
 ORDER BY uno ASC;
 
 -- 5 > Read
