@@ -1,5 +1,7 @@
 package dev.mvc.user;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,15 +21,21 @@ public class UserDAO {
     return mapper;
   }
 
-  /**
-   * 신규 회원을 생성합니다.
-   * 
-   * @param vo
-   * @return 성공여부
-   */
+  /** 유저 생성 */ // <insert id='create' parameterType='UserVO'>
   public int create(UserVO vo) {
     return mapper().create(vo);
   }
+  
+  /** list 출력 */ // <select id='list' resultType='UserVO'>
+  public ArrayList<UserVO> list(){
+     return mapper().list();
+  }
+  
+  /** 유저 정보 수정 */ // <update id="update" parameterType="UserVO">
+  public int update(UserVO vo){
+     return mapper().update(vo);
+  }
+  
 }
 
 

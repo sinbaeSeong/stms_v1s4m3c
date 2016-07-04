@@ -40,36 +40,7 @@
 <%-- body 시작 --%>
 <body>
 
-
-
- <!-- Navigation -->
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header page-scroll">
-        <button type="button" class="navbar-toggle"
-          data-toggle="collapse"
-          data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span> <span
-            class="icon-bar"></span> <span class="icon-bar"></span> <span
-            class="icon-bar"></span>
-        </button>
-
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse"
-        id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="hidden"><a href="#page-top"></a></li>
-          <li class="page-scroll"><a href="#portfolio">home</a></li>
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-  </nav>
-  <br><br>
+<jsp:include page="/menu/top.jsp" flush='false' />
 <%-- ---------------------------------------------------------------------------------------------- --%>
  <section id="contact">
       <div class="container">
@@ -112,47 +83,34 @@
           <th class="col-lg-8 col-lg-offset-2" style="width:5%;">Confirm</th>
           <th class="col-lg-8 col-lg-offset-2" style="width:18%;">Quick Menu</th>
         </tr>
-      
       </thead>
 
       
       <%-- table --%>
       <tbody>
+      <c:forEach var="vo" items="${list }">
           <tr class="row control-group" style="font-size: 20px;">
-            <td class="td">1 ${vo.tno}</td>
-            <td class="td_l">
-              tracer11
-            </td> 
-            <td class="col-lg-8 col-lg-offset-2" style="width: 100px; ">트레이서</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">tracer11@google.com</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">Normal </td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">2016.12.12 </td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">X </td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
-              <a href="./update.do?blogno=${vo.blogno}">Update</a>
-              <a href="./delete.do?blogno=${vo.blogno}">Delete</a>
+            <td class="td">${vo.uno}</td>
+            <td class="td_l">${vo.id}</td> 
+            <td class="col-lg-8 col-lg-offset-2" style="width: 100px; ">${vo.uname}</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${vo.email}</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${vo.act}</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${vo.udate}</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">${vo.confirm}</td>
+            <td class="td">
+              <a href="./update.do?uno=${vo.uno}">Update</a>
+              <a href="./delete.do?uno=${vo.uno}">Delete</a>
             </td>
           </tr>
-          
-          <tr class="row control-group" style="font-size: 20px;">
-            <td class="td">2 ${vo.tno}</td>
-            <td class="td_l">
-              <a href="./read.do?tno=${vo.tno}&uno=${vo.uno}"> riper999</a> 
-            </td> 
-            <td class="col-lg-8 col-lg-offset-2" style="width: 100px; ">리퍼</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">riper999@google.com</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">Admin </td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">2016.12.18 </td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">O </td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
-              <a href="./update.do?blogno=${vo.blogno}">Update</a>
-              <a href="./delete.do?blogno=${vo.blogno}">Delete</a>
-            </td>
-          </tr>
+        </c:forEach>
       </tbody>
+
+
     </table>
   </div>
   <%-- table end --%>
+  
+  
 </div>
 </section>
 

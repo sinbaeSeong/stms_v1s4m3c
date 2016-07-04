@@ -1,6 +1,7 @@
 package dev.mvc.user;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -66,5 +67,29 @@ public class UserCont {
     return mav;
   }
 
+  /**
+   * 
+   * @return
+   */
+  @RequestMapping(value = "/user/list.do", 
+                           method = RequestMethod.GET)
+     public ModelAndView list() {
+           ModelAndView mav = new ModelAndView();
+           mav.setViewName("/user/list"); // /webapp/member/create.jsp
+
+           ArrayList<UserVO> list = userDAO.list();
+           Iterator<UserVO> iter = list.iterator();
+           
+           while (iter.hasNext() == true) { 
+              UserVO vo = iter.next(); 
+           }
+           
+           mav.addObject("list", list);
+           
+           return mav;
+     }
+  
+  
+  
 }
 

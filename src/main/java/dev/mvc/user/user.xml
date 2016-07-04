@@ -5,9 +5,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace = "dev.mvc.user.UserMapperInter">
   
+  <!-- Create(insert) -->
   <insert id='create' parameterType='UserVO'>
     INSERT INTO user1(id, passwd, act, uname, email, udate)
     VALUES (#{id}, #{passwd}, 'normal', #{uname}, #{email}, now())
   </insert>
 
+  <!-- List -->
+  <select id='list' resultType='UserVO'>
+    SELECT uno, id, act, uname, email, udate, confirm
+    FROM user1
+    ORDER BY uno ASC;
+  </select>
+  
+  <!-- Update -->
+  <update id="update" parameterType="UserVO">
+    UPDATE user1
+    SET passwd=#{passwd}, uname=#{uname}, email=#{email}
+    WHERE uno=#{uno}
+  </update>
+  
 </mapper>
