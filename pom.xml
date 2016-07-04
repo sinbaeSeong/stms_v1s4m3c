@@ -132,12 +132,12 @@
     </dependency> -->
  
     <!-- MySQL JDBC Driver -->
-     <dependency> 
+    <dependency> 
       <groupId>mysql</groupId> 
-      <artifactId>mysql-connector-java</artifactId> 
+        <artifactId>mysql-connector-java</artifactId> 
       <version>5.1.38</version> 
-     </dependency>
-      
+    </dependency>
+    
     <!-- Datasource 지원, @Transactional 지원 -->
     <dependency>
       <groupId>org.springframework</groupId>
@@ -245,11 +245,11 @@
             </plugin>
         </plugins>
     </build>
-   <repositories>
- <!--    <repository>
+<!--    <repositories>
+    <repository>
       <id>oracle</id>
       <name>ORACLE JDBC Repository</name>
       <url>http://maven.jahia.org/maven2</url>
-    </repository> -->
-  </repositories>
+    </repository>
+  </repositories> -->
 </project>
