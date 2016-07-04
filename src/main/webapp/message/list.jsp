@@ -92,7 +92,6 @@
             <td class="col-lg-8 col-lg-offset-2">트레이서</td>
             <td class="col-lg-8 col-lg-offset-2">2016.12.12 </td>
             <td class="col-lg-8 col-lg-offset-2">
-              <a href="./update.do?blogno=${vo.blogno}">Update</a>
               <a href="./delete.do?blogno=${vo.blogno}">Delete</a>
             </td>
           </tr>
@@ -105,7 +104,6 @@
             <td class="col-lg-8 col-lg-offset-2">System</td>
             <td class="col-lg-8 col-lg-offset-2">2016.12.18 </td>
             <td class="col-lg-8 col-lg-offset-2">
-              <a href="./update.do?blogno=${vo.blogno}">Update</a>
               <a href="./delete.do?blogno=${vo.blogno}">Delete</a>
             </td>
           </tr>

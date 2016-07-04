@@ -90,7 +90,7 @@
           <tr class="row control-group" style="font-size: 20px;">
             <td class="td">1 ${vo.tno}</td>
             <td class="td_l">
-              <a href="./read.do?tno=${vo.tno}&uno=${vo.uno}"> tracer11</a> 
+              tracer11
             </td> 
             <td class="col-lg-8 col-lg-offset-2" style="width: 100px; ">트레이서</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">tracer11@google.com</td>
