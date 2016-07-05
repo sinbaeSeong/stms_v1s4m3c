@@ -1,6 +1,7 @@
 package dev.mvc.user;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public interface UserMapperInter {
 
@@ -18,6 +19,12 @@ public interface UserMapperInter {
   
   /** 유저 삭제 */ //<delete id="delete" parameterType='int'>
   public int delete(int uno);
+  
+  /** 비밀번호 확인 */ //  <select id='confirm' resultType='int' parameterType='HashMap'>
+  public int confirm(UserVO vo);
+  
+  /** 로그인 기능 */ //<select id='login' resultType='int' parameterType='UserVO'>
+  public int login(UserVO vo);
 }
 
 

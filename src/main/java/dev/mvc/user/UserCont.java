@@ -68,7 +68,7 @@ public class UserCont {
   }
 
   /**
-   * 
+   * 리스트 출력
    * @return
    */
   @RequestMapping(value = "/user/list.do", 
@@ -130,13 +130,10 @@ public class UserCont {
    }
   
   /**
-   * 
-   * 
    * 딜리트 삭제 아구아구
    * @param userVO
    * @return
    */
-  
   @RequestMapping(value = "/user/delete.do", 
         method = RequestMethod.POST)
   public ModelAndView delete(int uno) {
@@ -158,6 +155,76 @@ public class UserCont {
            links.add("<button type='button' onclick=\"location.href='./list.do'\">돌아가기</button>");
         }
 
+     return mav;
+  }
+  
+  /**
+   * 비밀번호 확인
+   */
+  @RequestMapping(value = "/user/confirm.do", 
+        method = RequestMethod.GET)
+  public ModelAndView confirm(int uno) {
+     ModelAndView mav = new ModelAndView();
+     mav.setViewName("/user/confirmpassword"); 
+
+     UserVO userVO = userDAO.read(uno);
+     mav.addObject("userVO", userVO);
+     
+     return mav;
+   }
+  
+  @RequestMapping(value = "/user/confirm.do", 
+        method = RequestMethod.POST)
+  public ModelAndView confirm(UserVO userVO) {
+     ModelAndView mav = new ModelAndView();
+     mav.setViewName("/user/message");
+     
+     ArrayList<String> msgs = new ArrayList<String>();
+     ArrayList<String> links = new ArrayList<String>();
+
+        if (userDAO.confirm(userVO) == 1) {
+           mav.setViewName("redirect:/user/update.do?uno="+userVO.getUno());
+
+        } else {
+     
+           msgs.add("실패했습니다.");
+           msgs.add("이 현상이 지속되면 관리자에게 문의 해주세요");
+           mav.addObject("msgs", msgs);
+           mav.addObject("links", links);
+           
+           links.add("<button type='button' onclick=\"location.href='./list.do'\">돌아가기</button>");
+        }
+
+     
+     return mav;
+  }
+  
+  /**
+   * Simple 로그인
+   */
+  @RequestMapping(value = "/user/login.do", 
+        method = RequestMethod.POST)
+  public ModelAndView login(UserVO userVO) {
+     ModelAndView mav = new ModelAndView();
+     mav.setViewName("/user/message");
+     
+     ArrayList<String> msgs = new ArrayList<String>();
+     ArrayList<String> links = new ArrayList<String>();
+
+        if (userDAO.login(userVO) == 1) {
+           mav.setViewName("redirect:/user/list.do");
+
+        } else {
+   
+           msgs.add("실패했습니다.");
+           msgs.add("이 현상이 지속되면 관리자에게 문의 해주세요");
+           mav.addObject("msgs", msgs);
+           mav.addObject("links", links);
+           
+           links.add("<button type='button' onclick=\"location.href='./list.do'\">돌아가기</button>");
+        }
+
+     
      return mav;
   }
 }

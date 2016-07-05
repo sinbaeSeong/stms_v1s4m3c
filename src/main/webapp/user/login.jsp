@@ -75,14 +75,14 @@
           <!-- Form Start -->
           <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-          <FORM name='frm' method='POST' action='./create.do'>
+          <FORM name='frm' method='POST' action='./login.do'>
               
               
               <!-- Input Id -->
               <div class="row control-group">
               <div class="form-group col-xs-12">
                   <label>Id </label>
-                     <input type="text" class="form-control" placeholder="Type" id="id"
+                     <input type="text" class="form-control" placeholder="id" id="id"
                      name="id" maxlength="16" autofocus required>    
                   <p class="help-block text-danger"></p>
               </div>

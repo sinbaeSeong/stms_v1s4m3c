@@ -26,7 +26,8 @@
     <!-- 아래부분은 매핑할 xml파일이 있는 패키지경로를 설정한다. -->
     <property name="typeAliasesPackage" 
     value="dev.mvc.trash,
-              dev.mvc.user"/>
+              dev.mvc.user
+              dev.mvc.message"/>
     <property name="mapperLocations" value="classpath:dev/mvc/**/*.xml" />
   </bean>
   

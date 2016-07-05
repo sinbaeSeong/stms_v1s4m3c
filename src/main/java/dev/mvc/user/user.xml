@@ -38,4 +38,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     WHERE uno = #{uno}
   </delete>
   
+  <!-- Confirm PW -->
+  <select id='confirm' resultType='int' parameterType='UserVO'>
+    SELECT COUNT(uno) as cnt
+    FROM user1
+    WHERE uno=#{uno} AND passwd=#{passwd}
+</select>
+
+  <!-- Login -->
+  <select id='login' resultType='int' parameterType='UserVO'>
+    SELECT COUNT(uno) as cnt
+    FROM user1
+    WHERE id=#{id} AND passwd=#{passwd}
+</select>
 </mapper>

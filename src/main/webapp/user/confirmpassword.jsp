@@ -56,7 +56,8 @@
           <!-- Form Start -->
           <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-          <FORM name='frm' method='POST' action='./create.do'>
+          <FORM name='frm' method='POST' action='./confirm.do'>
+          <input type='hidden' id='uno' name='uno' value='${userVO.uno}'>
               
               
               <!-- Input Password -->

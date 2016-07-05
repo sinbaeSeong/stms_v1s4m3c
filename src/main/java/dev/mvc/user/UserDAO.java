@@ -1,6 +1,7 @@
 package dev.mvc.user;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,16 @@ public class UserDAO {
   /** 유저 삭제 */ //<delete id="delete" parameterType='int'>
   public int delete(int uno){
      return mapper().delete(uno);
+  }
+  
+  /** 비밀번호 확인 */ //<select id='confirm' resultType='int' parameterType='HashMap'>
+  public int confirm(UserVO vo){
+        return mapper().confirm(vo);
+  }
+  
+  /** 로그인 기능 */ //<select id='login' resultType='int' parameterType='UserVO'>
+  public int login(UserVO vo){
+     return mapper().login(vo);
   }
 }
 

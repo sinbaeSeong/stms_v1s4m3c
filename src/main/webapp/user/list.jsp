@@ -114,7 +114,7 @@ function del(uno){
             <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${userVO.udate}</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">${userVO.confirm}</td>
             <td class="td">
-              <a href="./update.do?uno=${userVO.uno}">Update</a>
+              <a href="./confirm.do?uno=${userVO.uno}">Update</a>
               <a href="javascript:del(${userVO.uno })">Delete</a>
             </td>
           </tr>

@@ -68,7 +68,7 @@ WHERE uno = 1;
 
 SELECT COUNT(uno) as cnt
 FROM user1
-WHERE uno='passwd' AND passwd='passwd';
+WHERE uno=1 AND passwd='passwd';
 
 -- 9 > Search ID
 
