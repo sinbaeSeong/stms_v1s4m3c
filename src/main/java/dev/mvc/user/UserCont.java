@@ -1,7 +1,11 @@
 package dev.mvc.user;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import web.tool.Tool;
 
 @Controller
 public class UserCont {
@@ -200,32 +206,128 @@ public class UserCont {
   }
   
   /**
-   * Simple 로그인
+   *  로그인 기능 구현
    */
+  
   @RequestMapping(value = "/user/login.do", 
-        method = RequestMethod.POST)
-  public ModelAndView login(UserVO userVO) {
-     ModelAndView mav = new ModelAndView();
-     mav.setViewName("/user/message");
-     
-     ArrayList<String> msgs = new ArrayList<String>();
-     ArrayList<String> links = new ArrayList<String>();
+        method = RequestMethod.GET)
+  public ModelAndView login() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/user/login_form"); // /member/login_ck_form.jsp
 
-        if (userDAO.login(userVO) == 1) {
-           mav.setViewName("redirect:/user/list.do");
-
-        } else {
-   
-           msgs.add("실패했습니다.");
-           msgs.add("이 현상이 지속되면 관리자에게 문의 해주세요");
-           mav.addObject("msgs", msgs);
-           mav.addObject("links", links);
-           
-           links.add("<button type='button' onclick=\"location.href='./list.do'\">돌아가기</button>");
-        }
-
-     
-     return mav;
+        return mav;
   }
+
+  
+@RequestMapping(value = "/user/login.do", 
+       method = RequestMethod.POST)
+   public ModelAndView login(UserVO userVO, 
+                                        HttpSession session, 
+                                        HttpServletRequest request,
+                                        HttpServletResponse response) {
+      ModelAndView mav = new ModelAndView();
+
+      ArrayList<String> msgs = new ArrayList<String>();
+      ArrayList<String> links = new ArrayList<String>();
+
+      if (userDAO.login(userVO) == 1) {
+         userVO = userDAO.readByID(userVO);
+         System.out.println("로그인 한 유저 : " + userVO.getUno());
+         session.setAttribute("id", userVO.getId());
+         session.setAttribute("passwd", userVO.getPasswd());
+         session.setAttribute("name",userVO.getUname());
+         session.setAttribute("uno", userVO.getUno());
+         session.setAttribute("act", "admin");
+         System.out.println("id" + userVO.getUname());
+
+         // ------------------------------------------------------------------
+         // id 저장 관련 쿠키 저장
+         // ------------------------------------------------------------------
+         String id_save = Tool.checkNull(userVO.getId_save());
+         if (id_save.equals("Y")){ // id 저장 할 경우
+            Cookie ck_id = new Cookie("ck_id", userVO.getId()); // id 저장
+            ck_id.setMaxAge(600); // 초
+            response.addCookie(ck_id);
+         }else{ // id를 저장하지 않을 경우
+            Cookie ck_id = new Cookie("ck_id", ""); 
+            ck_id.setMaxAge(0); // 초
+            response.addCookie(ck_id);
+         }
+         // id 저장 여부를 결정하는 쿠기 기록, Y or "" 저장
+         Cookie ck_id_save = new Cookie("ck_id_save", userVO.getId_save());
+         ck_id_save.setMaxAge(600); // 초
+         response.addCookie(ck_id_save);
+         // ------------------------------------------------------------------
+
+         String url_address = Tool.checkNull(userVO.getUrl_address());
+         if (url_address.length() > 0){
+            mav.setViewName("redirect:" + userVO.getUrl_address());
+         }else{
+            System.out.println("--> index.jsp 페이지로 이동합니다.");
+            mav.setViewName("redirect:/user/welcome.jsp"); // 확장자 명시
+         }
+
+      } else {
+         mav.setViewName("/user/message");
+         msgs.add("로그인에 실패했습니다.");
+         msgs.add("죄송하지만 다시한번 시도해주세요.");
+         links.add("<button type='button' onclick=\"history.back()\">다시시도</button>");
+         links.add("<button type='button' onclick=\"location.href='./home.do'\">홈페이지</button>");
+      }
+
+      mav.addObject("msgs", msgs);
+      mav.addObject("links", links);
+
+      return mav;
+   }
+  
+@RequestMapping(value = "/user/logout.do", method = RequestMethod.GET)
+public ModelAndView logout(HttpSession session) {
+  ModelAndView mav = new ModelAndView();
+
+  session.invalidate(); // session 변수 삭제
+  mav.setViewName("redirect:/user/login.do");
+  
+  return mav;
+}  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 }
 

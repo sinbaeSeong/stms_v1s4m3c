@@ -1,11 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.ArrayList" %>
-  
+<% request.setCharacterEncoding("UTF-8"); %>
+
 <!DOCTYPE html> 
 <html lang="ko"> 
 <head> 
 <meta charset="UTF-8"> 
-<title>Login</title> 
+<title>Create</title> 
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="">
@@ -28,30 +29,7 @@
 <script type="text/javascript" src="../js/jquery.cookie.js"></script>
 
 <script type="text/javascript" src="../js/tool.js"></script>
- 
-<script type="text/JavaScript">
-  $(function(){
-    CKEDITOR.replace('content');  // <TEXTAREA>태그 id 값
-  });
-  
-    function search_ID(){
-    var win = window.open('./searchID.jsp', '중복 이메일 검사', 'width=500px, height=650px');
-    
-    var x = (screen.width - 500) / 2;
-    var y = (screen.height - 650) / 2;
-    
-    win.moveTo(x, y); // 화면 가운데로 이동
-    }
-    
-    function search_PW(){
-    var win = window.open('./searchPW.jsp', '중복 이메일 검사', 'width=500px, height=800px');
-    
-    var x = (screen.width - 500) / 2;
-    var y = (screen.height - 800) / 2;
-    
-    win.moveTo(x, y); // 화면 가운데로 이동
-    }
-</script>
+
  
 </head> 
 <!-- ----------------------------------------- -->
@@ -65,36 +43,40 @@
         
         
         <!-- Title Sign up -->
+
         <div class="row">
-        <DIV class='col-lg-12 text-center'><h2>Login</h2>
+        <DIV class='col-lg-12 text-center'>
+        <div class="intro-text"><H2>Message</H2>
           <hr class="star-primary"/>
         </DIV>
         </div>   
-         
-                
+        </div>            
+
+
           <!-- Form Start -->
           <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-          <FORM name='frm' method='POST' action='./login.do'>
+          <FORM name='frm' method='POST' action='./create.do'>
+          
               
               
-              <!-- Input Id -->
+              <!-- Input Recevier -->
               <div class="row control-group">
               <div class="form-group col-xs-12">
-                  <label>Id </label>
-                     <input type="text" class="form-control" placeholder="id" id="id"
-                     name="id" maxlength="16" autofocus required>    
+                  <label>Receiver </label>
+                     <input type="text" class="form-control" placeholder="receiver id" id="receiver"
+                     name="receiver" maxlength="16" autofocus required>    
                   <p class="help-block text-danger"></p>
               </div>
               </div>
               
               
-              <!-- Input Password -->
+              <!-- Input Content -->
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
-                 <label>Password</label>
-                    <input type="password" class="form-control" placeholder="Password" id="passwd"
-                    name="passwd" maxlength="16" required>
+                 <label>Content</label>
+                    <textarea rows="" cols="" class="form-control" placeholder="content"
+                    id='mcontent' name='mcontent' required></textarea>
                  <p class="help-block text-danger"></p>
               </div>
               </div>
@@ -104,17 +86,11 @@
               <br>
               <div id="success"></div>
               <div class="row">
-                  <div class="form-group col-xs-12">
-                  <button type="submit" class="btn btn-success btn-lg">Login</button>
+                <div class="form-group col-xs-12">
+                  <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                  <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Back</button> 
               </div>
               </div>
-              <br>
-              
-              
-              <!-- Add link -->
-              <a href='./agreement.jsp'>Sign up</a><br> 
-              <A href='javascript: search_ID();'>I forgot my ID!</A><br>
-              <A href='javascript: search_PW();'>I forgot my Password!</A>
               
               
             <!-- Form end -->

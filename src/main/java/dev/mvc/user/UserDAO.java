@@ -56,6 +56,11 @@ public class UserDAO {
   public int login(UserVO vo){
      return mapper().login(vo);
   }
+  
+  /** ID로 정보출력 */ //<select id="readByID" resultType="UserVO" parameterType="UserVO">
+  public UserVO readByID(UserVO vo){
+     return mapper().readByID(vo);
+  }
 }
 
 

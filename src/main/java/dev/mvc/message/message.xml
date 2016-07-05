@@ -5,5 +5,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace = "dev.mvc.message.MessageMapperInter">
   
+  <!-- Create -->
+  <insert id="create" parameterType='MessageVO'>
+    INSERT INTO message(sender, sender_uno, mcontent, uno, tno, mdate)
+    VALUES (#{sender}, #{sender_uno},  #{mcontent}, #{uno}, #{tno}, now())
+  </insert>
+  
+  <!-- List -->
+  <select id="list" resultType='MessageVO'>
+    SELECT mno, sender, mdate, uno, tno
+    FROM message
+    WHERE uno=#{uno}
+    ORDER BY mno ASC
+  </select>  
+  
+  <!-- Read -->
+  <select id="read" resultType='MessageVO'  parameterType='int'>
+    SELECT mno, sender, sender_uno, mcontent, mdate, uno, tno
+    FROM message
+    WHERE mno = #{mno}
+  </select>
+  
+  <!-- Delete -->
+  <delete id="delete" parameterType='int'>
+    DELETE FROM message
+    WHERE mno = #{mno}
+  </delete>
+
 </mapper>
   

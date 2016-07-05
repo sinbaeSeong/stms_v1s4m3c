@@ -25,6 +25,9 @@ public interface UserMapperInter {
   
   /** 로그인 기능 */ //<select id='login' resultType='int' parameterType='UserVO'>
   public int login(UserVO vo);
+  
+  /** ID로 정보출력 */ //<select id="readByID" resultType="UserVO" parameterType="UserVO">
+  public UserVO readByID(UserVO vo);
 }
 
 

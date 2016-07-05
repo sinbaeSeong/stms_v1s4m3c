@@ -36,6 +36,15 @@ public class UserVO {
    /** 사용자인증 여부 */
    private String confirm;
 
+   /** ---------------------------- */
+
+   /** id 저장 여부 */
+   private String id_save;
+
+   /** 이동할 주소 저장 */
+   private String url_address;
+
+   
    public int getUno() {
       return uno;
    }
@@ -98,6 +107,22 @@ public class UserVO {
 
    public void setConfirm(String confirm) {
       this.confirm = confirm;
+   }
+
+   public String getId_save() {
+      return id_save;
+   }
+
+   public void setId_save(String id_save) {
+      this.id_save = id_save;
+   }
+
+   public String getUrl_address() {
+      return url_address;
+   }
+
+   public void setUrl_address(String url_address) {
+      this.url_address = url_address;
    }
    
 
