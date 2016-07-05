@@ -40,7 +40,7 @@ $(function(){
 </head> 
 <!-- ----------------------------------------- -->
 <body leftmargin="0" topmargin="0">
-
+<jsp:include page="/menu/top.jsp" flush='false' />
 <!-- ----------------------------------------- -->
      <section id="contact">
       <div class="container">
@@ -52,12 +52,14 @@ $(function(){
          </div>          
       <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-            <FORM name='frm' method='POST' action='./create.do' enctype="multipart/form-data">
+            <FORM name='frm' method='POST' action='./update.do' >
               <div class="row control-group">
-              <%--  <input type = "hidden" name='blogcategoryno' id='blogcategoryno' value='${blogVO.blogcategoryno }' >   --%>
+               <input type = "hidden" name='tno' id='tno' value='${trashVO.tno }' >   
+              
+               
                 <div class="form-group col-xs-12">
                   <label>Trash Id </label>
-                  <input type="text" class="form-control" placeholder="Type" id="title" value="${vo.capa }">    
+                  <input type="text" class="form-control" value="${trashVO.tname }" id="tname" name='tname'>    
                   <p class="help-block text-danger"></p>
                   
                 </div>
@@ -65,7 +67,7 @@ $(function(){
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
                     <label for='file1'>Capacity</label>
-                    <input type="text" class="form-control" placeholder="Capacity" id="title" value="${vo.capa }">
+                    <input type="text" class="form-control" value="${trashVO.maxcapa }" id="maxcapa" name='maxcapa' >
                  <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -74,7 +76,7 @@ $(function(){
                 <div
                   class="form-group col-xs-12">
                   <label>Location</label>
-                  <textarea rows="5" class="form-control" id="map sorce" placeholder="map" required ></textarea>
+                  <textarea rows="5" class="form-control" id="location" name='location' value="${trashVO.location }" required  ></textarea>
                   <p class="help-block text-danger"></p>
                 </div>
               </div>

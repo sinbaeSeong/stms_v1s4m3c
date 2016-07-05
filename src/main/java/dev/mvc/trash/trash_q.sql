@@ -37,8 +37,8 @@ INSERT INTO table(tname, maxcapa, nowcapa, loaction, uno, mdate)
 VALUES ('C-Type', 1.5, 29, 'B-location', 2, now());
 
 4. List
-SELECT tno, tname, nowcapa, loaction
-FROM trash;
+SELECT tno, tname, maxcapa, location
+FROM trash
 ORDER BY tno ASC;
 
 5. Read
@@ -48,8 +48,8 @@ WHERE tno = 1;
 
 6. Update
 UPDATE trash
-SET tname='tname', maxcapa='maxcapa', location='location'
-WHERE tno=1;
+SET tname='CA-Type', maxcapa='12.5', location='Us1'
+WHERE tno=2;
 
 7. Delete
 DELETE FROM trash

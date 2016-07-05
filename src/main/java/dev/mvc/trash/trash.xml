@@ -48,10 +48,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   <!-- ********** 검색에 따른 변경 종료 ********** -->     
   
   
-  <!-- <select id="read" resultType="TrashVO" parameterType="int">
-    SELECT tno, uno, tname, maxcapa, nowcapa, loaction
+  <select id="read" resultType="TrashVO" parameterType="int">
+    SELECT tno, tname, maxcapa, nowcapa, location
     FROM trash
-    WHERE tno=#{tno}
+    WHERE tno= #{tno}
   </select>
   
   <update id="update" parameterType="TrashVO">
@@ -60,11 +60,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     WHERE tno=#{tno}
   </update>
   
+ <!-- 
    <delete id="delete" parameterType="int">
     DELETE FROM trash
     WHERE tno=#{tno}
-  </delete>
-  -->
+  </delete> -->
+ 
    
   
   

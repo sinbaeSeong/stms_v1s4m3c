@@ -45,50 +45,46 @@ $(function(){
         <div class="row">
           <DIV class='col-lg-12 text-center'><h2>Trash Component</h2>
           <hr class="star-primary"/>
-         
           </DIV>
-         </div>          
+         </div>     
+             
       <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-             <FORM name='frm' method="get" action='./update.do'>
+           <FORM name='frm' method="get" action='./update.do'>
+             <input type="hidden" name="tno" value="${trashVO.tno}">
+              
               <div class="row control-group">
                <div class="form-group col-xs-12">
                   <label>Trash ID </label>
-                  <span class="form-control">Trash ID ${blogVO.tname}</span><br>                  
+                  <span class="form-control">${trashVO.tname}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
              <div class="form-group col-xs-12">
                   <label>Maximize Capacity </label>
-                  <span class="form-control">Max_Capacity ${blogVO.maxcapa}</span><br>                  
+                  <span class="form-control">${trashVO.maxcapa}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
              <div class="form-group col-xs-12">
                   <label>Current Capacity </label>
-                  <span class="form-control">Current Capacity ${blogVO.currentcapa}</span><br>                  
+                  <span class="form-control"> ${trashVO.maxcapa  }</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
              <div class="form-group col-xs-12">
                   <label>Location </label>
-                  <span class="form-control">Location ${blogVO.Location}</span><br>                  
+                  <span class="form-control"> ${trashVO.location}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
              <div class="form-group col-xs-12">
                   <label>Date </label>
-                  <span class="form-control">2016-06-30 ${blogVO.rdate.substring(0, 16)}</span><br>                  
+                  <span class="form-control"> ${trashVO.mdate}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
-             <div class="form-group col-xs-12">
-               <label>Reply </label>
-               <span class="form-control">30.. ${blogVO.replycnt}</span><br>                  
-               <p class="help-block text-danger"></p>
-             </div>
-             <div id="success"></div>
+            <div id="success"></div>
              <div class="row">
              <div class="form-group col-xs-12">
-            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list.jsp'">List</button>
-            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./Reply.jsp'">Reply</button>
-            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./update.jsp'">Update</button>
-            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./delete.jsp'">Delete</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list.do'">List</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./update.do?tno=${trashVO.tno}'">Update</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./delete.do'">Delete</button>
            </div>
            </div>
            </form> 

@@ -40,6 +40,24 @@ public class TrashDAO {
       // TODO Auto-generated method stub
       return mapper().list();
     }
+    
+    /**
+     * READ
+     * @param tno
+     * @return
+     */
+    public TrashVO read(int tno){
+      return mapper().read(tno);
+    }
+    
+    /**
+     * Update
+     * @param vo
+     * @return
+     */
+    public int update(TrashVO vo){
+      return mapper().update(vo);
+    }
   
   
 }

@@ -119,6 +119,7 @@ function del(uno){
               <a href="./update.do?blogno=${trashVO.tno}"><img src="./images/update.png" title="Update" border='0'/></a>
               <a href="./delete.do?blogno=${trashVO.tno}"><img src="./images/delete.png" title="Delete"  border='0'/></a>
       
+      
             </td>
           </tr>
       </c:forEach>

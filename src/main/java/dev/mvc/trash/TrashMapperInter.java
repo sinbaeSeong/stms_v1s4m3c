@@ -12,8 +12,22 @@ public interface TrashMapperInter {
    * @return
    */
   // <select id="list" resultType="BlogVO">
-  public ArrayList<TrashVO> list(); 
-  
+  public ArrayList<TrashVO> list();
+
+  /**
+   *  Read
+   *  //<select id="read" resultType="TrashVO" parameterType="int">
+   * @param tno
+   * @return
+   */ 
+  public TrashVO read(int tno); 
+   
+  /**
+   *  Update
+   * @param vo
+   * @return
+   */
+  public int update(TrashVO vo);
 }
 
 
