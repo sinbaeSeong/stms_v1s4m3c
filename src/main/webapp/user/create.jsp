@@ -121,7 +121,7 @@
                 <div class="form-group col-xs-12">
                   <button type="submit" class="btn btn-success btn-lg">Submit</button>
                   <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Back</button> 
-                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='./login.jsp'">Cancel</button> 
+                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='./login.do'">Cancel</button> 
               </div>
               </div>
               

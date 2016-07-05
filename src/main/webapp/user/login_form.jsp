@@ -99,7 +99,7 @@ for (int i=0; i < cookies.length; i++){
               <!-- Input Id -->
               <div class="row control-group">
               <div class="form-group col-xs-12">
-                  <label>Id </label>
+                  <label>Id - test : id</label>
                      <input type="text" class="form-control" placeholder="id" id="id"
                      name="id" maxlength="16" autofocus required>    
                      <label>
@@ -117,7 +117,7 @@ for (int i=0; i < cookies.length; i++){
               <!-- Input Password -->
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
-                 <label>Password</label>
+                 <label>Password - test : passwd</label>
                     <input type="password" class="form-control" placeholder="Password" id="passwd"
                     name="passwd" maxlength="16" required>
                  <p class="help-block text-danger"></p>

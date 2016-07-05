@@ -68,14 +68,14 @@
               Choose your work</label>
               
               <!-- button -->
-              <br><br>
+              <br><br><br>
               <div class='col-lg-12 text-center'>
               <div id="success"></div>
               <div class="row">
                   <div class="form-group col-xs-12">
                   <button type="button" class="btn btn-success btn-lg" onclick='javascript: logout();'>Logout</button> 
-                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='./create.jsp'">Admin-Userlist</button>
-                  <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Message</button> 
+                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list.do'">Admin-Userlist</button>
+                  <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Message(미구현)</button> 
               </div>
               </div>
               </div>

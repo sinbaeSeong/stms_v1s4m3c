@@ -238,7 +238,6 @@ public class UserCont {
          session.setAttribute("name",userVO.getUname());
          session.setAttribute("uno", userVO.getUno());
          session.setAttribute("act", "admin");
-         System.out.println("id" + userVO.getUname());
 
          // ------------------------------------------------------------------
          // id 저장 관련 쿠키 저장
@@ -263,7 +262,6 @@ public class UserCont {
          if (url_address.length() > 0){
             mav.setViewName("redirect:" + userVO.getUrl_address());
          }else{
-            System.out.println("--> index.jsp 페이지로 이동합니다.");
             mav.setViewName("redirect:/user/welcome.jsp"); // 확장자 명시
          }
 
