@@ -51,7 +51,7 @@
           <!-- Form Start -->
           <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-          <FORM name='frm' method='POST' action='./create.do'>
+          <FORM name='frm' method='POST' action='./searchPW.do'>
               
               
               <!-- Title Sign up -->
@@ -66,8 +66,8 @@
               <div class="row control-group">
               <div class="form-group col-xs-12">
                   <label>Name </label>
-                     <input type="text" class="form-control" placeholder="name" id="name"
-                     name="name" maxlength="16" autofocus required>    
+                     <input type="text" class="form-control" placeholder="name" id="uname"
+                     name="uname" maxlength="16" autofocus required>    
                   <p class="help-block text-danger"></p>
               </div>
               </div>
@@ -76,9 +76,9 @@
               <!-- Input Password -->
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
-                 <label>Password</label>
-                    <input type="password" class="form-control" placeholder="password" id="passwd"
-                    name="passwd" maxlength="16" required>
+                 <label>Id</label>
+                    <input type="text" class="form-control" placeholder="id" id="id"
+                    name="id" maxlength="16" required>
                  <p class="help-block text-danger"></p>
               </div>
               </div>

@@ -59,7 +59,8 @@
               
               <label class='col-lg-12 text-center'>
               <% if (session.getAttribute("id") == null){ %>
-                
+                로그인되지 않았습니다.<br>
+                <a href='./login.do'>Login</a>
               <% }else{ %>
                 Hello! ${name }! <br>
               <% } %>
@@ -74,8 +75,10 @@
               <div class="row">
                   <div class="form-group col-xs-12">
                   <button type="button" class="btn btn-success btn-lg" onclick='javascript: logout();'>Logout</button> 
-                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list.do'">Admin-Userlist</button>
-                  <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Message(미구현)</button> 
+                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='./confirm.do?uno=${uno }'">Change information</button> 
+                  <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Message(미구현)</button><br><br>
+                  <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Schedule(미구현)</button><br><br>
+                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list.do'">Admin-Userlist</button> 
               </div>
               </div>
               </div>

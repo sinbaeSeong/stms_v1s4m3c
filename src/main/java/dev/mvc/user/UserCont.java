@@ -54,13 +54,10 @@ public class UserCont {
     ArrayList<String> links = new ArrayList<String>();
 
     if (userDAO.create(userVO) == 1) {
-      msgs.add("회원가입이 처리되었습니다.");
-      msgs.add("가입해주셔서 감사합니다.");
-      links.add("<button type='button' onclick=\"location.href='./login.do'\">로그인</button>");
-      links.add("<button type='button' onclick=\"location.href='./home.do'\">홈페이지</button>");
-    } else {
+       mav.setViewName("redirect:/user/login.do"); 
+       } else {
       msgs.add("회원 가입에 실패했습니다.");
-      msgs.add("죄송하지만 다시한번 시도해주세요.");
+      msgs.add("다시한번 시도해주세요.");
       links.add("<button type='button' onclick=\"history.back()\">다시시도</button>");
       links.add("<button type='button' onclick=\"location.href='./home.do'\">홈페이지</button>");
     }
@@ -232,7 +229,6 @@ public class UserCont {
 
       if (userDAO.login(userVO) == 1) {
          userVO = userDAO.readByID(userVO);
-         System.out.println("로그인 한 유저 : " + userVO.getUno());
          session.setAttribute("id", userVO.getId());
          session.setAttribute("passwd", userVO.getPasswd());
          session.setAttribute("name",userVO.getUname());
@@ -289,11 +285,129 @@ public ModelAndView logout(HttpSession session) {
   return mav;
 }  
   
+/**
+ * 권한을 변경합니다
+ * @return
+ */
+@RequestMapping(value = "/user/updateAct.do", 
+                           method = RequestMethod.POST)
+public ModelAndView updateAct(UserVO userVO) {
+  ModelAndView mav = new ModelAndView();
+  mav.setViewName("/user/message"); 
+
+  ArrayList<String> msgs = new ArrayList<String>();
+  ArrayList<String> links = new ArrayList<String>();
+
+  if (userDAO.updateAct(userVO) == 1) {
+     mav.setViewName("redirect:/user/list.do"); 
+ } else {
+    msgs.add("실패했습니다.");
+    msgs.add("다시한번 시도해주세요.");
+    links.add("<button type='button' onclick=\"history.back()\">다시시도</button>");
+  }
   
+  mav.addObject("msgs", msgs);
+  mav.addObject("links", links);
+
+  return mav;
+}
+
+/**
+ * 승인을 변경합니다
+ * @return
+ */
+@RequestMapping(value = "/user/updateConfirm.do", 
+method = RequestMethod.POST)
+public ModelAndView updateConfirm(UserVO userVO) {
+ModelAndView mav = new ModelAndView();
+mav.setViewName("/user/message"); 
+
+ArrayList<String> msgs = new ArrayList<String>();
+ArrayList<String> links = new ArrayList<String>();
+
+if (userDAO.updateConfirm(userVO) == 1) {
+mav.setViewName("redirect:/user/list.do"); 
+} else {
+msgs.add("실패했습니다.");
+msgs.add("다시한번 시도해주세요.");
+links.add("<button type='button' onclick=\"history.back()\">다시시도</button>");
+}
+
+mav.addObject("msgs", msgs);
+mav.addObject("links", links);
+
+return mav;
+}
   
+/**
+ * 아이디를 찾습니다
+ * @return
+ */
+@RequestMapping(value = "/user/searchID.do", 
+method = RequestMethod.POST)
+public ModelAndView searchID(UserVO userVO) {
+ModelAndView mav = new ModelAndView();
+mav.setViewName("/user/message"); 
+
+ArrayList<String> msgs = new ArrayList<String>();
+ArrayList<String> links = new ArrayList<String>();
+
+UserVO vo = userDAO.searchID(userVO);
+
+try {
+   if(vo.getId()!=null) { 
+      msgs.add("해당하는 아이디는 입니다.");
+      msgs.add(vo.getId()+" 입니다.");
+      links.add("<button type='button' onclick=\"self.close()\">닫기</button>");
+   } 
+} catch (Exception e) {
+   msgs.add("실패했습니다.");
+   msgs.add("해당하는 아이디가 존재하지 않습니다.");
+   links.add("<button type='button' onclick=\"self.close()\">닫기</button>");
+   links.add("<button type='button' onclick=\"history.back()\">다시시도</button>");
+
+}
+
+mav.addObject("msgs", msgs);
+mav.addObject("links", links);
+
+return mav;
+}
   
-  
-  
+/**
+ * 아이디를 찾습니다
+ * @return
+ */
+@RequestMapping(value = "/user/searchPW.do", 
+method = RequestMethod.POST)
+public ModelAndView searchPW(UserVO userVO) {
+ModelAndView mav = new ModelAndView();
+mav.setViewName("/user/message"); 
+
+ArrayList<String> msgs = new ArrayList<String>();
+ArrayList<String> links = new ArrayList<String>();
+
+UserVO vo = userDAO.searchPW(userVO);
+
+try {
+   if(vo.getPasswd()!=null) { 
+      msgs.add("해당하는 비밀번호는 입니다.");
+      msgs.add(vo.getPasswd()+" 입니다.");
+      links.add("<button type='button' onclick=\"self.close()\">닫기</button>");
+   } 
+} catch (Exception e) {
+   msgs.add("실패했습니다.");
+   msgs.add("해당하는 아이디가 존재하지 않습니다.");
+   links.add("<button type='button' onclick=\"self.close()\">닫기</button>");
+   links.add("<button type='button' onclick=\"history.back()\">다시시도</button>");
+
+}
+
+mav.addObject("msgs", msgs);
+mav.addObject("links", links);
+
+return mav;
+}
   
   
   

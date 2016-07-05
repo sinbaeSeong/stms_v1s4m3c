@@ -29,7 +29,20 @@
 <script type="text/javascript" src="../js/jquery.cookie.js"></script>
 
 <script type="text/javascript" src="../js/tool.js"></script>
-
+<script type="text/javascript">
+window.onload=function(){
+   document.getElementById('frm').onsubmit=function(){
+    var pass=document.getElementById('passwd').value;
+    var repasswd=document.getElementById('repasswd').value;
+    
+    if(pass==repasswd){
+    }else{
+      alert('두개의 비밀번호가 다릅니다.');
+      return false; 
+    }
+   }
+  }
+</script>
  
 </head> 
 <!-- ----------------------------------------- -->
@@ -56,7 +69,7 @@
           <!-- Form Start -->
           <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-          <FORM name='frm' method='POST' action='./create.do'>
+          <FORM id='frm' name='frm' method='POST' action='./create.do'>
               
               
               <!-- Input Id -->

@@ -31,6 +31,130 @@ function del(uno){
       f.submit();
    }
 }
+//////////////////////////////////////////////////////////
+function fun_act(uno, act, uconfirm){
+   if(uconfirm=="Y"){
+      if(act=="normal"){
+         if(!confirm("권한을 관리자로 변경하시겠습니까?")){
+            return;
+         } else {
+            var f = document.createElement("form");
+            f.setAttribute("method","post");
+            f.setAttribute("action","./updateAct.do");
+            document.body.appendChild(f);
+            
+            var i = document.createElement("input");
+            i.setAttribute("type","hidden");
+            i.setAttribute("name","uno");
+            i.setAttribute("value", uno);
+            f.appendChild(i);
+            
+            var j = document.createElement("input");
+            j.setAttribute("type","hidden");
+            j.setAttribute("name","act");
+            j.setAttribute("value", "admin");
+            f.appendChild(j);
+            
+            f.submit();
+         }
+      }else if(act=="admin"){
+         if(!confirm("권한을 사용자로 변경하시겠습니까?")){
+            return;
+         } else {
+            var f = document.createElement("form");
+            f.setAttribute("method","post");
+            f.setAttribute("action","./updateAct.do");
+            document.body.appendChild(f);
+            
+            var i = document.createElement("input");
+            i.setAttribute("type","hidden");
+            i.setAttribute("name","uno");
+            i.setAttribute("value", uno);
+            f.appendChild(i);
+            
+            var j = document.createElement("input");
+            j.setAttribute("type","hidden");
+            j.setAttribute("name","act");
+            j.setAttribute("value", "normal");
+            f.appendChild(j);
+            
+            f.submit();
+         }
+      }else{
+         alert("올바른 값이 아닙니다. 기본등급으로 변경됩니다");
+         var f = document.createElement("form");
+         f.setAttribute("method","post");
+         f.setAttribute("action","./updateAct.do");
+         document.body.appendChild(f);
+         
+         var i = document.createElement("input");
+         i.setAttribute("type","hidden");
+         i.setAttribute("name","uno");
+         i.setAttribute("value", uno);
+         f.appendChild(i);
+         
+         var j = document.createElement("input");
+         j.setAttribute("type","hidden");
+         j.setAttribute("name","act");
+         j.setAttribute("value", "normal");
+         f.appendChild(j);
+         
+         f.submit();
+      }
+   }else{
+      alert("비승인 맴버의 권한은 변경할 수 없습니다.");
+   }
+}
+//////////////////////////////////////////////////////////
+function fun_confirm(uno, uconfirm){
+   if(uconfirm=="Y"){
+      alert("이미 승인된 맴버입니다.");
+   } else if(uconfirm=="N"){
+      if(!confirm("해당 맴버를 승인하시겠습니까?")){
+         return;
+      } else {
+         var f = document.createElement("form");
+         f.setAttribute("method","post");
+         f.setAttribute("action","./updateConfirm.do");
+         document.body.appendChild(f);
+         
+         var i = document.createElement("input");
+         i.setAttribute("type","hidden");
+         i.setAttribute("name","uno");
+         i.setAttribute("value", uno);
+         f.appendChild(i);
+         
+         var j = document.createElement("input");
+         j.setAttribute("type","hidden");
+         j.setAttribute("name","confirm");
+         j.setAttribute("value", "Y");
+         f.appendChild(j);
+         
+         f.submit();
+      }
+   } else {
+      alert("올바른 값이 아닙니다. 미승인 상태로 복구합니다.");
+      
+      var f = document.createElement("form");
+      f.setAttribute("method","post");
+      f.setAttribute("action","./updateConfirm.do");
+      document.body.appendChild(f);
+      
+      var i = document.createElement("input");
+      i.setAttribute("type","hidden");
+      i.setAttribute("name","uno");
+      i.setAttribute("value", uno);
+      f.appendChild(i);
+      
+      var j = document.createElement("input");
+      j.setAttribute("type","hidden");
+      j.setAttribute("name","confirm");
+      j.setAttribute("value", "N");
+      f.appendChild(j);
+      
+      f.submit();
+   }
+}
 </script>
 
  <!-- Basic CSS -->
@@ -110,11 +234,13 @@ function del(uno){
             <td class="td_l">${userVO.id}</td> 
             <td class="col-lg-8 col-lg-offset-2" style="width: 100px; ">${userVO.uname}</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${userVO.email}</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${userVO.act}</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">
+            <a href="javascript:fun_act(${userVO.uno }, '${userVO.act }', '${userVO.confirm }')">${userVO.act}</a></td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${userVO.udate}</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">${userVO.confirm}</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
+            <a href="javascript:fun_confirm(${userVO.uno }, '${userVO.confirm }')">${userVO.confirm}</a></td>
             <td class="td">
-              <a href="./confirm.do?uno=${userVO.uno}">Update</a>
+              <a href="./update.do?uno=${userVO.uno}">Update</a>
               <a href="javascript:del(${userVO.uno })">Delete</a>
             </td>
           </tr>

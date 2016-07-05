@@ -28,6 +28,19 @@ public interface UserMapperInter {
   
   /** ID로 정보출력 */ //<select id="readByID" resultType="UserVO" parameterType="UserVO">
   public UserVO readByID(UserVO vo);
+  
+  /** 권한 변경 */ //<update id='updateAct' parameterType='UserVO'>
+  public int updateAct(UserVO vo);
+  
+  /** 승인 변경 */ //<update id='updateConfirm' parameterType='UserVO'>
+  public int updateConfirm(UserVO vo);
+  
+  /** 아이디 찾기 */ // <select id='searchID' resultType='UserVO' parameterType='UserVO'>
+  public UserVO searchID(UserVO vo);
+  
+  /** 비번 찾기 */ // <select id='searchPW' resultType='UserVO' parameterType='UserVO'>
+  public UserVO searchPW(UserVO vo);
+  
 }
 
 

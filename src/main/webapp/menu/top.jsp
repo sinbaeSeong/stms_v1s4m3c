@@ -64,7 +64,11 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="hidden"><a href="#page-top"></a></li>
           <li class="page-scroll"><a href="../index.jsp">home</a></li>
-          <li class="page-scroll"><a href="../user/list.do">Admin</a></li>
+          <% if (session.getAttribute("id") == null){ %>
+          <li class="page-scroll"><a href="../user/login.do">Login</a></li>
+          <% }else{ %>
+          <li class="page-scroll"><a href="../user/welcome.jsp">Welcome</a></li>
+          <% } %>
           <li class="page-scroll"><a href="../trash/list.do">Trash</a></li>
           <li class="page-scroll"><a href="../index.jsp">Schedule</a></li>
         </ul>

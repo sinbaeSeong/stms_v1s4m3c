@@ -30,6 +30,21 @@
 
 <script type="text/javascript" src="../js/tool.js"></script>
 
+<script type="text/javascript">
+ window.onload=function(){
+  document.getElementById('frm').onsubmit=function(){
+   var pass=document.getElementById('passwd').value;
+   var repasswd=document.getElementById('repasswd').value;
+   
+   if(pass==repasswd){
+   }else{
+     alert('두개의 비밀번호가 다릅니다.');
+     return false; 
+   }
+  }
+ }
+</script>
+
  
 </head> 
 <!-- ----------------------------------------- -->
@@ -46,7 +61,7 @@
 
         <div class="row">
         <DIV class='col-lg-12 text-center'>
-        <div class="intro-text"><H2>Update</H2>
+        <div class="intro-text"><H2>Cofirm Password</H2>
           <hr class="star-primary"/>
         </DIV>
         </div>   
@@ -56,14 +71,14 @@
           <!-- Form Start -->
           <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-          <FORM name='frm' method='POST' action='./confirm.do'>
+          <FORM id='frm' name='frm' method='POST' action='./confirm.do'>
           <input type='hidden' id='uno' name='uno' value='${userVO.uno}'>
               
               
               <!-- Input Password -->
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
-                 <label>Password</label>
+                 <label >Password</label>
                     <input type="password" class="form-control" placeholder="password" id="passwd"
                     name="passwd" maxlength="16" required>
                  <p class="help-block text-danger"></p>

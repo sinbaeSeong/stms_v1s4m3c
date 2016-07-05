@@ -61,6 +61,27 @@ public class UserDAO {
   public UserVO readByID(UserVO vo){
      return mapper().readByID(vo);
   }
+  
+  /** 권한 변경 */ //<update id='updateAct' parameterType='UserVO'>
+  public int updateAct(UserVO vo){
+     return mapper().updateAct(vo);
+  }
+  
+  /** 승인 변경 */ //<update id='updateConfirm' parameterType='UserVO'>
+  public int updateConfirm(UserVO vo){
+     return mapper().updateConfirm(vo);
+  }
+  
+  /** 아이디 찾기 */ // <select id='searchID' resultType='UserVO' parameterType='UserVO'>
+  public UserVO searchID(UserVO vo){
+     return mapper().searchID(vo);
+  }
+  
+  /** 비번 찾기 */ // <select id='searchPW' resultType='UserVO' parameterType='UserVO'>
+  public UserVO searchPW(UserVO vo){
+     return mapper().searchPW(vo);
+  }
+  
 }
 
 

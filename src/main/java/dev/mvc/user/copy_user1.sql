@@ -13,7 +13,7 @@
 -- 12 > Check Email
 -- 13 > Login
 -- 14 > Update Act
--- 15 > User Confirm
+-- 15 > Update Confirm
 -- 16 > Search List(id, uname, email)
 -- 17 > Count Search List(id, uname, email)
 -- 18 > Paging Search List(id, uname, email)

@@ -52,9 +52,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     WHERE id=#{id} AND passwd=#{passwd}
   </select>
 
+  <!-- ReadByID -->
   <select id="readByID" resultType="UserVO" parameterType="UserVO">
     SELECT uno, id, act, uname, email, udate, confirm, passwd
     FROM user1
     WHERE id=#{id}
   </select>
+  
+  <!-- Update Act -->
+  <update id='updateAct' parameterType='UserVO'>
+    UPDATE user1
+    SET act=#{act}
+    WHERE uno=#{uno}
+  </update>
+  
+  <!-- Update Confirm -->
+  <update id='updateConfirm' parameterType='UserVO'>
+       UPDATE user1
+       SET confirm=#{confirm}
+       WHERE uno=#{uno}
+  </update>
+  
+  <!-- Search ID -->
+  <select id='searchID' resultType='UserVO' parameterType='UserVO'>
+    SELECT id
+    FROM user1
+    WHERE uname=#{uname} AND email=#{email}
+  </select>
+  
+  <!-- Search PW -->
+  <select id='searchPW' resultType='UserVO' parameterType='UserVO'>
+    SELECT passwd
+    FROM user1
+    WHERE uname=#{uname} AND email=#{email} AND id=#{id}
+  </select>
+  
 </mapper>
