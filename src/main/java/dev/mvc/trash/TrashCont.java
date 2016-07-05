@@ -123,7 +123,7 @@ public class TrashCont {
     mav.setViewName("/trash/update"); // /webapp/member/create.jsp
 
     TrashVO trashVO = trashDAO.read(tno);
-   
+
     mav.addObject("trashVO", trashVO);
 
     return mav;
@@ -148,6 +148,35 @@ public class TrashCont {
 
       links
           .add("<button type='button' onclick=\"location.href='./list.do'\">Return</button>");
+    }
+
+    return mav;
+  }
+
+  
+  /**
+   * 삭제처리
+   * @param uno
+   * @return
+   */
+  @RequestMapping(value = "/trash/delete.do", method = RequestMethod.POST)
+  public ModelAndView delete(int tno) {
+    ModelAndView mav = new ModelAndView();
+    mav.setViewName("/trash/message");
+
+    ArrayList<String> msgs = new ArrayList<String>();
+    ArrayList<String> links = new ArrayList<String>();
+
+    if (trashDAO.delete(tno) == 1) {
+      mav.setViewName("redirect:/trash/list.do");
+
+    } else {
+      msgs.add("File can't deletion.");
+      mav.addObject("msgs", msgs);
+      mav.addObject("links", links);
+
+      links
+          .add("<button type='button' onclick=\"location.href='./list.do'\">Back</button>");
     }
 
     return mav;

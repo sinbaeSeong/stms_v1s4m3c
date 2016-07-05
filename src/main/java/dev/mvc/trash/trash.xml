@@ -60,11 +60,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     WHERE tno=#{tno}
   </update>
   
- <!-- 
    <delete id="delete" parameterType="int">
     DELETE FROM trash
     WHERE tno=#{tno}
-  </delete> -->
+  </delete> 
  
    
   

@@ -28,10 +28,17 @@ public interface TrashMapperInter {
    * @return
    */
   public int update(TrashVO vo);
+
+
+/**
+ * Delete
+ * @param tno
+ * @return
+ */
+public int delete(int tno);
+
+
 }
-
-
-
 
 
 

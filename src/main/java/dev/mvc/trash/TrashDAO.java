@@ -59,6 +59,14 @@ public class TrashDAO {
       return mapper().update(vo);
     }
   
+    /**
+     * Delete
+     * @param tno
+     * @return
+     */
+    public int delete(int tno){
+      return mapper().delete(tno);
+    }
   
 }
 

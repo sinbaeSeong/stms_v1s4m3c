@@ -41,6 +41,7 @@
 </head>
 <!-- ----------------------------------------- -->
 <body leftmargin="0" topmargin="0">
+<jsp:include page="/menu/top.jsp" flush='false' />
   <!-- ----------------------------------------- -->
   <section id="contact">
     <div class="container">
@@ -54,6 +55,8 @@
         <div class="col-lg-8 col-lg-offset-2">
           <FORM name='frm' method='POST' action='./delete.do'
             onsubmit='return send();'>
+            <input type='hidden' name='tno' value='${trashVO.tno }'>
+          <%--   <input type="hidden" name="blogcategoryno" value="${blogcategoryno}"> --%>
             <div class="form-group col-xs-12" style="font-size: 20px">
               Are you deletion?<br> If this command deletes files,
               We can not restore.
@@ -62,8 +65,7 @@
             
             <div class="form-group col-xs-12">
               <button type="submit" class="btn btn-success btn-lg">Delete</button>
-              <button type="button" onclick="history.back()"
-                class="btn btn-success btn-lg">Cancel</button>
+              <button type="button" onclick="history.back()" class="btn btn-success btn-lg">Cancel</button>
             </div>
 
           </FORM>

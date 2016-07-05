@@ -14,8 +14,8 @@
 <meta name="author" content="">
 
 <script type="text/JavaScript">
-function del(uno){
-   if(!confirm("정말 삭제하시겠습니까?")){
+function del(tno){
+   if(!confirm("Are you deletion? If this command deletes files, We can not restore.")){
       return;
    } else {
       var f = document.createElement("form");
@@ -25,8 +25,8 @@ function del(uno){
       
       var i = document.createElement("input");
       i.setAttribute("type","hidden");
-      i.setAttribute("name","uno");
-      i.setAttribute("value", uno);
+      i.setAttribute("name","tno");
+      i.setAttribute("value", tno);
       f.appendChild(i);
       
       f.submit();
@@ -117,7 +117,7 @@ function del(uno){
             <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${trashVO.mdate } </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
               <a href="./update.do?blogno=${trashVO.tno}"><img src="./images/update.png" title="Update" border='0'/></a>
-              <a href="./delete.do?blogno=${trashVO.tno}"><img src="./images/delete.png" title="Delete"  border='0'/></a>
+              <a href="javascript:del(${trashVO.tno })">Delete</a><!-- <img src="./images/delete.png" title="Delete"  border='0'/> -->
       
       
             </td>
