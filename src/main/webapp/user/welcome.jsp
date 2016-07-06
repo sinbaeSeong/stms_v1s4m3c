@@ -76,7 +76,7 @@
                   <div class="form-group col-xs-12">
                   <button type="button" class="btn btn-success btn-lg" onclick='javascript: logout();'>Logout</button> 
                   <button type="button" class="btn btn-success btn-lg" onclick="location.href='./confirm.do?uno=${uno }'">Change information</button> 
-                  <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Message(미구현)</button><br><br>
+                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='/message/list.do'">Message(미구현)</button><br><br>
                   <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Schedule(미구현)</button><br><br>
                   <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list2.do'">Admin-Userlist</button> 
               </div>

@@ -60,13 +60,11 @@ public class UserCont {
     if (userDAO.create(userVO) == 1) {
        mav.setViewName("redirect:/user/login.do"); 
        } else {
-      msgs.add("회원 가입에 실패했습니다.");
-      msgs.add("다시한번 시도해주세요.");
-      links.add("<button type='button' onclick=\"history.back()\">다시시도</button>");
-      links.add("<button type='button' onclick=\"location.href='./home.do'\">홈페이지</button>");
-    }
+          
+      msgs.add("회원 가입에 실패했습니다");
+      links.add("<button type='button' class='btn btn-success btn-sm' onclick='history.back();'>다시시도</button>");
 
-    links.add("<button type='button' onclick=\"location.href='./list.do'\">목록</button>");
+       }
 
     mav.addObject("msgs", msgs);
     mav.addObject("links", links);
@@ -108,13 +106,12 @@ public class UserCont {
         
       } else {
          
-         msgs.add("실패했습니다.");
-         msgs.add("이 현상이 지속되면 관리자에게 문의 해주세요");
-         mav.addObject("msgs", msgs);
-         mav.addObject("links", links);
-         
-         links.add("<button type='button' onclick=\"location.href='./list.do'\">돌아가기</button>");
+         msgs.add("정보 수정에 실패했습니다");
+         links.add("<button type='button' class='btn btn-success btn-sm' onclick='history.back();'>다시시도</button>");
      }
+     
+     mav.addObject("msgs", msgs);
+     mav.addObject("links", links);
      
      return mav;
    }
@@ -137,13 +134,12 @@ public class UserCont {
            mav.setViewName("redirect:/user/list.do");
 
         } else {
-           msgs.add("실패했습니다.");
-           msgs.add("이 현상이 지속되면 관리자에게 문의 해주세요");
-           mav.addObject("msgs", msgs);
-           mav.addObject("links", links);
-           
-           links.add("<button type='button' onclick=\"location.href='./list.do'\">돌아가기</button>");
+           msgs.add("회원 삭제에 실패했습니다");
+           links.add("<button type='button' class='btn btn-success btn-sm' onclick='history.back();'>다시시도</button>");
         }
+        
+        mav.addObject("msgs", msgs);
+        mav.addObject("links", links);
 
      return mav;
   }
@@ -177,13 +173,12 @@ public class UserCont {
 
         } else {
      
-           msgs.add("실패했습니다.");
-           msgs.add("이 현상이 지속되면 관리자에게 문의 해주세요");
-           mav.addObject("msgs", msgs);
-           mav.addObject("links", links);
-           
-           links.add("<button type='button' onclick=\"location.href='./list.do'\">돌아가기</button>");
+           msgs.add("비밀번호를 잘못 입력하셨습니다");
+           links.add("<button type='button' class='btn btn-success btn-sm' onclick='history.back();'>다시시도</button>");
         }
+        
+        mav.addObject("msgs", msgs);
+        mav.addObject("links", links);
 
      
      return mav;
@@ -250,11 +245,10 @@ public class UserCont {
 
       } else {
          mav.setViewName("/user/message");
-         msgs.add("로그인에 실패했습니다.");
-         msgs.add("죄송하지만 다시한번 시도해주세요.");
-         links.add("<button type='button' onclick=\"history.back()\">다시시도</button>");
-         links.add("<button type='button' onclick=\"location.href='./home.do'\">홈페이지</button>");
-      }
+         
+         msgs.add("해당하는 아이디를 찾을 수 없습니다.");
+         links.add("<button type='button' class='btn btn-success btn-sm' onclick='history.back();'>다시시도</button>");
+     }
 
       mav.addObject("msgs", msgs);
       mav.addObject("links", links);
@@ -286,11 +280,10 @@ public ModelAndView updateAct(UserVO userVO) {
   ArrayList<String> links = new ArrayList<String>();
 
   if (userDAO.updateAct(userVO) == 1) {
-     mav.setViewName("redirect:/user/list.do"); 
+     mav.setViewName("redirect:/user/list2.do"); 
  } else {
-    msgs.add("실패했습니다.");
-    msgs.add("다시한번 시도해주세요.");
-    links.add("<button type='button' onclick=\"history.back()\">다시시도</button>");
+    msgs.add("권한 변경을 실패했습니다.");
+    links.add("<button type='button' class='btn btn-success btn-sm' onclick='history.back();'>다시시도</button>");
   }
   
   mav.addObject("msgs", msgs);
@@ -313,11 +306,10 @@ ArrayList<String> msgs = new ArrayList<String>();
 ArrayList<String> links = new ArrayList<String>();
 
 if (userDAO.updateConfirm(userVO) == 1) {
-mav.setViewName("redirect:/user/list.do"); 
+mav.setViewName("redirect:/user/list2.do"); 
 } else {
-msgs.add("실패했습니다.");
-msgs.add("다시한번 시도해주세요.");
-links.add("<button type='button' onclick=\"history.back()\">다시시도</button>");
+   msgs.add("승인에 실패했습니다.");
+   links.add("<button type='button' class='btn btn-success btn-sm' onclick='history.back();'>다시시도</button>");
 }
 
 mav.addObject("msgs", msgs);
@@ -343,15 +335,13 @@ UserVO vo = userDAO.searchID(userVO);
 
 try {
    if(vo.getId()!=null) { 
-      msgs.add("해당하는 아이디는 입니다.");
+      msgs.add("해당하는 아이디는 ");
       msgs.add(vo.getId()+" 입니다.");
-      links.add("<button type='button' onclick=\"self.close()\">닫기</button>");
+      links.add("<button type='button' class='input-sm' onclick=\"self.close()\">닫기</button>");
    } 
 } catch (Exception e) {
-   msgs.add("실패했습니다.");
    msgs.add("해당하는 아이디가 존재하지 않습니다.");
-   links.add("<button type='button' onclick=\"self.close()\">닫기</button>");
-   links.add("<button type='button' onclick=\"history.back()\">다시시도</button>");
+   links.add("<button type='button' class='btn btn-success btn-sm' onclick='history.back();'>다시시도</button>");
 
 }
 
@@ -362,7 +352,7 @@ return mav;
 }
   
 /**
- * passwd를 찾습니다
+ * 비밀번호를 찾습니다
  * @return
  */
 @RequestMapping(value = "/user/searchPW.do", 
@@ -378,16 +368,13 @@ UserVO vo = userDAO.searchPW(userVO);
 
 try {
    if(vo.getPasswd()!=null) { 
-      msgs.add("해당하는 비밀번호는 입니다.");
+      msgs.add("해당하는 비밀번호는");
       msgs.add(vo.getPasswd()+" 입니다.");
-      links.add("<button type='button' onclick=\"self.close()\">닫기</button>");
+      links.add("<button type='button' class='input-sm' onclick=\"self.close()\">닫기</button>");
    } 
 } catch (Exception e) {
-   msgs.add("실패했습니다.");
-   msgs.add("해당하는 아이디가 존재하지 않습니다.");
-   links.add("<button type='button' onclick=\"self.close()\">닫기</button>");
-   links.add("<button type='button' onclick=\"history.back()\">다시시도</button>");
-
+   msgs.add("필요한 정보를 잘못 입력하셨습니다.");
+   links.add("<button type='button' class='btn btn-success btn-sm' onclick='history.back();'>다시시도</button>");
 }
 
 mav.addObject("msgs", msgs);

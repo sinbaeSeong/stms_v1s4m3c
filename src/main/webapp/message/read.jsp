@@ -50,7 +50,7 @@
               <!-- Input Title -->
               <div class="row control-group">
               <div class="form-group col-xs-12">
-                  <label>Title </label>
+                  <label>Send Date </label>
                      <input type="text" class="form-control" value="title" id="title"
                      name="title" readonly>    
                   <p class="help-block text-danger"></p>
@@ -61,7 +61,7 @@
               <!-- Input Name -->
               <div class="row control-group">
               <div class="form-group col-xs-12">
-                  <label >Title </label>
+                  <label >Sender </label>
                      <input type="text" class="form-control" value="name" id="name"
                      name="name" readonly>    
                   <p class="help-block text-danger"></p>
@@ -85,6 +85,7 @@
               <div class="row">
                 <div class="form-group col-xs-12">
                   <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Back</button>  
+                  <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Delete(Not yet)</button>  
               </div>
               </div>
               

@@ -203,7 +203,7 @@ function fun_confirm(uno, uconfirm){
         </select>
         <input type="text" class="input-sm" placeholder="search" id="word"
                   name="word" maxlength="16" value='${search.word }'  style="width: 30%; ">
-        <input type="submit">
+        <input type="submit" class="btn btn-success btn-sm">
     </div>
     </div>
 </form> 
