@@ -69,8 +69,8 @@
           <% }else{ %>
           <li class="page-scroll"><a href="../user/welcome.jsp">Welcome</a></li>
           <% } %>
-          <li class="page-scroll"><a href="../trash/list.do">Trash</a></li>
-          <li class="page-scroll"><a href="../index.jsp">Schedule</a></li>
+          <li class="page-scroll"><a href="../trash/list2.do">Trash</a></li>
+          <li class="page-scroll"><a href="../schedule/index.jsp">Schedule</a></li>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
