@@ -14,7 +14,7 @@ import dev.mvc.user.UserVO;
 @Controller
 public class MessageCont {
   @Autowired
-  @Qualifier("dev.mvc.user.UserDAO")
+  @Qualifier("dev.mvc.message.MessageDAO")
   private MessageDAO messageDAO;
   
   public MessageCont(){
