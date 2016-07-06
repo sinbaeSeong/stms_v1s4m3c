@@ -190,20 +190,23 @@ function fun_confirm(uno, uconfirm){
           <hr class="star-primary">
           </DIV>
          </div>       
+
          
-         
-<div class="row">
-<div class="col-lg-12 text-center">
-      <select id='email_dns' class='input-sm' style="width: 20%;">
-          <option value='none'>Total List</option>
-          <option value='gmail.com'>ID</option>
-          <option value='naver.com'>Name</option>
-          <option value='daum.net'>Email</option>
-      </select>
-      <input type="text" class="input-sm" placeholder="search" id="search"
-                     name="search" maxlength="16" style="width: 30%; ">
-</div>
-</div>
+<form name="frmSearch" method="get" action="./list2.do"> 
+    <div class="row">
+    <div class="col-lg-12 text-center">
+        <select id='email_dns' class='input-sm' name='col' style="width: 20%;">
+           <option value=''>Total List</option>
+           <option value='id' ${search.col == "id" ? "selected=selected" : "" }>ID</option>
+           <option value='name' ${search.col == "name" ? "selected=selected" : "" }>Name</option>
+           <option value='email' ${search.col == "email" ? "selected=selected" : "" }>Email</option>
+        </select>
+        <input type="text" class="input-sm" placeholder="search" id="word"
+                  name="word" maxlength="16" value='${search.word }'  style="width: 30%; ">
+        <input type="submit">
+    </div>
+    </div>
+</form> 
 
 <HR>
 
@@ -254,6 +257,8 @@ function fun_confirm(uno, uconfirm){
   
   
 </div>
+
+<DIV>${paging}</DIV>
 </section>
 
 

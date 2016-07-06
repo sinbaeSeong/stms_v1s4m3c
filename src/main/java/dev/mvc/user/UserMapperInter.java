@@ -41,6 +41,11 @@ public interface UserMapperInter {
   /** 비번 찾기 */ // <select id='searchPW' resultType='UserVO' parameterType='UserVO'>
   public UserVO searchPW(UserVO vo);
   
+  /** 검색 페이징 리스트 */ //<select id="list2" resultType="UserVO" parameterType="HashMap" >
+  public ArrayList<UserVO> list2(HashMap<String, Object> map);
+  
+  /** 검색 갯수 카운트 */ //<select id="count" resultType="int" parameterType="HashMap" >
+  public int count(HashMap<String, Object> map);
 }
 
 

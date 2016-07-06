@@ -163,3 +163,8 @@ WHERE email LIKE '%email%'
 ORDER BY uno ASC
 LIMIT 0, 5;
 
+
+
+    SELECT COUNT(*) as cnt
+    FROM user1
+    WHERE id LIKE '%test%';

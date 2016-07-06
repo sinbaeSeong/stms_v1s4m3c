@@ -63,10 +63,10 @@
                 <a href='./login.do'>Login</a>
               <% }else{ %>
                 Hello! ${name }! <br>
+                Choose your work
               <% } %>
-              
-              
-              Choose your work</label>
+
+              </label>
               
               <!-- button -->
               <br><br><br>
@@ -78,7 +78,7 @@
                   <button type="button" class="btn btn-success btn-lg" onclick="location.href='./confirm.do?uno=${uno }'">Change information</button> 
                   <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Message(미구현)</button><br><br>
                   <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Schedule(미구현)</button><br><br>
-                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list.do'">Admin-Userlist</button> 
+                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list2.do'">Admin-Userlist</button> 
               </div>
               </div>
               </div>

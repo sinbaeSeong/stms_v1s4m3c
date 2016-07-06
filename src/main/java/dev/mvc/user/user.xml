@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   <select id='list' resultType='UserVO'>
     SELECT uno, id, act, uname, email, udate, confirm
     FROM user1
-    ORDER BY uno ASC;
+    ORDER BY uno ASC
   </select>
   
   <!-- Read -->
@@ -87,4 +87,46 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     WHERE uname=#{uname} AND email=#{email} AND id=#{id}
   </select>
   
+  <!--  검색 갯수 세는 카운트 -->
+  <select id="count" resultType="int" parameterType="HashMap" >
+    SELECT COUNT(*) as cnt
+    FROM user1
+        <if test="col!=''">
+          WHERE
+        </if>
+        <choose>
+         <when test="col == 'id'">
+            id LIKE #{word}
+          </when>
+         <when test="col == 'name'">
+            uname LIKE #{word}
+         </when>
+          <when test="col == 'email'">
+           email LIKE #{word}
+         </when>      
+        </choose>
+  </select>        
+        
+  <!-- Search + Paging List -->
+  <select id="list2" resultType="UserVO" parameterType="HashMap" >
+           SELECT uno, id, act, uname, email, udate, confirm
+           FROM user1
+           <if test="col!=''">
+           WHERE
+           </if>
+                         <choose>
+                             <when test="col == 'id'">
+                                   id LIKE #{word}
+                             </when>
+                             <when test="col == 'name'">
+                                  uname LIKE #{word}
+                             </when>
+                             <when test="col == 'email'">
+                                  email LIKE #{word}
+                             </when>      
+                         </choose>
+            ORDER BY uno ASC
+            LIMIT #{offset}, 10;
+  </select>  
+
 </mapper>

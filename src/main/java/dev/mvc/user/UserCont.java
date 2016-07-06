@@ -1,6 +1,8 @@
 package dev.mvc.user;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import web.tool.Paging;
+import web.tool.SearchDTO;
 import web.tool.Tool;
 
 @Controller
@@ -70,23 +74,6 @@ public class UserCont {
     return mav;
   }
 
-  /**
-   * 리스트 출력
-   * @return
-   */
-  @RequestMapping(value = "/user/list.do", 
-                           method = RequestMethod.GET)
-     public ModelAndView list() {
-           ModelAndView mav = new ModelAndView();
-           mav.setViewName("/user/list"); // /webapp/member/create.jsp
-
-           ArrayList<UserVO> list = userDAO.list();
-
-           mav.addObject("list", list);
-           
-           return mav;
-     }
-  
   /**
    * get - update.do 개인정보 출력
    * post - update.do 변경 실행
@@ -409,37 +396,45 @@ mav.addObject("links", links);
 return mav;
 }
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+@RequestMapping(value = "/user/list2.do", method = RequestMethod.GET)
+public ModelAndView list2(
+      SearchDTO searchDTO,
+      HttpServletRequest request) {
+   ModelAndView mav = new ModelAndView();
+   mav.setViewName("/user/list");
+   
+   HashMap<String, Object> hashMap = new HashMap<String, Object>();
+   hashMap.put("col", searchDTO.getCol());
+   String word = searchDTO.getWord();
+   word = "%"+word+"%";
+   hashMap.put("word", word);
+   
+   int recordPerPage = 10;
+   int totalRecord = userDAO.count(hashMap);
+   int offset = (searchDTO.getNowPage() - 1) * 10;
+   hashMap.put("offset", offset);
+   
+   ArrayList<UserVO> list = userDAO.list2(hashMap);
+
+   mav.addObject("list", list);
+   mav.addObject("totalRecord", totalRecord);
+   mav.addObject("root", request.getContextPath());
+   
+   System.out.println(">>>>" + searchDTO.getCol());
+   System.out.println(">>>>" + searchDTO.getWord());
+   System.out.println(">>>>" + totalRecord);
+   
+   String paging = new Paging().paging(
+         totalRecord, 
+         searchDTO.getNowPage(), 
+         recordPerPage, 
+         searchDTO.getCol(), 
+         searchDTO.getWord());
+   mav.addObject("paging",paging);
+   
+   return mav;
+   
+}
+
 }
 
