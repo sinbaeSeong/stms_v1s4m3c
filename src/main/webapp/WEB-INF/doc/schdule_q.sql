@@ -1,3 +1,7 @@
+/**********************************/
+/* Table Name: 일정관리 */
+/**********************************/
+
 /* ------------- message --------------- */
 -- 1 > Create Table
 -- 2 > Drop Table
@@ -12,14 +16,16 @@
 
 
 1. Create Table
+
 CREATE TABLE schedule(
-  scheduleno  INT          NOT NULL   AUTO_INCREMENT PRIMARY KEY,
-  labeldate   VARCHAR(10)  NOT NULL, -- 출력할 날짜 2013-10-20 
-  label        VARCHAR(20)  NOT NULL, -- 달력에 출력될 레이블
-  sinout    CHAR(1) NOT NULL, -- 출근/조퇴/지각/휴가/결근
-  regdate     DATETIME      NOT NULL  -- 등록 날짜
-  uno INT,
-  FOREIGN KEY (uno) REFERENCES user (uno);
+    sno INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    slabeldate VARCHAR(10) NOT NULL,
+    slabel VARCHAR(20) NOT NULL,
+    stitle VARCHAR(20) NOT NULL,
+    content VARCHAR(600) NOT NULL,
+    sdate DATETIME NOT NULL,
+    uno INT,
+  FOREIGN KEY (uno) REFERENCES user1 (uno)
 );
 
 
@@ -27,7 +33,7 @@ CREATE TABLE schedule(
 DROP TABLE schedule;
 
 3. Create(insert)
-INSERT INTO table(uno, labeldate, lable, sinout, regdate)
+INSERT INTO table(uno, slabeldate, slabel, stitle, content, sdate)
 VALUES (1, '2013-10-17', '휴가', 'v', now());
 
 4. List

@@ -27,7 +27,9 @@
     <property name="typeAliasesPackage" 
     value="dev.mvc.trash,
               dev.mvc.user
-              dev.mvc.message"/>
+              dev.mvc.message,
+              dev.mvc.schedule          
+              "/>
     <property name="mapperLocations" value="classpath:dev/mvc/**/*.xml" />
   </bean>
   

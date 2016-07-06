@@ -33,7 +33,7 @@ CREATE TABLE schedule(
 DROP TABLE schedule;
 
 3. Create(insert)
-INSERT INTO table(uno, slabeldate, slabel, stitle, content, sdate)
+INSERT INTO schedule(uno, slabeldate, slabel, stitle, content, sdate)
 VALUES (1, '2013-10-17', 'ÈÞ°¡', 'xxx´Ô ÈÞ°¡ °©´Ï´Ù', 'ÈÞ°¡³»¿ë', now());
 
 4. List
