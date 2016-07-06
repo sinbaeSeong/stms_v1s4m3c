@@ -1,5 +1,4 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
  
@@ -27,18 +26,15 @@
 <link href="../css/freelancer.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
+<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
  
 </head> 
 <!-- ----------------------------------------- -->
-
+<body leftmargin="0" topmargin="0">
+<jsp:include page="/menu/top.jsp" flush='false' />
 <!-- ----------------------------------------- -->
- 
-
-<%-- body 시작 --%>
-<body>
 <%-- ---------------------------------------------------------------------------------------------- --%>
  <section id="contact">
       <div class="container">
@@ -62,6 +58,14 @@
 </div>
 </div>
 
+<br>  
+
+<div class="row">
+<div class="col-lg-12 text-center">
+<a href='./create.do'>write new message</a>
+</div>
+</div>
+
 <HR>
 
 <%-- table 시작 --%>
@@ -71,45 +75,36 @@
       <%-- table 컬럼 --%>
       <thead>
         <tr class="row control-group" style="font-size: 23px;">
-          <th class="col-lg-8 col-lg-offset-2" style="width:5%;">No</th>
-          <th class="col-lg-8 col-lg-offset-2" style="width:45%;">Title</th>
-          <th class="col-lg-8 col-lg-offset-2" style="width:5%;">Sender</th>
-          <th class="col-lg-8 col-lg-offset-2" style="width:15%;">Date</th>
-          <th class="col-lg-8 col-lg-offset-2" style="width:30%;">Quick Menu</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width: 30%;">Title</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width: 20%;">Sender</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width: 30%;">Date</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width: 20%;">Quick Menu</th>
         </tr>
       
       </thead>
 
       
       <%-- table --%>
-      <tbody>
+       <tbody>
+       <c:forEach var="messageVO" items="${list }">
           <tr class="row control-group" style="font-size: 20px;">
-            <td class="td">1 ${vo.tno}</td>
-            <td class="td_l">
-              <a href="./read.do?tno=${vo.tno}&uno=${vo.uno}"> 이거보거라 =_=</a> 
+            <td class="td_l" style="width:200px;">
+              <a href="./read.do?mno=${messageVO.mno }">${messageVO.title }</a> 
             </td> 
-            <td class="col-lg-8 col-lg-offset-2">트레이서</td>
-            <td class="col-lg-8 col-lg-offset-2">2016.12.12 </td>
-            <td class="col-lg-8 col-lg-offset-2">
-              <a href="./delete.do?blogno=${vo.blogno}">Delete</a>
+            <td class="col-lg-8 col-lg-offset-2" style="width:200px;">${messageVO.sender }</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width:200px;">${messageVO.mdate } </td>
+            <td class="col-lg-8 col-lg-offset-2" style="width:200px;">
+              <a href="./delete.do">Delete</a>
             </td>
           </tr>
-          
-          <tr class="row control-group" style="font-size: 20px;">
-            <td class="td">2 ${vo.tno}</td>
-            <td class="td_l">
-              <a href="./read.do?tno=${vo.tno}&uno=${vo.uno}">16년 12월 18일 청소구역</a> 
-            </td> 
-            <td class="col-lg-8 col-lg-offset-2">System</td>
-            <td class="col-lg-8 col-lg-offset-2">2016.12.18 </td>
-            <td class="col-lg-8 col-lg-offset-2">
-              <a href="./delete.do?blogno=${vo.blogno}">Delete</a>
-            </td>
-          </tr>
-      </tbody>
+        </c:forEach>
+        </tbody>
+      
+      
     </table>
   </div>
   <%-- table end --%>
+  
 </div>
 </section>
  

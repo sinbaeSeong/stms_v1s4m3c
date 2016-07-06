@@ -20,6 +20,16 @@ public class MessageVO {
    private String mdate;
    private int uno;
    private int tno;
+   private String title;
+   
+   private String receiver;
+   
+   public String getTitle() {
+      return title;
+   }
+   public void setTitle(String title) {
+      this.title = title;
+   }
    public int getMno() {
       return mno;
    }
@@ -61,6 +71,12 @@ public class MessageVO {
    }
    public void setTno(int tno) {
       this.tno = tno;
+   }
+   public String getReceiver() {
+      return receiver;
+   }
+   public void setReceiver(String receiver) {
+      this.receiver = receiver;
    }
    
    

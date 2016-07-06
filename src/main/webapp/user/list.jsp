@@ -167,7 +167,7 @@ function fun_confirm(uno, uconfirm){
 <link href="../css/freelancer.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
+<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
  
@@ -203,7 +203,7 @@ function fun_confirm(uno, uconfirm){
         </select>
         <input type="text" class="input-sm" placeholder="search" id="word"
                   name="word" maxlength="16" value='${search.word }'  style="width: 30%; ">
-        <input type="submit" class="btn btn-success btn-sm">
+        <input type="submit" class="btn btn-success btn-sm" value="search">
     </div>
     </div>
 </form> 
@@ -239,12 +239,13 @@ function fun_confirm(uno, uconfirm){
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${userVO.email}</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">
             <a href="javascript:fun_act(${userVO.uno }, '${userVO.act }', '${userVO.confirm }')">${userVO.act}</a></td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${userVO.udate}</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${userVO.udate.substring(0, 10)}</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
             <a href="javascript:fun_confirm(${userVO.uno }, '${userVO.confirm }')">${userVO.confirm}</a></td>
             <td class="td">
               <a href="./update.do?uno=${userVO.uno}">Update</a>
               <a href="javascript:del(${userVO.uno })">Delete</a>
+              <a href="../message/create.do?receiver=${userVO.id }">Send Message</a>
             </td>
           </tr>
         </c:forEach>

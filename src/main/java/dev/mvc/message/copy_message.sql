@@ -17,6 +17,7 @@ CREATE TABLE message(
     sender                            VARCHAR(16)    NOT NULL,
     sender_uno                            INT    NULL,
     mcontent                          VARCHAR(600)     NOT NULL,
+    title                                 VARCHAR(40)       NOT NULL,
     mdate                             DATETIME     NULL ,
     uno                               INT    NOT NULL ,
     tno                               INT    NULL ,
@@ -29,19 +30,19 @@ DROP TABLE message;
 
 -- 3 > Create
 
-INSERT INTO message(sender, sender_uno, mcontent, uno, tno, mdate)
-VALUES ('sender', 1,  'mcontent', 1, 1, now());
+INSERT INTO message(sender, sender_uno, title, mcontent, uno, tno, mdate)
+VALUES ('sender', 1,  'title','mcontent', 1, 1, now());
 
 -- 4 > List
 
-SELECT mno, sender, mdate, uno, tno
+SELECT mno, sender, mdate, uno, tno, title
 FROM message
 WHERE uno=1
 ORDER BY mno ASC;
 
 -- 5 > Read
 
-SELECT mno, sender, sender_uno, mcontent, mdate, uno, tno
+SELECT mno, sender, sender_uno, mcontent, mdate, uno, tno, title
 FROM message
 WHERE mno = 1;
 
@@ -52,12 +53,12 @@ WHERE mno = 1;
 
 -- 7 > Search List(mcontent, sender)
 
-SELECT mno, sender, mdate, uno, tno
+SELECT mno, sender, mdate, uno, tno, title
 FROM message
 WHERE uno=1 AND mcontent LIKE '%mcontent%'
 ORDER BY mno ASC;
 
-SELECT mno, sender, mdate, uno, tno
+SELECT mno, sender, mdate, uno, tno, title
 FROM message
 WHERE uno=1 AND sender LIKE '%sender%'
 ORDER BY mno ASC;
@@ -74,13 +75,13 @@ WHERE uno=1 AND sender LIKE '%sender%';
 
 -- 9 > Paging Search List(mcontent, sender)
 
-SELECT mno, sender, mdate, uno, tno
+SELECT mno, sender, mdate, uno, tno, title
 FROM message
 WHERE uno=1 AND mcontent LIKE '%mcontent%'
 ORDER BY mno ASC
 LIMIT 0, 5;
 
-SELECT mno, sender, mdate, uno, tno
+SELECT mno, sender, mdate, uno, tno, title
 FROM message
 WHERE uno=1 AND sender LIKE '%sender%'
 ORDER BY mno ASC

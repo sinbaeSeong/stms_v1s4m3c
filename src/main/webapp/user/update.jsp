@@ -7,7 +7,6 @@
 <head> 
 <meta charset="UTF-8"> 
 <title>Update</title> 
-
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -29,6 +28,22 @@
 <script type="text/javascript" src="../js/jquery.cookie.js"></script>
 
 <script type="text/javascript" src="../js/tool.js"></script>
+
+<script type="text/javascript">
+ window.onload=function(){
+  document.getElementById('frm').onsubmit=function(){
+   var pass=document.getElementById('passwd').value;
+   var repasswd=document.getElementById('repasswd').value;
+   
+   if(pass==repasswd){
+   }else{
+     alert('두개의 비밀번호가 다릅니다.');
+     return false; 
+   }
+  }
+ }
+</script>
+ 
 
  
 </head> 
@@ -56,7 +71,7 @@
           <!-- Form Start -->
           <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-          <FORM name='frm' method='POST' action='./update.do'>
+          <FORM id='frm' name='frm' method='POST' action='./update.do'>
               <input type='hidden' name='uno' id='uno' value='${userVO.uno}'>
               
               <!-- Input Id -->
@@ -69,13 +84,13 @@
               </div>
               </div>
               
-              
+
               <!-- Input Password -->
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
-                 <label>Password</label>
-                    <input type="password" class="form-control" value="${userVO.passwd}" id="passwd"
-                    name="passwd" maxlength="16" required>
+                 <label >Password</label>
+                    <input type="password" class="form-control" placeholder="password" id="passwd"
+                    name="passwd" maxlength="16" required value="${userVO.passwd}">
                  <p class="help-block text-danger"></p>
               </div>
               </div>
@@ -85,11 +100,12 @@
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
                   <label>Confirm password</label>
-                    <input type="password" class="form-control" value="${userVO.passwd}"  id="repasswd"
-                    name="repasswd" maxlength="16" required>
+                    <input type="password" class="form-control" placeholder="confirm password" id="repasswd"
+                    name="repasswd" maxlength="16" required value="${userVO.passwd}">
                  <p class="help-block text-danger"></p>
               </div>
               </div>
+              
               
               
               <!-- Input Name -->

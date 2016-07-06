@@ -20,7 +20,7 @@
 <link href="../css/freelancer.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
+<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -57,7 +57,8 @@
           <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
           <FORM name='frm' method='POST' action='./create.do'>
-          
+          <input type='hidden' name='sender' id='sender' value='${name }'>
+          <input type='hidden' name='sender_uno' id='sender' value='${uno }'>
               
               
               <!-- Input Recevier -->
@@ -65,7 +66,18 @@
               <div class="form-group col-xs-12">
                   <label>Receiver </label>
                      <input type="text" class="form-control" placeholder="receiver id" id="receiver"
-                     name="receiver" maxlength="16" autofocus required>    
+                     name="receiver" maxlength="16" value="${param.receiver }" autofocus required>    
+                  <p class="help-block text-danger"></p>
+              </div>
+              </div>
+              
+              
+                    <!-- Input Title -->
+              <div class="row control-group">
+              <div class="form-group col-xs-12">
+                  <label>Title </label>
+                     <input type="text" class="form-control" placeholder="title" id="title"
+                     name="title" maxlength="40" required>    
                   <p class="help-block text-danger"></p>
               </div>
               </div>
@@ -87,7 +99,7 @@
               <div id="success"></div>
               <div class="row">
                 <div class="form-group col-xs-12">
-                  <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                  <button type="submit" class="btn btn-success btn-lg">Send</button>
                   <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Back</button> 
               </div>
               </div>

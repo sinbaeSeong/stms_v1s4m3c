@@ -102,7 +102,7 @@ public class UserCont {
      ArrayList<String> links = new ArrayList<String>();
      
      if(userDAO.update(userVO)==1){
-        mav.setViewName("redirect:/user/list.do");
+        mav.setViewName("redirect:/user/list2.do");
         
       } else {
          

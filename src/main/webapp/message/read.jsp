@@ -20,7 +20,7 @@
 <link href="../css/freelancer.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
+<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -34,7 +34,7 @@
 </head> 
 <!-- ----------------------------------------- -->
 <body leftmargin="0" topmargin="0">
-
+<jsp:include page="/menu/top.jsp" flush='false' />
 <!-- ----------------------------------------- -->
 
     <!-- Bootstrap CSS Start -->
@@ -50,9 +50,19 @@
               <!-- Input Title -->
               <div class="row control-group">
               <div class="form-group col-xs-12">
-                  <label>Send Date </label>
-                     <input type="text" class="form-control" value="title" id="title"
+                  <label>Title </label>
+                     <input type="text" class="form-control" value="${messageVO.title }" id="title"
                      name="title" readonly>    
+                  <p class="help-block text-danger"></p>
+              </div>
+              </div>
+              
+              <!-- Input Date -->
+              <div class="row control-group">
+              <div class="form-group col-xs-12">
+                  <label>Send Date </label>
+                     <input type="text" class="form-control" value="${messageVO.mdate }" id="mdate"
+                     name="mdate" readonly>    
                   <p class="help-block text-danger"></p>
               </div>
               </div>
@@ -62,7 +72,7 @@
               <div class="row control-group">
               <div class="form-group col-xs-12">
                   <label >Sender </label>
-                     <input type="text" class="form-control" value="name" id="name"
+                     <input type="text" class="form-control" value="${messageVO.sender }" id="name"
                      name="name" readonly>    
                   <p class="help-block text-danger"></p>
               </div>
@@ -72,8 +82,8 @@
               <!-- Input Text -->
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
-                 <label>Email</label>
-                    <textarea class="form-control" readonly="readonly">text</textarea>
+                 <label>Content</label>
+                    <textarea class="form-control" readonly="readonly">${messageVO.mcontent }</textarea>
                  <p class="help-block text-danger"></p>
               </div>
               </div>
