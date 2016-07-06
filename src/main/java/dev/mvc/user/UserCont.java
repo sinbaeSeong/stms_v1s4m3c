@@ -419,11 +419,7 @@ public ModelAndView list2(
    mav.addObject("list", list);
    mav.addObject("totalRecord", totalRecord);
    mav.addObject("root", request.getContextPath());
-   
-   System.out.println(">>>>" + searchDTO.getCol());
-   System.out.println(">>>>" + searchDTO.getWord());
-   System.out.println(">>>>" + totalRecord);
-   
+
    String paging = new Paging().paging(
          totalRecord, 
          searchDTO.getNowPage(), 
