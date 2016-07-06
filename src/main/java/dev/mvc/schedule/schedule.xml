@@ -12,51 +12,51 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    </insert> 
    
     <!-- List -->
-<!--   <select id='list' resultType='TrashVO'>
-    SELECT tno, tname, nowcapa, location, mdate
-    FROM trash
-    ORDER BY tno ASC
-  </select>
-    -->
+<!--   <select id='list' resultType='ScheduleVO'>
+    SELECT sno, slabeldate, slabel, stitle, sdate
+    FROM schedule
+    ORDER BY sno ASC
+  </select> -->
+
 <!--  검색 갯수 세는 카운트 -->
   <select id="count" resultType="int" parameterType="HashMap" >
     SELECT COUNT(*) as cnt
-    FROM trash
+    FROM schedule
         <if test="col!=''">
           WHERE
         </if>
         <choose>
-         <when test="col == 'tname'">
-            tname LIKE #{word}
+         <when test="col == 'slabel'">
+            slabel LIKE #{word}
           </when>
-         <when test="col == 'location'">
-            location LIKE #{word}
+         <when test="col == 'stitle'">
+            stitle LIKE #{word}
          </when>
-          <when test="col == 'maxcapa'">
-            maxcapa LIKE #{word}
+          <when test="col == 'slabeldate'">
+            slabeldate LIKE #{word}
          </when>      
         </choose>
   </select>        
         
   <!-- Search + Paging List -->
-  <select id="list2" resultType="TrashVO" parameterType="HashMap" >
-           SELECT tno, tname, nowcapa, location, mdate
-           FROM trash
+  <select id="list2" resultType="ScheduleVO" parameterType="HashMap" >
+           SELECT sno, slabeldate, slabel, stitle, sdate
+           FROM schedule
            <if test="col!=''">
            WHERE
            </if>
                          <choose>
-                             <when test="col == 'tname'">
-                                   tname LIKE #{word}
+                             <when test="col == 'slabel'">
+                                   slabel LIKE #{word}
                              </when>
-                             <when test="col == 'location'">
-                                  location LIKE #{word}
+                            <when test="col == 'stitle'">
+                                  stitle LIKE #{word}
                              </when>
-                             <when test="col == 'maxcapa'">
-                                  maxcapa LIKE #{word}
+                             <when test="col == 'slabeldate'">
+                                  slabeldate LIKE #{word}
                              </when>      
                          </choose>
-            ORDER BY tno ASC
+            ORDER BY sno ASC
             LIMIT #{offset}, 10;
   </select>  
    

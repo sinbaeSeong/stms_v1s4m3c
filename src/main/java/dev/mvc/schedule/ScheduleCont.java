@@ -1,6 +1,9 @@
 package dev.mvc.schedule;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import web.tool.Paging;
+import web.tool.SearchDTO;
 import dev.mvc.user.UserDAO;
 
 
@@ -76,17 +81,18 @@ public class ScheduleCont {
    * 리스트만
    * @return
    */
-/*  @RequestMapping(value = "/trash/list.do", method = RequestMethod.GET)
+/*  @RequestMapping(value = "/schedule/list.do", method = RequestMethod.GET)
   public ModelAndView list() {
     ModelAndView mav = new ModelAndView();
-    mav.setViewName("/trash/list");
+    mav.setViewName("/schedule/list");
 
-    ArrayList<TrashVO> list = trashDAO.list();
+    ArrayList<ScheduleVO> list = scheduleDAO.list();
 
     mav.addObject("list", list);
 
     return mav;
   }*/
+  
 /*
   *//**
    * 글을 조회합니다
@@ -180,18 +186,19 @@ public class ScheduleCont {
     return mav;
   }
 
-  *//**
+  /**
    * list_검색 및 페이징 구현
    * @param searchDTO
    * @param request
    * @return
-   *//*
-  @RequestMapping(value = "/trash/list2.do", method = RequestMethod.GET)
+   */
+  @RequestMapping(value = "/schedule/list2.do", method = RequestMethod.GET)
   public ModelAndView list2(
+      
         SearchDTO searchDTO,
         HttpServletRequest request) {
      ModelAndView mav = new ModelAndView();
-     mav.setViewName("/trash/list");
+     mav.setViewName("/schedule/list");
      
      HashMap<String, Object> hashMap = new HashMap<String, Object>();
      hashMap.put("col", searchDTO.getCol());
@@ -200,11 +207,11 @@ public class ScheduleCont {
      hashMap.put("word", word);
      
      int recordPerPage = 10;
-     int totalRecord = trashDAO.count(hashMap);
+     int totalRecord = scheduleDAO.count(hashMap);
      int offset = (searchDTO.getNowPage() - 1) * 10;
      hashMap.put("offset", offset);
      
-     ArrayList<ScheduleVO> list = trashDAO.list2(hashMap);
+     ArrayList<ScheduleVO> list = scheduleDAO.list2(hashMap);
 
      mav.addObject("list", list);
      mav.addObject("totalRecord", totalRecord);
@@ -221,6 +228,6 @@ public class ScheduleCont {
      return mav;
      
   }
-*/
+
   
 }

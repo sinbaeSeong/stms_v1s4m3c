@@ -81,7 +81,7 @@ function checkData(f){ // f == document.frmData 객체
           <%--      <input type = "hidden" name='uno' id='uno' value='${TrashVO.uno }' >  --%>
                 <div class="form-group col-xs-12">
                   <label> Date Output </label>
-                  <input type="date" class="form-control" placeholder="2016-07-06" id="slabeldate" name="slabeldate" required">    
+                  <input type="date" class="form-control"  id="slabeldate" name="slabeldate" required">    
                   <p class="help-block text-danger"></p>
                 </div>
               </div>

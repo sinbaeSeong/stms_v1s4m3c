@@ -1,8 +1,12 @@
 package dev.mvc.schedule;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 
 
 @Repository("dev.mvc.schedule.ScheduleDAO")
@@ -26,10 +30,10 @@ public class ScheduleDAO {
     return mapper().create(vo);
   }
  
-  
-/* public ArrayList<TrashVO> list() {
+  // List
+ public ArrayList<ScheduleVO> list() {
       return mapper().list();
-    }*/
+    }
     
     // READ
  /*   public ScheduleVO read(int tno){
@@ -47,14 +51,14 @@ public class ScheduleDAO {
     }*/
         
     /** 검색 페이징 리스트 */ //<select id="list2" resultType="UserVO" parameterType="HashMap" >
- /*   public ArrayList<ScheduleVO> list2(HashMap<String, Object> map){
+   public ArrayList<ScheduleVO> list2(HashMap<String, Object> map){
        return mapper().list2(map);
-    }*/
+    }
     
     /** 검색 갯수 카운트 */ //<select id="count" resultType="int" parameterType="HashMap" >
-/*    public int count(HashMap<String, Object> map){
+   public int count(HashMap<String, Object> map){
        return mapper().count(map);
-    }*/
+    }
   
 }
 
