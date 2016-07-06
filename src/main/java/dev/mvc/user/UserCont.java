@@ -362,7 +362,7 @@ return mav;
 }
   
 /**
- * 아이디를 찾습니다
+ * passwd를 찾습니다
  * @return
  */
 @RequestMapping(value = "/user/searchPW.do", 

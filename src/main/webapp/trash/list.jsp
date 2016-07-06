@@ -48,7 +48,7 @@ function del(tno){
 <link href="../css/freelancer.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
+<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
  
@@ -61,7 +61,7 @@ function del(tno){
 <%-- body 시작 --%>
 <body>
 <%-- ---------------------------------------------------------------------------------------------- --%>
- <FORM name='frm' method='POST' action='./list.do' >
+
 
  <section id="contact">
       <div class="container">
@@ -71,35 +71,36 @@ function del(tno){
           <hr class="star-primary"/>
           </DIV>
          </div>     
-         
+ 
+  <FORM name='frm' method='GET' action='./list2.do' >        
   <div class="row">
     <div class="col-lg-12 text-center">
-      <select id='email_dns' class='input-sm' style="width: 20%;">
-          <option value='none'>Total List</option>
-          <option value='gmail.com'>ID</option>
-          <option value='naver.com'>Location</option>
-          <option value='naver.com'>Capacity</option>
-          <option value='daum.net'>Email</option>
-      </select>
-      <input type="text" class="input-sm" placeholder="search" id="search"
-                     name="search" maxlength="16" style="width: 30%; ">
+      <select id='email_dns' class='input-sm' name='col' style="width: 20%;">
+          <option>Total List</option>
+          <option value='tname' ${search.col == "tname" ? "selected=selected" : "" }>ID</option>
+          <option value='location' ${search.col == "location" ? "selected=selected" : "" }>Location</option>
+          <option value='maxcapa' ${search.col == "maxcapa" ? "selected=selected" : "" }>Capacity</option>
+       </select>
+      <input type="text" class="input-sm" placeholder="search" id="word"
+                     name="word" maxlength="16" value='${search.word }' style="width: 30%; ">
+      <input type="submit">
     </div>
   </div>       
   
   
   <!--  테이블 시작 -->
            
-  <div class="content" style='width: 90%;'>
+  <div class="content" style='width: 100%;'>
     <table class="table" style='width: 100%;'>
    
       <thead>
         <tr class="row control-group" style="font-size: 23px;">
-          <th class="col-lg-8 col-lg-offset-2" style="width:100px; ">No</th>
-          <th class="col-lg-8 col-lg-offset-2" style="width:200px;">Trash identify</th>
-          <th class="col-lg-8 col-lg-offset-2" style="width:200px;">Location</th>
-          <th class="col-lg-8 col-lg-offset-2" style="width: 200px; ">Now capacity</th>          
-          <th class="col-lg-8 col-lg-offset-2" style="width: 127px; ">Date</th>
-          <th class="col-lg-8 col-lg-offset-2" style="width:120px">Etc..</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width:10%; ">No</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width:20%;">Trash identify</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width:20%;">Location</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width:20%; ">Now capacity</th>          
+          <th class="col-lg-8 col-lg-offset-2" style="width:15%; ">Date</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width:15%;">Etc..</th>
         </tr>
       
       </thead>
@@ -114,13 +115,12 @@ function del(tno){
             </td> 
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${trashVO.location }</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${trashVO.nowcapa }</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${trashVO.mdate } </td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${trashVO.mdate} </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
-              <a href="./update.do?blogno=${trashVO.tno}"><img src="./images/update.png" title="Update" border='0'/></a>
-              <a href="javascript:del(${trashVO.tno })">Delete</a><!-- <img src="./images/delete.png" title="Delete"  border='0'/> -->
+              <a href="./update.do?blogno=${trashVO.tno}"><img src="../images/upload.jpg" title="Update" border='0'/></a>
+              <a href="javascript:del(${trashVO.tno })"><img src="../images/delete.png" title="Delete"  border='0'/> </a>
       
-      
-            </td>
+             </td>
           </tr>
       </c:forEach>
         
@@ -129,9 +129,13 @@ function del(tno){
    
   </div>
   <%-- table end --%>
+  </FORM>
 </div>
+
+<DIV>${paging}</DIV>
+
 </section>
-</FORM>
+
  
 <!-- -------------------------------------------- -->
 </body>

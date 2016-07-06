@@ -13,37 +13,54 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    </insert> 
    
     <!-- List -->
-  <select id='list' resultType='TrashVO'>
+<!--   <select id='list' resultType='TrashVO'>
     SELECT tno, tname, nowcapa, location, mdate
     FROM trash
     ORDER BY tno ASC
   </select>
-   
-   
-
-<!-- 
-    <select id="list" resultType="TrashVO" parameterType="HashMap" >
-    SELECT tno, tname, nowcapa, loaction, mdate
+    -->
+<!--  검색 갯수 세는 카운트 -->
+  <select id="count" resultType="int" parameterType="HashMap" >
+    SELECT COUNT(*) as cnt
     FROM trash
-    WHERE uno=#{uno}
+        <if test="col!=''">
+          WHERE
+        </if>
+        <choose>
+         <when test="col == 'tname'">
+            tname LIKE #{word}
+          </when>
+         <when test="col == 'location'">
+            location LIKE #{word}
+         </when>
+          <when test="col == 'maxcapa'">
+            maxcapa LIKE #{word}
+         </when>      
+        </choose>
+  </select>        
         
-      <choose>
-        <when test="col == 'id'">
-         AND tname LIKE '%' || #{word} || '%' 
-        </when>
-        <when test="col == 'location'">
-         AND location  LIKE '%' || #{word} || '%' 
-        </when>
-        <when test="col == 'capacity'">
-         AND nowcapa  LIKE '%' || #{word} || '%' 
-        </when>
-        <when test="col == 'id_location_capacity'">
-         AND tname LIKE '%' || #{word} || '%'  OR location LIKE '%' || #{word} || '%' OR nowcapa LIKE '%' || #{word} || '%' 
-        </when>      
-      </choose>   
-    
-      ORDER BY tno DESC
-    </select>      -->   
+  <!-- Search + Paging List -->
+  <select id="list2" resultType="TrashVO" parameterType="HashMap" >
+           SELECT tno, tname, nowcapa, location, mdate
+           FROM trash
+           <if test="col!=''">
+           WHERE
+           </if>
+                         <choose>
+                             <when test="col == 'tname'">
+                                   tname LIKE #{word}
+                             </when>
+                             <when test="col == 'location'">
+                                  location LIKE #{word}
+                             </when>
+                             <when test="col == 'maxcapa'">
+                                  maxcapa LIKE #{word}
+                             </when>      
+                         </choose>
+            ORDER BY tno ASC
+            LIMIT #{offset}, 10;
+  </select>  
+   
 
   <!-- ********** 검색에 따른 변경 종료 ********** -->     
   
