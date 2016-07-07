@@ -1,6 +1,7 @@
 package dev.mvc.message;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public interface MessageMapperInter {
 
@@ -19,4 +20,10 @@ public interface MessageMapperInter {
    /** 메세지 삭제 */ // <delete id="delete" parameterType='int'>
    public int delete(int mno);
    
+   
+   /** 페이징 검색 리스트 */ //  <select id="list2" resultType="MessageVO" parameterType="HashMap" >
+   public ArrayList<MessageVO> list2(HashMap<String, Object> map);
+   
+   /** 검색 갯수 세기 */ //<select id="count" resultType="int" parameterType="HashMap" >
+   public int count(HashMap<String, Object> map);
 }

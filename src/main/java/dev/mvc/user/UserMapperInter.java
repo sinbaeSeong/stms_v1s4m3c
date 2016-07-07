@@ -46,6 +46,7 @@ public interface UserMapperInter {
   
   /** 검색 갯수 카운트 */ //<select id="count" resultType="int" parameterType="HashMap" >
   public int count(HashMap<String, Object> map);
+
 }
 
 

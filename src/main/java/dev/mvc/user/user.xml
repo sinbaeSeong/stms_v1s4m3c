@@ -125,7 +125,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                                   email LIKE #{word}
                              </when>      
                          </choose>
-            ORDER BY uno ASC
+            ORDER BY uno DESC
             LIMIT #{offset}, 10;
   </select>  
 

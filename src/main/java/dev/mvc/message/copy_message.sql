@@ -40,6 +40,8 @@ FROM message
 WHERE uno=1
 ORDER BY mno ASC;
 
+select * from message;
+
 -- 5 > Read
 
 SELECT mno, sender, sender_uno, mcontent, mdate, uno, tno, title
@@ -77,7 +79,7 @@ WHERE uno=1 AND sender LIKE '%sender%';
 
 SELECT mno, sender, mdate, uno, tno, title
 FROM message
-WHERE uno=1 AND mcontent LIKE '%mcontent%'
+WHERE uno=1
 ORDER BY mno ASC
 LIMIT 0, 5;
 

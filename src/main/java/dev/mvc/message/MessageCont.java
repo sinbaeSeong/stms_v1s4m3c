@@ -1,6 +1,10 @@
 package dev.mvc.message;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import dev.mvc.user.UserDAO;
 import dev.mvc.user.UserVO;
+import web.tool.Paging;
+import web.tool.SearchDTO;
 
 @Controller
 public class MessageCont {
@@ -60,7 +66,7 @@ public class MessageCont {
     messageVO.setUno(userVO.getUno());
     
     if (messageDAO.create(messageVO) == 1) {
-       mav.setViewName("redirect:/message/list.do"); 
+       mav.setViewName("redirect:/message/list.do?uno="+userVO.getUno());
        } else {
           
       msgs.add("메세지 전송에 실패했습니다.");
@@ -74,21 +80,6 @@ public class MessageCont {
     return mav;
   }
   
-  /**
-   * 리스트를 출려캅니다
-   * 
-   * 
-   * @param searchDTO
-   * @param request
-   * @return
-   */
-  @RequestMapping(value = "/message/list.do", method = RequestMethod.GET)
-  public ModelAndView list() {
-     ModelAndView mav = new ModelAndView();
-     mav.setViewName("/message/list");
-     mav.addObject("list", messageDAO.list());
-     return mav;
-  }
   
   /**
    * 메세지를 봅니다
@@ -104,10 +95,82 @@ public class MessageCont {
      mav.setViewName("/message/read"); // /webapp/member/create.jsp
 
      MessageVO messageVO = messageDAO.read(mno);
-
+     messageVO.setSender_id(userDAO.read(messageVO.getSender_uno()).getId());
      mav.addObject("messageVO", messageVO);
      
      return mav;
    }
 
+  /**
+   * 딜리트 삭제 아구아구
+   * @param userVO
+   * @return
+   */
+  @RequestMapping(value = "/message/delete.do", 
+        method = RequestMethod.POST)
+  public ModelAndView delete(int mno) {
+     ModelAndView mav = new ModelAndView();
+     mav.setViewName("/message/message");
+     
+     ArrayList<String> msgs = new ArrayList<String>();
+     ArrayList<String> links = new ArrayList<String>();
+     int uno = messageDAO.read(mno).getSender_uno();
+        if (messageDAO.delete(mno) == 1) {
+           mav.setViewName("redirect:/message/list.do?uno="+uno);
+
+        } else {
+           msgs.add("메세지 삭제에 실패했습니다");
+           links.add("<button type='button' class='btn btn-success btn-sm' onclick='history.back();'>다시시도</button>");
+        }
+        
+        mav.addObject("msgs", msgs);
+        mav.addObject("links", links);
+
+     return mav;
+  }
+  
+  @RequestMapping(value = "/message/list.do", method = RequestMethod.GET)
+  public ModelAndView list(
+        SearchDTO searchDTO,
+        HttpServletRequest request,
+        MessageVO messageVO) {
+     ModelAndView mav = new ModelAndView();
+     mav.setViewName("/message/list");
+     
+     HashMap<String, Object> hashMap = new HashMap<String, Object>();
+     hashMap.put("col", searchDTO.getCol());
+     String word = searchDTO.getWord();
+     word = "%"+word+"%";
+     hashMap.put("word", word);
+     hashMap.put("uno", messageVO.getUno());
+     
+     int recordPerPage = 10;
+     int totalRecord = messageDAO.count(hashMap);
+     int offset = (searchDTO.getNowPage() - 1) * 10;
+     hashMap.put("offset", offset);
+     
+     ArrayList<MessageVO> list = messageDAO.list2(hashMap);
+     Iterator<MessageVO> iter = list.iterator();
+     while (iter.hasNext() == true) { // 다음 요소 검사
+        MessageVO vo = iter.next(); // 요소 추출
+        vo.setSender_id(userDAO.read(vo.getSender_uno()).getId());
+     }
+     
+     mav.addObject("list", list);
+     mav.addObject("totalRecord", totalRecord);
+     mav.addObject("root", request.getContextPath());
+
+     String paging = new Paging().paging(
+           totalRecord, 
+           searchDTO.getNowPage(), 
+           recordPerPage, 
+           searchDTO.getCol(), 
+           searchDTO.getWord());
+     mav.addObject("paging",paging);
+     
+     return mav;
+     
+  }
+
+  
 }
