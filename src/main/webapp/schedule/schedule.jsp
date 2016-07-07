@@ -35,7 +35,7 @@
       },
       editable: true,
       events: [ 
-               
+          values = ${scheduleVO.sno} ;                 
        
       ]
     });
