@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import web.tool.Paging;
 import web.tool.SearchDTO;
 import dev.mvc.user.UserDAO;
+import dev.mvc.user.UserVO;
 
 
 @Controller
@@ -93,19 +94,19 @@ public class ScheduleCont {
     return mav;
   }*/
   
-/*
-  *//**
+
+  /**
    * 글을 조회합니다
    * 
    * @param mno
    * @return
-   *//*
-  @RequestMapping(value = "/trash/read.do", method = RequestMethod.GET)
-  public ModelAndView read(int tno, int uno, HttpServletRequest request) {
+   */
+  @RequestMapping(value = "/schedule/read.do", method = RequestMethod.GET)
+  public ModelAndView read(int sno, int uno, HttpServletRequest request) {
     ModelAndView mav = new ModelAndView();
-    mav.setViewName("/trash/read");
-    ScheduleVO trashVO = trashDAO.read(tno);
-    mav.addObject("trashVO", trashVO);
+    mav.setViewName("/schedule/read");
+    ScheduleVO scheduleVO = scheduleDAO.read(sno);
+    mav.addObject("scheduleVO", scheduleVO);
 
     UserVO vo = userDAO.read(uno);
     mav.addObject("userVO", vo);
@@ -115,34 +116,34 @@ public class ScheduleCont {
     return mav;
   }
 
-  *//**
+  /**
    * 업데이트
    * 
    * @param uno
    * @return
-   *//*
-  @RequestMapping(value = "/trash/update.do", method = RequestMethod.GET)
-  public ModelAndView read(int tno) {
+   */
+  @RequestMapping(value = "/schedule/update.do", method = RequestMethod.GET)
+  public ModelAndView read(int sno) {
     ModelAndView mav = new ModelAndView();
-    mav.setViewName("/trash/update"); // /webapp/member/create.jsp
+    mav.setViewName("/schedule/update"); // /webapp/member/create.jsp
 
-    ScheduleVO trashVO = trashDAO.read(tno);
+    ScheduleVO scheduleVO = scheduleDAO.read(sno);
 
-    mav.addObject("trashVO", trashVO);
+    mav.addObject("scheduleVO", scheduleVO);
 
     return mav;
   }
 
-  @RequestMapping(value = "/trash/update.do", method = RequestMethod.POST)
-  public ModelAndView update(ScheduleVO trashVO) {
+  @RequestMapping(value = "/schedule/update.do", method = RequestMethod.POST)
+  public ModelAndView update(ScheduleVO scheduleVO) {
     ModelAndView mav = new ModelAndView();
-    mav.setViewName("/trash/message"); // /webapp/member/create.jsp
+    mav.setViewName("/schedule/message"); // /webapp/member/create.jsp
 
     ArrayList<String> msgs = new ArrayList<String>();
     ArrayList<String> links = new ArrayList<String>();
 
-    if (trashDAO.update(trashVO) == 1) {
-      mav.setViewName("redirect:/trash/list.do");
+    if (scheduleDAO.update(scheduleVO) == 1) {
+      mav.setViewName("redirect:/schedule/list2.do");
 
     } else {
 
@@ -151,14 +152,14 @@ public class ScheduleCont {
       mav.addObject("links", links);
 
       links
-          .add("<button type='button' onclick=\"location.href='./list.do'\">Return</button>");
+          .add("<button type='button' onclick=\"location.href='./list2.do'\">Return</button>");
     }
 
     return mav;
   }
 
   
-  *//**
+  /**
    * 삭제처리
    * @param uno
    * @return

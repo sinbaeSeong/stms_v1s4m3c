@@ -117,7 +117,7 @@ function del(tno){
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${trashVO.nowcapa }</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${trashVO.mdate} </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
-              <a href="./update.do?blogno=${trashVO.tno}"><img src="../images/upload.jpg" title="Update" border='0'/></a>
+              <a href="./update.do?tno=${trashVO.tno}"><img src="../images/upload.jpg" title="Update" border='0'/></a>
               <a href="javascript:del(${trashVO.tno })"><img src="../images/delete.png" title="Delete"  border='0'/> </a>
       
              </td>

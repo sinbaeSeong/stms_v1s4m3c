@@ -21,14 +21,14 @@ public interface ScheduleMapperInter {
    * @param tno
    * @return
    */ 
-/*  public ScheduleVO read(int tno); */
+  public ScheduleVO read(int sno); 
    
   /**
    *  Update
    * @param vo
    * @return
    */
-/*  public int update(ScheduleVO vo);*/
+  public int update(ScheduleVO vo);
 
 
 /**
@@ -43,6 +43,8 @@ public ArrayList<ScheduleVO> list2(HashMap<String, Object> map);
 
 /** 검색 갯수 카운트 */ //<select id="count" resultType="int" parameterType="HashMap" >
 public int count(HashMap<String, Object> map);
+
+
 
 
 }

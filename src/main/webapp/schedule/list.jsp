@@ -20,6 +20,8 @@ function del(sno){
    } else {
       var f = document.createElement("form");
       f.setAttribute("method","post");
+      
+      
       f.setAttribute("action","./delete.do");
       document.body.appendChild(f);
       

@@ -36,14 +36,14 @@ public class ScheduleDAO {
     }
     
     // READ
- /*   public ScheduleVO read(int tno){
-      return mapper().read(tno);
-    }*/
+   public ScheduleVO read(int sno){
+      return mapper().read(sno);
+    }
     
     //Update
-/*     public int update(ScheduleVO vo){
+     public int update(ScheduleVO vo){
       return mapper().update(vo);
-    }*/
+    }
   
    //Delete
 /*    public int delete(int tno){
