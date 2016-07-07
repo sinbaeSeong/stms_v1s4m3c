@@ -30,6 +30,27 @@
 <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
  
+ <script type="text/JavaScript">
+function del(mno){
+   if(!confirm("정말 삭제하시겠습니까?")){
+      return;
+   } else {
+      var f = document.createElement("form");
+      f.setAttribute("method","post");
+      f.setAttribute("action","./delete.do");
+      document.body.appendChild(f);
+      
+      var i = document.createElement("input");
+      i.setAttribute("type","hidden");
+      i.setAttribute("name","mno");
+      i.setAttribute("value", mno);
+      f.appendChild(i);
+      
+      f.submit();
+   }
+}
+</script>
+ 
 </head> 
 <!-- ----------------------------------------- -->
 <body leftmargin="0" topmargin="0">
@@ -44,19 +65,24 @@
           <hr class="star-primary">
           </DIV>
          </div>       
-         
-         
-<div class="row">
-<div class="col-lg-12 text-center">
-      <select id='email_dns' class='input-sm' style="width: 20%;">
-          <option value='none'>Total List</option>
-          <option value='naver.com'>Content</option>
-          <option value='daum.net'>ID</option>
-      </select>
-      <input type="text" class="input-sm" placeholder="search" id="search"
-                     name="search" maxlength="16" style="width: 30%; ">
-</div>
-</div>
+        
+<form name="frmSearch" method="get" action="./list.do"> 
+    <div class="row">
+    <div class="col-lg-12 text-center">
+        <select id='col' class='input-sm' name='col' style="width: 20%;">
+           <option value=''>Total List</option>
+           <option value='sender' ${search.col == "id" ? "selected=selected" : "" }>Sender</option>
+           <option value='title' ${search.col == "name" ? "selected=selected" : "" }>Title</option>
+        </select>
+        <input type="text" class="input-sm" placeholder="search" id="word"
+                  name="word" maxlength="16" value='${search.word }'  style="width: 30%; ">
+        <input type='hidden' id='uno' name='uno' value='${uno }'>
+        <input type="submit" class="btn btn-success btn-sm" value="search">
+    </div>
+    </div>
+</form> 
+
+
 
 <br>  
 
@@ -94,7 +120,8 @@
             <td class="col-lg-8 col-lg-offset-2" style="width:200px;">${messageVO.sender }</td>
             <td class="col-lg-8 col-lg-offset-2" style="width:200px;">${messageVO.mdate } </td>
             <td class="col-lg-8 col-lg-offset-2" style="width:200px;">
-              <a href="./delete.do">Delete</a>
+              <a href="javascript:del(${messageVO.mno })">Delete</a>
+              <a href="../message/create.do?receiver=${messageVO.sender_id }">Reply</a>
             </td>
           </tr>
         </c:forEach>
@@ -107,7 +134,7 @@
   
 </div>
 </section>
- 
+ <DIV>${paging}</DIV>
 <!-- -------------------------------------------- -->
 </body>
 <!-- -------------------------------------------- -->

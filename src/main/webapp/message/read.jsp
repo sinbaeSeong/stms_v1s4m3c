@@ -30,6 +30,26 @@
 
 <script type="text/javascript" src="../js/tool.js"></script>
 
+ <script type="text/JavaScript">
+function del(mno){
+   if(!confirm("정말 삭제하시겠습니까?")){
+      return;
+   } else {
+      var f = document.createElement("form");
+      f.setAttribute("method","post");
+      f.setAttribute("action","./delete.do");
+      document.body.appendChild(f);
+      
+      var i = document.createElement("input");
+      i.setAttribute("type","hidden");
+      i.setAttribute("name","mno");
+      i.setAttribute("value", mno);
+      f.appendChild(i);
+      
+      f.submit();
+   }
+}
+</script>
  
 </head> 
 <!-- ----------------------------------------- -->
@@ -95,10 +115,10 @@
               <div class="row">
                 <div class="form-group col-xs-12">
                   <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Back</button>  
-                  <button type="button" class="btn btn-success btn-lg" onclick="history.back();">Delete(Not yet)</button>  
+                  <button type="button" class="btn btn-success btn-lg" onclick="javascript:del(${messageVO.mno })">Delete</button>  
+                  <button type="button" class="btn btn-success btn-lg" onclick='location.href="../message/create.do?receiver=${messageVO.sender_id }"'>Reply</button>  
               </div>
               </div>
-              
               
             <!-- Form end -->
             </div>

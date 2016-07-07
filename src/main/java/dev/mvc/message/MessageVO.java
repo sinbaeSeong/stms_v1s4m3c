@@ -21,7 +21,14 @@ public class MessageVO {
    private int uno;
    private int tno;
    private String title;
+   private String sender_id;
    
+   public String getSender_id() {
+      return sender_id;
+   }
+   public void setSender_id(String sender_id) {
+      this.sender_id = sender_id;
+   }
    private String receiver;
    
    public String getTitle() {
