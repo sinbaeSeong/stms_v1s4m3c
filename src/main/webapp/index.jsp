@@ -226,7 +226,7 @@
                   <label>Email Address</label> <input type="email"
                     class="form-control" placeholder="Email Address"
                     id="email" required
-                    data-validation-required-message="Please enter your email address.">
+                    data-validation-required-message="ryunan0083@naver.com">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
