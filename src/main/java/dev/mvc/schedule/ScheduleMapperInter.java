@@ -36,7 +36,7 @@ public interface ScheduleMapperInter {
  * @param tno
  * @return
  */
-/*public int delete(int tno);*/
+public int delete(int sno);
 
 /** 검색 페이징 리스트 */ //<select id="list2" resultType="UserVO" parameterType="HashMap" >
 public ArrayList<ScheduleVO> list2(HashMap<String, Object> map);

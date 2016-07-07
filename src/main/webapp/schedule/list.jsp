@@ -15,13 +15,11 @@
 
 <script type="text/JavaScript">
 function del(sno){
-   if(!confirm("Are you deletion? If this command deletes files, We can not restore.")){
+   if(!confirm("Delete a file? If this command deletes files, We can not restore.")){
       return;
    } else {
       var f = document.createElement("form");
       f.setAttribute("method","post");
-      
-      
       f.setAttribute("action","./delete.do");
       document.body.appendChild(f);
       
@@ -117,7 +115,7 @@ function del(sno){
             </td> 
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${scheduleVO.slabel }</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${scheduleVO.stitle }</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${scheduleVO.sdate } </td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${scheduleVO.sdate.substring(0, 10) } </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
               <a href="./update.do?sno=${scheduleVO.sno}"><img src="../images/upload.jpg" title="Update" border='0'/></a>
               <a href="javascript:del(${scheduleVO.sno })"><img src="../images/delete.png" title="Delete"  border='0'/> </a>

@@ -60,17 +60,17 @@ public class ScheduleCont {
       links
           .add("<button type='button' onclick=\"location.href='./login.do'\">Login</button>");
       links
-          .add("<button type='button' onclick=\"location.href='./home.do'\">Home</button>");
+          .add("<button type='button' onclick=\"location.href='./index.jsp'\">Home</button>");
     } else {
       msgs.add("Fall is not created trash type");
       links
           .add("<button type='button' onclick=\"history.back()\">Reload</button>");
       links
-          .add("<button type='button' onclick=\"location.href='./home.do'\">Home</button>");
+          .add("<button type='button' onclick=\"location.href='./index.jsp'\">Home</button>");
     }
 
     links
-        .add("<button type='button' onclick=\"location.href='./list.do'\">List</button>");
+        .add("<button type='button' onclick=\"location.href='./list2.do'\">List</button>");
 
     mav.addObject("msgs", msgs);
     mav.addObject("links", links);
@@ -163,25 +163,25 @@ public class ScheduleCont {
    * 삭제처리
    * @param uno
    * @return
-   *//*
-  @RequestMapping(value = "/trash/delete.do", method = RequestMethod.POST)
-  public ModelAndView delete(int tno) {
+   */
+  @RequestMapping(value = "/schedule/delete.do", method = RequestMethod.POST)
+  public ModelAndView delete(int sno) {
     ModelAndView mav = new ModelAndView();
-    mav.setViewName("/trash/message");
+    mav.setViewName("/schedule/message");
 
     ArrayList<String> msgs = new ArrayList<String>();
     ArrayList<String> links = new ArrayList<String>();
 
-    if (trashDAO.delete(tno) == 1) {
-      mav.setViewName("redirect:/trash/list.do");
+    if (scheduleDAO.delete(sno) == 1) {
+      mav.setViewName("redirect:/schedule/list2.do");
 
     } else {
-      msgs.add("File can't deletion.");
+      msgs.add("File can't delete.");
       mav.addObject("msgs", msgs);
       mav.addObject("links", links);
 
       links
-          .add("<button type='button' onclick=\"location.href='./list.do'\">Back</button>");
+          .add("<button type='button' onclick=\"location.href='./list2.do'\">Back</button>");
     }
 
     return mav;

@@ -54,7 +54,7 @@ $(function(){
           <div class="col-lg-8 col-lg-offset-2">
             <FORM name='frm' method='POST' action='./update.do' >
               <div class="row control-group">
-               <input type ="hidden" name='sno' id='sno' value='${scheduleVO.sno }' >   
+              <%--  <input type ="hidden" name='sno' id='sno' value='${scheduleVO.sno }' >    --%>
               
                
                 <div class="form-group col-xs-12">

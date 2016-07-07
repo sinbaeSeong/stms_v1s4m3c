@@ -51,41 +51,47 @@ $(function(){
              
       <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-           <FORM name='frm' method="get" action='./update.do'>
-             <input type="hidden" name="sno" value="${scheduleVO.sno}">
+           <FORM name='frm' method="get" action='./read.do'>
+           <%--   <input type="hidden" name="sno" value="${scheduleVO.sno}"> --%>
            
               <div class="row control-group">
                <div class="form-group col-xs-12">
                   <label>Labeldate  </label>
-                  <span class="form-control">${scheduleVO.slabeldate}</span><br>                  
+                  <span class="form-control" >${scheduleVO.slabeldate}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
+              
              <div class="form-group col-xs-12">
                   <label>Label </label>
                   <span class="form-control">${scheduleVO.slabel}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div> 
+              
              <div class="form-group col-xs-12">
                   <label>Title </label>
                   <span class="form-control"> ${scheduleVO.stitle }</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
+              
              <div class="form-group col-xs-12">
-                  <label>ontent </label>
+                  <label>Content </label>
                   <span class="form-control"> ${scheduleVO.content}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
+              
              <div class="form-group col-xs-12">
                   <label>Date </label>
                   <span class="form-control"> ${scheduleVO.sdate}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
+              
             <div id="success"></div>
              <div class="row">
              <div class="form-group col-xs-12">
             <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list2.do'">List</button>
             <button type="button" class="btn btn-success btn-lg" onclick="location.href='./update.do?sno=${scheduleVO.sno}'">Update</button>
             <button type="button" class="btn btn-success btn-lg" onclick="location.href='./delete.do?sno=${scheduleVO.sno}'">Delete</button>
+           </div>
            </div>
            </div>
            </form> 

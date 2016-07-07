@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
- 
- 
+  
 <!DOCTYPE html> 
 <html lang="ko"> 
 <head> 
@@ -35,7 +34,8 @@
         right: 'month,basicWeek,basicDay'
       },
       editable: true,
-      events: [
+      events: [ 
+               
        
       ]
     });
