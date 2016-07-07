@@ -64,22 +64,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   <!-- ********** 검색에 따른 변경 종료 ********** -->     
   
   
-  <select id="read" resultType="TrashVO" parameterType="int">
-    SELECT tno, tname, maxcapa, nowcapa, location
-    FROM trash
-    WHERE tno= #{tno}
+  <select id="read" resultType="ScheduleVO" parameterType="int">
+    SELECT sno, slabeldate, slabel, stitle, content, sdate
+    FROM schedule
+    WHERE sno= #{sno}
   </select>
   
-  <update id="update" parameterType="TrashVO">
-    UPDATE trash
-    SET tname=#{tname}, maxcapa=#{maxcapa}, location=#{location} 
-    WHERE tno=#{tno}
+  <update id="update" parameterType="ScheduleVO">
+    UPDATE schedule
+    SET slabeldate=#{slabeldate}, slabel=#{slabel}, stitle=#{stitle}, content=#{content}  
+    WHERE sno=#{sno}
   </update>
   
    <delete id="delete" parameterType="int">
-    DELETE FROM trash
-    WHERE tno=#{tno}
-  </delete> 
+    DELETE FROM schedule
+    WHERE sno=#{sno}
+  </delete>  
  
    
   
