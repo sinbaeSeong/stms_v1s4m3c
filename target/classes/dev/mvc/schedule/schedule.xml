@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dev.mvc.schedule.ScheduleMapperInter">
+   
+   <!-- create -->
+   <insert id="create" parameterType="ScheduleVO">
+    INSERT INTO schedule(uno, slabeldate, slabel, stitle, content, sdate)
+    VALUES(1, #{slabeldate}, #{slabel}, #{stitle}, #{content}, now())
+   </insert> 
+   
+    <!-- List -->
+<!--   <select id='list' resultType='ScheduleVO'>
+    SELECT sno, slabeldate, slabel, stitle, sdate
+    FROM schedule
+    ORDER BY sno ASC
+  </select> -->
+
+<!--  검색 갯수 세는 카운트 -->
+  <select id="count" resultType="int" parameterType="HashMap" >
+    SELECT COUNT(*) as cnt
+    FROM schedule
+        <if test="col!=''">
+          WHERE
+        </if>
+        <choose>
+         <when test="col == 'slabel'">
+            slabel LIKE #{word}
+          </when>
+         <when test="col == 'stitle'">
+            stitle LIKE #{word}
+         </when>
+          <when test="col == 'slabeldate'">
+            slabeldate LIKE #{word}
+         </when>      
+        </choose>
+  </select>        
+        
+  <!-- Search + Paging List -->
+  <select id="list2" resultType="ScheduleVO" parameterType="HashMap" >
+           SELECT sno, slabeldate, slabel, stitle, sdate
+           FROM schedule
+           <if test="col!=''">
+           WHERE
+           </if>
+                         <choose>
+                             <when test="col == 'slabel'">
+                                   slabel LIKE #{word}
+                             </when>
+                            <when test="col == 'stitle'">
+                                  stitle LIKE #{word}
+                             </when>
+                             <when test="col == 'slabeldate'">
+                                  slabeldate LIKE #{word}
+                             </when>      
+                         </choose>
+            ORDER BY sno ASC
+            LIMIT #{offset}, 10;
+  </select>  
+   
+
+  <!-- ********** 검색에 따른 변경 종료 ********** -->     
+  
+  
+  <select id="read" resultType="TrashVO" parameterType="int">
+    SELECT tno, tname, maxcapa, nowcapa, location
+    FROM trash
+    WHERE tno= #{tno}
+  </select>
+  
+  <update id="update" parameterType="TrashVO">
+    UPDATE trash
+    SET tname=#{tname}, maxcapa=#{maxcapa}, location=#{location} 
+    WHERE tno=#{tno}
+  </update>
+  
+   <delete id="delete" parameterType="int">
+    DELETE FROM trash
+    WHERE tno=#{tno}
+  </delete> 
+ 
+   
+  
+  
+  
+  </mapper>

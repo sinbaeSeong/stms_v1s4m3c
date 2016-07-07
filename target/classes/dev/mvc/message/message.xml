@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "dev.mvc.message.MessageMapperInter">
+  
+  <!-- Create -->
+  <insert id="create" parameterType='MessageVO'>
+    INSERT INTO message(sender, sender_uno, title, mcontent, uno, tno, mdate)
+    VALUES (#{sender}, #{sender_uno}, #{title}, #{mcontent}, #{uno}, #{tno}, now())
+  </insert>
+  
+  <!-- List -->
+  <select id="list" resultType='MessageVO'>
+    SELECT mno, sender, mdate, uno, tno, title
+    FROM message
+    ORDER BY mno ASC
+  </select>  
+  
+  <!-- List -->
+
+  
+  <!-- Read -->
+  <select id="read" resultType='MessageVO'  parameterType='int'>
+    SELECT mno, sender, sender_uno, mcontent, mdate, uno, tno, title
+    FROM message
+    WHERE mno = #{mno}
+  </select>
+  
+  <!-- Delete -->
+  <delete id="delete" parameterType='int'>
+    DELETE FROM message
+    WHERE mno = #{mno}
+  </delete>
+
+</mapper>
+  

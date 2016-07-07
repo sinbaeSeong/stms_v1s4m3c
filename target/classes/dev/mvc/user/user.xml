@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "dev.mvc.user.UserMapperInter">
+  
+  <!-- Create(insert) -->
+  <insert id='create' parameterType='UserVO'>
+    INSERT INTO user1(id, passwd, act, uname, email, udate)
+    VALUES (#{id}, #{passwd}, 'normal', #{uname}, #{email}, now())
+  </insert>
+
+  <!-- List -->
+  <select id='list' resultType='UserVO'>
+    SELECT uno, id, act, uname, email, udate, confirm
+    FROM user1
+    ORDER BY uno ASC
+  </select>
+  
+  <!-- Read -->
+  <select id='read' resultType='UserVO' parameterType='int'>
+    SELECT uno, id, act, uname, email, udate, confirm, passwd
+    FROM user1
+    WHERE uno = #{uno}
+  </select>
+
+  <!-- Update -->
+  <update id="update" parameterType="UserVO">
+    UPDATE user1
+    SET passwd=#{passwd}, uname=#{uname}, email=#{email}
+    WHERE uno=#{uno}
+  </update>
+  
+  <!--  Delete -->
+  <delete id="delete" parameterType='int'>
+    DELETE FROM user1
+    WHERE uno = #{uno}
+  </delete>
+  
+  <!-- Confirm PW -->
+  <select id='confirm' resultType='int' parameterType='UserVO'>
+    SELECT COUNT(uno) as cnt
+    FROM user1
+    WHERE uno=#{uno} AND passwd=#{passwd}
+</select>
+
+  <!-- Login -->
+  <select id='login' resultType='int' parameterType='UserVO'>
+    SELECT COUNT(uno) as cnt
+    FROM user1
+    WHERE id=#{id} AND passwd=#{passwd}
+  </select>
+
+  <!-- ReadByID -->
+  <select id="readByID" resultType="UserVO" parameterType="UserVO">
+    SELECT uno, id, act, uname, email, udate, confirm, passwd
+    FROM user1
+    WHERE id=#{id }
+  </select>
+  
+  <!-- Update Act -->
+  <update id='updateAct' parameterType='UserVO'>
+    UPDATE user1
+    SET act=#{act}
+    WHERE uno=#{uno}
+  </update>
+  
+  <!-- Update Confirm -->
+  <update id='updateConfirm' parameterType='UserVO'>
+       UPDATE user1
+       SET confirm=#{confirm}
+       WHERE uno=#{uno}
+  </update>
+  
+  <!-- Search ID -->
+  <select id='searchID' resultType='UserVO' parameterType='UserVO'>
+    SELECT id
+    FROM user1
+    WHERE uname=#{uname} AND email=#{email}
+  </select>
+  
+  <!-- Search PW -->
+  <select id='searchPW' resultType='UserVO' parameterType='UserVO'>
+    SELECT passwd
+    FROM user1
+    WHERE uname=#{uname} AND email=#{email} AND id=#{id}
+  </select>
+  
+  <!--  검색 갯수 세는 카운트 -->
+  <select id="count" resultType="int" parameterType="HashMap" >
+    SELECT COUNT(*) as cnt
+    FROM user1
+        <if test="col!=''">
+          WHERE
+        </if>
+        <choose>
+         <when test="col == 'id'">
+            id LIKE #{word}
+          </when>
+         <when test="col == 'name'">
+            uname LIKE #{word}
+         </when>
+          <when test="col == 'email'">
+           email LIKE #{word}
+         </when>      
+        </choose>
+  </select>        
+        
+  <!-- Search + Paging List -->
+  <select id="list2" resultType="UserVO" parameterType="HashMap" >
+           SELECT uno, id, act, uname, email, udate, confirm
+           FROM user1
+           <if test="col!=''">
+           WHERE
+           </if>
+                         <choose>
+                             <when test="col == 'id'">
+                                   id LIKE #{word}
+                             </when>
+                             <when test="col == 'name'">
+                                  uname LIKE #{word}
+                             </when>
+                             <when test="col == 'email'">
+                                  email LIKE #{word}
+                             </when>      
+                         </choose>
+            ORDER BY uno ASC
+            LIMIT #{offset}, 10;
+  </select>  
+
+</mapper>

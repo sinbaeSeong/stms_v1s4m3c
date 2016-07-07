@@ -64,6 +64,11 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="hidden"><a href="#page-top"></a></li>
           <li class="page-scroll"><a href="#portfolio">menu</a></li>
+          <% if (session.getAttribute("id") == null){ %>
+          <li class="page-scroll"><a href="./user/login.do">Login</a></li>
+          <% }else{ %>
+          <li class="page-scroll"><a href="./user/welcome.jsp">Welcome</a></li>
+          <% } %>
           <li class="page-scroll"><a href="#about">About us</a></li>
           <li class="page-scroll"><a href="#contact">Contact me</a>
           </li>
@@ -101,7 +106,7 @@
         </div>
         <div class="row">
           <div class="col-sm-4 portfolio-item">
-            <a href="./trash/list.do" class="portfolio-link" data-toggle="modal"> 
+            <a href="./trash/list2.do" class="portfolio-link" data-toggle="modal"> 
               <div class="caption">
                 <div class="caption-content">
                   <i class="fa fa-search-plus fa-3x"></i>
