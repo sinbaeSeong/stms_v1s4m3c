@@ -1,3 +1,6 @@
+<%@ page import="org.json.simple.*" %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,6 +62,8 @@
   <div class="row">
 <div class="span9">
       <div id="calendar" class="cal-context" style="width: 100%;"><div class="cal-row-fluid cal-row-head">
+
+
 <!--   
     <div class="cal-cell1">Sunday</div>
   

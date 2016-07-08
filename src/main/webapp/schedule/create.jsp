@@ -29,7 +29,7 @@
 
 <script type="text/javascript" src="../js/tool.js"></script>
  
-<script type="text/JavaScript">
+
 <script type="text/javascript">
 function checkData(f){ // f == document.frmData 객체
     var msg; // 에러 메세지
