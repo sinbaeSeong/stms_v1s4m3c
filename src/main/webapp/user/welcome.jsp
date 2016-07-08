@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
   
 <!DOCTYPE html> 
 <html lang="ko"> 
@@ -35,7 +36,7 @@
     } else {
        location.href="./logout.do";
     }
-    }
+ }
  </script>
  
 </head> 
@@ -65,9 +66,14 @@
                 Hello! ${name }! <br>
                 Choose your work
               <% } %>
-
+              <br>
+              <br>
+              <c:if test="${countRead ne 0 }">
+              <i class='fa fa-paper-plane-o' aria-hidden='true'></i>
+              <a href='../message/list.do?uno=${uno}'">읽지않은 새로운 메세지가 ${countRead }건 있습니다!</a>
+              </c:if>
               </label>
-              
+              <br><br>
               <!-- button -->
               <br><br><br>
               <div class='col-lg-12 text-center'>
@@ -83,11 +89,6 @@
               </div>
               </div>
               
-              
-            <!-- Form end -->
-            </form>
-            </div>
-            </div>
         
         
       <!-- Bootstrap CSS end -->

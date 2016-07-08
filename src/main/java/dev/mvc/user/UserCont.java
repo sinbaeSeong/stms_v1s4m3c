@@ -2,7 +2,6 @@ package dev.mvc.user;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import dev.mvc.message.MessageDAO;
 import web.tool.Paging;
 import web.tool.SearchDTO;
 import web.tool.Tool;
@@ -25,6 +25,9 @@ public class UserCont {
   @Autowired
   @Qualifier("dev.mvc.user.UserDAO")
   private UserDAO userDAO;
+  @Autowired
+  @Qualifier("dev.mvc.message.MessageDAO")
+  private MessageDAO messageDAO;
   
   public UserCont(){
     System.out.println("-->UserCont created.");
@@ -240,7 +243,7 @@ public class UserCont {
          if (url_address.length() > 0){
             mav.setViewName("redirect:" + userVO.getUrl_address());
          }else{
-            mav.setViewName("redirect:/user/welcome.jsp"); // 확장자 명시
+            mav.setViewName("redirect:/user/welcome.do "); // 확장자 명시
          }
 
       } else {
@@ -419,5 +422,13 @@ public ModelAndView list2(
    
 }
 
+@RequestMapping(value = "/user/welcome.do", 
+method = RequestMethod.GET)
+public ModelAndView welcome(HttpSession session) {
+ModelAndView mav = new ModelAndView();
+mav.setViewName("/user/welcome");
+mav.addObject("countRead",messageDAO.countReadCheck(Integer.parseInt(String.valueOf(session.getAttribute("uno")))));
+return mav;
+}
 }
 

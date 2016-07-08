@@ -192,7 +192,7 @@ function fun_confirm(uno, uconfirm){
          </div>       
 
          
-<form name="frmSearch" method="get" action="./list.do"> 
+<form name="frmSearch" method="get" action="./list2.do"> 
     <div class="row">
     <div class="col-lg-12 text-center">
         <select id='email_dns' class='input-sm' name='col' style="width: 20%;">

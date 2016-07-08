@@ -1,4 +1,5 @@
 <%@page contentType="text/html; charset=UTF-8"%>
+
 <%
   request.setCharacterEncoding("UTF-8");
 %>
@@ -42,6 +43,7 @@
 
 <body id="page-top" class="index"> 
  
+
  
  <!-- Navigation -->
   <nav class="navbar navbar-default navbar-fixed-top">
@@ -67,7 +69,8 @@
           <% if (session.getAttribute("id") == null){ %>
           <li class="page-scroll"><a href="../user/login.do">Login</a></li>
           <% }else{ %>
-          <li class="page-scroll"><a href="../user/welcome.jsp">Welcome</a></li>
+          <li class="page-scroll"><a href="../user/welcome.do">Welcome</a></li>
+          <li class="page-scroll"><a href="../message/list.do?uno=${uno }">Message</a>
           <% } %>
           <li class="page-scroll"><a href="../trash/list2.do">Trash</a></li>
           <li class="page-scroll"><a href="../schedule/index.jsp">Schedule</a></li>

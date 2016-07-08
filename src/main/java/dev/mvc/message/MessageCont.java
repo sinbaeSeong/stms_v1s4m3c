@@ -95,6 +95,7 @@ public class MessageCont {
      mav.setViewName("/message/read"); // /webapp/member/create.jsp
 
      MessageVO messageVO = messageDAO.read(mno);
+     messageDAO.readCheck(mno);
      messageVO.setSender_id(userDAO.read(messageVO.getSender_uno()).getId());
      mav.addObject("messageVO", messageVO);
      
@@ -144,8 +145,11 @@ public class MessageCont {
      hashMap.put("word", word);
      hashMap.put("uno", messageVO.getUno());
      
+     mav.addObject("countRead", messageDAO.countReadCheck(messageVO.getUno()));
+     
+     
      int recordPerPage = 10;
-     int totalRecord = messageDAO.count(hashMap);
+     int totalRecord = messageDAO.count(hashMap); 
      int offset = (searchDTO.getNowPage() - 1) * 10;
      hashMap.put("offset", offset);
      
@@ -154,6 +158,9 @@ public class MessageCont {
      while (iter.hasNext() == true) { // 다음 요소 검사
         MessageVO vo = iter.next(); // 요소 추출
         vo.setSender_id(userDAO.read(vo.getSender_uno()).getId());
+        if(vo.getReadCheck()==0){
+           vo.setTitle("<i class='fa fa-paper-plane-o' aria-hidden='true'></i> "+vo.getTitle());
+        }
      }
      
      mav.addObject("list", list);
@@ -169,8 +176,7 @@ public class MessageCont {
      mav.addObject("paging",paging);
      
      return mav;
-     
   }
 
-  
+
 }

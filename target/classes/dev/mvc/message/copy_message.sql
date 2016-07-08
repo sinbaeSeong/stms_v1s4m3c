@@ -88,3 +88,21 @@ FROM message
 WHERE uno=1 AND sender LIKE '%sender%'
 ORDER BY mno ASC
 LIMIT 0, 5;
+
+-- 10 > Ä®·³ Ãß°¡
+
+ALTER TABLE message ADD readCheck INT;
+
+UPDATE message SET readCheck=0;
+
+    SELECT count(*) as cnt
+    FROM message
+    WHERE readCheck=0 
+    AND uno=1;
+    
+    
+        SELECT COUNT(mno) as cnt
+    FROM message
+    WHERE uno=1
+
+      AND   title LIKE '%¤·¤²¤¸%';

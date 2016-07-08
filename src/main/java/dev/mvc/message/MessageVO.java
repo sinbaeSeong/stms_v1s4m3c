@@ -21,8 +21,25 @@ public class MessageVO {
    private int uno;
    private int tno;
    private String title;
-   private String sender_id;
+   private int readCheck;
    
+   ////////////////////////////////////
+   
+   private String sender_id;
+   private int countReadCheck;
+   
+   public int getCountReadCheck() {
+      return countReadCheck;
+   }
+   public void setCountReadCheck(int countReadCheck) {
+      this.countReadCheck = countReadCheck;
+   }
+   public int getReadCheck() {
+      return readCheck;
+   }
+   public void setReadCheck(int readCheck) {
+      this.readCheck = readCheck;
+   }
    public String getSender_id() {
       return sender_id;
    }

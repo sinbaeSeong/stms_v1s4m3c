@@ -56,4 +56,15 @@ public class MessageDAO {
       return mapper().count(map);
    }
    
+   /** 읽음표시 */ //<update id='readCheck' parameterType='int'>
+   public int readCheck(int mno){
+      return mapper().readCheck(mno);
+   }
+   
+   
+   /** 안 읽은 갯수 출력 */ //<select id='countReadCheck' parameterType='int'>
+   public int countReadCheck(int uno){
+      return mapper().countReadCheck(uno);
+   }
+   
 }

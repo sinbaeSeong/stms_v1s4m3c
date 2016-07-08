@@ -84,11 +84,17 @@ function del(mno){
 
 
 
+
+
 <br>  
 
 <div class="row">
 <div class="col-lg-12 text-center">
 <a href='./create.do'>write new message</a>
+
+<label class="col-lg-12 text-center">
+<i class='fa fa-paper-plane-o' aria-hidden='true'></i>읽지않은 새로운 메세지 ${countRead }건이 있습니다!</label>
+
 </div>
 </div>
 

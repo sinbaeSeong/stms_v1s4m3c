@@ -7,53 +7,53 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
   <!-- Create -->
   <insert id="create" parameterType='MessageVO'>
-    INSERT INTO message(sender, sender_uno, title, mcontent, uno, tno, mdate)
-    VALUES (#{sender}, #{sender_uno}, #{title}, #{mcontent}, #{uno}, #{tno}, now())
+    INSERT INTO message(sender, sender_uno, title, mcontent, uno, tno, mdate,readCheck)
+    VALUES (#{sender}, #{sender_uno}, #{title}, #{mcontent}, #{uno}, #{tno}, now(),0)
   </insert>
   
   <!-- List -->
   <select id="list" resultType='MessageVO'>
-    SELECT mno, sender, mdate, uno, tno, title, sender_uno
+    SELECT mno, sender, mdate, uno, tno, title, sender_uno,readCheck
     FROM message
     ORDER BY mno ASC
   </select>  
 
-<!--  검색 갯수 세는 카운트 -->
+  <!--  검색 갯수 세는 카운트 -->
   <select id="count" resultType="int" parameterType="HashMap" >
-    SELECT COUNT(*) as cnt
+    SELECT COUNT(mno) as cnt
     FROM message
     WHERE uno=#{uno}
         <choose>
-           <when test="col == 'sender'">
-                 sender LIKE #{word}
-           </when>
-           <when test="col == 'title'">
-                title LIKE #{word}
-           </when>
+         <when test="col == 'sender'">
+            AND sender LIKE #{word}
+          </when>
+         <when test="col == 'title'">
+            AND title LIKE #{word}
+         </when>
         </choose>
-  </select>
+  </select>        
   
   <!-- Search + Paging List -->
   <select id="list2" resultType="MessageVO" parameterType="HashMap" >
-           SELECT mno, sender, mdate, uno, tno, title, sender_uno
+           SELECT mno, sender, mdate, uno, tno, title, sender_uno,readCheck
            FROM message
            WHERE uno=#{uno }
                          <choose>
                              <when test="col == 'sender'">
-                                   sender LIKE #{word}
+                                  AND sender LIKE #{word}
                              </when>
                              <when test="col == 'title'">
-                                  title LIKE #{word}
+                                  AND title LIKE #{word}
                              </when>
                          </choose>
             ORDER BY mno DESC
-            LIMIT #{offset}, 10;
+            LIMIT #{offset}, 10
   </select>  
   
   
   <!-- Read -->
   <select id="read" resultType='MessageVO'  parameterType='int'>
-    SELECT mno, sender, sender_uno, mcontent, mdate, uno, tno, title
+    SELECT mno, sender, sender_uno, mcontent, mdate, uno, tno, title,readCheck
     FROM message
     WHERE mno = #{mno}
   </select>
@@ -63,6 +63,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     DELETE FROM message
     WHERE mno = #{mno}
   </delete>
+
+  <!-- readCheck -->
+  <update id='readCheck' parameterType='int'>
+    UPDATE message
+    SET readCheck=1
+    WHERE mno=#{mno }
+  </update>
+  
+  <select id='countReadCheck' resultType='int' parameterType='int'>
+    SELECT count(*) as cnt
+    FROM message
+    WHERE readCheck=0 
+    AND uno=#{uno }
+  </select>
+
 
 </mapper>
   
