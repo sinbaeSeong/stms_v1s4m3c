@@ -84,7 +84,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <img class="img-responsive" src="img/profile4.png" alt="">
+          <img class="img-responsive" src="img/profile3.png" alt="">
           <div class="intro-text">
             <span class="name">STMS </span>
             <hr class="star-light">
