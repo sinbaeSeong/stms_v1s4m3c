@@ -2,6 +2,8 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page import ="java.text.*,java.util.*" %>
+
  
 <!DOCTYPE html> 
 <html lang="ko"> 
@@ -38,9 +40,6 @@ function del(sno){
 
 </style>
 
- <!-- Basic CSS -->
-<!-- <link href="../css/style.css" rel="Stylesheet" type="text/css"> -->
-
 <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 
@@ -56,6 +55,29 @@ function del(sno){
 <!-- ----------------------------------------- -->
 <jsp:include page="/menu/top.jsp" flush='false' />
 <!-- ----------------------------------------- -->
+ 
+ <!-- 달력 기본 변수 설정 -->
+<%   
+int year;
+int month;
+   Calendar today=Calendar.getInstance(); //현재 날짜와 시간 정보를 가진 Calendar 객체를 생성한다. 
+   
+   Calendar cal = new GregorianCalendar(); //지정한 날짜에서 시간을 더할 때 GregorianCalendar 클래스를 사용합니다.
+   
+   year = (request.getParameter("year")==null) ?  today.get(Calendar.YEAR) :      Integer.parseInt(request.getParameter("year").trim()) ;
+   month = (request.getParameter("month")==null) ?   today.get(Calendar.MONTH)+1:      Integer.parseInt(request.getParameter("month").trim()) ;
+    if (month<=0){
+      month = 12;
+      year  =year- 1;
+   }else if (month>=13){
+      month = 1;
+      year =year+ 1;
+   }
+   cal.set(Calendar.YEAR,year);
+   cal.set(Calendar.MONTH,(month-1));
+   cal.set(Calendar.DATE,1);
+%>
+<!-- ----------------- -->
  
 
 <%-- body 시작 --%>
@@ -84,10 +106,10 @@ function del(sno){
       <input type="text" class="input-sm" placeholder="search" id="word"
                      name="word" maxlength="16" value='${search.word }' style="width: 30%; ">
        <input type="submit" class="btn btn-success btn-sm" value="Search">
+       <a href="./calendar2.jsp" >Calendar</a>
     </div>
-    <a href='calendar2.jsp?year=&month='>
-<%--     <a href="./calendar2.jsp?year=${scheduleVO.year }&month=${scheduleVO.month}"> --%>Calendar</a>
-  </div>       
+   </div>       
+
   
   
   <!--  테이블 시작 -->

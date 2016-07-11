@@ -32,19 +32,10 @@
   href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
   rel="stylesheet" type="text/css">
 
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 
 <body id="page-top" class="index"> 
- 
-
- 
+  
  <!-- Navigation -->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -73,7 +64,7 @@
           <li class="page-scroll"><a href="../message/list.do?uno=${uno }">Message</a>
           <% } %>
           <li class="page-scroll"><a href="../trash/list2.do">Trash</a></li>
-          <li class="page-scroll"><a href="../schedule/index.jsp">Schedule</a></li>
+          <li class="page-scroll"><a href="../schedule/calendar2.jsp">Calendar</a></li>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
