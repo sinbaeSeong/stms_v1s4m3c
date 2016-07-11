@@ -132,7 +132,11 @@ function del(qno){
             <td class="td_l">
               <a href="./read.do?qno=${qnaVO.qno}"> ${qnaVO.qtitle }</a> 
             </td> 
-            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${qnaVO.qid }</td>
+            
+
+            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">
+
+            ${qnaVO.qid }</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${qnaVO.qcount }</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${qnaVO.qdate} </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">

@@ -57,16 +57,15 @@ public class QnaCont {
 
     if (qnaDAO.create(qnaVO) == 1) {
       msgs.add("Qna type is created.");
+  
       links
-          .add("<button type='button' onclick=\"location.href='./login.do'\">Login</button>");
-      links
-          .add("<button type='button' onclick=\"location.href='./home.do'\">Home</button>");
+          .add("<button type='button' onclick=\"location.href='../index.jsp'\">Home</button>");
     } else {
       msgs.add("Fall is not created trash type");
       links
           .add("<button type='button' onclick=\"history.back()\">Reload</button>");
       links
-          .add("<button type='button' onclick=\"location.href='./home.do'\">Home</button>");
+      .add("<button type='button' onclick=\"location.href='../index.jsp'\">Home</button>");
     }
 
     links

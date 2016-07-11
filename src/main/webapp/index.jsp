@@ -67,7 +67,7 @@
           <% if (session.getAttribute("id") == null){ %>
           <li class="page-scroll"><a href="./user/login.do">Login</a></li>
           <% }else{ %>
-          <li class="page-scroll"><a href="./user/welcome.jsp">Welcome</a></li>
+          <li class="page-scroll"><a href="./user/welcome.do">Welcome</a></li>
           <% } %>
           <li class="page-scroll"><a href="#about">About us</a></li>
           <li class="page-scroll"><a href="#contact">Contact me</a>
