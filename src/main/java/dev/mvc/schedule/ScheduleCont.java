@@ -102,12 +102,11 @@ public class ScheduleCont {
    * @return
    */
   @RequestMapping(value = "/schedule/read.do", method = RequestMethod.GET)
-  public ModelAndView read(int sno, int uno, HttpServletRequest request) {
+  public ModelAndView read(int sno, int uno,  HttpServletRequest request) {
     ModelAndView mav = new ModelAndView();
     mav.setViewName("/schedule/read");
     ScheduleVO scheduleVO = scheduleDAO.read(sno);
     mav.addObject("scheduleVO", scheduleVO);
-
     UserVO vo = userDAO.read(uno);
     mav.addObject("userVO", vo);
 

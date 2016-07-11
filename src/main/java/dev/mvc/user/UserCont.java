@@ -218,7 +218,7 @@ public class UserCont {
          session.setAttribute("passwd", userVO.getPasswd());
          session.setAttribute("name",userVO.getUname());
          session.setAttribute("uno", userVO.getUno());
-         session.setAttribute("act", "admin");
+         session.setAttribute("act", userVO.getAct());
 
          // ------------------------------------------------------------------
          // id 저장 관련 쿠키 저장

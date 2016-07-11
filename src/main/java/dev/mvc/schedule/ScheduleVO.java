@@ -14,6 +14,10 @@ public class ScheduleVO {
   private int sno;
   private int uno;
   private String slabeldate;
+  private String year;
+  private String month;
+  private String day;
+  
   private String slabel;
   private String stitle;
   private String content;
@@ -60,6 +64,24 @@ public class ScheduleVO {
   public void setSdate(String sdate) {
     this.sdate = sdate;
   }
+public String getYear() {
+   return year;
+}
+public void setYear(String year) {
+   this.year = year;
+}
+public String getMonth() {
+   return month;
+}
+public void setMonth(String month) {
+   this.month = month;
+}
+public String getDay() {
+   return day;
+}
+public void setDay(String day) {
+   this.day = day;
+}
   
   
   

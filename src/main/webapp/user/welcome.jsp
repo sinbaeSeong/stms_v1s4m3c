@@ -83,8 +83,12 @@
                   <button type="button" class="btn btn-success btn-lg" onclick='javascript: logout();'>Logout</button> 
                   <button type="button" class="btn btn-success btn-lg" onclick="location.href='./confirm.do?uno=${uno }'">User information</button> 
                   <button type="button" class="btn btn-success btn-lg" onclick="location.href='../message/list.do?uno=${uno}'">Message</button><br><br>
-                  <button type="button" class="btn btn-success btn-lg" onclick="#">Schedule(반구현)</button><br><br>
+                  <button type="button" class="btn btn-success btn-lg" onclick="">Schedule(반구현)</button><br><br>
+                  <c:if test="${act eq 'admin' }">
+                  <hr><br>
                   <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list2.do'">Admin-Userlist</button> 
+                  </c:if>
+
               </div>
               </div>
               </div>

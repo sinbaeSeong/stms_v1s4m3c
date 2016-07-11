@@ -25,6 +25,7 @@ CREATE TABLE schedule(
     content VARCHAR(600) NOT NULL,
     sdate DATETIME NOT NULL,
     uno INT,
+
   FOREIGN KEY (uno) REFERENCES user1 (uno)
 );
 
