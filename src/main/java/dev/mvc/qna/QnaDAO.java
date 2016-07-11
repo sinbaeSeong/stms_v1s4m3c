@@ -50,6 +50,13 @@ public class QnaDAO {
       return mapper().read(qno);
     }
     
+    //카운트업
+    public int countup(int qno){
+      return mapper().countup(qno);
+    }
+    
+    
+    
     /**
      * Update
      * @param vo
@@ -116,7 +123,9 @@ public class QnaDAO {
     
     
     
-    
+    public QnareplyVO readreply(int qreplyno){
+      return mapper().readreply(qreplyno);
+    }
     
     
     

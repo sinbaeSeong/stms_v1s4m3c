@@ -33,7 +33,10 @@
  
  <script type="text/JavaScript">
  function del(qno){
-    if(!confirm("Are you deletion? If this command deletes files, We can not restore.")){
+   var returnValue = prompt("비밀번호를 입력하세요", "");
+   
+   
+    if(!confirm("글을 삭제하겠습니까?")){
        return;
     } else {
        var f = document.createElement("form");
@@ -47,12 +50,27 @@
        i.setAttribute("value", qno);
        f.appendChild(i);
        
+       
+       
+       
+       var qp = document.createElement("input");
+       qp.setAttribute("type","hidden");
+       qp.setAttribute("name","qpasswd");
+       qp.setAttribute("value", returnValue);
+       f.appendChild(qp);
+       
+       
+       
+       
        f.submit();
     }
  }
  
  
  function delreply(qreplyno, qno){
+   var returnValue = prompt("비밀번호를 입력하세요", "");
+
+   
    if(!confirm("답변을 삭제하시겠습니까?")){
       return;
    } else {
@@ -75,6 +93,15 @@
       qno1.setAttribute("value", qno);
       f.appendChild(qno1);
       
+      
+      
+      
+      
+      var qpr = document.createElement("input");
+      qpr.setAttribute("type","hidden");
+      qpr.setAttribute("name","qreplypasswd");
+      qpr.setAttribute("value", returnValue);
+      f.appendChild(qpr);
       
       
       
@@ -140,13 +167,9 @@
            
            
            
-           <br><br><br><br><br><br><br>
+           <br><hr style="border: solid 1px gray;">
            <!--  답변 -->
-           
-           <div class="form-group col-xs-12">
-                  <label>-----------Reply-----------</label>
 
-              </div>
               
               
               

@@ -51,8 +51,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             qid LIKE #{word}
          </when>      
         </choose>
-            ORDER BY qno ASC
-            LIMIT #{offset}, 10;
+            ORDER BY qno DESC
+            LIMIT #{offset}, 10
   </select>  
    
 
@@ -64,6 +64,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     FROM qna
     WHERE qno= #{qno}
   </select>
+  
+  
+    <update id="countup" parameterType="int">
+    UPDATE qna
+    SET qcount=qcount+1
+    WHERE qno=#{qno}
+  </update>
+  
+  
+  
   
   <update id="update" parameterType="QnaVO">
     UPDATE qna
@@ -121,7 +131,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
   
   
-  
+    <select id="readreply" resultType="QnareplyVO" parameterType="int">
+    SELECT *
+    FROM qnareply
+    WHERE qreplyno= #{qreplyno}
+  </select>
   
   
   

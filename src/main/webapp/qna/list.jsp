@@ -15,7 +15,10 @@
 
 <script type="text/JavaScript">
 function del(qno){
-   if(!confirm("Are you deletion? If this command deletes files, We can not restore.")){
+  var returnValue = prompt("비밀번호를 입력하세요", "");
+  
+  
+   if(!confirm("글을 삭제하겠습니까?")){
       return;
    } else {
       var f = document.createElement("form");
@@ -29,9 +32,22 @@ function del(qno){
       i.setAttribute("value", qno);
       f.appendChild(i);
       
+      
+      
+      
+      var qp = document.createElement("input");
+      qp.setAttribute("type","hidden");
+      qp.setAttribute("name","qpasswd");
+      qp.setAttribute("value", returnValue);
+      f.appendChild(qp);
+      
+      
+      
+      
       f.submit();
    }
 }
+
 </script>
 
 <style type="text/css">

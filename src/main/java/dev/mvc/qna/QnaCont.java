@@ -107,7 +107,7 @@ public class QnaCont {
     QnaVO qnaVO = qnaDAO.read(qno);
     mav.addObject("qnaVO", qnaVO);
 
-    
+    qnaDAO.countup(qno);
 
     ArrayList<QnareplyVO> listreply = qnaDAO.listreply(qno);
     mav.addObject("listreply", listreply);
@@ -148,18 +148,33 @@ public class QnaCont {
     ArrayList<String> msgs = new ArrayList<String>();
     ArrayList<String> links = new ArrayList<String>();
 
-    if (qnaDAO.update(qnaVO) == 1) {
-      mav.setViewName("redirect:/qna/list2.do");
+    
+    if(qnaVO.getQpasswd().equals(qnaDAO.read(qnaVO.getQno()).getQpasswd())){
+      
+      if (qnaDAO.update(qnaVO) == 1) {
+        mav.setViewName("redirect:/qna/list2.do");
 
-    } else {
+      } else {
 
-      msgs.add("File upload is Fall.");
+        msgs.add("update is Fall.");
+        mav.addObject("msgs", msgs);
+        mav.addObject("links", links);
+
+        links
+            .add("<button type='button' onclick=\"location.href='./list2.do'\">Return</button>");
+      }
+      
+      
+    }else{
+      msgs.add("PASSWORD FAIL.");
       mav.addObject("msgs", msgs);
       mav.addObject("links", links);
 
       links
           .add("<button type='button' onclick=\"location.href='./list2.do'\">Return</button>");
     }
+    
+    
 
     return mav;
   }
@@ -171,25 +186,33 @@ public class QnaCont {
    * @return
    */
   @RequestMapping(value = "/qna/delete.do", method = RequestMethod.POST)
-  public ModelAndView delete(int qno) {
+  public ModelAndView delete(int qno, String qpasswd) {
     ModelAndView mav = new ModelAndView();
     mav.setViewName("/qna/message");
 
     ArrayList<String> msgs = new ArrayList<String>();
     ArrayList<String> links = new ArrayList<String>();
 
-    if (qnaDAO.delete(qno) == 1) {
-      mav.setViewName("redirect:/qna/list2.do");
+    if(qpasswd.equals(qnaDAO.read(qno).getQpasswd())){
+    
+      if (qnaDAO.delete(qno) == 1) {
+        mav.setViewName("redirect:/qna/list2.do");
 
-    } else {
-      msgs.add("File can't deletion.");
+      } else {
+        msgs.add("File can't deletion.");
+        mav.addObject("msgs", msgs);
+        mav.addObject("links", links);
+
+        links.add("<button type='button' onclick=\"location.href='./list2.do'\">Back</button>");
+      }
+    } else{
+      msgs.add("비밀번호 틀림");
       mav.addObject("msgs", msgs);
       mav.addObject("links", links);
 
       links
           .add("<button type='button' onclick=\"location.href='./list2.do'\">Back</button>");
     }
-
     return mav;
   }
 
@@ -289,18 +312,28 @@ public class QnaCont {
   
   
   @RequestMapping(value = "/qna/deletereply.do", method = RequestMethod.POST)
-  public ModelAndView deletereply(int qreplyno, int qno) {
+  public ModelAndView deletereply(int qreplyno, int qno, String qreplypasswd) {
     ModelAndView mav = new ModelAndView();
     mav.setViewName("/qna/message");
 
     ArrayList<String> msgs = new ArrayList<String>();
     ArrayList<String> links = new ArrayList<String>();
 
-    if (qnaDAO.deletereply(qreplyno) == 1) {
-      mav.setViewName("redirect:/qna/read.do?qno="+qno);
-
-    } else {
-      msgs.add("답변 삭제 실패");
+    if(qreplypasswd.equals(qnaDAO.readreply(qreplyno).getQreplypasswd())){
+    
+      if (qnaDAO.deletereply(qreplyno) == 1) {
+        mav.setViewName("redirect:/qna/read.do?qno="+qno);
+  
+      } else {
+        msgs.add("답변 삭제 실패");
+        mav.addObject("msgs", msgs);
+        mav.addObject("links", links);
+  
+        links
+        .add("<button type='button' onclick=\"history.back()\">Reload</button>");
+      }
+    }else{
+      msgs.add("비밀번호 틀림");
       mav.addObject("msgs", msgs);
       mav.addObject("links", links);
 

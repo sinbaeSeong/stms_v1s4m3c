@@ -25,6 +25,11 @@ public interface QnaMapperInter {
    */ 
   public QnaVO read(int qno); 
    
+  
+  
+  public int countup(int qno);
+  
+  
   /**
    *  Update
    * @param vo
@@ -66,9 +71,9 @@ public interface QnaMapperInter {
   
   
   
-  
-  
-  
+  public QnareplyVO readreply(int qreplyno);
+
+
 
 }
 
