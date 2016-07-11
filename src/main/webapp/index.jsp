@@ -84,7 +84,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <img class="img-responsive" src="img/profile3.png" alt="">
+          <img class="img-responsive" src="img/profile6.png" alt="">
           <div class="intro-text">
             <span class="name">STMS </span>
             <hr class="star-light">
@@ -111,7 +111,7 @@
                 <div class="caption-content">
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
-              </div> <img src="img/portfolio/cabin.png" class="img-responsive" alt="">
+              </div> <img src="img/portfolio/cabin1.png" class="img-responsive" alt="">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -121,17 +121,17 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-             <img src="img/portfolio/cake.png" class="img-responsive" alt="">
+             <img src="img/portfolio/cake1.png" class="img-responsive" alt="">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
-            <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+            <a href="./qna/list2.do" class="portfolio-link" data-toggle="modal">
               <div class="caption">
                 <div class="caption-content">
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div> 
-            <img src="img/portfolio/circus.png" class="img-responsive" alt="">
+            <img src="img/portfolio/circus1.png" class="img-responsive" alt="">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -141,7 +141,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div> 
-              <img src="img/portfolio/game.png" class="img-responsive" alt="">
+              <img src="img/portfolio/game1.png" class="img-responsive" alt="">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -150,7 +150,7 @@
                 <div class="caption-content">
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
-              </div> <img src="img/portfolio/safe.png" class="img-responsive" alt="">
+              </div> <img src="img/portfolio/safe1.png" class="img-responsive" alt="">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -160,7 +160,7 @@
                   <i class ="fa fa-search-plus fa-3x"></i>
                 </div>
                </div>
-             <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
+             <img src="img/portfolio/submarine1.png" class="img-responsive" alt="">
             </a>
           </div>
         </div>

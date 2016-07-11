@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dev.mvc.qna.QnaMapperInter">
+   
+   <!-- create -->
+    <insert id="create" parameterType="QnaVO">
+    INSERT INTO qna(qdate, qtitle, qcontent, qcount, qid, qpasswd, uno)
+    VALUES(now(), #{qtitle}, #{qcontent},0, #{qid},#{qpasswd},#{uno} )
+         
+   </insert> 
+   
+
+<!--  검색 갯수 세는 카운트 -->
+  <select id="count" resultType="int" parameterType="HashMap" >
+    SELECT COUNT(*) as cnt
+    FROM qna
+        <if test="col!=''">
+          WHERE
+        </if>
+        <choose>
+         <when test="col == 'qtitle'">
+            qtitle LIKE #{word}
+          </when>
+         <when test="col == 'qcontent'">
+            qcontent LIKE #{word}
+         </when>
+          <when test="col == 'qid'">
+            qid LIKE #{word}
+         </when>      
+        </choose>
+  </select>        
+        
+  <!-- Search + Paging List -->
+  <select id="list2" resultType="QnaVO" parameterType="HashMap" >
+     SELECT *
+    FROM qna
+        <if test="col!=''">
+          WHERE
+        </if>
+        <choose>
+         <when test="col == 'qtitle'">
+            qtitle LIKE #{word}
+          </when>
+         <when test="col == 'qcontent'">
+            qcontent LIKE #{word}
+         </when>
+          <when test="col == 'qid'">
+            qid LIKE #{word}
+         </when>      
+        </choose>
+            ORDER BY qno ASC
+            LIMIT #{offset}, 10;
+  </select>  
+   
+
+  <!-- ********** 검색에 따른 변경 종료 ********** -->     
+  
+  
+  <select id="read" resultType="QnaVO" parameterType="int">
+    SELECT *
+    FROM qna
+    WHERE qno= #{qno}
+  </select>
+  
+  <update id="update" parameterType="QnaVO">
+    UPDATE qna
+    SET qtitle=#{qtitle}, qcontent=#{qcontent}
+    WHERE qno=#{qno}
+  </update>
+  
+   <delete id="delete" parameterType="int">
+    DELETE FROM qna
+    WHERE qno=#{qno}
+  </delete> 
+ 
+   
+  
+  
+  
+  </mapper>
