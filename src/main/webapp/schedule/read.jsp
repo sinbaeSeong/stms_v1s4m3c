@@ -9,12 +9,9 @@
 <meta charset="UTF-8">
 <title></title>
  
-
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="">
 <meta name="author" content="">
- <!-- Basic CSS -->
-<!-- <link href="../css/style.css" rel="Stylesheet" type="text/css"> -->
 
 <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
 <link href="../css/bootstrap.min.css" rel="stylesheet">

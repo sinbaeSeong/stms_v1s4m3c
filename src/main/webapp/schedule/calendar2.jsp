@@ -16,8 +16,8 @@
 <meta name="author" content="">
 
 <!--  CSS-calendar -->
-  <link rel="stylesheet" href="bootstrap2/css/bootstrap.css">
-  <link rel="stylesheet" href="bootstrap2/css/bootstrap-responsive.css">
+  <link rel="stylesheet" href="css/bootstrap2/css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap2/css/bootstrap-responsive.css">
   <link rel="stylesheet" href="css/calendar.css">
 
 <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
@@ -31,35 +31,11 @@
           
 <script type="text/javascript" src="../js/tool.js"></script>
 
-
-<!-- Basic CSS -->
-<!-- <link href="../css/style.css" rel="Stylesheet" type="text/css">  -->
-
 <script type="text/JavaScript"
           src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script type="text/javascript" src="../js/tool.js"></script>
  
-  <script type="text/javascript" src="../js/calendar.js"></script>
-  <script type="text/javascript" src="../js/app.js"></script>
-  <script type="text/javascript" src="../js/jquery.min.js"></script>
- <!--  <script type="text/javascript" src="components/underscore/underscore-min.js"></script> -->
- <!--  <script type="text/javascript" src="components/bootstrap2/js/bootstrap.min.js"></script> -->
-
-
-<script type="text/javascript">
-    var disqus_shortname = 'bootstrapcalendar'; // required: replace example with your forum shortname
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-/*       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; */
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
- 
-<!-- <script type="text/javascript">
-  $(function(){ 
-     
-  });
-</script> -->
+  <!-- <script type="text/javascript" src="../js/calendar.js"></script> -->
+  <!-- <script type="text/javascript" src="../js/jquery.min.js"></script> -->
 
 </head> 
 <!-- ----------------------------------------- -->
@@ -76,14 +52,14 @@ int month;
    Calendar cal = new GregorianCalendar(); //지정한 날짜에서 시간을 더할 때 GregorianCalendar 클래스를 사용합니다.
    
    year = (request.getParameter("year")==null) ?  today.get(Calendar.YEAR) :      Integer.parseInt(request.getParameter("year").trim()) ;
- month = (request.getParameter("month")==null) ?   today.get(Calendar.MONTH)+1:      Integer.parseInt(request.getParameter("month").trim()) ;
-if (month<=0){
- month = 12;
- year  =year- 1;
-}else if (month>=13){
- month = 1;
- year =year+ 1;
-}
+   month = (request.getParameter("month")==null) ?   today.get(Calendar.MONTH)+1:      Integer.parseInt(request.getParameter("month").trim()) ;
+    if (month<=0){
+      month = 12;
+      year  =year- 1;
+   }else if (month>=13){
+      month = 1;
+      year =year+ 1;
+   }
    cal.set(Calendar.YEAR,year);
    cal.set(Calendar.MONTH,(month-1));
    cal.set(Calendar.DATE,1);
@@ -104,7 +80,7 @@ if (month<=0){
 
 
 <!-- 테이블 전체 -->
- <table style="margin: 10px auto; background-color: #f7f7f7; width: 80%; height: 700px;"> 
+ <!-- <table style="margin: 10px auto; background-color: #f7f7f7; width: 80%; height: 700px;">  -->
 
   <!-- 요일  -->
 <div id="calendar" class="cal-context" style="width: 100%;">
@@ -121,145 +97,40 @@ if (month<=0){
  
   <%
    cal.set(year, month-1, 1); //현재 객체의 년, 월, 일 값을 다른 값으로 설정한다. 
-   int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK); //현재 요일 (일요일은 1, 토요일은 7)%>
- 
- 
- <!-- 1st 컬럼 -->
- <div class="cal-month-box">   
-   <div class="cal-row-fluid cal-before-eventlist">
-
-      <div class="cal-cell1 cal-cell"  data-cal-row= "-day1" > 
-        <div class="cal-month-day cal-day-outmonth cal-day-weekend cal-month-first-row">
-          <span class="pull-right" data-cal-date="" data-cal-view="day" data-toggle="tooltip" title="" data-original-title=""></span>
-         <div id="cal-week-box" data-cal-week="2013-03-01" style="display: none;">Week 9</div>
-        </div>
-        </div> 
-
-  
-
-      <div class="cal-cell1 cal-cell"  data-cal-row= "-day2" >
-        <div class="cal-month-day cal-day-outmonth cal-day-weekend cal-month-first-row">
-          <span class="pull-right" data-cal-date="" data-cal-view="day" data-toggle="tooltip" title="" data-original-title=""></span>
-        </div>
-        </div>
+   int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK); //현재 요일 (일요일은 1, 토요일은 7)
+/*    System.out.println(dayOfWeek + "dayOfWeek ");
+   System.out.println(month + "month ");
+   System.out.println(year + "month "); */
+   %>
+ <!-- colum & row -->
+    <div class="cal-month-box">    
    
-
-
-      <div class="cal-cell1 cal-cell"  data-cal-row= "-day3" >  
-        <div class="cal-month-day cal-day-outmonth cal-day-weekend cal-month-first-row">
-          <span class="pull-right" data-cal-date="" data-cal-view="day" data-toggle="tooltip" title="" data-original-title=""></span>
+      <div class="cal-row-fluid cal-before-eventlist">
+      <% for(int i=1;i<dayOfWeek;i++){  
+          %> 
+          <div class="cal-cell1 cal-cell" data-cal-row="-day" style="bgcolor=f7f7f7;">  </div>      
+        <%
+      }
+        for(int i=1; i<=cal.getActualMaximum(Calendar.DAY_OF_MONTH); i++){  //현재 객체의 특정 필드의 최대 값을 반환한다.(달에 마지막 날짜 구하기)
+        %>  
+           <div class="cal-cell1 cal-cell" data-cal-row="-day">           
+              <div class="cal-month-day cal-day-inmonth cal-day-weekend">
+              <a href='clendar2.jsp?year=<%=cal.get(Calendar.YEAR)%>&month=<%=((cal.get(Calendar.MONTH)+1))%>&day=<%=i %>'>
+               <span class="pull-right" data-cal-date=""  data-toggle="tooltip" title=""><%=i %></span></a>
+               </div>
+            </div>
+            <%            
+                } %>
         </div>
-       </div>
  
-
-
-      <div class="cal-cell1 cal-cell"  data-cal-row= "-day4" > 
-        <div class="cal-month-day cal-day-outmonth cal-day-weekend cal-month-first-row">
-          <span class="pull-right" data-cal-date="" data-cal-view="day" data-toggle="tooltip" title="" data-original-title=""></span>
-        </div>
-      </div> 
-
-    
-
-
-      <div class="cal-cell1 cal-cell"  data-cal-row= "-day5" >
-        <div class="cal-month-day cal-day-outmonth cal-day-weekend cal-month-first-row">
-          <span class="pull-right" data-cal-date="" data-cal-view="day" data-toggle="tooltip" title="" data-original-title=""></span>
-        </div>
-      </div>
-
-
-      <div class="cal-cell1 cal-cell"  data-cal-row= "-day6" > 
-        <div class="cal-month-day cal-day-outmonth cal-day-weekend cal-month-first-row">
-          <span class="pull-right" data-cal-date="" data-cal-view="day" data-toggle="tooltip" title="" data-original-title=""></span>
-        </div>
-      </div> 
-
- 
-
-      <div class="cal-cell1 cal-cell"  data-cal-row= "-day7" > 
-        <div class="cal-month-day cal-day-outmonth cal-day-weekend cal-month-first-row">
-          <span class="pull-right" data-cal-date="" data-cal-view="day" data-toggle="tooltip" title="" data-original-title=""></span>
-        </div>
-      </div> 
-
-
-   </div>
-    
-    <!--  2번쨰 줄 -->
-    <div class="cal-row-fluid cal-before-eventlist">
-     <% for (int i=1; i <= 7; i++){ %>
-      <div class="cal-cell1 cal-cell" data-cal-row="-day<%=i%>">
-        <div class="cal-month-day cal-day-inmonth cal-day-weekend">
-          <span class="pull-right" data-cal-date="2013-03-03" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">3</span>
-  
-        </div>
-      </div>
-      <%} %>
-    </div>
-  
-    
-    <!--  3번쨰 -->
-    <div class="cal-row-fluid cal-before-eventlist">
-      <% for (int i=1; i <= 7; i++){ %>
-      <div class="cal-cell1 cal-cell" data-cal-row="-day<%=i%>">
-      <div class="cal-month-day cal-day-inmonth cal-day-weekend">
-       <span class="pull-right" data-cal-date="2013-03-10" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">10</span>
-      </div>
-      </div>
-    <%} %>
-     
-    </div>
-  
-    
-    <!--  4번쨰 -->
-    <div class="cal-row-fluid cal-before-eventlist">
-      <% for (int i=1; i <= 7; i++){ %>
-      <div class="cal-cell1 cal-cell" data-cal-row="-day<%=i%>">
-      <div class="cal-month-day cal-day-inmonth cal-day-weekend">
-       <span class="pull-right" data-cal-date="2013-03-10" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">10</span>
-      <!-- <div class="events-list" data-cal-start="1363446000000" data-cal-end="1363532400000">
-         <a href="http://www.example.com/" data-event-id="548" data-event-class="event-special" class="pull-left event event-special" data-toggle="tooltip" title="" data-original-title="This is special event"></a> -->
-      </div>
-      </div>
-    <%} %>
-     
-    </div>
-  
-    
-    <!--  5번쨰 -->
-    <div class="cal-row-fluid cal-before-eventlist">
-      <% for (int i=1; i <= 7; i++){ %>
-      <div class="cal-cell1 cal-cell" data-cal-row="-day<%=i%>">
-      <div class="cal-month-day cal-day-inmonth cal-day-weekend">
-       <span class="pull-right" data-cal-date="2013-03-10" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">10</span>
-    <!--   <div id="cal-week-box" data-cal-week="2013-03-24" style="display: none;">Week 13</div></div>
-      <div class="events-list" data-cal-start="1363446000000" data-cal-end="1363532400000"> 
-         <a href="http://www.example.com/" data-event-id="548" data-event-class="event-special" class="pull-left event event-special" data-toggle="tooltip" title="" data-original-title="This is special event"></a>
-      -->
-       </div>
-      </div>
-    <%} %>
-     
-    </div>
-    
-    <!--  6번쨰 -->
-    <div class="cal-row-fluid cal-before-eventlist">
-      <% for (int i=1; i <= 7; i++){ %>
-      <div class="cal-cell1 cal-cell" data-cal-row="-day<%=i%>">
-      <div class="cal-month-day cal-day-inmonth cal-day-weekend">
-       <span class="pull-right" data-cal-date="2013-03-10" data-cal-view="day" data-toggle="tooltip" title="" data-original-title="">10</span>
-    <!--   <div id="cal-week-box" data-cal-week="2013-03-24" style="display: none;">Week 13</div></div>
+      
+    <!--  event 등록 --> 
+    <!--<div id="cal-week-box" data-cal-week="2013-03-24" style="display: none;">Week 13</div></div>
       <div class="events-list" data-cal-start="1363446000000" data-cal-end="1363532400000">
          <a href="http://www.example.com/" data-event-id="548" data-event-class="event-special" class="pull-left event event-special" data-toggle="tooltip" title="" data-original-title="This is special event"></a>
        -->
-      </div>
-      </div>
-    <%} %>
-    
-    </div>
-    
-</div>
+   </div>
+ </div>
  
 <!-- -------------------------------------------- -->
 </body>
