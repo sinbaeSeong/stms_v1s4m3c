@@ -92,8 +92,10 @@ function del(mno){
 <div class="col-lg-12 text-center">
 <a href='./create.do'>write new message</a>
 
+<c:if test="${countRead ne 0 }">
 <label class="col-lg-12 text-center">
 <i class='fa fa-paper-plane-o' aria-hidden='true'></i>읽지않은 새로운 메세지 ${countRead }건이 있습니다!</label>
+</c:if>
 
 </div>
 </div>

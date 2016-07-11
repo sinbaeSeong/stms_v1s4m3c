@@ -49,8 +49,3 @@ public interface UserMapperInter {
 
 }
 
-
-
-
-
-

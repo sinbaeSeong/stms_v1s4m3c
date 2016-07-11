@@ -243,7 +243,7 @@ public class UserCont {
          if (url_address.length() > 0){
             mav.setViewName("redirect:" + userVO.getUrl_address());
          }else{
-            mav.setViewName("redirect:/user/welcome.do "); // 확장자 명시
+            mav.setViewName("redirect:/user/welcome.do"); // 확장자 명시
          }
 
       } else {
