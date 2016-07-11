@@ -47,7 +47,10 @@ public interface UserMapperInter {
   /** 검색 갯수 카운트 */ //<select id="count" resultType="int" parameterType="HashMap" >
   public int count(HashMap<String, Object> map);
 
-  /** 체크 아이디 */ //<select id='checkID' resultType='int' parameterType='UserVO'>
-  public int checkID(UserVO userVO);
+  /** 체크 아이디 */ //<select id='checkID' resultType='int' parameterType='String'>
+  public int checkID(String id);
+  
+  /** 체크 이메일 */ //<select id='checkEmail' resultType='int' parameterType='String'>
+  public int checkEmail(String email);
 }
 

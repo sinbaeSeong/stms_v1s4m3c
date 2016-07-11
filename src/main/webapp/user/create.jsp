@@ -43,38 +43,46 @@ window.onload=function(){
       return false; 
     }
    }
-   
-   $(function(){
-      $('#user_number').blur(function(){
-          $.ajax({
-              type:"POST",
-              url:"/user/idcheck.do",
-              data:{
-                  "id": $('#id').val()
-              },
-              success:function(data){
-                  if($.trim(data) == "YES"){
-                      //alert('사용가능');
-                      $('#idck').html('<b style="font-size:18px;color:blue">사용가능.</b>');
-                  }else{
-                      //alert('사용불가');
-                      $('#idck').html('<b style="font-size:18px;color:red">사용불가.</b>');
-                  }
-              }
-          });    
-      });
-  });
+}
 
+function onkey(){
+   var id = document.getElementById("id").value;
+   xmlhttp=new XMLHttpRequest();
    
+   xmlhttp.onreadystatechange = res_onkey;
+   xmlhttp.open("POST","./checkID.do",true);
+   xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded"); 
+   xmlhttp.send("id="+id); 
+
+}
+
+function res_onkey(){
+   if(xmlhttp.readyState==4){
+      if(xmlhttp.status==200){
+         var res_text = xmlhttp.responseText;
+         document.getElementById("idck").innerHTML = res_text;
+      }
+   }
+}
+
+function onkey_e(){
+   var email = document.getElementById("email").value;
+   xmlhttp=new XMLHttpRequest();
    
-   
-   
-   
-   
-   
-   
-   
-   
+   xmlhttp.onreadystatechange = res_onkey_e;
+   xmlhttp.open("POST","./checkEmail.do",true);
+   xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded"); 
+   xmlhttp.send("email="+email); 
+
+}
+
+function res_onkey_e(){
+   if(xmlhttp.readyState==4){
+      if(xmlhttp.status==200){
+         var res_text = xmlhttp.responseText;
+         document.getElementById("emailck").innerHTML = res_text;
+      }
+   }
 }
 </script>
  
@@ -111,7 +119,7 @@ window.onload=function(){
               <div class="form-group col-xs-12">
                   <label>Id </label>
                      <input type="text" class="form-control" placeholder="id" id="id"
-                     name="id" maxlength="16" autofocus required>    
+                     name="id" maxlength="16" autofocus required onkeyup="onkey()" autocomplete="off">    
                      <span id='idck'></span>
                   <p class="help-block text-danger"></p>
               </div>
@@ -156,7 +164,8 @@ window.onload=function(){
               <div class="form-group col-xs-12 ">
                  <label>Email</label>
                     <input type="email" class="form-control" placeholder="email" id="email"
-                    name="email" maxlength="40" required>
+                    name="email" maxlength="40" required autocomplete="off" onkeyup="onkey_e()">
+                 <span id='emailck'></span>
                  <p class="help-block text-danger"></p>
               </div>
               </div>

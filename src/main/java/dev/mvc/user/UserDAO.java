@@ -92,9 +92,14 @@ public class UserDAO {
      return mapper().count(map);
   }
   
-  /** 체크 아이디 */ //<select id='checkID' resultType='int' parameterType='UserVO'>
-  public int checkID(UserVO userVO){
-     return mapper().checkID(userVO);
+  /** 체크 아이디 */ //<select id='checkID' resultType='int' parameterType='String'>
+  public int checkID(String id){
+     return mapper().checkID(id);
+  }
+  
+  /** 체크 이메일 */ //<select id='checkEmail' resultType='int' parameterType='String'>
+  public int checkEmail(String email){
+     return mapper().checkEmail(email);
   }
 }
 

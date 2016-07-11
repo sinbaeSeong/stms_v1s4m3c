@@ -1,5 +1,7 @@
 package dev.mvc.user;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -432,22 +434,42 @@ return mav;
 }
 
 
-@RequestMapping(value = "/user/idcheck.do", 
+@RequestMapping(value = "/user/checkID.do", 
 method = RequestMethod.POST)
-public ModelAndView idcheck(UserVO userVO) {
-   ModelAndView mav = new ModelAndView();
-   ArrayList<String> msgs = new ArrayList<String>();
+public void checkID(String id,
+      HttpServletResponse response,
+      HttpServletRequest request) throws IOException {
    
+   String mess;
    
-   if(userDAO.checkID(userVO)>0){
-      msgs.add("중복 ㅉㅉ");
-   }else{
-      msgs.add("멋진 아이디네요!");
+   if(userDAO.checkID(id)>0){
+      mess = "<font color='red'>등록된 아이디 입니다</font>";
+   } else {
+      mess = "<font color='green'>멋진 아이디네요!</font>";
    }
+   response.setContentType("text/html;charset=utf-8");
+   response.setHeader("Cache-control", "no-cache");
+   PrintWriter out = response.getWriter();
+   out.println(mess);
+}
 
-   mav.addObject("msgs", msgs);
+@RequestMapping(value = "/user/checkEmail.do", 
+method = RequestMethod.POST)
+public void checkEmail(String email,
+      HttpServletResponse response,
+      HttpServletRequest request) throws IOException {
    
-   return mav;
+   String mess;
+   
+   if(userDAO.checkID(email)>0){
+      mess = "<font color='red'>등록된 이메일 입니다</font>";
+   } else {
+      mess = "<font color='green'>멋진 이메일이네요!</font>";
+   }
+   response.setContentType("text/html;charset=utf-8");
+   response.setHeader("Cache-control", "no-cache");
+   PrintWriter out = response.getWriter();
+   out.println(mess);
 }
 
 

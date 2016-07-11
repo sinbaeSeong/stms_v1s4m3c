@@ -130,12 +130,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   </select>  
   
   <!-- Check ID -->
-  <select id='checkID' resultType='int' parameterType='UserVO'>
+  <select id='checkID' resultType='int' parameterType='String'>
     SELECT COUNT(*) as cnt
     FROM user1
     WHERE id=#{id}
   </select>
   
-  
+  <!-- Check Email -->
+  <select id='checkEmail' resultType='int' parameterType='String'>
+    SELECT COUNT(*) as cnt
+    FROM user1
+    WHERE email=#{email}
+  </select>
   
 </mapper>
