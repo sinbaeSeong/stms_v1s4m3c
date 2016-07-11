@@ -206,6 +206,11 @@ public class ScheduleCont {
      word = "%"+word+"%";
      hashMap.put("word", word);
      
+     String sdate = year + month + day;
+     
+     ScheduleVO.setSdate();
+     
+     
      int recordPerPage = 10;
      int totalRecord = scheduleDAO.count(hashMap);
      int offset = (searchDTO.getNowPage() - 1) * 10;
@@ -227,7 +232,9 @@ public class ScheduleCont {
      
      return mav;
      
-  }
+     
+    
+     
 
   
 }

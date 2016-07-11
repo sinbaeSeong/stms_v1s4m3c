@@ -128,5 +128,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ORDER BY uno DESC
             LIMIT #{offset}, 10;
   </select>  
-
+  
+  <!-- Check ID -->
+  <select id='checkID' resultType='int' parameterType='UserVO'>
+    SELECT COUNT(*) as cnt
+    FROM user1
+    WHERE id=#{id}
+  </select>
+  
+  
+  
 </mapper>

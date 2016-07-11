@@ -17,6 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     FROM schedule
     ORDER BY sno ASC
   </select> -->
+  
 
 <!--  검색 갯수 세는 카운트 -->
   <select id="count" resultType="int" parameterType="HashMap" >

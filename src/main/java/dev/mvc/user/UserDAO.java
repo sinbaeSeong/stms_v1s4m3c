@@ -91,6 +91,11 @@ public class UserDAO {
   public int count(HashMap<String, Object> map){
      return mapper().count(map);
   }
+  
+  /** 체크 아이디 */ //<select id='checkID' resultType='int' parameterType='UserVO'>
+  public int checkID(UserVO userVO){
+     return mapper().checkID(userVO);
+  }
 }
 
 

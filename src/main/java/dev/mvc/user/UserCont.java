@@ -430,5 +430,26 @@ mav.setViewName("/user/welcome");
 mav.addObject("countRead",messageDAO.countReadCheck(Integer.parseInt(String.valueOf(session.getAttribute("uno")))));
 return mav;
 }
+
+
+@RequestMapping(value = "/user/idcheck.do", 
+method = RequestMethod.POST)
+public ModelAndView idcheck(UserVO userVO) {
+   ModelAndView mav = new ModelAndView();
+   ArrayList<String> msgs = new ArrayList<String>();
+   
+   
+   if(userDAO.checkID(userVO)>0){
+      msgs.add("중복 ㅉㅉ");
+   }else{
+      msgs.add("멋진 아이디네요!");
+   }
+
+   mav.addObject("msgs", msgs);
+   
+   return mav;
+}
+
+
 }
 

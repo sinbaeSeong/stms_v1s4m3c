@@ -31,6 +31,8 @@
 <script type="text/javascript" src="../js/tool.js"></script>
 <script type="text/javascript">
 window.onload=function(){
+   var ajax = new XMLHttpRequest();
+   
    document.getElementById('frm').onsubmit=function(){
     var pass=document.getElementById('passwd').value;
     var repasswd=document.getElementById('repasswd').value;
@@ -41,7 +43,39 @@ window.onload=function(){
       return false; 
     }
    }
-  }
+   
+   $(function(){
+      $('#user_number').blur(function(){
+          $.ajax({
+              type:"POST",
+              url:"/user/idcheck.do",
+              data:{
+                  "id": $('#id').val()
+              },
+              success:function(data){
+                  if($.trim(data) == "YES"){
+                      //alert('사용가능');
+                      $('#idck').html('<b style="font-size:18px;color:blue">사용가능.</b>');
+                  }else{
+                      //alert('사용불가');
+                      $('#idck').html('<b style="font-size:18px;color:red">사용불가.</b>');
+                  }
+              }
+          });    
+      });
+  });
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+}
 </script>
  
 </head> 
@@ -78,6 +112,7 @@ window.onload=function(){
                   <label>Id </label>
                      <input type="text" class="form-control" placeholder="id" id="id"
                      name="id" maxlength="16" autofocus required>    
+                     <span id='idck'></span>
                   <p class="help-block text-danger"></p>
               </div>
               </div>
