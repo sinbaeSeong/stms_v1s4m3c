@@ -80,4 +80,55 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
   
   
+<!-- 리플 ★★★★★★★★★★★★★★★★★★★★★★★★★★-->
+  
+  
+  
+  
+   <!-- create -->
+    <insert id="createreply" parameterType="QnareplyVO">
+    INSERT INTO qnareply(qreplydate, qreplycontent, qreplyid, qreplypasswd, qno)
+    VALUES(now(), #{qreplycontent}, #{qreplyid},#{qreplypasswd},#{qno} )
+         
+   </insert> 
+   
+   
+   
+   
+   
+   
+     <!-- List -->
+  <select id="listreply" resultType="QnareplyVO" parameterType="int" >
+     SELECT *
+    FROM qnareply
+    WHERE qno = #{qno}
+   ORDER BY qreplyno DESC
+   
+  </select>  
+   
+   
+   
+   
+   
+   
+      <delete id="deletereply" parameterType="int">
+    DELETE FROM qnareply
+    WHERE qreplyno=#{qreplyno}
+  </delete> 
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   </mapper>

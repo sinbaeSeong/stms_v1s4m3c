@@ -10,6 +10,34 @@
 -- 9 > Paging Search List
 /* --------------------------------------- */
 
+qna reply table
+
+
+CREATE TABLE qnareply(
+    qreplyno                               INT    NOT NULL     AUTO_INCREMENT   PRIMARY KEY,
+    qreplydate                             DATETIME     NOT NULL,
+
+    qreplycontent                          VARCHAR(2000)    NOT NULL,
+
+    qreplyid                               VARCHAR(16)     NULL,
+    qreplypasswd                           VARCHAR(16)     NULL,
+    qno                               INT    NULL
+
+);
+
+
+drop table qnareply;
+
+
+
+
+
+
+
+
+
+
+
 
 1. Create Table
 CREATE TABLE qna(
@@ -23,6 +51,13 @@ CREATE TABLE qna(
     uno                               INT    NULL
 
 );
+
+
+
+
+
+
+
 
 2. Drop Table
 DROP TABLE qna;

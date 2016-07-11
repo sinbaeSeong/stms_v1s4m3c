@@ -100,7 +100,7 @@
              %> 
               
              <input type="hidden" id="qid" name="qid" value="${id }">
-             <input type="hidden" id="qid" name="qid" value="${uno }">
+             <input type="hidden" id="uno" name="uno" value="${uno }">
               
               <% 
              } %>

@@ -76,14 +76,14 @@ function del(tno){
   <div class="row">
     <div class="col-lg-12 text-center">
       <select id='email_dns' class='input-sm' name='col' style="width: 20%;">
-          <option>Total List</option>
+          <option value=''>검색</option>
           <option value='tname' ${search.col == "tname" ? "selected=selected" : "" }>ID</option>
           <option value='location' ${search.col == "location" ? "selected=selected" : "" }>Location</option>
           <option value='maxcapa' ${search.col == "maxcapa" ? "selected=selected" : "" }>Capacity</option>
        </select>
       <input type="text" class="input-sm" placeholder="search" id="word"
                      name="word" maxlength="16" value='${search.word }' style="width: 30%; ">
-      <input type="submit">
+      <input type="submit" value='search' class='btn btn-success btn-sm'>
     </div>
   </div>       
   

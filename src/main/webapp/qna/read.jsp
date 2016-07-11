@@ -50,7 +50,38 @@
        f.submit();
     }
  }
- </script>
+ 
+ 
+ function delreply(qreplyno, qno){
+   if(!confirm("답변을 삭제하시겠습니까?")){
+      return;
+   } else {
+      var f = document.createElement("form");
+      f.setAttribute("method","post");
+      f.setAttribute("action","./deletereply.do");
+      document.body.appendChild(f);
+      
+      var i = document.createElement("input");
+      i.setAttribute("type","hidden");
+      i.setAttribute("name","qreplyno");
+      i.setAttribute("value", qreplyno);
+      
+      f.appendChild(i);
+      
+      
+      var qno1 = document.createElement("input");
+      qno1.setAttribute("type","hidden");
+      qno1.setAttribute("name","qno");
+      qno1.setAttribute("value", qno);
+      f.appendChild(qno1);
+      
+      
+      
+      
+      f.submit();
+   }
+}
+
 </script>
 </head>
 <!-- ----------------------------------------- -->
@@ -61,14 +92,14 @@
     <section id="contact">
       <div class="container">
         <div class="row">
-          <DIV class='col-lg-12 text-center'><h2>Qna Read</h2>
+          <DIV class='col-lg-12 text-center'><h2>Q & A</h2>
           <hr class="star-primary"/>
           </DIV>
          </div>     
              
       <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-           <FORM name='frm' method="get" action='./update.do'>
+           <FORM name='frm'>
              <input type="hidden" name="qno" value="${qnaVO.qno}">
               
               <div class="row control-group">
@@ -92,6 +123,8 @@
                   <span class="form-control"> ${qnaVO.qid}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
+              
+             
            
             <div id="success"></div>
              <div class="row">
@@ -102,6 +135,135 @@
            </div>
            </div>
            </form> 
+           
+           
+           
+           
+           
+           <br><br><br><br><br><br><br>
+           <!--  답변 -->
+           
+           <div class="form-group col-xs-12">
+                  <label>-----------Reply-----------</label>
+
+              </div>
+              
+              
+              
+              <c:forEach var="qnareplyVO" items="${listreply }">
+
+<label>${qnareplyVO.qreplyid } (${qnareplyVO.qreplydate })</label>
+<a href="javascript:delreply(${qnareplyVO.qreplyno },${qnareplyVO.qno })">
+<img src='../img/delete.png'></a>
+<input type="text" value="${qnareplyVO.qreplycontent }" readonly="readonly"  class="form-control">
+
+
+
+
+
+  
+  
+  
+    <br>
+      </c:forEach>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+            <FORM name='frmreply' method="post" action='./createreply.do'>
+             <input type="hidden" name="qno" value="${qnaVO.qno}">
+              
+              
+              <%if(session.getAttribute("id")==null){ %>
+              
+              
+              <div class="row control-group"> 
+<div class="form-group col-xs-12 ">
+      <label for="capa">ID</label>
+      <input type="text" class="form-control" placeholder="비회원 아이디" id="qreplyid" name="qreplyid" required>
+   <p class="help-block text-danger"></p>
+  </div>
+</div>
+
+<div class="row control-group">
+<div class="form-group col-xs-12 ">
+      <label for="capa">PASSWORD</label>
+      <input type="text" class="form-control" placeholder="비회원 비밀번호" id="qreplypasswd" name="qreplypasswd" required>
+   <p class="help-block text-danger"></p>
+  </div>
+</div>
+             <%}else{
+               
+         
+             %> 
+              
+             <input type="hidden" id="qreplyid" name="qreplyid" value="${id }">
+              
+              <% 
+             } %>
+              
+              
+              
+              
+              
+<div class="row control-group">
+             <div class="form-group col-xs-12">
+                  <label>Content </label>
+                  <input type="text" class="form-control" placeholder="답변 내용을 입력하세요" id="qreplycontent" name="qreplycontent" required>
+                          
+                  <p class="help-block text-danger"></p>
+              </div>
+
+</div>
+              
+             
+           
+            <div id="success"></div>
+             <div class="row">
+             <div class="form-group col-xs-12">
+            <button type="submit" class="btn btn-success btn-lg">답변등록</button>
+
+            
+           </div>
+           </div>
+           </form>
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
           </div>
          </div>
         </div>

@@ -79,6 +79,51 @@ public class QnaDAO {
        return mapper().count(map);
     }
   
+    
+    
+    
+    
+    
+    
+    
+    //´äº¯
+    
+    
+    public int createreply(QnareplyVO vo){
+      return mapper().createreply(vo);
+    }
+    
+    
+    
+    
+    
+    public ArrayList<QnareplyVO> listreply(int qno){
+      return mapper().listreply(qno);
+    }
+    
+    
+    
+    
+    public int deletereply(int qno){
+      return mapper().deletereply(qno);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 

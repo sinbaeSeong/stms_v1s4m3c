@@ -23,6 +23,7 @@ public class QnaCont {
   @Qualifier("dev.mvc.qna.QnaDAO")
   private QnaDAO qnaDAO;
 
+
   @Autowired
   @Qualifier("dev.mvc.user.UserDAO")
   private UserDAO userDAO;
@@ -108,6 +109,16 @@ public class QnaCont {
 
     
 
+    ArrayList<QnareplyVO> listreply = qnaDAO.listreply(qno);
+    mav.addObject("listreply", listreply);
+    
+    
+    
+    
+
+    
+    
+    
     return mav;
   }
 
@@ -224,5 +235,110 @@ public class QnaCont {
      
   }
 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  //답변
+  
+  
+
+  @RequestMapping(value = "/qna/createreply.do", method = RequestMethod.POST)
+  public ModelAndView create(QnareplyVO qnareplyVO) {
+    System.out.println("--> createreply() POST called.");
+    ModelAndView mav = new ModelAndView();
+    mav.setViewName("/qna/message");
+
+    ArrayList<String> msgs = new ArrayList<String>();
+    ArrayList<String> links = new ArrayList<String>();
+
+    if (qnaDAO.createreply(qnareplyVO) == 1) {
+      msgs.add("Qna reply type is created.");
+      mav.setViewName("redirect:/qna/read.do?qno="+qnareplyVO.getQno());
+    } else {
+      msgs.add("Fall is not created qna reply type");
+      links
+          .add("<button type='button' onclick=\"history.back()\">Reload</button>");
+          mav.addObject("msgs", msgs);
+          mav.addObject("links", links);
+    }
+
+    return mav;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  @RequestMapping(value = "/qna/deletereply.do", method = RequestMethod.POST)
+  public ModelAndView deletereply(int qreplyno, int qno) {
+    ModelAndView mav = new ModelAndView();
+    mav.setViewName("/qna/message");
+
+    ArrayList<String> msgs = new ArrayList<String>();
+    ArrayList<String> links = new ArrayList<String>();
+
+    if (qnaDAO.deletereply(qreplyno) == 1) {
+      mav.setViewName("redirect:/qna/read.do?qno="+qno);
+
+    } else {
+      msgs.add("답변 삭제 실패");
+      mav.addObject("msgs", msgs);
+      mav.addObject("links", links);
+
+      links
+      .add("<button type='button' onclick=\"history.back()\">Reload</button>");
+    }
+
+    return mav;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
 }
