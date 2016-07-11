@@ -102,11 +102,12 @@ public class ScheduleCont {
    * @return
    */
   @RequestMapping(value = "/schedule/read.do", method = RequestMethod.GET)
-  public ModelAndView read(int sno, int uno,  HttpServletRequest request) {
+  public ModelAndView read(int sno, int uno, HttpServletRequest request) {
     ModelAndView mav = new ModelAndView();
     mav.setViewName("/schedule/read");
     ScheduleVO scheduleVO = scheduleDAO.read(sno);
     mav.addObject("scheduleVO", scheduleVO);
+
     UserVO vo = userDAO.read(uno);
     mav.addObject("userVO", vo);
 
@@ -194,7 +195,8 @@ public class ScheduleCont {
    */
   @RequestMapping(value = "/schedule/list2.do", method = RequestMethod.GET)
   public ModelAndView list2(
-      
+        
+        ScheduleVO scheduleVO,
         SearchDTO searchDTO,
         HttpServletRequest request) {
      ModelAndView mav = new ModelAndView();
@@ -206,11 +208,9 @@ public class ScheduleCont {
      word = "%"+word+"%";
      hashMap.put("word", word);
      
-     String sdate = year + month + day;
-     
-     ScheduleVO.setSdate();
-     
-     
+     String labeldate = scheduleVO.getYear() +"-"+ scheduleVO.getMonth() +"-"+ scheduleVO.getDay();
+     scheduleVO.setSlabeldate(labeldate);
+          
      int recordPerPage = 10;
      int totalRecord = scheduleDAO.count(hashMap);
      int offset = (searchDTO.getNowPage() - 1) * 10;
@@ -232,9 +232,22 @@ public class ScheduleCont {
      
      return mav;
      
+  }
+  
+  @RequestMapping(value = "/schedule/calendar.do", method = RequestMethod.GET)
+  public ModelAndView calendar(ScheduleVO scheduleVO){
+     ModelAndView mav = new ModelAndView();
      
-    
-     
+     if(scheduleVO.getMonth().length()==1)
+       scheduleVO.setMonth("0"+scheduleVO.getMonth());
+     if(scheduleVO.getDay().length()==1)
+       scheduleVO.setDay("0"+scheduleVO.getDay());
+  
+     String labeldate = scheduleVO.getYear() +"-"+ scheduleVO.getMonth() +"-"+ scheduleVO.getDay();
+     mav.setViewName("redirect:/schedule/list2.do?col=slabeldate&word="+labeldate);
+        
+     return mav;
+  }
 
   
 }

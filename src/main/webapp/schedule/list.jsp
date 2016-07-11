@@ -83,8 +83,10 @@ function del(sno){
        </select>
       <input type="text" class="input-sm" placeholder="search" id="word"
                      name="word" maxlength="16" value='${search.word }' style="width: 30%; ">
-      <input type="submit">
+       <input type="submit" class="btn btn-success btn-sm" value="Search">
     </div>
+    <a href='calendar2.jsp?year=&month='>
+<%--     <a href="./calendar2.jsp?year=${scheduleVO.year }&month=${scheduleVO.month}"> --%>Calendar</a>
   </div>       
   
   
@@ -110,8 +112,8 @@ function del(sno){
          <c:forEach var="scheduleVO" items="${list }">
           <tr class="row control-group" style="font-size: 20px;">
             <td class="td">${scheduleVO.sno}</td>
-            <td class="td_l">
-              <a href="./read.do?sno=${scheduleVO.sno}&uno=1"> ${scheduleVO.slabeldate }</a> 
+            <td class="td">
+              <a href="./read.do?sno=${scheduleVO.sno}&uno=1"> ${scheduleVO.slabeldate}</a> 
             </td> 
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${scheduleVO.slabel }</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${scheduleVO.stitle }</td>
@@ -119,7 +121,7 @@ function del(sno){
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
               <a href="./update.do?sno=${scheduleVO.sno}"><img src="../images/upload.jpg" title="Update" border='0'/></a>
               <a href="javascript:del(${scheduleVO.sno })"><img src="../images/delete.png" title="Delete"  border='0'/> </a>
-      
+               
              </td>
           </tr>
       </c:forEach>

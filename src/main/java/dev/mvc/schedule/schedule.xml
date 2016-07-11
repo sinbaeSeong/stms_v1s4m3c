@@ -64,6 +64,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
   <!-- ********** 검색에 따른 변경 종료 ********** -->     
   
+<!--   <select id='list3' >
+    SELECT CURDATE()
+  </select> -->
+  
+  
   <select id="read" resultType="ScheduleVO" parameterType="int">
     SELECT sno, slabeldate, slabel, stitle, content, sdate
     FROM schedule

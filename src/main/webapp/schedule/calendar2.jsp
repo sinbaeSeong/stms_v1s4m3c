@@ -30,9 +30,6 @@
           src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
           
 <script type="text/javascript" src="../js/tool.js"></script>
-
-<script type="text/JavaScript"
-          src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  
   <!-- <script type="text/javascript" src="../js/calendar.js"></script> -->
   <!-- <script type="text/javascript" src="../js/jquery.min.js"></script> -->
@@ -98,9 +95,7 @@ int month;
   <%
    cal.set(year, month-1, 1); //현재 객체의 년, 월, 일 값을 다른 값으로 설정한다. 
    int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK); //현재 요일 (일요일은 1, 토요일은 7)
-/*    System.out.println(dayOfWeek + "dayOfWeek ");
-   System.out.println(month + "month ");
-   System.out.println(year + "month "); */
+
    %>
  <!-- colum & row -->
     <div class="cal-month-box">    
@@ -108,27 +103,21 @@ int month;
       <div class="cal-row-fluid cal-before-eventlist">
       <% for(int i=1;i<dayOfWeek;i++){  
           %> 
-          <div class="cal-cell1 cal-cell" data-cal-row="-day" style="bgcolor=f7f7f7;">  </div>      
+          <div class="cal-cell1 cal-cell" data-cal-row="-day" >  </div>      
         <%
       }
         for(int i=1; i<=cal.getActualMaximum(Calendar.DAY_OF_MONTH); i++){  //현재 객체의 특정 필드의 최대 값을 반환한다.(달에 마지막 날짜 구하기)
         %>  
            <div class="cal-cell1 cal-cell" data-cal-row="-day">           
               <div class="cal-month-day cal-day-inmonth cal-day-weekend">
-              <a href='clendar2.jsp?year=<%=cal.get(Calendar.YEAR)%>&month=<%=((cal.get(Calendar.MONTH)+1))%>&day=<%=i %>'>
+              <a href='calendar.do?year=<%=cal.get(Calendar.YEAR)%>&month=<%=((cal.get(Calendar.MONTH)+1))%>&day=<%=i %>'>
                <span class="pull-right" data-cal-date=""  data-toggle="tooltip" title=""><%=i %></span></a>
                </div>
             </div>
             <%            
                 } %>
         </div>
- 
-      
-    <!--  event 등록 --> 
-    <!--<div id="cal-week-box" data-cal-week="2013-03-24" style="display: none;">Week 13</div></div>
-      <div class="events-list" data-cal-start="1363446000000" data-cal-end="1363532400000">
-         <a href="http://www.example.com/" data-event-id="548" data-event-class="event-special" class="pull-left event event-special" data-toggle="tooltip" title="" data-original-title="This is special event"></a>
-       -->
+       
    </div>
  </div>
  

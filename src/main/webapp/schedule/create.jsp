@@ -84,6 +84,8 @@ function checkData(f){ // f == document.frmData 객체
                 </div>
               </div>
               
+           
+              
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
                     <label>Label</label>
