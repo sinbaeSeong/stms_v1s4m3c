@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "dev.mvc.notice.NoticeInter">
+<insert id="create" parameterType="NoticeVO">
+    INSERT INTO notice(ntitle, ncontent, ndate, ncount, uno)
+    VALUES (#{ntitle}, #{ncontent}, now(), 0, #{uno}) 
+  </insert>
+  
+  <!-- 검색을하지 않는 전체 목록 -->
+  <select id="list" resultType="NoticeVO">
+    SELECT nno, ntitle, ncontent, ndate, ncount, uno
+    FROM notice
+    ORDER BY nno ASC
+  </select>
+  
+   <select id="read" resultType="NoticeVO" parameterType="int">
+    SELECT nno, ntitle, ncontent, ndate, ncount, uno
+    FROM notice
+    WHERE nno = #{nno}
+  </select>
+  
+   <update id="update" parameterType="NoticeVO">
+    UPDATE notice 
+    SET ntitle=#{ntitle}, ncontent=#{ncontent}
+    WHERE nno=#{nno}
+  </update>
+  
+    <delete id="delete" parameterType="int">
+    DELETE FROM notice
+    WHERE nno=#{nno}
+  </delete>  
+</mapper>
