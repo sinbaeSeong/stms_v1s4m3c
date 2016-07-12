@@ -68,4 +68,4 @@ WHERE schedule=1;
 
 7. Delete
 DELETE FROM schedule
-WHERE uno = 1;
+WHERE sno = 3;

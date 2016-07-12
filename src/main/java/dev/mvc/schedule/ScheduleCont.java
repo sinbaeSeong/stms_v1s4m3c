@@ -242,43 +242,9 @@ public class ScheduleCont {
      mav.setViewName("/schedule/calendar2");
      
      ArrayList<ScheduleVO> list = scheduleDAO.list();
-     Iterator<ScheduleVO> iter = list.iterator();
-     while(iter.hasNext() == true){  // 다음 요소 검사
-       ScheduleVO vo = iter.next();
-       try {
-         if(vo.getMonth().length()==1)
-           vo.setMonth("0"+vo.getMonth());
-      } catch (Exception e) {
-        
-      }
-       try {
-         if(vo.getDay().length()==1)
-           vo.setDay("0"+vo.getDay());
-       } catch (Exception e) {
-         // TODO: handle exception
-       }
-       
-       try {
-         if(vo.getDay().length()==1)
-           vo.setDay("0"+vo.getDay());
-         
-         
-         vo.setYear(vo.getSlabeldate().substring(0,4));
-         vo.setMonth(vo.getSlabeldate().substring(5,2));
-         vo.setDay(vo.getSlabeldate().substring(8,2));
-         
-         
-         System.out.println("-----------");
-         System.out.println(vo.getYear());
-         System.out.println(vo.getMonth());
-         System.out.println(vo.getDay());
-         
-      } catch (Exception e) {
-        // TODO: handle exception
-      }
-
-     }
+     
      mav.addObject("list", list);
+     
      try {
        
        if(scheduleVO.getMonth().length()==1)

@@ -114,10 +114,24 @@ int month;
                <span class="pull-right" data-cal-date=""  data-toggle="tooltip" title="">
 
               <c:forEach var="scheduleVO" items="${list }">
-              <c:if test="year==${scheduleVO.year }&&month==${scheduleVO.month }&&i==${scheduleVO.day }">
+              <%String s_year=String.valueOf(year); %>
+              <%String s_month=String.valueOf(month); %>
+              <%String s_day=String.valueOf(i); %>
+              <%if(s_month.length()==1){ s_month="0"+s_month; }%>
+              <%if(s_day.length()==1){ s_day="0"+s_day; }%>
+              
+              <c:set var="s_year" value="<%=s_year%>" /> 
+              <c:set var="s_month" value="<%=s_month%>" /> 
+              <c:set var="s_day" value="<%=s_day%>" /> 
+
+              <c:if test="${s_year eq scheduleVO.slabeldate.substring(0,4)}">
+              <c:if test="${s_month eq scheduleVO.slabeldate.substring(5,7)}">
+              <c:if test="${s_day eq scheduleVO.slabeldate.substring(8,10)}">
                 ★
-              </c:if>
-               </c:forEach>
+              </c:if></c:if></c:if>
+              </c:forEach>
+
+
                <%=i %>
                
                
