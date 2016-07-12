@@ -84,6 +84,8 @@ function del(tno){
       <input type="text" class="input-sm" placeholder="search" id="word"
                      name="word" maxlength="16" value='${search.word }' style="width: 30%; ">
       <input type="submit" value='search' class='btn btn-success btn-sm'>
+      <Br>
+      <a href="./create.do">Write new Trash information </a>
     </div>
   </div>       
   
@@ -109,14 +111,14 @@ function del(tno){
       <tbody>
          <c:forEach var="trashVO" items="${list }">
           <tr class="row control-group" style="font-size: 20px;">
-            <td class="td">${trashVO.tno}</td>
-            <td class="td_l">
+            <td class="td" style="width:10%; ">${trashVO.tno}</td>
+            <td class="td_l" style="width:20%; ">
               <a href="./read.do?tno=${trashVO.tno}&uno=1"> ${trashVO.tname }</a> 
             </td> 
-            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${trashVO.location }</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${trashVO.nowcapa }</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${trashVO.mdate} </td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
+            <td class="col-lg-8 col-lg-offset-2" style="width: 20%; ">${trashVO.location }</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 20%; ">${trashVO.nowcapa }</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 15%; ">${trashVO.mdate.substring(0, 10)} </td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 15%; ">
               <a href="./update.do?tno=${trashVO.tno}"><img src="../images/upload.jpg" title="Update" border='0'/></a>
               <a href="javascript:del(${trashVO.tno })"><img src="../images/delete.png" title="Delete"  border='0'/> </a>
       
