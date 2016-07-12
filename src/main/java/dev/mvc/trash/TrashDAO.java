@@ -78,6 +78,12 @@ public class TrashDAO {
     public int count(HashMap<String, Object> map){
        return mapper().count(map);
     }
+
+    public int checkID(String tname) {
+ 
+      return mapper().checkID(tname);
+    }
+    
   
 }
 

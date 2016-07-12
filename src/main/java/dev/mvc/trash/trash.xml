@@ -81,6 +81,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     DELETE FROM trash
     WHERE tno=#{tno}
   </delete> 
+  
+   <!-- Check ID -->
+  <select id='checkID' resultType='int' parameterType='String'>
+    SELECT COUNT(*) as cnt
+    FROM trash
+    WHERE tname=#{tname}
+  </select>
  
    
   

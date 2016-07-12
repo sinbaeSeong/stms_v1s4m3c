@@ -17,7 +17,7 @@ CREATE TABLE trash(
     tname VARCHAR(10) NOT NULL,
     maxcapa DOUBLE NOT NULL,
     nowcapa DOUBLE NULL,
-    location VARCHAR(20) NOT NULL,  
+    location VARCHAR(800) NOT NULL,  
     mdate   DATETIME     NULL ,
     uno INT,
   FOREIGN KEY (uno) REFERENCES user1 (uno)
@@ -49,6 +49,10 @@ WHERE tno = 1;
 6. Update
 UPDATE trash
 SET tname='CA-Type', maxcapa='12.5', location='Us1'
+WHERE tno=2;
+
+UPDATE trash
+SET location='Us1'
 WHERE tno=2;
 
 7. Delete

@@ -107,6 +107,8 @@ int month;
                      name="word" maxlength="16" value='${search.word }' style="width: 30%; ">
        <input type="submit" class="btn btn-success btn-sm" value="Search">
        <a href="./calendar2.jsp" >Calendar</a>
+       <Br>
+       <a href="./create.do">Write new Schedule information </a>
     </div>
    </div>       
 

@@ -1,9 +1,12 @@
 package dev.mvc.trash;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -47,7 +50,7 @@ public class TrashCont {
 
   @RequestMapping(value = "/trash/create.do", method = RequestMethod.POST)
   public ModelAndView create(TrashVO trashVO) {
-    System.out.println("--> create() POST called.");
+   /* System.out.println("--> create() POST called.");*/
     ModelAndView mav = new ModelAndView();
     mav.setViewName("/trash/message");
 
@@ -59,17 +62,17 @@ public class TrashCont {
       links
           .add("<button type='button' onclick=\"location.href='./login.do'\">Login</button>");
       links
-          .add("<button type='button' onclick=\"location.href='./home.do'\">Home</button>");
+          .add("<button type='button' onclick=\"location.href='./index.jsp'\">Home</button>");
     } else {
       msgs.add("Fall is not created trash type");
       links
           .add("<button type='button' onclick=\"history.back()\">Reload</button>");
       links
-          .add("<button type='button' onclick=\"location.href='./home.do'\">Home</button>");
+          .add("<button type='button' onclick=\"location.href='./index.jsp'\">Home</button>");
     }
 
     links
-        .add("<button type='button' onclick=\"location.href='./list.do'\">List</button>");
+        .add("<button type='button' onclick=\"location.href='./list2.do'\">List</button>");
 
     mav.addObject("msgs", msgs);
     mav.addObject("links", links);
@@ -171,7 +174,7 @@ public class TrashCont {
     ArrayList<String> links = new ArrayList<String>();
 
     if (trashDAO.delete(tno) == 1) {
-      mav.setViewName("redirect:/trash/list.do");
+      mav.setViewName("redirect:/trash/list2.do");
 
     } else {
       msgs.add("File can't deletion.");
@@ -224,8 +227,34 @@ public class TrashCont {
      mav.addObject("paging",paging);
      
      return mav;
-     
   }
-
+  
+      /**
+       * 중복확인(Ajax)
+       * @param tname
+       * @param response
+       * @param request
+       * @throws IOException
+       */
+     @RequestMapping(value = "/trash/checkID.do", 
+         method = RequestMethod.POST)
+         public void checkID(String tname,
+               HttpServletResponse response,
+               HttpServletRequest request) throws IOException {
+            
+            String mess;
+      
+            if(trashDAO.checkID(tname)!=0){
+               mess = "<font color='red'>A duplicate Trash-type.</font>";
+        /*       System.out.println("1"+tname+"11");*/
+            } else {
+               mess = "<font color='green'>Id can use.</font>";
+   /*            System.out.println("2"+tname+"tname");*/
+            }
+            response.setContentType("text/html;charset=utf-8");
+            response.setHeader("Cache-control", "no-cache");
+            PrintWriter out = response.getWriter();
+            out.println(mess);
+         }
   
 }

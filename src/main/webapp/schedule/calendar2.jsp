@@ -36,8 +36,9 @@
 
 </head> 
 <!-- ----------------------------------------- -->
+<jsp:include page="/menu/top.jsp" flush='false' /> 
 <body style="width: 100%; ">
-<%-- <jsp:include page="/menu/top.jsp" flush='false' />  --%>
+
 <!-- ----------------------------------------- -->
 
 <!-- 달력 기본 변수 설정 -->
@@ -131,11 +132,9 @@ int month;
               </c:if></c:if></c:if>
               </c:forEach>
 
-
                <%=i %>
-               
-               
-               
+              
+                              
                </span></a>
                </div>
             </div>

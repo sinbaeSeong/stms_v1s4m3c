@@ -46,6 +46,10 @@ public ArrayList<TrashVO> list2(HashMap<String, Object> map);
 /** 검색 갯수 카운트 */ //<select id="count" resultType="int" parameterType="HashMap" >
 public int count(HashMap<String, Object> map);
 
+/**체크아이디*/
+public int checkID(String tname);
+
+
 
 }
 

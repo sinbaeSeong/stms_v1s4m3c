@@ -64,7 +64,7 @@
           <li class="page-scroll"><a href="../message/list.do?uno=${uno }">Message</a>
           <% } %>
           <li class="page-scroll"><a href="../trash/list2.do">Trash</a></li>
-          <li class="page-scroll"><a href="../schedule/calendar2.jsp">Calendar</a></li>
+          <li class="page-scroll"><a href="../schedule/calendar.do">Calendar</a></li>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
