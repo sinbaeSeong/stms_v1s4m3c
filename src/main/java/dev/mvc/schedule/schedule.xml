@@ -11,12 +11,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     VALUES(1, #{slabeldate}, #{slabel}, #{stitle}, #{content}, now())
    </insert> 
    
-    <!-- List -->
-<!--   <select id='list' resultType='ScheduleVO'>
+
+<select id='list' resultType='ScheduleVO'>
     SELECT sno, slabeldate, slabel, stitle, sdate
     FROM schedule
-    ORDER BY sno ASC
-  </select> -->
+  </select>
   
 
 <!--  검색 갯수 세는 카운트 -->
@@ -86,6 +85,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     WHERE sno=#{sno}
   </delete>  
  
+   
+   
+   
+   
+   
+   
+   
+
+   
+   
+   
    
   
   

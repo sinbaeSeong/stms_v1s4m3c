@@ -2,8 +2,10 @@ package dev.mvc.schedule;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.tagext.TryCatchFinally;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -12,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import web.tool.Paging;
-import web.tool.SearchDTO;
 import dev.mvc.user.UserDAO;
 import dev.mvc.user.UserVO;
+import web.tool.Paging;
+import web.tool.SearchDTO;
 
 
 @Controller
@@ -237,17 +239,72 @@ public class ScheduleCont {
   @RequestMapping(value = "/schedule/calendar.do", method = RequestMethod.GET)
   public ModelAndView calendar(ScheduleVO scheduleVO){
      ModelAndView mav = new ModelAndView();
+     mav.setViewName("/schedule/calendar2");
      
-     if(scheduleVO.getMonth().length()==1)
-       scheduleVO.setMonth("0"+scheduleVO.getMonth());
-     if(scheduleVO.getDay().length()==1)
-       scheduleVO.setDay("0"+scheduleVO.getDay());
-  
-     String labeldate = scheduleVO.getYear() +"-"+ scheduleVO.getMonth() +"-"+ scheduleVO.getDay();
-     mav.setViewName("redirect:/schedule/list2.do?col=slabeldate&word="+labeldate);
+     ArrayList<ScheduleVO> list = scheduleDAO.list();
+     Iterator<ScheduleVO> iter = list.iterator();
+     while(iter.hasNext() == true){  // 다음 요소 검사
+       ScheduleVO vo = iter.next();
+       try {
+         if(vo.getMonth().length()==1)
+           vo.setMonth("0"+vo.getMonth());
+      } catch (Exception e) {
         
+      }
+       try {
+         if(vo.getDay().length()==1)
+           vo.setDay("0"+vo.getDay());
+       } catch (Exception e) {
+         // TODO: handle exception
+       }
+       
+       try {
+         if(vo.getDay().length()==1)
+           vo.setDay("0"+vo.getDay());
+         
+         
+         vo.setYear(vo.getSlabeldate().substring(0,4));
+         vo.setMonth(vo.getSlabeldate().substring(5,2));
+         vo.setDay(vo.getSlabeldate().substring(8,2));
+         
+         
+         System.out.println("-----------");
+         System.out.println(vo.getYear());
+         System.out.println(vo.getMonth());
+         System.out.println(vo.getDay());
+         
+      } catch (Exception e) {
+        // TODO: handle exception
+      }
+
+     }
+     mav.addObject("list", list);
+     try {
+       
+       if(scheduleVO.getMonth().length()==1)
+         scheduleVO.setMonth("0"+scheduleVO.getMonth());
+       if(scheduleVO.getDay().length()==1)
+         scheduleVO.setDay("0"+scheduleVO.getDay());
+    
+       
+       String labeldate = scheduleVO.getYear() +"-"+ scheduleVO.getMonth() +"-"+ scheduleVO.getDay();
+       mav.setViewName("redirect:/schedule/list2.do?col=slabeldate&word="+labeldate);
+    } catch (Exception e) {
+      // TODO: handle exception
+    }
+
+     
      return mav;
   }
 
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
 }

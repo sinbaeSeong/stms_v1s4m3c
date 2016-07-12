@@ -111,7 +111,18 @@ int month;
            <div class="cal-cell1 cal-cell" data-cal-row="-day">           
               <div class="cal-month-day cal-day-inmonth cal-day-weekend">
               <a href='calendar.do?year=<%=cal.get(Calendar.YEAR)%>&month=<%=((cal.get(Calendar.MONTH)+1))%>&day=<%=i %>'>
-               <span class="pull-right" data-cal-date=""  data-toggle="tooltip" title=""><%=i %></span></a>
+               <span class="pull-right" data-cal-date=""  data-toggle="tooltip" title="">
+
+              <c:forEach var="scheduleVO" items="${list }">
+              <c:if test="year==${scheduleVO.year }&&month==${scheduleVO.month }&&i==${scheduleVO.day }">
+                ★
+              </c:if>
+               </c:forEach>
+               <%=i %>
+               
+               
+               
+               </span></a>
                </div>
             </div>
             <%            
