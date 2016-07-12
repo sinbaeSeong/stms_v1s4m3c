@@ -79,6 +79,7 @@ public class TrashDAO {
        return mapper().count(map);
     }
 
+    /**아이디 체크*/
     public int checkID(String tname) {
  
       return mapper().checkID(tname);

@@ -23,11 +23,9 @@
 <link href="../css/freelancer.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
+<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 
  <script type="text/javascript">
 $(function(){
@@ -60,24 +58,28 @@ $(function(){
                   <span class="form-control">${trashVO.tname}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
+              
              <div class="form-group col-xs-12">
                   <label>Maximize Capacity </label>
                   <span class="form-control">${trashVO.maxcapa}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
+              
              <div class="form-group col-xs-12">
                   <label>Current Capacity </label>
                   <span class="form-control"> ${trashVO.maxcapa  }</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
+              
              <div class="form-group col-xs-12">
                   <label>Location </label>
-                  <span class="form-control"> ${trashVO.location}</span><br>                  
+                   ${trashVO.location}<br>                  
                   <p class="help-block text-danger"></p>
               </div>
+              
              <div class="form-group col-xs-12">
                   <label>Date </label>
-                  <span class="form-control"> ${trashVO.mdate}</span><br>                  
+                  <span class="form-control"> ${trashVO.mdate.substring(0, 10)} </span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
             <div id="success"></div>
@@ -86,6 +88,7 @@ $(function(){
             <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list.do'">List</button>
             <button type="button" class="btn btn-success btn-lg" onclick="location.href='./update.do?tno=${trashVO.tno}'">Update</button>
             <button type="button" class="btn btn-success btn-lg" onclick="location.href='./delete.do?tno=${trashVO.tno}'">Delete</button>
+           </div>
            </div>
            </div>
            </form> 

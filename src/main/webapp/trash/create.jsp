@@ -126,6 +126,8 @@
         </div>
       </div>
       </section>
+      
+
 <!--         <label class='label' for='maxcapa'>Maximum Capacity</label>
         <input type='text' name='maxcapa' id='maxcapa' value='5m' required="required"> -->
 <!-- -------------------------------------------- -->

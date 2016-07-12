@@ -30,15 +30,12 @@
           src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
           
 <script type="text/javascript" src="../js/tool.js"></script>
- 
-  <!-- <script type="text/javascript" src="../js/calendar.js"></script> -->
-  <!-- <script type="text/javascript" src="../js/jquery.min.js"></script> -->
+
 
 </head> 
 <!-- ----------------------------------------- -->
 <jsp:include page="/menu/top.jsp" flush='false' /> 
 <body style="width: 100%; ">
-
 <!-- ----------------------------------------- -->
 
 <!-- 달력 기본 변수 설정 -->
@@ -63,22 +60,20 @@ int month;
    cal.set(Calendar.DATE,1);
 %>
 <!-- ----------------- -->
-
+<br><br>
  <!-- ◀2016/7▶ 부분 설정하는 곳 -->
    <div class="row">
       <DIV class='col-lg-12 text-center'><h2>Calendar</h2>
-         <a href='calendar2.jsp?year=<%=cal.get(Calendar.YEAR)%>&month=<%=((cal.get(Calendar.MONTH)+1)-1)%>'>
+       
+         <a href='calendar.do?year=<%=cal.get(Calendar.YEAR)%>&month=<%=((cal.get(Calendar.MONTH)+1)-1)%>'>
           <span style="font-size: 30px;">◀</span> </a>
           <span style="color: 484848; font-size: 30px;"><%=cal.get(Calendar.YEAR)%> / <%=(cal.get(Calendar.MONTH)+1)%></span>
-         <a href='calendar2.jsp?year=<%=cal.get(Calendar.YEAR)%>&month=<%=((cal.get(Calendar.MONTH)+1)+1)%>'>
-          <span style="font-size: 30px;">▶ </span>
-         </a>
+            <a href='calendar.do?year=<%=cal.get(Calendar.YEAR)%>&month=<%=((cal.get(Calendar.MONTH)+1)+1)%>'>
+              <span style="font-size: 30px;">▶ </span>
+             </a>
+         <hr class="star-primary"/>
       </DIV>
     </div>         
-
-
-<!-- 테이블 전체 -->
- <!-- <table style="margin: 10px auto; background-color: #f7f7f7; width: 80%; height: 700px;">  -->
 
   <!-- 요일  -->
 <div id="calendar" class="cal-context" style="width: 100%;">
@@ -128,7 +123,7 @@ int month;
               <c:if test="${s_year eq scheduleVO.slabeldate.substring(0,4)}">
               <c:if test="${s_month eq scheduleVO.slabeldate.substring(5,7)}">
               <c:if test="${s_day eq scheduleVO.slabeldate.substring(8,10)}">
-                ★
+               <img src ="../images/star.jpg" style="width:20px;">
               </c:if></c:if></c:if>
               </c:forEach>
 

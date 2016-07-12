@@ -108,7 +108,7 @@ int month;
        <input type="submit" class="btn btn-success btn-sm" value="Search">
        <a href="./calendar2.jsp" >Calendar</a>
        <Br>
-       <a href="./create.do">Write new Schedule information </a>
+       <a href="./create.do">Write new Schedule information <img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
     </div>
    </div>       
 

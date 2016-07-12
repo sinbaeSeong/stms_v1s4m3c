@@ -60,8 +60,6 @@ function del(tno){
 
 <%-- body 시작 --%>
 <body>
-<%-- ---------------------------------------------------------------------------------------------- --%>
-
 
  <section id="contact">
       <div class="container">
@@ -85,7 +83,7 @@ function del(tno){
                      name="word" maxlength="16" value='${search.word }' style="width: 30%; ">
       <input type="submit" value='search' class='btn btn-success btn-sm'>
       <Br>
-      <a href="./create.do">Write new Trash information </a>
+      <a href="./create.do">Write new Trash information <img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
     </div>
   </div>       
   
