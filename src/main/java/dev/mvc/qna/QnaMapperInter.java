@@ -74,6 +74,12 @@ public interface QnaMapperInter {
   public QnareplyVO readreply(int qreplyno);
 
 
+  
+  
+  public int replycountup(int qno);
+  
+  
+  public int replycountdown(int qno);
 
 }
 

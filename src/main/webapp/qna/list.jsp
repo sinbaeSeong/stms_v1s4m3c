@@ -130,7 +130,7 @@ function del(qno){
           <tr class="row control-group" style="font-size: 20px;">
             <td class="td">${qnaVO.qno}</td>
             <td class="td_l">
-              <a href="./read.do?qno=${qnaVO.qno}"> ${qnaVO.qtitle }</a> 
+              <a href="./read.do?qno=${qnaVO.qno}"> ${qnaVO.qtitle }</a> (${qnaVO.replycount })
             </td> 
             
 

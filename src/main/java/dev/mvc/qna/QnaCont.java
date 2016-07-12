@@ -244,6 +244,11 @@ public class QnaCont {
      mav.addObject("list", list);
      mav.addObject("totalRecord", totalRecord);
      mav.addObject("root", request.getContextPath());
+     
+     
+    
+     
+     
 
      String paging = new Paging().paging(
            totalRecord, 
@@ -280,6 +285,9 @@ public class QnaCont {
     ArrayList<String> links = new ArrayList<String>();
 
     if (qnaDAO.createreply(qnareplyVO) == 1) {
+      
+      qnaDAO.replycountup(qnareplyVO.getQno());
+      
       msgs.add("Qna reply type is created.");
       mav.setViewName("redirect:/qna/read.do?qno="+qnareplyVO.getQno());
     } else {
@@ -321,6 +329,9 @@ public class QnaCont {
     if(qreplypasswd.equals(qnaDAO.readreply(qreplyno).getQreplypasswd())){
     
       if (qnaDAO.deletereply(qreplyno) == 1) {
+        
+        qnaDAO.replycountdown(qno);
+        
         mav.setViewName("redirect:/qna/read.do?qno="+qno);
   
       } else {

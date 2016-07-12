@@ -22,6 +22,17 @@ public class QnaVO {
   private String qpasswd;
   private int qcount;
   private String qdate;
+  private int replycount;
+  
+  
+  
+  
+  public int getReplycount() {
+    return replycount;
+  }
+  public void setReplycount(int replycount) {
+    this.replycount = replycount;
+  }
   public int getQno() {
     return qno;
   }

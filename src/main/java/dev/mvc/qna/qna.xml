@@ -7,8 +7,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    
    <!-- create -->
     <insert id="create" parameterType="QnaVO">
-    INSERT INTO qna(qdate, qtitle, qcontent, qcount, qid, qpasswd, uno)
-    VALUES(now(), #{qtitle}, #{qcontent},0, #{qid},#{qpasswd},#{uno} )
+    INSERT INTO qna(qdate, qtitle, qcontent, qcount, qid, qpasswd, uno, replycount)
+    VALUES(now(), #{qtitle}, #{qcontent},0, #{qid},#{qpasswd},#{uno} , 0)
          
    </insert> 
    
@@ -112,7 +112,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      SELECT *
     FROM qnareply
     WHERE qno = #{qno}
-   ORDER BY qreplyno DESC
+   ORDER BY qreplyno
    
   </select>  
    
@@ -141,6 +141,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
   
   
+  
+  
+  
+  
+      <update id="replycountup" parameterType="int">
+    UPDATE qna
+    SET replycount=replycount+1
+    WHERE qno=#{qno}
+  </update>
+
+        <update id="replycountdown" parameterType="int">
+    UPDATE qna
+    SET replycount=replycount-1
+    WHERE qno=#{qno}
+  </update>
   
   
   

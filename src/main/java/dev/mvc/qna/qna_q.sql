@@ -48,8 +48,8 @@ CREATE TABLE qna(
     qcount                            INT    DEFAULT 0     NULL ,
     qid                               VARCHAR(16)     NULL,
     qpasswd                           VARCHAR(16)     NULL,
-    uno                               INT    NULL
-
+    uno                               INT    NULL,
+    replycount                      INT  NOT NULL
 );
 
 

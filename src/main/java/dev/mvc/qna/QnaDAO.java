@@ -133,6 +133,16 @@ public class QnaDAO {
     
     
     
+    public int replycountup(int qno){
+      return mapper().replycountup(qno);
+    }
+    
+    
+    public int replycountdown(int qno){
+      return mapper().replycountdown(qno);
+    }
+    
+    
 }
 
 
