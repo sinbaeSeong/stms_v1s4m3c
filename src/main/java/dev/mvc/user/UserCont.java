@@ -213,7 +213,7 @@ public class UserCont {
 
       ArrayList<String> msgs = new ArrayList<String>();
       ArrayList<String> links = new ArrayList<String>();
-
+      
       if (userDAO.login(userVO) == 1) {
          userVO = userDAO.readByID(userVO);
          session.setAttribute("id", userVO.getId());

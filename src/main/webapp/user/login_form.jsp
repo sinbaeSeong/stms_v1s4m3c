@@ -101,7 +101,7 @@ for (int i=0; i < cookies.length; i++){
               <div class="form-group col-xs-12">
                   <label>Id - test : id</label>
                      <input type="text" class="form-control" placeholder="id" id="id"
-                     name="id" maxlength="16" autofocus required>    
+                     name="id" maxlength="16" autofocus required value="id">    
                      <label>
                   <% if (ck_id_save.equals("Y")){ %>
                      <input type='checkbox' name='id_save' value='Y' checked="checked"> 저장
@@ -119,7 +119,7 @@ for (int i=0; i < cookies.length; i++){
               <div class="form-group col-xs-12 ">
                  <label>Password - test : passwd</label>
                     <input type="password" class="form-control" placeholder="Password" id="passwd"
-                    name="passwd" maxlength="16" required>
+                    name="passwd" maxlength="16" required value="passwd">
                  <p class="help-block text-danger"></p>
               </div>
               </div>

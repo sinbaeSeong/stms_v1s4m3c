@@ -57,12 +57,12 @@ WHERE uno = 1;
 
 UPDATE user1
 SET passwd='passwd', uname='uname', email='email'
-WHERE uno=1;
+WHERE uno=6;
 
 -- 7 > Delete
 
 DELETE FROM user1
-WHERE uno = 1;
+WHERE uno = 6;
 
 -- 8 > Confirm PW
 

@@ -73,7 +73,6 @@
               <a href='../message/list.do?uno=${uno}'">읽지않은 새로운 메세지가 ${countRead }건 있습니다!</a>
               </c:if>
               </label>
-              <br><br>
               <!-- button -->
               <br><br><br>
               <div class='col-lg-12 text-center'>
@@ -86,6 +85,8 @@
                   <button type="button" class="btn btn-success btn-lg" onclick="">Schedule(반구현)</button><br><br>
                   <c:if test="${act eq 'admin' }">
                   <hr><br>
+                  You are admin. You can use admin menu.
+                  <br><br>
                   <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list2.do'">Admin-Userlist</button> 
                   </c:if>
 
