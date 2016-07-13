@@ -9,7 +9,7 @@
 -- 8 > Search List
 -- 9 > Paging Search List
 /* --------------------------------------- */
-
+select * from trash;
 
 1. Create Table
 CREATE TABLE trash(
@@ -17,7 +17,9 @@ CREATE TABLE trash(
     tname VARCHAR(10) NOT NULL,
     maxcapa DOUBLE NOT NULL,
     nowcapa DOUBLE NULL,
-    location VARCHAR(800) NOT NULL,  
+    lat DOUBLE  NULL, 
+    lng DOUBLE  NULL,
+    markerTitle VARCHAR(100) NULL,
     mdate   DATETIME     NULL ,
     uno INT,
   FOREIGN KEY (uno) REFERENCES user1 (uno)

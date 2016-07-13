@@ -7,18 +7,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    
    <!-- create -->
     <insert id="create" parameterType="TrashVO">
-    INSERT INTO trash(uno, tname, maxcapa, location, mdate)
-    VALUES( 1, #{tname}, #{maxcapa}, #{location}, now())
+    INSERT INTO trash(uno, tname, maxcapa, lat, lng, markerTitle, mdate)
+    VALUES( 1, #{tname}, #{maxcapa}, #{lat}, #{lng}, #{markerTitle}, now())
          
    </insert> 
    
     <!-- List -->
-<!--   <select id='list' resultType='TrashVO'>
-    SELECT tno, tname, nowcapa, location, mdate
-    FROM trash
-    ORDER BY tno ASC
-  </select>
-    -->
 <!--  검색 갯수 세는 카운트 -->
   <select id="count" resultType="int" parameterType="HashMap" >
     SELECT COUNT(*) as cnt
@@ -30,8 +24,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          <when test="col == 'tname'">
             tname LIKE #{word}
           </when>
-         <when test="col == 'location'">
-            location LIKE #{word}
+         <when test="col == 'markerTitle'">
+            markerTitle LIKE #{word}
          </when>
           <when test="col == 'maxcapa'">
             maxcapa LIKE #{word}
@@ -41,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         
   <!-- Search + Paging List -->
   <select id="list2" resultType="TrashVO" parameterType="HashMap" >
-           SELECT tno, tname, nowcapa, location, mdate
+           SELECT tno, tname, nowcapa, lat, lng, markerTitle, mdate
            FROM trash
            <if test="col!=''">
            WHERE
@@ -50,8 +44,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                              <when test="col == 'tname'">
                                    tname LIKE #{word}
                              </when>
-                             <when test="col == 'location'">
-                                  location LIKE #{word}
+                             <when test="col == 'markerTitle'">
+                                  markerTitle LIKE #{word}
                              </when>
                              <when test="col == 'maxcapa'">
                                   maxcapa LIKE #{word}
@@ -66,14 +60,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
   
   <select id="read" resultType="TrashVO" parameterType="int">
-    SELECT tno, tname, maxcapa, nowcapa, location, mdate
+    SELECT tno, tname, maxcapa, nowcapa, lat, lng, markerTitle, mdate
     FROM trash
     WHERE tno= #{tno}
   </select>
   
   <update id="update" parameterType="TrashVO">
     UPDATE trash
-    SET tname=#{tname}, maxcapa=#{maxcapa}, location=#{location} 
+    SET tname=#{tname}, maxcapa=#{maxcapa}, lat=#{lat}, lng=#{lng}, markerTilte=#{markerTItle} 
     WHERE tno=#{tno}
   </update>
   

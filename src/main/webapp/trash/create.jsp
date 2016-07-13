@@ -52,35 +52,18 @@
 	      }
 	   }
 	}
-
-	 function onclick(){
-	     var la = document.getElementById("lat").value;
-	     var ln = document.getElementById("lng").value;
-	     var url = './googlemap.do';
-	     var params = '?lat=' + lat + '&lng=' + lng;
-	     xmlhttp=new XMLHttpRequest();
-	     
-	     xmlhttp.onreadystatechange = res_onclick;
-	     xmlhttp.open("POST",url + params, true);
-	     xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded"); 
-	     xmlhttp.send(params);
-	     
-	     var content = document.getElementById('content');
-	     content.innerHTML = '처리 결과를 읽어오는 중입니다.';
-	     content.style.display = ''; // 출력
-
-	  }
-	 
-	 function res_onclick(){
-	     if(xmlhttp.readyState==4){
-	        if(xmlhttp.status==200){
-	           var res_text = xmlhttp.responseText;
-	           document.getElementById("idck").innerHTML = res_text;
-	        }
-	     }
-	  }
-	
-	
+	  $(function(){
+		    CKEDITOR.replace('content');  // <TEXTAREA>태그 id 값
+		  });
+		  
+		    function search_lat_lng(){
+		    var win = window.open('http://maps.google.com', 'lat&lng Search', 'width=500px, height=650px');
+		    
+		    var x = (screen.width - 500) / 2;
+		    var y = (screen.height - 650) / 2;
+		    
+		    win.moveTo(x, y); // 화면 가운데로 이동
+		    }	
 	
 </script>
  
@@ -126,11 +109,12 @@
      <!--  location -->   
               <div class="row control-group">
                 <div class="form-group col-xs-12">
-                  <label>Location</label>
+                  <label>Location</label><Br>
                   <div class="col-sm-6">
+                   Click:  <A href='javascript: search_lat_lng() '>Output of Latitube and Longitube </a>
                    <input class="form-control"  type='text' name='lat' id='lat' value='37.556186' placeholder="위도">
                    <input class="form-control"  type='text' name='lng' id='lng' value='127.044377' placeholder="경도">
-                   <input class="form-control"  type='text' name='markerTitle' id='markerTitle' value='한양대학교' placeholder="위치임력">
+                   <input class="form-control"  type='text' name='markerTitle' id='markerTitle' value='Hanyang University' placeholder="Input from location">
                    <input class="form-control"  type="button" onclick="initialize()" value="Search"><br>
                   </div>
                  <p class="help-block text-danger"></p>
@@ -152,7 +136,7 @@
 
       var zoomLevel   = 16;           // 지도의 확대 레벨 : 숫자가 클수록 확대정도가 큼
 
-      var markerTitle   = "dd";        // 현재 위치 마커에 마우스를 오버을때 나타나는 정보
+      var markerTitle   =  document.getElementById('markerTitle').value;        // 현재 위치 마커에 마우스를 오버을때 나타나는 정보
       var markerMaxWidth  = 300;            // 마커를 클릭했을때 나타나는 말풍선의 최대 크기
 
       // 말풍선 내용
