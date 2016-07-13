@@ -33,7 +33,10 @@
  
  <script type="text/JavaScript">
  function del(nno){
-    if(!confirm("Are you deletion? If this command deletes files, We can not restore.")){
+   var returnValue = prompt("비밀번호를 입력하세요", "");
+   
+   
+    if(!confirm("글을 삭제하겠습니까?")){
        return;
     } else {
        var f = document.createElement("form");
@@ -47,10 +50,65 @@
        i.setAttribute("value", nno);
        f.appendChild(i);
        
+       
+       
+       
+       var qp = document.createElement("input");
+       qp.setAttribute("type","hidden");
+       qp.setAttribute("name","npasswd");
+       qp.setAttribute("value", returnValue);
+       f.appendChild(qp);
+       
+       
+       
+       
        f.submit();
     }
  }
- </script>
+ 
+ 
+ function delreply(nreplyno, nno){
+   var returnValue = prompt("비밀번호를 입력하세요", "");
+
+   
+   if(!confirm("답변을 삭제하시겠습니까?")){
+      return;
+   } else {
+      var f = document.createElement("form");
+      f.setAttribute("method","post");
+      f.setAttribute("action","./deletereply.do");
+      document.body.appendChild(f);
+      
+      var i = document.createElement("input");
+      i.setAttribute("type","hidden");
+      i.setAttribute("name","nreplyno");
+      i.setAttribute("value", nreplyno);
+      
+      f.appendChild(i);
+      
+      
+      var qno1 = document.createElement("input");
+      qno1.setAttribute("type","hidden");
+      qno1.setAttribute("name","nno");
+      qno1.setAttribute("value", nno);
+      f.appendChild(qno1);
+      
+      
+      
+      
+      
+      var qpr = document.createElement("input");
+      qpr.setAttribute("type","hidden");
+      qpr.setAttribute("name","nreplypasswd");
+      qpr.setAttribute("value", returnValue);
+      f.appendChild(qpr);
+      
+      
+      
+      f.submit();
+   }
+}
+
 </script>
 </head>
 <!-- ----------------------------------------- -->
@@ -61,14 +119,14 @@
     <section id="contact">
       <div class="container">
         <div class="row">
-          <DIV class='col-lg-12 text-center'><h2>NOTICE</h2>
+          <DIV class='col-lg-12 text-center'><h2>Notice</h2>
           <hr class="star-primary"/>
           </DIV>
          </div>     
              
       <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-           <FORM name='frm' method="get" action='./update.do'>
+           <FORM name='frm'>
              <input type="hidden" name="nno" value="${noticeVO.nno}">
               
               <div class="row control-group">
@@ -79,7 +137,7 @@
               </div>
              <div class="form-group col-xs-12">
                   <label>Content </label>
-                  <span class="form-control" style="height: 174px; ">${noticeVO.ncontent}</span><br>                  
+                  <span class="form-control">${noticeVO.ncontent}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
              <div class="form-group col-xs-12">
@@ -87,17 +145,148 @@
                   <span class="form-control"> ${noticeVO.ndate  }</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
-          
+             <div class="form-group col-xs-12">
+                  <label>ID </label>
+                  <span class="form-control"> ${noticeVO.nid}</span><br>                  
+                  <p class="help-block text-danger"></p>
+              </div>
+              
+             
            
             <div id="success"></div>
              <div class="row">
              <div class="form-group col-xs-12">
-            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list.do'">List</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list2.do'">List</button>
             <button type="button" class="btn btn-success btn-lg" onclick="location.href='./update.do?nno=${noticeVO.nno}'">Update</button>
             <button type="button" class="btn btn-success btn-lg" onclick="javascript:del(${noticeVO.nno })">Delete</button>
            </div>
            </div>
            </form> 
+           
+           
+           
+           
+           
+           <br><hr style="border: solid 1px gray;">
+           <!--  답변 -->
+
+              
+              
+              
+              <c:forEach var="noticereplyVO" items="${listreply }">
+
+<label>${noticereplyVO.nreplyid } (${noticereplyVO.nreplydate })</label>
+<a href="javascript:delreply(${noticereplyVO.nreplyno },${noticereplyVO.nno })">
+<img src='../img/delete.png'></a>
+<input type="text" value="${noticereplyVO.nreplycontent }" readonly="readonly"  class="form-control">
+
+
+
+
+
+  
+  
+  
+    <br>
+      </c:forEach>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+            <FORM name='frmreply' method="post" action='./createreply.do'>
+             <input type="hidden" name="nno" value="${noticeVO.nno}">
+              
+              
+              <%if(session.getAttribute("id")==null){ %>
+              
+              
+              <div class="row control-group"> 
+<div class="form-group col-xs-12 ">
+      <label for="capa">ID</label>
+      <input type="text" class="form-control" placeholder="비회원 아이디" id="nreplyid" name="nreplyid" required>
+   <p class="help-block text-danger"></p>
+  </div>
+</div>
+
+<div class="row control-group">
+<div class="form-group col-xs-12 ">
+      <label for="capa">PASSWORD</label>
+      <input type="text" class="form-control" placeholder="비회원 비밀번호" id="nreplypasswd" name="nreplypasswd" required>
+   <p class="help-block text-danger"></p>
+  </div>
+</div>
+             <%}else{
+               
+         
+             %> 
+              
+             <input type="hidden" id="nreplyid" name="nreplyid" value="${id }">
+              
+              <% 
+             } %>
+              
+              
+              
+              
+              
+<div class="row control-group">
+             <div class="form-group col-xs-12">
+                  <label>Content </label>
+                  <input type="text" class="form-control" placeholder="답변 내용을 입력하세요" id="nreplycontent" name="nreplycontent" required>
+                          
+                  <p class="help-block text-danger"></p>
+              </div>
+
+</div>
+              
+             
+           
+            <div id="success"></div>
+             <div class="row">
+             <div class="form-group col-xs-12">
+            <button type="submit" class="btn btn-success btn-lg">답변등록</button>
+
+            
+           </div>
+           </div>
+           </form>
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
           </div>
          </div>
         </div>

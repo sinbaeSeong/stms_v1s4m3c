@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dev.mvc.notice.NoticeMapperInter">
+   
+   <!-- create -->
+    <insert id="create" parameterType="NoticeVO">
+    INSERT INTO notice(ndate, ntitle, ncontent, ncount, nid, npasswd, uno, replycount)
+    VALUES(now(), #{ntitle}, #{ncontent},0, #{nid},#{npasswd},#{uno} , 0)
+         
+   </insert> 
+   
+
+<!--  검색 갯수 세는 카운트 -->
+  <select id="count" resultType="int" parameterType="HashMap" >
+    SELECT COUNT(*) as cnt
+    FROM notice
+        <if test="col!=''">
+          WHERE
+        </if>
+        <choose>
+         <when test="col == 'ntitle'">
+            qtitle LIKE #{word}
+          </when>
+         <when test="col == 'ncontent'">
+            qcontent LIKE #{word}
+         </when>
+          <when test="col == 'nid'">
+            qid LIKE #{word}
+         </when>      
+        </choose>
+  </select>        
+        
+  <!-- Search + Paging List -->
+  <select id="list2" resultType="NoticeVO" parameterType="HashMap" >
+     SELECT *
+    FROM notice
+        <if test="col!=''">
+          WHERE
+        </if>
+        <choose>
+         <when test="col == 'ntitle'">
+            ntitle LIKE #{word}
+          </when>
+         <when test="col == 'ncontent'">
+            ncontent LIKE #{word}
+         </when>
+          <when test="col == 'nid'">
+            nid LIKE #{word}
+         </when>      
+        </choose>
+            ORDER BY nno DESC
+            LIMIT #{offset}, 10
+  </select>  
+   
+
+  <!-- ********** 검색에 따른 변경 종료 ********** -->     
+  
+  
+  <select id="read" resultType="NoticeVO" parameterType="int">
+    SELECT *
+    FROM notice
+    WHERE nno= #{nno}
+  </select>
+  
+  
+    <update id="countup" parameterType="int">
+    UPDATE notice
+    SET ncount=ncount+1
+    WHERE nno=#{nno}
+  </update>
+  
+  
+  
+  
+  <update id="update" parameterType="NoticeVO">
+    UPDATE notice
+    SET ntitle=#{ntitle}, ncontent=#{ncontent}
+    WHERE nno=#{nno}
+  </update>
+  
+   <delete id="delete" parameterType="int">
+    DELETE FROM notice
+    WHERE nno=#{nno}
+  </delete> 
+ 
+   
+  
+  
+  
+<!-- 리플 ★★★★★★★★★★★★★★★★★★★★★★★★★★-->
+  
+  
+  
+  
+   <!-- create -->
+    <insert id="createreply" parameterType="NoticereplyVO">
+    INSERT INTO noticereply(nreplydate, nreplycontent, nreplyid, nreplypasswd, nno)
+    VALUES(now(), #{nreplycontent}, #{nreplyid},#{nreplypasswd},#{nno} )
+         
+   </insert> 
+   
+   
+   
+   
+   
+   
+     <!-- List -->
+  <select id="listreply" resultType="NoticereplyVO" parameterType="int" >
+     SELECT *
+    FROM noticereply
+    WHERE nno = #{nno}
+   ORDER BY nreplyno
+   
+  </select>  
+   
+   
+   
+   
+   
+   
+      <delete id="deletereply" parameterType="int">
+    DELETE FROM noticereply
+    WHERE nreplyno=#{nreplyno}
+  </delete> 
+   
+  
+  
+  
+  
+  
+    <select id="readreply" resultType="NoticereplyVO" parameterType="int">
+    SELECT *
+    FROM noticereply
+    WHERE nreplyno= #{nreplyno}
+  </select>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <update id="replycountup" parameterType="int">
+    UPDATE notice
+    SET replycount=replycount+1
+    WHERE nno=#{nno}
+  </update>
+
+        <update id="replycountdown" parameterType="int">
+    UPDATE notice
+    SET replycount=replycount-1
+    WHERE nno=#{nno}
+  </update>
+  
+  
+  
+  
+  </mapper>

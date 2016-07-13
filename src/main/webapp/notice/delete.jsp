@@ -47,7 +47,6 @@
     <div class="container">
       <div class="row">
         <DIV class='col-lg-12 text-center'>
-          <h2>Delete NOTICE</h2>
           <hr class="star-primary" />
         </DIV>
       </div>

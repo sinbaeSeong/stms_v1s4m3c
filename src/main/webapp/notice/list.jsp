@@ -15,7 +15,10 @@
 
 <script type="text/JavaScript">
 function del(nno){
-   if(!confirm("Are you deletion? If this command deletes files, We can not restore.")){
+  var returnValue = prompt("비밀번호를 입력하세요", "");
+  
+  
+   if(!confirm("글을 삭제하겠습니까?")){
       return;
    } else {
       var f = document.createElement("form");
@@ -29,9 +32,22 @@ function del(nno){
       i.setAttribute("value", nno);
       f.appendChild(i);
       
+      
+      
+      
+      var qp = document.createElement("input");
+      qp.setAttribute("type","hidden");
+      qp.setAttribute("name","npasswd");
+      qp.setAttribute("value", returnValue);
+      f.appendChild(qp);
+      
+      
+      
+      
       f.submit();
    }
 }
+
 </script>
 
 <style type="text/css">
@@ -67,17 +83,35 @@ function del(nno){
       <div class="container">
       
         <div class="row">
-          <DIV class='col-lg-12 text-center'><h2>NOTICE</h2>
+          <DIV class='col-lg-12 text-center'><h2>Notice</h2>
           <hr class="star-primary"/>
           </DIV>
          </div>     
  
   <FORM name='frm' method='GET' action='./list2.do' >        
-     
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <select id='email_dns' class='input-sm' name='col' style="width: 20%;">
+          <option value=''>검색</option>
+          <option value='qtitle' ${search.col == "ntitle" ? "selected=selected" : "" }>제목</option>
+          <option value='qcontent' ${search.col == "ncontent" ? "selected=selected" : "" }>내용</option>
+          <option value='qid' ${search.col == "nid" ? "selected=selected" : "" }>작성자</option>
+       </select>
+      <input type="text" class="input-sm" placeholder="search" id="word"
+                     name="word" maxlength="16" value='${search.word }' style="width: 30%; ">
+      <input type="submit" value='search' class='btn btn-success btn-sm'>
+    </div>
+  </div>       
+  
+  <c:if test="${act eq 'admin' }">
   
   <div align=right>
   <a href="./create.do?nno=${noticeVO.nno}"><img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
  </div>
+ 
+ </c:if>
+ 
+ 
  
   <!--  테이블 시작 -->
            
@@ -88,9 +122,10 @@ function del(nno){
         <tr class="row control-group" style="font-size: 23px;">
           <th class="col-lg-8 col-lg-offset-2" style="width:10%; ">No</th>
           <th class="col-lg-8 col-lg-offset-2" style="width:40%;">Title</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width:20%;">ID</th>
           <th class="col-lg-8 col-lg-offset-2" style="width:5%; ">Count</th>          
-          <th class="col-lg-8 col-lg-offset-2" style="width:30%; ">Date</th>
-          <th class="col-lg-8 col-lg-offset-2" style="width:25%; ">etc</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width:15%; ">Date</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width:10%; ">etc</th>
         </tr>
       
       </thead>
@@ -101,8 +136,13 @@ function del(nno){
           <tr class="row control-group" style="font-size: 20px;">
             <td class="td">${noticeVO.nno}</td>
             <td class="td_l">
-              <a href="./read.do?nno=${noticeVO.nno}"> ${noticeVO.ntitle }</a> 
+              <a href="./read.do?nno=${noticeVO.nno}"> ${noticeVO.ntitle }</a> (${noticeVO.replycount })
             </td> 
+            
+
+            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">
+
+            ${noticeVO.nid }</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${noticeVO.ncount }</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${noticeVO.ndate} </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
