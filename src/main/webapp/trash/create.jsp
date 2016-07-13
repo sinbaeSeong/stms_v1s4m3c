@@ -152,7 +152,7 @@
 
       var zoomLevel   = 16;           // 지도의 확대 레벨 : 숫자가 클수록 확대정도가 큼
 
-      var markerTitle   = "dd";        // 현재 위치 마커에 마우스를 오버을때 나타나는 정보
+      var markerTitle   =  document.getElementById('markerTitle').value;        // 현재 위치 마커에 마우스를 오버을때 나타나는 정보
       var markerMaxWidth  = 300;            // 마커를 클릭했을때 나타나는 말풍선의 최대 크기
 
       // 말풍선 내용

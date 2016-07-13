@@ -15,7 +15,9 @@ public class TrashVO {
   private String tname;
   private Double maxcapa;
   private Double nowcapa;
-  private String location;
+  private Double lat;
+  private Double lng;
+  private String markerTitle;
   private String mdate;
   
   public int getTno() {
@@ -48,11 +50,24 @@ public class TrashVO {
   public void setNowcapa(Double nowcapa) {
     this.nowcapa = nowcapa;
   }
-  public String getLocation() {
-    return location;
+    
+  public Double getLat() {
+    return lat;
   }
-  public void setLocation(String location) {
-    this.location = location;
+  public void setLat(Double lat) {
+    this.lat = lat;
+  }
+  public Double getLng() {
+    return lng;
+  }
+  public void setLng(Double lng) {
+    this.lng = lng;
+  }
+  public String getMarkerTitle() {
+    return markerTitle;
+  }
+  public void setMarkerTitle(String markerTitle) {
+    this.markerTitle = markerTitle;
   }
   public String getMdate() {
     return mdate;

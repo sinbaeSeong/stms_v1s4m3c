@@ -76,7 +76,7 @@ function del(tno){
       <select id='email_dns' class='input-sm' name='col' style="width: 20%;">
           <option value=''>검색</option>
           <option value='tname' ${search.col == "tname" ? "selected=selected" : "" }>ID</option>
-          <option value='location' ${search.col == "location" ? "selected=selected" : "" }>Location</option>
+          <option value='markerTitle' ${search.col == "markerTitle" ? "selected=selected" : "" }>Marker_Title</option>
           <option value='maxcapa' ${search.col == "maxcapa" ? "selected=selected" : "" }>Capacity</option>
        </select>
       <input type="text" class="input-sm" placeholder="search" id="word"
@@ -113,7 +113,7 @@ function del(tno){
             <td class="td_l" style="width:20%; ">
               <a href="./read.do?tno=${trashVO.tno}&uno=1"> ${trashVO.tname }</a> 
             </td> 
-            <td class="col-lg-8 col-lg-offset-2" style="width: 20%; ">${trashVO.location }</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 20%; ">${trashVO.markerTitle }</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 20%; ">${trashVO.nowcapa }</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 15%; ">${trashVO.mdate.substring(0, 10)} </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 15%; ">
