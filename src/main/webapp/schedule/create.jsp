@@ -83,8 +83,7 @@ function checkData(f){ // f == document.frmData 객체
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
-              
-           
+                         
               
               <div class="row control-group">
               <div class="form-group col-xs-12 ">

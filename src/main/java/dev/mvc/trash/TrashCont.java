@@ -245,11 +245,9 @@ public class TrashCont {
             String mess;
       
             if(trashDAO.checkID(tname)!=0){
-               mess = "<font color='red'>A duplicate Trash-type.</font>";
-        /*       System.out.println("1"+tname+"11");*/
+               mess = "<font color='red'>A duplicate Trash-identification.</font>";
             } else {
-               mess = "<font color='green'>Id can use.</font>";
-   /*            System.out.println("2"+tname+"tname");*/
+               mess = "<font color='green'>You can use the ID.</font>";
             }
             response.setContentType("text/html;charset=utf-8");
             response.setHeader("Cache-control", "no-cache");

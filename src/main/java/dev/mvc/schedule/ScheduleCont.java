@@ -128,11 +128,8 @@ public class ScheduleCont {
   public ModelAndView read(int sno) {
     ModelAndView mav = new ModelAndView();
     mav.setViewName("/schedule/update"); // /webapp/member/create.jsp
-
     ScheduleVO scheduleVO = scheduleDAO.read(sno);
-
     mav.addObject("scheduleVO", scheduleVO);
-
     return mav;
   }
 
