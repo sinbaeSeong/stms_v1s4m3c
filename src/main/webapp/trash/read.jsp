@@ -67,7 +67,7 @@ $(function(){
               
              <div class="form-group col-xs-12">
                   <label>Current Capacity </label>
-                  <span class="form-control"> ${trashVO.maxcapa  }</span><br>                  
+                  <span class="form-control"> ${trashVO.maxcapa*100 / trashVO.maxcapa}%</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
               

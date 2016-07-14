@@ -38,9 +38,6 @@ function del(tno){
 
 </style>
 
- <!-- Basic CSS -->
-<!-- <link href="../css/style.css" rel="Stylesheet" type="text/css"> -->
-
 <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 
@@ -114,7 +111,7 @@ function del(tno){
               <a href="./read.do?tno=${trashVO.tno}&uno=1"> ${trashVO.tname }</a> 
             </td> 
             <td class="col-lg-8 col-lg-offset-2" style="width: 20%; ">${trashVO.markerTitle }</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 20%; ">${trashVO.nowcapa }</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 20%; ">${trashVO.nowcapa*100/trashVO.maxcapa}</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 15%; ">${trashVO.mdate.substring(0, 10)} </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 15%; ">
               <a href="./update.do?tno=${trashVO.tno}"><img src="../images/upload.jpg" title="Update" border='0'/></a>
