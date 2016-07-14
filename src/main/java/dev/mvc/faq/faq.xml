@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dev.mvc.faq.FaqMapperInter">
+   
+   <!-- create -->
+    <insert id="create" parameterType="FaqVO">
+    INSERT INTO faq(fdate, ftitle, fcontent, fcount, fid, fpasswd, uno, replycount)
+    VALUES(now(), #{ftitle}, #{fcontent},0, #{fid},#{fpasswd},#{uno} , 0)
+         
+   </insert> 
+   
+
+<!--  검색 갯수 세는 카운트 -->
+  <select id="count" resultType="int" parameterType="HashMap" >
+    SELECT COUNT(*) as cnt
+    FROM faq
+        <if test="col!=''">
+          WHERE
+        </if>
+        <choose>
+         <when test="col == 'ftitle'">
+            ftitle LIKE #{word}
+          </when>
+         <when test="col == 'fcontent'">
+            fcontent LIKE #{word}
+         </when>
+          <when test="col == 'fid'">
+            fid LIKE #{word}
+         </when>      
+        </choose>
+  </select>        
+        
+  <!-- Search + Paging List -->
+  <select id="list2" resultType="FaqVO" parameterType="HashMap" >
+     SELECT *
+    FROM faq
+        <if test="col!=''">
+          WHERE
+        </if>
+        <choose>
+         <when test="col == 'ftitle'">
+            ftitle LIKE #{word}
+          </when>
+         <when test="col == 'fcontent'">
+            fcontent LIKE #{word}
+         </when>
+          <when test="col == 'fid'">
+            fid LIKE #{word}
+         </when>      
+        </choose>
+            ORDER BY fno DESC
+            LIMIT #{offset}, 10
+  </select>  
+   
+
+  <!-- ********** 검색에 따른 변경 종료 ********** -->     
+  
+  
+  <select id="read" resultType="FaqVO" parameterType="int">
+    SELECT *
+    FROM faq
+    WHERE fno= #{fno}
+  </select>
+  
+  
+    <update id="countup" parameterType="int">
+    UPDATE faq
+    SET fcount=fcount+1
+    WHERE fno=#{fno}
+  </update>
+  
+  
+  
+  
+  <update id="update" parameterType="FaqVO">
+    UPDATE faq
+    SET ftitle=#{ftitle}, fcontent=#{fcontent}
+    WHERE fno=#{fno}
+  </update>
+  
+   <delete id="delete" parameterType="int">
+    DELETE FROM faq
+    WHERE fno=#{fno}
+  </delete> 
+ 
+   
+  
+  
+  
+<!-- 리플 ★★★★★★★★★★★★★★★★★★★★★★★★★★-->
+  
+  
+  
+  
+   <!-- create -->
+    <insert id="createreply" parameterType="FaqreplyVO">
+    INSERT INTO faqreply(freplydate, freplycontent, freplyid, freplypasswd, fno)
+    VALUES(now(), #{freplycontent}, #{freplyid},#{freplypasswd},#{fno} )
+         
+   </insert> 
+   
+   
+   
+   
+   
+   
+     <!-- List -->
+  <select id="listreply" resultType="FaqreplyVO" parameterType="int" >
+     SELECT *
+    FROM faqreply
+    WHERE fno = #{fno}
+   ORDER BY freplyno
+   
+  </select>  
+   
+   
+   
+   
+   
+   
+      <delete id="deletereply" parameterType="int">
+    DELETE FROM faqreply
+    WHERE freplyno=#{freplyno}
+  </delete> 
+   
+  
+  
+  
+  
+  
+    <select id="readreply" resultType="FaqreplyVO" parameterType="int">
+    SELECT *
+    FROM faqreply
+    WHERE freplyno= #{freplyno}
+  </select>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <update id="replycountup" parameterType="int">
+    UPDATE faq
+    SET replycount=replycount+1
+    WHERE fno=#{fno}
+  </update>
+
+        <update id="replycountdown" parameterType="int">
+    UPDATE faq
+    SET replycount=replycount-1
+    WHERE fno=#{fno}
+  </update>
+  
+  
+  
+  
+  </mapper>

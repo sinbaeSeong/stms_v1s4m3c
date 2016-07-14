@@ -36,12 +36,21 @@ window.onload=function(){
    document.getElementById('frm').onsubmit=function(){
     var pass=document.getElementById('passwd').value;
     var repasswd=document.getElementById('repasswd').value;
+    var id = document.getElementById('id').value;  
     
     if(pass==repasswd){
     }else{
       alert('두개의 비밀번호가 다릅니다.');
       return false; 
     }
+    if(pass.length<4){
+       alert('비밀번호가 너무 짧습니다');
+       return false; 
+    }
+    if(id.length<4){
+       alert('아이디가 너무 짧습니다');
+       return false; 
+    } 
    }
 }
 

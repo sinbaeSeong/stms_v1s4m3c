@@ -62,6 +62,23 @@ public class UserCont {
     ArrayList<String> msgs = new ArrayList<String>();
     ArrayList<String> links = new ArrayList<String>();
 
+    if(userDAO.checkID(userVO.getId())>0){
+       msgs.add("중복되는 아이디입니다");
+       links.add("<button type='button' class='btn btn-success btn-sm' onclick='history.back();'>다시시도</button>");
+       mav.addObject("msgs", msgs);
+       mav.addObject("links", links);
+       return mav;
+    }
+    if(userDAO.checkEmail(userVO.getEmail())>0){
+       msgs.add("중복되는 이메일입니다");
+       links.add("<button type='button' class='btn btn-success btn-sm' onclick='history.back();'>다시시도</button>");
+       mav.addObject("msgs", msgs);
+       mav.addObject("links", links);
+       return mav;
+    }
+    
+    
+    
     if (userDAO.create(userVO) == 1) {
        mav.setViewName("redirect:/user/login.do"); 
        } else {
@@ -136,7 +153,7 @@ public class UserCont {
      ArrayList<String> links = new ArrayList<String>();
 
         if (userDAO.delete(uno) == 1) {
-           mav.setViewName("redirect:/user/list.do");
+           mav.setViewName("redirect:/user/list2.do");
 
         } else {
            msgs.add("회원 삭제에 실패했습니다");
@@ -443,9 +460,14 @@ public void checkID(String id,
    String mess;
    
    if(userDAO.checkID(id)>0){
+
       mess = "<font color='red'>등록된 아이디 입니다</font>";
    } else {
+      if(id.length()<4){
+         mess = "<font color='red'>아이디가 너무 짧습니다</font>";
+      }else{
       mess = "<font color='green'>멋진 아이디네요!</font>";
+      }
    }
    response.setContentType("text/html;charset=utf-8");
    response.setHeader("Cache-control", "no-cache");
@@ -463,6 +485,7 @@ public void checkEmail(String email,
    
    if(userDAO.checkID(email)>0){
       mess = "<font color='red'>등록된 이메일 입니다</font>";
+ 
    } else {
       mess = "<font color='green'>멋진 이메일이네요!</font>";
    }

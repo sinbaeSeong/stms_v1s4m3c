@@ -82,7 +82,7 @@
                   <button type="button" class="btn btn-success btn-lg" onclick='javascript: logout();'>Logout</button> 
                   <button type="button" class="btn btn-success btn-lg" onclick="location.href='./confirm.do?uno=${uno }'">User information</button> 
                   <button type="button" class="btn btn-success btn-lg" onclick="location.href='../message/list.do?uno=${uno}'">Message</button><br><br>
-                  <button type="button" class="btn btn-success btn-lg" onclick="">Schedule(반구현)</button><br><br>
+                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='../schedule/calendar.do'">Schedule</button><br><br>
                   <c:if test="${act eq 'admin' }">
                   <hr><br>
                   You are admin. You can use admin menu.
