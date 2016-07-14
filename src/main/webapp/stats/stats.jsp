@@ -11,15 +11,28 @@
         <script src="../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     
-    <body>       
+<!-- ----------------------------------------- -->
+<body leftmargin="0" topmargin="0">
+<jsp:include page="/menu/top.jsp" flush='false' />
+<!-- ----------------------------------------- --> 
+
+    <!-- Title Sign up -->
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <DIV class='col-lg-12 text-center'><h2>Statistics: Output of trash</h2>
+          <hr class="star-primary"/>
+          </DIV>
+         </div>
+              
       <!--/span-->
-         <div class="span9" id="content">
+         <div class="span9" id="content" style="width:100%;">
              <!-- morris graph chart -->
-                <div class="row-fluid section">0     
+                <div class="row-fluid section">     
                    <!-- block -->
                       <div class="block">
                           <div class="navbar navbar-inner block-header">
-                              <div class="muted pull-left">local Trash_can <small>Average growth</small></div>
+                              <div class="muted pull-left">Total Trash <small></small></div>
                               <div class="pull-right"><span class="badge badge-warning">View More(list)</span>
                               </div>
                           </div>
@@ -37,7 +50,7 @@
                          <!-- block -->
                         <div class="block">
                             <div class="navbar navbar-inner block-header">
-                                <div class="muted pull-left">Average Trash and Cleaner</div>
+                                <div class="muted pull-left">Average Trash</div>
                                 <div class="pull-right"><span class="badge badge-warning">View More(list)</span>
                                 </div>
                             </div>
