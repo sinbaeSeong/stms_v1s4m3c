@@ -135,7 +135,7 @@
 </button>
   <div class="dropdown-content">
     <a href="./user/logout.do">Logout</a>
-    <a href="./user/confirm.do?uno=${uno }">User Information</a>
+    <a href="./user/welcome.do">My Page</a>
     <a href="./message/list.do?uno=${uno}">Message</a>
   </div>
 </div>
