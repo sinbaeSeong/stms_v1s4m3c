@@ -142,7 +142,7 @@
                 </div>
               </div> 
               <img src="img/portfolio/game1.png" class="img-responsive" alt="">
-            </a>
+            </a> 
           </div>
           <div class="col-sm-4 portfolio-item">
             <a href="./schedule/calendar.do"  class="portfolio-link" data-toggle="modal">
