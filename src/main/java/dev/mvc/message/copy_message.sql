@@ -81,7 +81,7 @@ SELECT mno, sender, mdate, uno, tno, title
 FROM message
 WHERE uno=1
 ORDER BY mno ASC
-LIMIT 0, 5;
+LIMIT 0, 10;
 
 SELECT mno, sender, mdate, uno, tno, title
 FROM message

@@ -42,6 +42,27 @@
    }
   }
  }
+ 
+
+ function onkey_e(){
+    var email = document.getElementById("email").value;
+    xmlhttp=new XMLHttpRequest();
+    
+    xmlhttp.onreadystatechange = res_onkey_e;
+    xmlhttp.open("POST","./checkEmail.do",true);
+    xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded"); 
+    xmlhttp.send("email="+email); 
+
+ }
+
+ function res_onkey_e(){
+    if(xmlhttp.readyState==4){
+       if(xmlhttp.status==200){
+          var res_text = xmlhttp.responseText;
+          document.getElementById("emailck").innerHTML = res_text;
+       }
+    }
+ }
 </script>
  
 
@@ -124,7 +145,8 @@
               <div class="form-group col-xs-12 ">
                  <label>Email</label>
                     <input type="email" class="form-control" value="${userVO.email}"  id="email"
-                    name="email" maxlength="40" required>
+                    name="email" maxlength="40" required autocomplete="off" onkeyup="onkey_e()">
+                 <span id='emailck'></span>
                  <p class="help-block text-danger"></p>
               </div>
               </div>

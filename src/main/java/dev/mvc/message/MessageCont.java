@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -49,7 +50,8 @@ public class MessageCont {
 
   @RequestMapping(value = "/message/create.do", 
                              method = RequestMethod.POST)
-  public ModelAndView create(MessageVO messageVO) {
+  public ModelAndView create(MessageVO messageVO,
+        HttpSession session) {
     System.out.println("--> create() POST called.");
     ModelAndView mav = new ModelAndView();
     mav.setViewName("/message/message"); 
@@ -66,7 +68,7 @@ public class MessageCont {
     messageVO.setUno(userVO.getUno());
     
     if (messageDAO.create(messageVO) == 1) {
-       mav.setViewName("redirect:/message/list.do?uno="+userVO.getUno());
+       mav.setViewName("redirect:/message/list.do?uno="+session.getAttribute("uno"));
        } else {
           
       msgs.add("메세지 전송에 실패했습니다.");
@@ -167,12 +169,13 @@ public class MessageCont {
      mav.addObject("totalRecord", totalRecord);
      mav.addObject("root", request.getContextPath());
 
-     String paging = new Paging().paging(
+     String paging = new Paging().paging2(
            totalRecord, 
            searchDTO.getNowPage(), 
            recordPerPage, 
            searchDTO.getCol(), 
-           searchDTO.getWord());
+           searchDTO.getWord(),
+           messageVO.getUno());
      mav.addObject("paging",paging);
      
      return mav;
