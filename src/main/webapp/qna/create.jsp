@@ -90,7 +90,7 @@
 <div class="row control-group">
 <div class="form-group col-xs-12 ">
       <label for="capa">PASSWORD</label>
-      <input type="text" class="form-control" placeholder="비회원 비밀번호" id="qpasswd" name="qpasswd" required>
+      <input type="password" class="form-control" placeholder="비회원 비밀번호" id="qpasswd" name="qpasswd" required>
    <p class="help-block text-danger"></p>
   </div>
 </div>
