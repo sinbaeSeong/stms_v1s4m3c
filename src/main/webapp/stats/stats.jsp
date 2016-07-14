@@ -56,11 +56,11 @@
                             </div>
                             <div class="block-content collapse in">
                                 <div class="span6 chart">
-                                    <h5>local trash</h5>
+                                    <h5>local trash output</h5>
                                     <div id="hero-bar" style="height: 250px;"></div>
                                 </div>
                                 <div class="span5 chart">
-                                    <h5>Month trash </h5>
+                                    <h5>Output trash percentage </h5>
                                     <div id="hero-donut" style="height: 250px;"></div>    
                                 </div>
                             </div>
@@ -151,22 +151,22 @@
 
         // Morris Line Chart-성장곡선
         var tax_data = [
-            {"period": "2015-08", "Seoul": 2407, "Youngin": 660},
-            {"period": "2015-07", "Seoul": 3351, "Youngin": 729},
-            {"period": "2015-06", "Seoul": 2469, "Youngin": 1318},
-            {"period": "2015-05", "Seoul": 2246, "Youngin": 461},
-            {"period": "2015-04", "Seoul": 3171, "Youngin": 1676},
-            {"period": "2015-03", "Seoul": 2155, "Youngin": 681},
-            {"period": "2015-02", "Seoul": 1226, "Youngin": 620},
-            {"period": "2015-01", "Seoul": 2245, "Youngin": 500}
+            {"period": "2015-08", "Seoul": 2407},
+            {"period": "2015-07", "Seoul": 3351},
+            {"period": "2015-06", "Seoul": 2469},
+            {"period": "2015-05", "Seoul": 2246},
+            {"period": "2015-04", "Seoul": 3171},
+            {"period": "2015-03", "Seoul": 2155},
+            {"period": "2015-02", "Seoul": 1226},
+            {"period": "2015-01", "Seoul": 2245}
         ];
         Morris.Line({
             element: 'hero-graph',
             data: tax_data,
             xkey: 'period',
             xLabels: "month",
-            ykeys: ['Seoul', 'Youngin'],
-            labels: ['Seoul_ko', 'Youngin_ko']
+            ykeys: ['Seoul'],
+            labels: ['Seoul_ko']
         });
       
 
