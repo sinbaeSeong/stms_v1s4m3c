@@ -52,12 +52,13 @@
         
         <!-- Title Sign up -->
         <div class="row">
-        <DIV class='col-lg-12 text-center'><h2>Welcome today</h2>
+        <DIV class='col-lg-12 text-center'><h2>My Page</h2>
           <hr class="star-primary"/>
         </DIV>
         </div>   
               
-              
+              <div class="row">
+        <DIV class='col-lg-12 text-center'>
               <label class='col-lg-12 text-center'>
               <% if (session.getAttribute("id") == null){ %>
                 로그인되지 않았습니다.<br>
@@ -73,6 +74,8 @@
               <a href='../message/list.do?uno=${uno}'">읽지않은 새로운 메세지가 ${countRead }건 있습니다!</a>
               </c:if>
               </label>
+              </DIV>
+              </div>
               <!-- button -->
               <br><br><br>
               <div class='col-lg-12 text-center'>
