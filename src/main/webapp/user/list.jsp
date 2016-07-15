@@ -171,6 +171,9 @@ function fun_confirm(uno, uconfirm){
 <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
  
+ <!-- STMS Custom CSS -->
+<link href="../menu/dropdown.css" rel="stylesheet">
+
 </head> 
 <!-- ----------------------------------------- -->
 
@@ -234,7 +237,14 @@ function fun_confirm(uno, uconfirm){
       <c:forEach var="userVO" items="${list }">
           <tr class="row control-group" style="font-size: 20px;">
             <td class="td">${userVO.uno}</td>
-            <td class="td_l">${userVO.id}</td> 
+                            <td class="td_l">
+                <div class="udropdown">
+                <button class="udropbtn" > ${userVO.id}</button>
+                <div class="udropdown-content">
+                  <a href="../message/create.do?receiver=${userVO.id}">Send Message</a>
+                 </div>
+                </div>
+                </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 100px; ">${userVO.uname}</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${userVO.email}</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">

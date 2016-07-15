@@ -69,10 +69,12 @@
               <% } %>
               <br>
               <br>
+              <% if (session.getAttribute("id") != null){ %>
               <c:if test="${countRead ne 0 }">
               <i class='fa fa-paper-plane-o' aria-hidden='true'></i>
-              <a href='../message/list.do?uno=${uno}'">읽지않은 새로운 메세지가 ${countRead }건 있습니다!</a>
+              <a href='../message/list.do?uno=${uno}'>읽지않은 새로운 메세지가 ${countRead }건 있습니다!</a>
               </c:if>
+              <%} %>
               </label>
               </DIV>
               </div>
