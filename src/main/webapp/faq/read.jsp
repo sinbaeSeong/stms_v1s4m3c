@@ -131,6 +131,11 @@
               
               <div class="row control-group">
                <div class="form-group col-xs-12">
+                  <label>Sort </label>
+                  <span class="form-control">${faqVO.fcategory}</span><br>                  
+                  <p class="help-block text-danger"></p>
+              </div>
+                <div class="form-group col-xs-12">
                   <label>Title </label>
                   <span class="form-control">${faqVO.ftitle}</span><br>                  
                   <p class="help-block text-danger"></p>
@@ -156,9 +161,9 @@
             <div id="success"></div>
              <div class="row">
              <div class="form-group col-xs-12">
-            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list2.do'">List</button>
-            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./update.do?fno=${faqVO.fno}'">Update</button>
-            <button type="button" class="btn btn-success btn-lg" onclick="javascript:del(${faqVO.fno })">Delete</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list2.do'">LIST</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./update.do?fno=${faqVO.fno}'">UPDATE</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="javascript:del(${faqVO.fno })">DELETE</button>
            </div>
            </div>
            </form> 
@@ -218,7 +223,7 @@
               <div class="row control-group"> 
 <div class="form-group col-xs-12 ">
       <label for="capa">ID</label>
-      <input type="text" class="form-control" placeholder="비회원 아이디" id="freplyid" name="freplyid" required>
+      <input type="text" class="form-control" value="admin" placeholder="비회원 아이디" id="freplyid" name="freplyid" required>
    <p class="help-block text-danger"></p>
   </div>
 </div>
@@ -226,7 +231,7 @@
 <div class="row control-group">
 <div class="form-group col-xs-12 ">
       <label for="capa">PASSWORD</label>
-      <input type="text" class="form-control" placeholder="비회원 비밀번호" id="freplypasswd" name="freplypasswd" required>
+      <input type="password" class="form-control" value="1234" placeholder="비회원 비밀번호" id="freplypasswd" name="freplypasswd" required>
    <p class="help-block text-danger"></p>
   </div>
 </div>
@@ -247,7 +252,7 @@
 <div class="row control-group">
              <div class="form-group col-xs-12">
                   <label>Content </label>
-                  <input type="text" class="form-control" placeholder="답변 내용을 입력하세요" id="freplycontent" name="freplycontent" required>
+                  <input type="text" class="form-control" value="내용" placeholder="답변 내용을 입력하세요" id="freplycontent" name="freplycontent" required>
                           
                   <p class="help-block text-danger"></p>
               </div>

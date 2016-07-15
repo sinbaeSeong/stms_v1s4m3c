@@ -49,7 +49,8 @@ CREATE TABLE faq(
     fid                               VARCHAR(16)     NULL,
     fpasswd                           VARCHAR(16)     NULL,
     uno                               INT    NULL,
-    replycount                      INT  NOT NULL
+    replycount                      INT  NOT NULL,
+    fcategory                         VARCHAR(40)  NOT NULL
 );
 
 
@@ -60,7 +61,7 @@ CREATE TABLE faq(
 
 
 2. Drop Table
-DROP TABLE fna;
+DROP TABLE faq;
 
 select * from qna;
 
