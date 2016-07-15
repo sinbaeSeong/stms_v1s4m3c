@@ -167,7 +167,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <img class="img-responsive" src="img/profile6.png" alt="">
+          <img class="img-responsive" src="img/leafs.png" width=250 alt="">
           <div class="intro-text">
             <span class="name">STMS </span>
             <hr class="star-light">
@@ -183,40 +183,22 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2>Component</h2>
+            <h2>Services</h2>
             <hr class="star-primary">
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-4 portfolio-item">
-            <a href="./trash/list2.do" class="portfolio-link" data-toggle="modal"> 
-              <div class="caption">
-                <div class="caption-content">
-                  <i class="fa fa-search-plus fa-3x"></i>
+   <div class="col-sm-4 portfolio-item">
+            <a href="./notice/list2.do" class="portfolio-link" data-toggle="modal">
+              <div class ="caption">
+                <div class ="caption-content">
+                  <i class ="fa fa-search-plus fa-3x"></i>
                 </div>
-              </div> <img src="img/portfolio/cabin1.png" class="img-responsive" alt="">
+               </div>
+             <img src="img/portfolio/notice.png" class="img-responsive" alt="">
             </a>
           </div>
-          <div class="col-sm-4 portfolio-item">
-            <a href="./stats/list.jsp" class="portfolio-link" data-toggle="modal">
-              <div class="caption">
-                <div class="caption-content">
-                  <i class="fa fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-             <img src="img/portfolio/cake1.png" class="img-responsive" alt="">
-            </a>
-          </div>
-          <div class="col-sm-4 portfolio-item">
-            <a href="./qna/list2.do" class="portfolio-link" data-toggle="modal">
-              <div class="caption">
-                <div class="caption-content">
-                  <i class="fa fa-search-plus fa-3x"></i>
-                </div>
-              </div> 
-            <img src="img/portfolio/circus1.png" class="img-responsive" alt="">
-            </a>
-          </div>
+      
+         
           <div class="col-sm-4 portfolio-item">
             <a href="./faq/list2.do" class="portfolio-link" data-toggle="modal">
               <div class="caption">
@@ -224,28 +206,20 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div> 
-              <img src="img/portfolio/game1.png" class="img-responsive" alt="">
+              <img src="img/portfolio/faq.png" class="img-responsive" alt="">
             </a> 
           </div>
-          <div class="col-sm-4 portfolio-item">
-            <a href="./schedule/calendar.do"  class="portfolio-link" data-toggle="modal">
+           <div class="col-sm-4 portfolio-item">
+            <a href="./qna/list2.do" class="portfolio-link" data-toggle="modal">
               <div class="caption">
                 <div class="caption-content">
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
-              </div> <img src="img/portfolio/safe1.png" class="img-responsive" alt="">
+              </div> 
+            <img src="img/portfolio/qna.png" class="img-responsive" alt="">
             </a>
           </div>
-          <div class="col-sm-4 portfolio-item">
-            <a href="./notice/list2.do" class="portfolio-link" data-toggle="modal">
-              <div class ="caption">
-                <div class ="caption-content">
-                  <i class ="fa fa-search-plus fa-3x"></i>
-                </div>
-               </div>
-             <img src="img/portfolio/submarine1.png" class="img-responsive" alt="">
-            </a>
-          </div>
+          
         </div>
       </div>
     </section>
@@ -354,7 +328,7 @@
             <div class="footer-col col-md-4">
               <h3>Location</h3>
               <p>
-                Seoul KOREA<br>soldesk Jong-ro coa building Jonggak
+                Seoul, Korea Republic of<br>Soldesk, Jong-ro Coa Building, Jonggak
               </p>
             </div>
             <div class="footer-col col-md-4">
