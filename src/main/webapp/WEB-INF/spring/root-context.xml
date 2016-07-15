@@ -30,7 +30,7 @@
               dev.mvc.message,
               dev.mvc.schedule,
               dev.mvc.qna,
-              dev.mvc.notice
+              dev.mvc.notice,
               dev.mvc.faq
               
               "/>
