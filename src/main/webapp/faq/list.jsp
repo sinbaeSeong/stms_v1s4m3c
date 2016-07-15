@@ -89,34 +89,59 @@ function del(fno){
          </div>     
  
   <FORM name='frm' method='GET' action='./list2.do' >        
-  <div class="row">
+     <div class="row">
     <div class="col-lg-12 text-center">
       <select id='email_dns' class='input-sm' name='col' style="width: 20%;">
           <option value=''>검색</option>
           <option value='ftitle' ${search.col == "ftitle" ? "selected=selected" : "" }>제목</option>
           <option value='fcontent' ${search.col == "fcontent" ? "selected=selected" : "" }>내용</option>
-          <option value='fid' ${search.col == "fid" ? "selected=selected" : "" }>작성자</option>
-       </select>
+          </select>
       <input type="text" class="input-sm" placeholder="search" id="word"
                      name="word" maxlength="16" value='${search.word }' style="width: 30%; ">
       <input type="submit" value='search' class='btn btn-success btn-sm'>
     </div>
-  </div>       
+  </div>      
   
   <div align=right>
   <a href="./create.do?fno=${faqVO.fno}"><img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
  </div>
  
   <!--  테이블 시작 -->
+       <div class="content" style='width: 100%;'>
+    <table class="table" style='width: 100%;'>
+          <thead>
+        <tr class="row control-group" style="font-size: 23px;">
+          <th class="col-lg-8 col-lg-offset-2" style="width:100%; ">자주 하는 질문</th>
+          </tr>
+      </thead>
+      
+      <tbody>
+         
+          <tr class="row control-group" style="font-size: 20px;">
+            <td class="col-lg-8 col-lg-offset-2">
+              |　　<a href="./list2.do">전체 목록</a>　　|　　
+              |　　<a href="./list2.do?col=fcategory&word=질문1">질문1</a>　　|　　
+              <a href="./list2.do?col=fcategory&word=질문2">질문2</a>　　|　　
+              <a href="./list2.do?col=fcategory&word=질문3">질문3</a>　　|　　
+              <a href="./list2.do?col=fcategory&word=질문4">질문4</a>　　|
+            </td>
            
+            </tr>
+            
+      
+        
+      </tbody>
+    </table>
+    </div>    
   <div class="content" style='width: 100%;'>
     <table class="table" style='width: 100%;'>
    
       <thead>
         <tr class="row control-group" style="font-size: 23px;">
           <th class="col-lg-8 col-lg-offset-2" style="width:10%; ">No</th>
-          <th class="col-lg-8 col-lg-offset-2" style="width:40%;">Title</th>
-          <th class="col-lg-8 col-lg-offset-2" style="width:20%;">ID</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width:20%; ">Sort</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width:30%;">Title</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width:15%;">ID</th>
           <th class="col-lg-8 col-lg-offset-2" style="width:5%; ">Count</th>          
           <th class="col-lg-8 col-lg-offset-2" style="width:15%; ">Date</th>
           <th class="col-lg-8 col-lg-offset-2" style="width:10%; ">etc</th>
@@ -129,6 +154,7 @@ function del(fno){
          <c:forEach var="faqVO" items="${list }">
           <tr class="row control-group" style="font-size: 20px;">
             <td class="td">${faqVO.fno}</td>
+            <td class="td">${faqVO.fcategory}</td>
             <td class="td_l">
               <a href="./read.do?fno=${faqVO.fno}"> ${faqVO.ftitle }</a> (${faqVO.replycount })
             </td> 
