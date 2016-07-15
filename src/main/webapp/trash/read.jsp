@@ -42,7 +42,7 @@ $(function(){
     <section id="contact">
       <div class="container">
         <div class="row">
-          <DIV class='col-lg-12 text-center'><h2>Trash Component</h2>
+          <DIV class='col-lg-12 text-center'><h2>타이틀</h2>
           <hr class="star-primary"/>
           </DIV>
          </div>     
