@@ -112,6 +112,7 @@
           <li class="page-scroll"><a href="../index.jsp">home</a></li>
           
           <li class="page-scroll"><a href="../trash/list2.do">Trash</a></li>
+          <li class="page-scroll"><a href="../stats/stats.jsp">Statistics</a></li>
           <li class="page-scroll"><a href="../schedule/calendar.do">Calendar</a></li>
           
           

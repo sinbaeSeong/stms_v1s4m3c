@@ -23,6 +23,7 @@ public class FaqVO {
   private int fcount;
   private String fdate;
   private int replycount;
+  private String fcategory;
   
   public int getFno() {
     return fno;
@@ -83,6 +84,12 @@ public class FaqVO {
   }
   public void setReplycount(int replycount) {
     this.replycount = replycount;
+  }
+  public String getFcategory() {
+    return fcategory;
+  }
+  public void setFcategory(String fcategory) {
+    this.fcategory = fcategory;
   }
   
   
