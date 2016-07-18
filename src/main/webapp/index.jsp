@@ -113,48 +113,26 @@
         id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li class="hidden"><a href="#page-top"></a></li>
-          <li class="page-scroll"><a href="#portfolio">menu</a></li>
-          
-  
+ <!--          <li class="page-scroll"><a href="#portfolio">Menu</a></li> -->
+          <li class="page-scroll"><a href="#services">Service</a></li>
           <li class="page-scroll"><a href="#about">About us</a></li>
           <li class="page-scroll"><a href="#contact">Contact me</a>
-          
-          
-          
           <% if (session.getAttribute("id") == null){ %>
           <li class="page-scroll"><a href="./user/login.do">Login</a></li>
           <% }else{ %>
-          
-          
-          
-     <li>
-<div class="dropdown">
-  <button class="dropbtn">
-
-<img src="./images/login.png" width=30>
-</button>
-  <div class="dropdown-content">
-    <a href="./user/logout.do">Logout</a>
-    <a href="./user/welcome.do">My Page</a>
-    <a href="./message/list.do?uno=${uno}">Message</a>
-  </div>
-</div>
-         </li> 
-          
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">
+                <img src="./images/login.png" width=30>
+              </button>
+              <div class="dropdown-content">
+                <a href="./user/logout.do">Logout</a>
+                <a href="./user/welcome.do">My Page</a>
+                <a href="./message/list.do?uno=${uno}">Message</a>
+              </div>
+            </div>
+          </li> 
           <% } %>
-          
-          
-          
-          
-          
-          
-
-          
-          
-          
-          
-          
-          </li>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -179,7 +157,7 @@
   </header>
 
     <!-- Portfolio Grid Section -->
-    <section id="portfolio">
+  <!--   <section id="portfolio">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
@@ -187,42 +165,90 @@
             <hr class="star-primary">
           </div>
         </div>
-   <div class="col-sm-4 portfolio-item">
-            <a href="./notice/list2.do" class="portfolio-link" data-toggle="modal">
-              <div class ="caption">
-                <div class ="caption-content">
-                  <i class ="fa fa-search-plus fa-3x"></i>
-                </div>
-               </div>
-             <img src="img/portfolio/notice.png" class="img-responsive" alt="">
-            </a>
-          </div>
       
-         
-          <div class="col-sm-4 portfolio-item">
-            <a href="./faq/list2.do" class="portfolio-link" data-toggle="modal">
-              <div class="caption">
-                <div class="caption-content">
-                  <i class="fa fa-search-plus fa-3x"></i>
-                </div>
-              </div> 
-              <img src="img/portfolio/faq.png" class="img-responsive" alt="">
-            </a> 
-          </div>
-           <div class="col-sm-4 portfolio-item">
-            <a href="./qna/list2.do" class="portfolio-link" data-toggle="modal">
-              <div class="caption">
-                <div class="caption-content">
-                  <i class="fa fa-search-plus fa-3x"></i>
-                </div>
-              </div> 
-            <img src="img/portfolio/qna.png" class="img-responsive" alt="">
-            </a>
-          </div>
-          
+        <div class="col-sm-4 portfolio-item">
+          <a href="./notice/list2.do" class="portfolio-link" data-toggle="modal">
+            <div class ="caption">
+              <div class ="caption-content">
+                <i class ="fa fa-search-plus fa-3x"></i>
+              </div>
+            </div>
+            <img src="img/portfolio/notice.png" class="img-responsive" alt="">
+          </a>
+        </div>
+            
+        <div class="col-sm-4 portfolio-item">
+          <a href="./faq/list2.do" class="portfolio-link" data-toggle="modal">
+            <div class="caption">
+              <div class="caption-content">
+                <i class="fa fa-search-plus fa-3x"></i>
+              </div>
+            </div> 
+            <img src="img/portfolio/faq.png" class="img-responsive" alt="">
+          </a> 
+        </div>
+      
+        <div class="col-sm-4 portfolio-item">
+          <a href="./qna/list2.do" class="portfolio-link" data-toggle="modal">
+            <div class="caption">
+              <div class="caption-content">
+                <i class="fa fa-search-plus fa-3x"></i>
+              </div>
+            </div> 
+          <img src="img/portfolio/qna.png" class="img-responsive" alt="">
+          </a>
         </div>
       </div>
+    </section> -->
+    
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Services</h2>
+                    <h3 class="section-subheading text-muted">This page is Notice, FAQ and Q&A community site.</h3>
+                </div>
+            </div>
+            <br>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                      <a href="./notice/list2.do" class="portfolio-link" data-toggle="modal">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-list fa-stack-1x fa-inverse"></i>
+                      </a>
+                    </span>
+                    <h4 class="service-heading">Notice</h4></a>
+                    <p class="text-muted">Notice concept is that are administer, schedule, environment and statistics. </p>
+                </div>
+                
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                      <a href="./faq/list2.do" class="portfolio-link" data-toggle="modal">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-tag fa-stack-1x fa-inverse"></i>
+                      </a>
+                    </span>
+                    <h4 class="service-heading">F A Q</h4>
+                    <p class="text-muted">Frequently asked questions (FAQ) is listed questions and answers, all supposed of fixed questions to be commonly asked in some context, and pertaining to a particular topic.</p>
+                </div>
+                
+                <div class="col-md-4">
+                  <span class="fa-stack fa-4x">
+                    <a href="./qna/list2.do" class="portfolio-link" data-toggle="modal">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-tags fa-stack-1x fa-inverse"></i>
+                     </a>
+                    </span>                    
+                    <h4 class="service-heading">Q&A</h4>
+                    <p class="text-muted">Questions and Answers(Q&A) is listed questions and answers, all supposed to be commonly asked in some context, and pertaining to a particular topic. </p>
+                </div>
+            </div>
+        </div>
     </section>
+    
+    
 
     <!-- About Section -->
     <section class="success" id="about">
