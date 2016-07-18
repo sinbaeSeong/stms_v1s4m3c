@@ -15,7 +15,7 @@
 
 <script type="text/JavaScript">
 function del(nno){
-  var returnValue = prompt("비밀번호를 입력하세요", "");
+
   
   
    if(!confirm("글을 삭제하겠습니까?")){
@@ -34,12 +34,7 @@ function del(nno){
       
       
       
-      
-      var qp = document.createElement("input");
-      qp.setAttribute("type","hidden");
-      qp.setAttribute("name","npasswd");
-      qp.setAttribute("value", returnValue);
-      f.appendChild(qp);
+
       
       
       
@@ -125,7 +120,15 @@ function del(nno){
           <th class="col-lg-8 col-lg-offset-2" style="width:20%;">ID</th>
           <th class="col-lg-8 col-lg-offset-2" style="width:5%; ">Count</th>          
           <th class="col-lg-8 col-lg-offset-2" style="width:15%; ">Date</th>
+          
+          
+          
+          <c:if test="${act eq 'admin' }">
+          
           <th class="col-lg-8 col-lg-offset-2" style="width:10%; ">etc</th>
+          
+          </c:if>
+          
         </tr>
       
       </thead>
@@ -146,8 +149,15 @@ function del(nno){
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${noticeVO.ncount }</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${noticeVO.ndate} </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
+            
+            
+            <c:if test="${act eq 'admin' }">
+            
               <a href="./update.do?nno=${noticeVO.nno}"><img src="../images/upload.jpg" title="Update" border='0'/></a>
               <a href="javascript:del(${noticeVO.nno })"><img src="../images/delete.png" title="Delete"  border='0'/> </a>
+              
+              
+              </c:if>
               
       
              </td>

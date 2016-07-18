@@ -46,8 +46,8 @@ CREATE TABLE notice(
     ntitle                            VARCHAR(40)    NOT NULL,
     ncontent                          VARCHAR(2000)    NOT NULL,
     ncount                            INT    DEFAULT 0     NULL ,
-    nid                               VARCHAR(16)     NULL,
-    npasswd                           VARCHAR(16)     NULL,
+    nid                               VARCHAR(16)    NOT  NULL,
+
     uno                               INT    NULL,
     replycount                      INT  NOT NULL
 );

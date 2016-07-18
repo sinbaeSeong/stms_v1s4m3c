@@ -72,12 +72,7 @@ $(function(){
                 </div>
               </div>
                   <div class="row control-group">
-              <div class="form-group col-xs-12 ">
-                    <label>Password</label>
-                    <input type="text" class="form-control" value="" id="npasswd" name='npasswd' >
-                 <p class="help-block text-danger"></p>
-                </div>
-              </div>
+
               
              
               <br>

@@ -167,7 +167,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <img class="img-responsive" src="img/leafs.png" width=250 alt="">
+          <img class="img-responsive" src="img/logo3.png" width=250 alt="">
           <div class="intro-text">
             <span class="name">STMS </span>
             <hr class="star-light">

@@ -77,33 +77,11 @@
               
               
               
-              <%if(session.getAttribute("id")==null){ %>
-              
-<div class="row control-group"> 
-<div class="form-group col-xs-12 ">
-      <label for="capa">ID</label>
-      <input type="text" class="form-control" placeholder="비회원 아이디" id="nid" name="nid" required>
-   <p class="help-block text-danger"></p>
-  </div>
-</div>
 
-<div class="row control-group">
-<div class="form-group col-xs-12 ">
-      <label for="capa">PASSWORD</label>
-      <input type="text" class="form-control" placeholder="비회원 비밀번호" id="npasswd" name="npasswd" required>
-   <p class="help-block text-danger"></p>
-  </div>
-</div>
-             <%}else{
-               
-         
-             %> 
               
              <input type="hidden" id="nid" name="nid" value="${id }">
              <input type="hidden" id="uno" name="uno" value="${uno }">
-              
-              <% 
-             } %>
+
               
          
               <br>
