@@ -76,7 +76,7 @@ int month;
     </div>         
 
   <!-- 요일  -->
-<div id="calendar" class="cal-context" style="width: 100%;">
+<div id="calendar" class="cal-context" style="width: 90%; margin: 0px auto;">
   <div class="cal-row-fluid cal-row-head">
     <div class="cal-cell1">Sunday</div> 
     <div class="cal-cell1">Monday</div>
