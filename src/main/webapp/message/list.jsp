@@ -95,7 +95,8 @@ function del(mno){
 <div class="col-lg-12 text-center">
 <c:if test="${countRead ne 0 }">
 <label class="col-lg-12 text-center">
-<i class='fa fa-paper-plane-o' aria-hidden='true'></i>읽지않은 새로운 메세지 ${countRead }건이 있습니다!</label>
+<i class='fa fa-paper-plane-o' aria-hidden='true'></i>Don't read new message. 
+                This message read to ${countRead } cases.</label>
 </c:if>
 <br>
 <a href='./create.do'><i class="fa fa-pencil" aria-hidden="true"></i> Write new message</a>
