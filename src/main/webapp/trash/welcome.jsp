@@ -81,6 +81,6 @@
 
 <!-- -------------------------------------------- -->
 </body>
-<jsp:include page="/menu/bottom.jsp" flush='false' />
+<%-- <jsp:include page="/menu/bottom.jsp" flush='false' /> --%>
 <!-- -------------------------------------------- -->
 </html> 

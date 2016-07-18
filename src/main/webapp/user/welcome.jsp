@@ -20,13 +20,13 @@
 <link href="../css/freelancer.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
+<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
 <script type="text/JavaScript"
           src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+<!-- <script type="text/javascript" src="../js/jquery.cookie.js"></script> -->
 
 <script type="text/javascript" src="../js/tool.js"></script>
  <script type="text/javascript">
@@ -57,37 +57,43 @@
         </DIV>
         </div>   
               
-              <div class="row">
-        <DIV class='col-lg-12 text-center'>
-              <label class='col-lg-12 text-center'>
-              <% if (session.getAttribute("id") == null){ %>
-                로그인되지 않았습니다.<br>
-                <a href='./login.do'>Login</a>
-              <% }else{ %>
-                Hello! ${name }! <br>
-                Choose your work
+        <div class="row">
+          <DIV class='page-center' ></div>
+             <DIV class='col-lg-12 text-center'>
+          
+              <label class='col-lg-12 text-center' style="color:#D8D8D8; font-size:20px;">
+                 &nbsp;&nbsp; 
+                <% if (session.getAttribute("id") == null){ %>
+                You aren't login.<br>
+                 <a href='./login.do'>Login</a>
+               <% }else{ %>
+                 Hello! ${name }! <br>
+                 Choose your work
               <% } %>
-              <br>
-              <br>
-              <% if (session.getAttribute("id") != null){ %>
-              <c:if test="${countRead ne 0 }">
-              <i class='fa fa-paper-plane-o' aria-hidden='true'></i>
-              <a href='../message/list.do?uno=${uno}'>읽지않은 새로운 메세지가 ${countRead }건 있습니다!</a>
-              </c:if>
-              <%} %>
-              </label>
+               <br>
+               <br>
+               <% if (session.getAttribute("id") != null){ %>
+               <c:if test="${countRead ne 0 }">
+               <i class='fa fa-paper-plane-o' aria-hidden='true'></i>
+                <a href='../message/list.do?uno=${uno}'>
+                Don't read new message. 
+                This message read to ${countRead } cases.</a>
+               </c:if>
+               <%} %>  
+               </label>
               </DIV>
               </div>
+                     
               <!-- button -->
-              <br><br><br>
+              <br>
               <div class='col-lg-12 text-center'>
               <div id="success"></div>
               <div class="row">
                   <div class="form-group col-xs-12">
-                  <button type="button" class="btn btn-success btn-lg" onclick='javascript: logout();'>Logout</button> 
-                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='./confirm.do?uno=${uno }'">User information</button> 
-                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='../message/list.do?uno=${uno}'">Message</button><br><br>
-                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='../schedule/calendar.do'">Schedule</button><br><br>
+                  <a href="javascript:logout();"><img src = '../images/logout.png' style="width:20%;"></a>
+                  <a href="./confirm.do?uno=${uno }"><img src = '../images/user_information.png' style="width:20%;"></a>
+                  <a href="../message/list.do?uno=${uno }"><img src = '../images/message.png' style="width:20%;"></a>
+              <!--     <button type="button" class="btn btn-success btn-lg" onclick="location.href='../schedule/calendar.do'">Schedule</button><br><br> -->
                   <c:if test="${act eq 'admin' }">
                   <hr><br>
                   You are admin. You can use admin menu.
