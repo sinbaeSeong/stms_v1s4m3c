@@ -61,7 +61,7 @@ $(function(){
              
       <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-           <!-- <FORM name='frm' method="get" action='./update.do'> -->
+           <!-- <FORM name='frm' method="get" action='./read.do'> -->
              <%-- <input type="hidden" name="tno" value="${trashVO.tno}"> --%>
               
              <div class="row control-group">
@@ -84,12 +84,12 @@ $(function(){
                          <!-- block -->
                                 <div class="block-content collapse in">
                                 <div class="span6 chart" style="text-align: center;">
-                                    <h5 style="color:#D8D8D8;">&nbsp;&nbsp; Graph: local trash output</h5>
+                                    <h5 style="color:#D8D8D8;">&nbsp;&nbsp; 〈local trash output〉</h5>
                                     <div id="hero-bar" style="height: 250px;"></div>
                                 </div>
                                 <br><br><br>
                                 <div class="span5 chart" style="text-align: center;">
-                                   <h5 style="color:#D8D8D8;">&nbsp;&nbsp; Graph: Output trash percentage </h5>
+                                   <h5 style="color:#D8D8D8;">&nbsp;&nbsp; 〈Output trash percentage〉 </h5>
                                     <div id="hero-donut" style="height: 250px; text-align: center;"> </div>    
                                 </div>
                             </div>
@@ -129,7 +129,7 @@ $(function(){
             element: 'hero-bar',
             data: [
                 {device: 'seoul', sells: 1236},
-                {device: 'seoul2', sells: 1037},
+                {device: 'seoul2', sells: 3037},
                 {device: 'seoul3', sells: 175},
                 {device: 'seoul4', sells: 80},
                 {device: 'seoul5', sells: 152},
@@ -175,7 +175,7 @@ $(function(){
                       <div class="block">
                           <div class="block-content collapse in">
                               <div class="span12" style="text-align: center;">
-                                <h5 style="color:#D8D8D8;">&nbsp;&nbsp; Graph: Total Trash</h5>
+                                <h5 style="color:#D8D8D8;">&nbsp;&nbsp; 〈Total Trash〉</h5>
                                   <div id="hero-graph" style="height: 230px;"></div>
                               </div>
                           </div>
@@ -211,19 +211,19 @@ $(function(){
         </script>
    
  <!-- --------------------------------------------- -->           
-            <br><br><br>
+            <br><br><br><Br>
             
             
             <div id="success"></div>
              <div class="row">
-             <div class="form-group col-xs-12">
-            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list.do'">List</button>
-            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./update.do?tno=${trashVO.tno}'">Update</button>
-            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./delete.do?tno=${trashVO.tno}'">Delete</button>
+             <div class="form-group col-xs-12" style="text-align: right;">
+              <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list.do'">List</button>
+              <button type="button" class="btn btn-success btn-lg" onclick="location.href='./update.do?tno=${trashVO.tno}'">Update</button>
+              <button type="button" class="btn btn-success btn-lg" onclick="location.href='./delete.do?tno=${trashVO.tno}'">Delete</button>
            </div>
            </div>
            </div>
-           </form> 
+   <!--         </form>  -->
           </div>
          </div>
         </div>
