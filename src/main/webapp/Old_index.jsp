@@ -72,9 +72,6 @@
 <!-- Custom CSS -->
 <link href="css/freelancer.css" rel="stylesheet">
 
-<!-- Timeline CSS -->
-<link href="css/timeline.css" rel="stylesheet">
-
 <!-- Custom Fonts -->
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
   type="text/css">
@@ -83,6 +80,13 @@
 <link
   href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
   rel="stylesheet" type="text/css">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 
@@ -109,6 +113,7 @@
         id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li class="hidden"><a href="#page-top"></a></li>
+ <!--          <li class="page-scroll"><a href="#portfolio">Menu</a></li> -->
           <li class="page-scroll"><a href="#services">Service</a></li>
           <li class="page-scroll"><a href="#about">About us</a></li>
           <li class="page-scroll"><a href="#contact">Contact me</a>
@@ -150,7 +155,52 @@
       </div>
     </div>
   </header>
-        
+
+    <!-- Portfolio Grid Section -->
+  <!--   <section id="portfolio">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2>Services</h2>
+            <hr class="star-primary">
+          </div>
+        </div>
+      
+        <div class="col-sm-4 portfolio-item">
+          <a href="./notice/list2.do" class="portfolio-link" data-toggle="modal">
+            <div class ="caption">
+              <div class ="caption-content">
+                <i class ="fa fa-search-plus fa-3x"></i>
+              </div>
+            </div>
+            <img src="img/portfolio/notice.png" class="img-responsive" alt="">
+          </a>
+        </div>
+            
+        <div class="col-sm-4 portfolio-item">
+          <a href="./faq/list2.do" class="portfolio-link" data-toggle="modal">
+            <div class="caption">
+              <div class="caption-content">
+                <i class="fa fa-search-plus fa-3x"></i>
+              </div>
+            </div> 
+            <img src="img/portfolio/faq.png" class="img-responsive" alt="">
+          </a> 
+        </div>
+      
+        <div class="col-sm-4 portfolio-item">
+          <a href="./qna/list2.do" class="portfolio-link" data-toggle="modal">
+            <div class="caption">
+              <div class="caption-content">
+                <i class="fa fa-search-plus fa-3x"></i>
+              </div>
+            </div> 
+          <img src="img/portfolio/qna.png" class="img-responsive" alt="">
+          </a>
+        </div>
+      </div>
+    </section> -->
+    
     <!-- Services Section -->
     <section id="services">
         <div class="container">
@@ -280,94 +330,34 @@
     </section>
     
      <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">About Us</h2>
-                    <h3 class="section-subheading text-muted">Develop Project web page.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="timeline">
-                        <li>
-                            <div class="timeline-image">
-                             <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>February 2016</h4>
-                                    <h4 class="subheading">Open the Class from Seoul</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>March 2016  </h4>
-                                    <h4 class="subheading">Expansion of project</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>May 2016</h4>
-                                    <h4 class="subheading">Idea comforence for Team project</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>June 2016</h4>
-                                    <h4 class="subheading">Development of Team project </h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <h4>Be Part
-                                    <br>Of Our
-                                    <br>Story!</h4>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+<!-- 옛날꺼     <section class="success" id="about"> -->
+<!--      <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2>About us</h2>
+            <hr class="star-light">
+          </div>
         </div>
-    </section>
-     
+        <div class="row">
+          <div align=center>
+            <img src="./images/ssb.jpg">
+            <img src="./images/lhy.jpg">
+            <img src="./images/jbr.jpg">
+            <img src="./images/lje.jpg">
+          </div>
+        </div>
+      </div>
+    </section> -->
     
+
     <!-- Contact Section -->
-    <section id="contact" style="background-color: #EAEAEA;">
+    <section id="contact" style="background-color: #f7f7f7;">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2>Contact US</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <hr class="star-primary">
           </div>
         </div>
         <div class="row">
@@ -428,37 +418,8 @@
       </div>
     </section>
 
-  <!-- footer -->
-     <footer class="text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2016</span>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-
     <!-- Footer -->
-   <!--  <footer class="text-center">
+    <footer class="text-center">
       <div class="footer-above">
         <div class="container">
           <div class="row">
@@ -516,12 +477,284 @@
         </div>
       </div>
     </footer>
- -->
+
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
     <div class="scroll-top page-scroll visible-xs visible-sm">
       <a class="btn btn-primary" href="#page-top"> <i
         class="fa fa-chevron-up"></i>
       </a>
+    </div>
+
+    <!-- Portfolio Modals -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1"
+      tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+              <div class="modal-body">
+                <h2>Project Title</h2>
+                <hr class="star-primary">
+                <img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
+                <p>
+                  Use this area of the page to describe your project.
+                  The icon above is part of a free icon set by <a
+                    href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat
+                    Icons</a>. On their website, you can download their free
+                  set with 16 icons, or you can purchase the entire set
+                  with 146 icons for only $12!
+                </p>
+                <ul class="list-inline item-details">
+                  <li>
+                    Client: 
+                    <strong>
+                      <a href="http://stms.com">Smart Trash Managemet System</a> 
+                    </strong>
+                  </li>
+                  <li>
+                   Date:
+                    <strong>Jurn 2016
+                  </strong>
+                  </li>
+                  <li>Service: <strong>Web Development
+                  </strong>
+                  </li>
+                </ul>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                  <i class="fa fa-times"></i> Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal2"
+      tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+              <div class="modal-body">
+                <h2>Notice</h2>
+                <hr class="star-primary">
+                <img src="img/portfolio/cake.png"
+                  class="img-responsive img-centered" alt="">
+                <p>
+                  Use this area of the page to describe notice. The View
+                  is part of a Notice</a>
+                </p>
+                <ul class="list-inline item-details">
+                  <li>Client: <strong><a
+                      href="http://startbootstrap.com">Notice </a> </strong>
+                  </li>
+                  <li>Date: <strong><a
+                      href="http://startbootstrap.com">April 2014</a> </strong>
+                  </li>
+                  <li>Service: <strong><a
+                      href="http://startbootstrap.com">Web
+                        Development</a> </strong>
+                  </li>
+                </ul>
+                <button type="button" class="btn btn-default"
+                  data-dismiss="modal">
+                  <i class="fa fa-times"></i> Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal3"
+      tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+              <div class="modal-body">
+                <h2>Q&A</h2>
+                <hr class="star-primary">
+                <img src="img/portfolio/circus.png"
+                  class="img-responsive img-centered" alt="">
+                <p>Use this area of the page to describe Question
+                  and Answer. The View is part of a Trash Capacity</p>
+                <ul class="list-inline item-details">
+                  <li>Client: <strong><a
+                      href="http://startbootstrap.com">Q&A</a> </strong>
+                  </li>
+                  <li>Date: <strong><a
+                      href="http://startbootstrap.com">April 2014</a> </strong>
+                  </li>
+                  <li>Service: <strong><a
+                      href="http://startbootstrap.com">Web
+                        Development</a> </strong>
+                  </li>
+                </ul>
+                <button type="button" class="btn btn-default"
+                  data-dismiss="modal">
+                  <i class="fa fa-times"></i> Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal4"
+      tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+              <div class="modal-body">
+                <h2>Project Title</h2>
+                <hr class="star-primary">
+                <img src="img/portfolio/game.png"
+                  class="img-responsive img-centered" alt="">
+                <p>
+                  Use this area of the page to describe your project.
+                  The icon above is part of a free icon set by <a
+                    href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat
+                    Icons</a>. On their website, you can download their free
+                  set with 16 icons, or you can purchase the entire set
+                  with 146 icons for only $12!
+                </p>
+                <ul class="list-inline item-details">
+                  <li>Client: <strong><a
+                      href="http://startbootstrap.com">Start
+                        Bootstrap</a> </strong>
+                  </li>
+                  <li>Date: <strong><a
+                      href="http://startbootstrap.com">April 2014</a> </strong>
+                  </li>
+                  <li>Service: <strong><a
+                      href="http://startbootstrap.com">Web
+                        Development</a> </strong>
+                  </li>
+                </ul>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                  <i class="fa fa-times"></i> Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal5"
+      tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+              <div class="modal-body">
+                <h2>Project Title</h2>
+                <hr class="star-primary">
+                <img src="img/portfolio/safe.png"
+                  class="img-responsive img-centered" alt="">
+                <p>
+                  Use this area of the page to describe your project.
+                  The icon above is part of a free icon set by <a
+                    href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat
+                    Icons</a>. On their website, you can download their free
+                  set with 16 icons, or you can purchase the entire set
+                  with 146 icons for only $12!
+                </p>
+                <ul class="list-inline item-details">
+                  <li>Client: <strong><a
+                      href="http://startbootstrap.com">Start
+                        Bootstrap</a> </strong>
+                  </li>
+                  <li>Date: <strong><a
+                      href="http://startbootstrap.com">April 2014</a> </strong>
+                  </li>
+                  <li>Service: <strong><a
+                      href="http://startbootstrap.com">Web
+                        Development</a> </strong>
+                  </li>
+                </ul>
+                <button type="button" class="btn btn-default"
+                  data-dismiss="modal">
+                  <i class="fa fa-times"></i> Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal6"
+      tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+              <div class="modal-body">
+                <h2>Project Title</h2>
+                <hr class="star-primary">
+                <img src="img/portfolio/submarine.png"
+                  class="img-responsive img-centered" alt="">
+                <p>
+                  Use this area of the page to describe your project.
+                  The icon above is part of a free icon set by <a
+                    href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat
+                    Icons</a>. On their website, you can download their free
+                  set with 16 icons, or you can purchase the entire set
+                  with 146 icons for only $12!
+                </p>
+                <ul class="list-inline item-details">
+                  <li>Client: <strong><a
+                      href="http://startbootstrap.com">Start
+                        Bootstrap</a> </strong>
+                  </li>
+                  <li>Date: <strong><a
+                      href="http://startbootstrap.com">April 2014</a> </strong>
+                  </li>
+                  <li>Service: <strong><a
+                      href="http://startbootstrap.com">Web
+                        Development</a> </strong>
+                  </li>
+                </ul>
+                <button type="button" class="btn btn-default"
+                  data-dismiss="modal">
+                  <i class="fa fa-times"></i> Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- jQuery -->
