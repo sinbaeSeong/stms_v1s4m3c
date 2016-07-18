@@ -110,7 +110,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="hidden"><a href="#page-top"></a></li>
           <li class="page-scroll"><a href="#services">Service</a></li>
-          <li class="page-scroll"><a href="#team">Introduce Team members</a></li>
+          <li class="page-scroll"><a href="#team">Team</a></li>
           <li class="page-scroll"><a href="#about">About us</a></li>
           <li class="page-scroll"><a href="#contact">Contact me</a>
           <% if (session.getAttribute("id") == null){ %>
@@ -208,6 +208,7 @@
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
             </div>
+            <br>
             
             <div class="row">
                 <div class="col-sm-4" style="width:25%;">
@@ -289,6 +290,7 @@
                     <h3 class="section-subheading text-muted">Develop Project web page.</h3>
                 </div>
             </div>
+            <Br>
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="timeline">
