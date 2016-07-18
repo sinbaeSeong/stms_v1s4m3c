@@ -110,6 +110,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="hidden"><a href="#page-top"></a></li>
           <li class="page-scroll"><a href="#services">Service</a></li>
+          <li class="page-scroll"><a href="#team">Introduce Team members</a></li>
           <li class="page-scroll"><a href="#about">About us</a></li>
           <li class="page-scroll"><a href="#contact">Contact me</a>
           <% if (session.getAttribute("id") == null){ %>
