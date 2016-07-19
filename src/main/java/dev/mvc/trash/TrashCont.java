@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -49,7 +50,7 @@ public class TrashCont {
   }
 
   @RequestMapping(value = "/trash/create.do", method = RequestMethod.POST)
-  public ModelAndView create(TrashVO trashVO) {
+  public ModelAndView create(TrashVO trashVO, HttpSession session) {
    /* System.out.println("--> create() POST called.");*/
     ModelAndView mav = new ModelAndView();
     mav.setViewName("/trash/message");
@@ -58,19 +59,15 @@ public class TrashCont {
     ArrayList<String> links = new ArrayList<String>();
 
     if (trashDAO.create(trashVO) == 1) {
-      msgs.add("Trash type is created.");
-      links
-          .add("<button type='button' onclick=\"location.href='./login.do'\">Login</button>");
-      links
-          .add("<button type='button' onclick=\"location.href='./index.jsp'\">Home</button>");
+      mav.setViewName("redirect:/trash/list2.do?tno="+session.getAttribute("tno")+"&uno="+session.getAttribute("uno"));
+     /* msgs.add("Trash type is created.");*/
+      links.add("<button type='button' onclick=\"location.href='./login.do'\">Login</button>");
+      links.add("<button type='button' onclick=\"location.href='./index.jsp'\">Home</button>");
     } else {
       msgs.add("Fall is not created trash type");
-      links
-          .add("<button type='button' onclick=\"history.back()\">Reload</button>");
-      links
-          .add("<button type='button' onclick=\"location.href='./index.jsp'\">Home</button>");
+      links.add("<button type='button' onclick=\"history.back()\">Reload</button>");
+      links.add("<button type='button' onclick=\"location.href='./index.jsp'\">Home</button>");
     }
-
     links
         .add("<button type='button' onclick=\"location.href='./list2.do'\">List</button>");
 
@@ -254,5 +251,16 @@ public class TrashCont {
             PrintWriter out = response.getWriter();
             out.println(mess);
          }
+     
+     // welcome
+     @RequestMapping(value = "/trash/welcome.do", 
+         method = RequestMethod.GET)
+         public ModelAndView welcome(HttpSession session) {
+         ModelAndView mav = new ModelAndView();
+         mav.setViewName("/trash/welcome");
+         /*mav.addObject("welcome",welcome);*/
+         return mav;
+         }
+     
   
 }

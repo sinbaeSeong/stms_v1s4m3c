@@ -110,16 +110,15 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="hidden"><a href="#page-top"></a></li>
           <li class="page-scroll"><a href="../index.jsp">home</a></li>
-          
+
+          <% if (session.getAttribute("id") == null){ %>
+          <li class="page-scroll"><a href="../user/login.do">Login</a></li>
+                  
+       
+          <% }else{ %>
           <li class="page-scroll"><a href="../trash/welcome.jsp">Trash</a></li>
           <li class="page-scroll"><a href="../stats/read.jsp">Statistics</a></li>
           <li class="page-scroll"><a href="../schedule/welcome.jsp">Schedule</a></li>
-          
-          
-          
-                    <% if (session.getAttribute("id") == null){ %>
-          <li class="page-scroll"><a href="../user/login.do">Login</a></li>
-          <% }else{ %>
           
           
           

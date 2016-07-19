@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.ArrayList" %>
-  
+ 
 <!DOCTYPE html> 
 <html lang="ko"> 
 <head> 
@@ -72,6 +72,25 @@
 <body leftmargin="0" topmargin="0">
 <jsp:include page="/menu/top.jsp" flush='false' />
 <!-- ----------------------------------------- -->
+<% if (session.getAttribute("id") == null){ %>
+    <section id="contact"> 
+      <div class="container">
+        <div class="row">
+          <DIV class='col-lg-12 text-center'><h2>Caution</h2>
+          <hr class="star-primary"/>
+          </DIV>
+         </div>
+         
+         <!--caution img -->         
+         <div class="row">
+           <div class="col-lg-12">
+             <img style="margin:0px auto;" class="img-responsive" src='../images/caution.png' >                    
+           </div>
+         </div>
+       </div>
+     </section>
+<%} else{%> 
+
     <!-- Title Sign up -->
     <section id="contact">
       <div class="container">
@@ -199,3 +218,4 @@
 </body>
 <!-- -------------------------------------------- -->
 </html> 
+<%}%>
