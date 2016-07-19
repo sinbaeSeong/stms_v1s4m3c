@@ -30,8 +30,9 @@
               dev.mvc.message,
               dev.mvc.schedule,
               dev.mvc.qna,
-              dev.mvc.notice
-              dev.mvc.faq
+              dev.mvc.notice,
+              dev.mvc.faq,
+              dev.mvc.stats
               
               "/>
     <property name="mapperLocations" value="classpath:dev/mvc/**/*.xml" />

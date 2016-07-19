@@ -29,6 +29,9 @@
 <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+<!-- STMS Custom CSS -->
+<link href="../menu/dropdown.css" rel="stylesheet">
  
  <script type="text/JavaScript">
 function del(mno){
@@ -90,12 +93,15 @@ function del(mno){
 
 <div class="row">
 <div class="col-lg-12 text-center">
-<a href='./create.do'>write new message</a>
-
 <c:if test="${countRead ne 0 }">
 <label class="col-lg-12 text-center">
-<i class='fa fa-paper-plane-o' aria-hidden='true'></i>읽지않은 새로운 메세지 ${countRead }건이 있습니다!</label>
+<i class='fa fa-paper-plane-o' aria-hidden='true'></i>Don't read new message. 
+                This message read to ${countRead } cases.</label>
 </c:if>
+<br>
+<a href='./create.do'><i class="fa fa-pencil" aria-hidden="true"></i> Write new message</a>
+
+
 
 </div>
 </div>
@@ -125,7 +131,16 @@ function del(mno){
             <td class="td_l" style="width:200px;">
               <a href="./read.do?mno=${messageVO.mno }">${messageVO.title }</a> 
             </td> 
-            <td class="col-lg-8 col-lg-offset-2" style="width:200px;">${messageVO.sender }</td>
+ 
+                <td style="width:200px;">
+                <div class="udropdown">
+                <button class="udropbtn" > ${messageVO.sender } </button>
+                <div class="udropdown-content">
+                  <a href="../message/create.do?receiver=${messageVO.sender_id }">Send Message</a>
+                 </div>
+                </div>
+                </td>
+                
             <td class="col-lg-8 col-lg-offset-2" style="width:200px;">${messageVO.mdate } </td>
             <td class="col-lg-8 col-lg-offset-2" style="width:200px;">
               <a href="javascript:del(${messageVO.mno })">Delete</a>

@@ -56,30 +56,6 @@ function del(sno){
 <jsp:include page="/menu/top.jsp" flush='false' />
 <!-- ----------------------------------------- -->
  
- <!-- 달력 기본 변수 설정 -->
-<%   
-int year;
-int month;
-   Calendar today=Calendar.getInstance(); //현재 날짜와 시간 정보를 가진 Calendar 객체를 생성한다. 
-   
-   Calendar cal = new GregorianCalendar(); //지정한 날짜에서 시간을 더할 때 GregorianCalendar 클래스를 사용합니다.
-   
-   year = (request.getParameter("year")==null) ?  today.get(Calendar.YEAR) :      Integer.parseInt(request.getParameter("year").trim()) ;
-   month = (request.getParameter("month")==null) ?   today.get(Calendar.MONTH)+1:      Integer.parseInt(request.getParameter("month").trim()) ;
-    if (month<=0){
-      month = 12;
-      year  =year- 1;
-   }else if (month>=13){
-      month = 1;
-      year =year+ 1;
-   }
-   cal.set(Calendar.YEAR,year);
-   cal.set(Calendar.MONTH,(month-1));
-   cal.set(Calendar.DATE,1);
-%>
-<!-- ----------------- -->
- 
-
 <%-- body 시작 --%>
 <body>
 <%-- ---------------------------------------------------------------------------------------------- --%>
@@ -95,25 +71,7 @@ int month;
          </div>     
  
   <FORM name='frms' method='GET' action='./list2.do' >        
-  <div class="row">
-    <div class="col-lg-12 text-center">
-      <select id='email_dns' class='input-sm' name='col' style="width: 20%;">
-          <option>Statistic Point list</option>
-          <option value='slabel' ${search.col == "slabel" ? "selected=selected" : "" }>Label</option>
-          <option value='stitle' ${search.col == "stitle" ? "selected=selected" : "" }>Title</option>
-          <option value='slabeldate' ${search.col == "slabeldate" ? "selected=selected" : "" }>LabelDate</option>
-       </select>
-      <input type="text" class="input-sm" placeholder="search" id="word"
-                     name="word" maxlength="16" value='${search.word }' style="width: 30%; ">
-       <input type="submit" class="btn btn-success btn-sm" value="Search">
-       <a href="./calendar2.jsp" >Calendar</a>
-       <Br>
-       <a href="./create.do">Write new Schedule information <img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
-    </div>
-   </div>       
-
-  
-  
+    
   <!--  테이블 시작 -->
            
   <div class="content" style='width: 100%;'>
@@ -121,38 +79,24 @@ int month;
   
       <thead>
         <tr class="row control-group" style="font-size: 23px;">
-          <th class="col-lg-8 col-lg-offset-2" style="width:10%; ">Trash</th>
-          <th class="col-lg-8 col-lg-offset-2" style="width:25%;">Number of trash</th>
-          <th class="col-lg-8 col-lg-offset-2" style="width:25%;">Average from located trash</th>
-          <th class="col-lg-8 col-lg-offset-2" style="width:25%; ">Total Average at month</th>          
+          <th class="col-lg-8 col-lg-offset-2" style="width:15%; ">No</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width:40%;">Title</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width:10%;">Cnt</th>
+          <th class="col-lg-8 col-lg-offset-2" style="width:25%;">Date</th>
           <th class="col-lg-8 col-lg-offset-2" style="width:15%;">Etc..</th>
-        </tr>
-      
+        </tr>      
       </thead>
      
-     
-     <thead>
-        <tr class="row control-group" style="font-size: 23px;">
-          <th class="col-lg-8 col-lg-offset-2" style="width:10%; ">Cleaner</th>
-          <th class="col-lg-8 col-lg-offset-2" style="width:25%;">Number of Cleaner</th>
-          <th class="col-lg-8 col-lg-offset-2" style="width:25%;">Input type Cleaner</th>
-          <th class="col-lg-8 col-lg-offset-2" style="width:25%; ">xxx</th>          
-          <th class="col-lg-8 col-lg-offset-2" style="width:15%;">Etc..</th>
-        </tr>
-      
-      </thead>
       <%-- table --%>
-     <%--  <tbody>
+     <tbody>
          <c:forEach var="StatisticVO" items="${list }">
           <tr class="row control-group" style="font-size: 20px;">
             <td class="td">${statistcVO.sno}</td>
             <td class="td">
-              <a href="./read.do?sno=${scheduleVO.sno}&uno=1"> ${scheduleVO.slabeldate}</a> 
-            </td> 
-            <div class="col-lg-8 col-lg-offset-2" style="width:10%; ">Trash
-            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${scheduleVO.slabel }</td></div>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${scheduleVO.stitle }</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${scheduleVO.sdate.substring(0, 10) } </td>
+              <a href="./read.do?sno=${statistcVO.sno}&uno=1"> 타이틀${statistcVO.Title}</a> 
+            </td>             
+            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">조회수${scheduleVO.slabel }</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">등록일${scheduleVO.stitle }</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
               <a href="./update.do?sno=${scheduleVO.sno}"><img src="../images/upload.jpg" title="Update" border='0'/></a>
               <a href="javascript:del(${scheduleVO.sno })"><img src="../images/delete.png" title="Delete"  border='0'/> </a>
@@ -161,7 +105,7 @@ int month;
           </tr>
       </c:forEach>
         
-      </tbody> --%>
+      </tbody> 
     </table>
         
   </div>

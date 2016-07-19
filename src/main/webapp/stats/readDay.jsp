@@ -40,9 +40,16 @@
  <script src="../vendors/flot/jquery.flot.resize.js"></script>
 
 <script type="text/javascript">
-$(function(){
-  CKEDITOR.replace('content');  // <TEXTAREA>태그 id 값
-});
+
+
+
+var list_trash = new Array();
+var list_output = new Array();
+var list_location = new Array();
+var leng = ${leng};
+list_trash = ${trash};
+list_output = ${output};
+list_location = ${locaiotn};
 
 </script>
 </head>
@@ -61,19 +68,24 @@ $(function(){
              
       <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-           <!-- <FORM name='frm' method="get" action='./read.do'> -->
+           <!-- <FORM name='frm' method="get" action='./update.do'> -->
              <%-- <input type="hidden" name="tno" value="${trashVO.tno}"> --%>
               
              <div class="row control-group">
                <div class="form-group col-xs-12">
                   <label style="font-size:20px; border-bottom-style:outset;">Number of trash </label>
-                  <span class="form-control" style="width:40%; margin-left: 5%;">50set</span><br>                  
+                  <span class="form-control" style="width:40%; margin-left: 5%;">${leng }</span><br>                  
                   <p class="help-block text-danger"></p>
                </div>
               
              <div class="form-group col-xs-12">
+                  <label style="font-size:20px; border-bottom-style:outset;">Total from output trash at month </label>
+                  <span class="form-control" style="width:40%; margin-left: 5%;">${totalOutput } </span><br>                  
+                  <p class="help-block text-danger"></p>
+              </div>
+             <div class="form-group col-xs-12">
                   <label style="font-size:20px; border-bottom-style:outset;">Average from output trash at month </label>
-                  <span class="form-control" style="width:40%; margin-left: 5%;">120t </span><br>                  
+                  <span class="form-control" style="width:40%; margin-left: 5%;">${averOutput } </span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
               
@@ -84,14 +96,10 @@ $(function(){
                          <!-- block -->
                                 <div class="block-content collapse in">
                                 <div class="span6 chart" style="text-align: center;">
-                                    <h5 style="color:#D8D8D8;">&nbsp;&nbsp; 〈local trash output〉</h5>
+                                    <h5 style="color:#D8D8D8;">&nbsp;&nbsp; Graph: local trash output</h5>
                                     <div id="hero-bar" style="height: 250px;"></div>
                                 </div>
                                 <br><br><br>
-                                <div class="span5 chart" style="text-align: center;">
-                                   <h5 style="color:#D8D8D8;">&nbsp;&nbsp; 〈Output trash percentage〉 </h5>
-                                    <div id="hero-donut" style="height: 250px; text-align: center;"> </div>    
-                                </div>
                             </div>
                         </div>
                         <!-- /block -->
@@ -101,26 +109,7 @@ $(function(){
  <!-- ------------ 그래프1 javascrip ------------ -->
         <script src="../assets/scripts.js"></script>
         <script>
-        $(function() {          
-           function doPlot(position) {
-            $.plot("#timechart", [
-                { data: oilprices, label: "Oil price ($)" },
-                { data: exchangerates, label: "USD/EUR exchange rate", yaxis: 2 }
-            ], {
-                xaxes: [ { mode: "time" } ],
-                yaxes: [ { min: 0 }, {
-                    // align if we are to the right
-                    alignTicksWithAxis: position == "right" ? 1 : null,
-                    position: position,
-                    tickFormatter: euroFormatter
-                } ],
-                legend: { position: "sw" }
-            });
-        }
 
-        doPlot("right");
-
-        });
  
         // Morris Bar Chart
         Morris.Bar({
@@ -128,8 +117,9 @@ $(function(){
                     
             element: 'hero-bar',
             data: [
+                <c:forEach >
                 {device: 'seoul', sells: 1236},
-                {device: 'seoul2', sells: 3037},
+                {device: 'seoul2', sells: 1037},
                 {device: 'seoul3', sells: 175},
                 {device: 'seoul4', sells: 80},
                 {device: 'seoul5', sells: 152},
@@ -144,86 +134,23 @@ $(function(){
             barColors: ["#3d88ba"]
         });
 
-
-        // Morris Donut Chart
-        Morris.Donut({
-            element: 'hero-donut',
-            data: [
-                {label: 'seoul', value: 25 },
-                {label: 'busan', value: 40 },
-                {label: 'suwon', value: 25 },
-                {label: 'youngin', value: 10 }
-            ],
-            colors: ["#30a1ec", "#76bdee", "#c4dafe"],
-            formatter: function (y) { return y + "%" }
-        });
-        </script>         
+        </script>
        <!-- ----------------------------------------------------------------------- -->       
               
-             
-             <div class="form-group col-xs-12">
-                  <label style="font-size:20px; border-bottom-style:outset; ">Total Average at month </label><Br>
-                  <span class="form-control" style="width:40%; margin-left: 5%;">3500t</span><br>                                 
-                  <p class="help-block text-danger"></p>
-              </div>
-              
- <!-- --------------- 그래프2  폼 --------------- -->             
-            <!-- morris graph chart -->
-              <div class="block-content collapse in">
-                <div class="row-fluid section" >     
-                   <!-- block -->
-                      <div class="block">
-                          <div class="block-content collapse in">
-                              <div class="span12" style="text-align: center;">
-                                <h5 style="color:#D8D8D8;">&nbsp;&nbsp; 〈Total Trash〉</h5>
-                                  <div id="hero-graph" style="height: 230px;"></div>
-                              </div>
-                          </div>
-                      </div>
-                      <!-- /block -->
-                  </div>
-            
-             
-             
- <!-- --------------------------------------------- -->    
- <!-- --------------- 그래프2  js --------------- -->       
-  <script>  
-  // Morris Line Chart
-        var tax_data = [
-            {"period": "2015-08", "Seoul": 2407},
-            {"period": "2015-07", "Seoul": 3351},
-            {"period": "2015-06", "Seoul": 2469},
-            {"period": "2015-05", "Seoul": 2246},
-            {"period": "2015-04", "Seoul": 3171},
-            {"period": "2015-03", "Seoul": 2155},
-            {"period": "2015-02", "Seoul": 1226},
-            {"period": "2015-01", "Seoul": 2245}
-        ];
-        Morris.Line({
-            element: 'hero-graph',
-            data: tax_data,
-            xkey: 'period',
-            xLabels: "month",
-            ykeys: ['Seoul'],
-            labels: ['Seoul_ko']
-        });
-        
-        </script>
-   
- <!-- --------------------------------------------- -->           
-            <br><br><br><Br>
+
+        <!-- --------------------------------------------- -->    
             
             
             <div id="success"></div>
              <div class="row">
-             <div class="form-group col-xs-12" style="text-align: right;">
-              <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list.do'">List</button>
-              <button type="button" class="btn btn-success btn-lg" onclick="location.href='./update.do?tno=${trashVO.tno}'">Update</button>
-              <button type="button" class="btn btn-success btn-lg" onclick="location.href='./delete.do?tno=${trashVO.tno}'">Delete</button>
+             <div class="form-group col-xs-12">
+            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list.do'">List</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./update.do?tno=${trashVO.tno}'">Update</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./delete.do?tno=${trashVO.tno}'">Delete</button>
            </div>
            </div>
            </div>
-   <!--         </form>  -->
+           </form> 
           </div>
          </div>
         </div>

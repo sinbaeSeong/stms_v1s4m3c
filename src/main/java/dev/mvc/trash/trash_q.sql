@@ -25,6 +25,13 @@ CREATE TABLE trash(
   FOREIGN KEY (uno) REFERENCES user1 (uno)
 );
 
+
+
+
+select * from message;
+
+
+
 2. Drop Table
 DROP TABLE trash;
 
