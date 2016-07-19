@@ -84,7 +84,7 @@
          <!--caution img -->         
          <div class="row">
            <div class="col-lg-12">
-             <img style="margin:0px auto;" class="img-responsive" src='../images/caution.png' >                    
+             <a href="../user/login.do"><img style="margin:0px auto;" class="img-responsive" src='../images/caution.png' ></a>                    
            </div>
          </div>
        </div>
