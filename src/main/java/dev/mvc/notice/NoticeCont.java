@@ -12,10 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import dev.mvc.user.UserDAO;
 import web.tool.Paging;
 import web.tool.SearchDTO;
-import dev.mvc.user.UserDAO;
-import dev.mvc.user.UserVO;
 
 @Controller
 public class NoticeCont {
@@ -134,7 +133,7 @@ public class NoticeCont {
 
     NoticeVO noticeVO = noticeDAO.read(nno);
 
-    mav.addObject("NoticeVO", noticeVO);
+    mav.addObject("noticeVO", noticeVO);
 
     return mav;
   }
@@ -148,7 +147,7 @@ public class NoticeCont {
     ArrayList<String> links = new ArrayList<String>();
 
     
-    if(noticeVO.getNpasswd().equals(noticeDAO.read(noticeVO.getNno()).getNpasswd())){
+
       
       if (noticeDAO.update(noticeVO) == 1) {
         mav.setViewName("redirect:/notice/list2.do");
@@ -164,14 +163,7 @@ public class NoticeCont {
       }
       
       
-    }else{
-      msgs.add("PASSWORD FAIL.");
-      mav.addObject("msgs", msgs);
-      mav.addObject("links", links);
-
-      links
-          .add("<button type='button' onclick=\"location.href='./list2.do'\">Return</button>");
-    }
+  
     
     
 
@@ -192,7 +184,7 @@ public class NoticeCont {
     ArrayList<String> msgs = new ArrayList<String>();
     ArrayList<String> links = new ArrayList<String>();
 
-    if(npasswd.equals(noticeDAO.read(nno).getNpasswd())){
+
     
       if (noticeDAO.delete(nno) == 1) {
         mav.setViewName("redirect:/notice/list2.do");
@@ -204,14 +196,7 @@ public class NoticeCont {
 
         links.add("<button type='button' onclick=\"location.href='./list2.do'\">Back</button>");
       }
-    } else{
-      msgs.add("비밀번호 틀림");
-      mav.addObject("msgs", msgs);
-      mav.addObject("links", links);
-
-      links
-          .add("<button type='button' onclick=\"location.href='./list2.do'\">Back</button>");
-    }
+    
     return mav;
   }
 

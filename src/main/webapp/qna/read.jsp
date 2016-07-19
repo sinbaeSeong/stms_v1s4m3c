@@ -223,13 +223,7 @@
   </div>
 </div>
 
-<div class="row control-group">
-<div class="form-group col-xs-12 ">
-      <label for="capa">PASSWORD</label>
-      <input type="password" class="form-control" placeholder="비회원 비밀번호" id="qreplypasswd" name="qreplypasswd" required>
-   <p class="help-block text-danger"></p>
-  </div>
-</div>
+
              <%}else{
                
          
@@ -240,7 +234,13 @@
               <% 
              } %>
               
-              
+              <div class="row control-group">
+<div class="form-group col-xs-12 ">
+      <label for="capa">PASSWORD</label>
+      <input type="password" class="form-control" placeholder="비회원 비밀번호" id="qreplypasswd" name="qreplypasswd" required>
+   <p class="help-block text-danger"></p>
+  </div>
+</div>
               
               
               

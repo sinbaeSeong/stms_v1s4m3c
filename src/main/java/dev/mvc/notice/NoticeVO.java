@@ -19,7 +19,7 @@ public class NoticeVO {
   private String ntitle;
   private String ncontent;
   private String nid;
-  private String npasswd;
+
   private int ncount;
   private String ndate;
   private int replycount;
@@ -29,6 +29,7 @@ public class NoticeVO {
   public void setNno(int nno) {
     this.nno = nno;
   }
+  
   public int getUno() {
     return uno;
   }
@@ -59,12 +60,7 @@ public class NoticeVO {
   public void setNid(String nid) {
     this.nid = nid;
   }
-  public String getNpasswd() {
-    return npasswd;
-  }
-  public void setNpasswd(String npasswd) {
-    this.npasswd = npasswd;
-  }
+
   public int getNcount() {
     return ncount;
   }

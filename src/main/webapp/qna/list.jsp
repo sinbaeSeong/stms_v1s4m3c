@@ -6,6 +6,13 @@
 <!DOCTYPE html> 
 <html lang="ko"> 
 <head> 
+<style type="text/css">
+a:link {text-decoration: none; color: black;}
+a:visited {text-decoration: none; color: black;}
+a:active {text-decoration: none; color: black;}
+a:hover {text-decoration: none; color: black;}
+</style>
+
 <meta charset="UTF-8"> 
 <title></title> 
  
@@ -82,8 +89,8 @@ function del(qno){
  <section id="contact">
       <div class="container">
       
-        <div class="row">
-          <DIV class='col-lg-12 text-center'><h2>Q & A</h2>
+        <div class="row"><a href="./list2.do">
+          <DIV class='col-lg-12 text-center'><h2>Q & A</h2></a>
           <hr class="star-primary"/>
           </DIV>
          </div>     
@@ -93,12 +100,12 @@ function del(qno){
     <div class="col-lg-12 text-center">
       <select id='email_dns' class='input-sm' name='col' style="width: 20%;">
           <option value=''>검색</option>
-          <option value='qtitle' ${search.col == "qtitle" ? "selected=selected" : "" }>제목</option>
-          <option value='qcontent' ${search.col == "qcontent" ? "selected=selected" : "" }>내용</option>
-          <option value='qid' ${search.col == "qid" ? "selected=selected" : "" }>작성자</option>
+          <option value='qtitle' ${param.col == "qtitle" ? "selected=selected" : "" }>제목</option>
+          <option value='qcontent' ${param.col == "qcontent" ? "selected=selected" : "" }>내용</option>
+          <option value='qid' ${param.col == "qid" ? "selected=selected" : "" }>작성자</option>
        </select>
       <input type="text" class="input-sm" placeholder="search" id="word"
-                     name="word" maxlength="16" value='${search.word }' style="width: 30%; ">
+                     name="word" maxlength="16" value='${param.word }' style="width: 30%; ">
       <input type="submit" value='search' class='btn btn-success btn-sm'>
     </div>
   </div>       
