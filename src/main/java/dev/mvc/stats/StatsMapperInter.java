@@ -10,6 +10,8 @@ public interface StatsMapperInter {
    /** 기간 읽기 */ //<select id='readPeriod' parameterType="StatsVO" resultType="StatsVO">
    public ArrayList<StatsVO> readPeriod(StatsVO statsVO);
 
+   /** 리스트 */ //<select id='list' resultType='StatsVO'>
+   public ArrayList<StatsVO> list();
 }
 
 

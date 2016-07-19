@@ -9,16 +9,19 @@
 
 CREATE TABLE stats(
   stno INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  st_title VARCHAR(16) NULL,
-  st_trash VARCHAR(4000) NULL,
-  st_output VARCHAR(4000) NULL,
-  st_location VARCHAR(4000) NULL,
-  stdate VARCHAR(10) NOT NULL
+  stlabeldate VARCHAR(20) NOT NULL,
+  st_trash INT NOT NULL,
+  st_output INT NOT NULL,
+  st_location VARCHAR(200) NULL,
+  stdate DATETIME NOT NULL
 );
 
 drop table stats;
 
-insert into stats(st_title, st_trash, st_output, st_location, stdate)
-values ("力格", "1,2,3,4", "20,30,40,50","A备开,B备开,C备开,D备开", "2016-07-15");
+insert into stats(stlabeldate, st_trash, st_output, st_location, stdate)
+values("2016-07-19", 1, 30, "茄剧措切背", now());
 
-select stno, st_title, st_trash, st_output, st_location, stdate  from stats;
+insert into stats(stlabeldate, st_trash, st_output, st_location, stdate)
+values("2016-07-06", 2, 20, "贾单胶农", now());
+
+select stno, stlabeldate, st_trash, st_output, st_location, stdate  from stats;

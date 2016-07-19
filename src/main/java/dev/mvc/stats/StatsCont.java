@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import dev.mvc.message.MessageVO;
+import dev.mvc.schedule.ScheduleVO;
+
 
 @Controller
 public class StatsCont {
@@ -21,47 +24,39 @@ public class StatsCont {
 
   }
   
-  @RequestMapping(value = "/stats/readDay.do", method = RequestMethod.GET)
-  public ModelAndView readDay(String date) {
-    ModelAndView mav = new ModelAndView();
-    mav.setViewName("/stats/readDay"); // /webapp/member/create.jsp
-
-    StatsVO statsVO = statsDAO.readDay(date);
-    
-    String[] trash = statsVO.getSt_trash().split(",");
-    String[] output = statsVO.getSt_output().split(",");
-    String[] location = statsVO.getSt_location().split(",");
-    
-    int leng = trash.length;
-    int totalOutput = 0;
-    double averOutput = 0.0;
-    
-    mav.addObject("statsVO", statsVO);
-    mav.addObject("trash", trash);
-    mav.addObject("output", output);
-    mav.addObject("location", location);
-    mav.addObject("leng", leng);
-    for(int i=0; i<leng; i++){
-       totalOutput = Integer.valueOf(output[i]);
-    }
-    
-    averOutput = (double)totalOutput/leng;
-    mav.addObject("totalOutput", totalOutput);
-    mav.addObject("averOutput", averOutput);
-    return mav;
-  }
   
-  @RequestMapping(value="/stats/readReriod.do", method = RequestMethod.GET)
-  public ModelAndView readPeriod(StatsVO statsVO){
+  @RequestMapping(value = "/stats/st_calendar.do", method = RequestMethod.GET)
+  public ModelAndView calendar(StatsVO statsVO){
      ModelAndView mav = new ModelAndView();
-     mav.setViewName("/stats/readPeriod");
+     mav.setViewName("/stats/st_calendar");
      
-     ArrayList<StatsVO> list = statsDAO.readPeriod(statsVO);
-     Iterator<StatsVO> iter = list.iterator();
-     while (iter.hasNext() == true) { // 다음 요소 검사
+     ArrayList<StatsVO> list = statsDAO.list();
+     
+     mav.addObject("list", list);
 
-     }
+     
+     
+     try {
+       
+       if(statsVO.getMonth().length()==1)
+         statsVO.setMonth("0"+statsVO.getMonth());
+       if(statsVO.getDay().length()==1)
+         statsVO.setDay("0"+statsVO.getDay());
+    
+       
+       String labeldate = statsVO.getYear() +"-"+ statsVO.getMonth() +"-"+ statsVO.getDay();
+       mav.setViewName("redirect:/schedule/list2.do?col=stlabeldate&word="+labeldate);
+    } catch (Exception e) {
+      // TODO: handle exception
+    }
+
+     
+     
+     
      
      return mav;
   }
+  
+  
+  
 }

@@ -74,11 +74,11 @@ function del(mno){
     <div class="col-lg-12 text-center">
         <select id='col' class='input-sm' name='col' style="width: 20%;">
            <option value=''>Total List</option>
-           <option value='sender' ${search.col == "id" ? "selected=selected" : "" }>Sender</option>
-           <option value='title' ${search.col == "name" ? "selected=selected" : "" }>Title</option>
+           <option value='sender' ${param.col == "sender" ? "selected=selected" : "" }>Sender</option>
+           <option value='title' ${param.col == "title" ? "selected=selected" : "" }>Title</option>
         </select>
         <input type="text" class="input-sm" placeholder="search" id="word"
-                  name="word" maxlength="16" value='${search.word }'  style="width: 30%; ">
+                  name="word" maxlength="16" value='${param.word }'  style="width: 30%; ">
         <input type='hidden' id='uno' name='uno' value='${uno }'>
         <input type="submit" class="btn btn-success btn-sm" value="search">
     </div>

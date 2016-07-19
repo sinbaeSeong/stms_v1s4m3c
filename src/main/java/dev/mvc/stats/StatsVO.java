@@ -11,38 +11,54 @@ public class StatsVO {
        );*/
   
   private int stno;
-  private String st_title;
-  private String st_trash;
-  private String st_output;
+  private int st_trash;
+  private int st_output;
   private String st_location;
   private String stdate;
   
-  private String startDate;
+  private String stlabeldate;
+private String startDate;
   private String endDate;
   
+  private String year;
+  private String month;
+  private String day;
   
+public String getYear() {
+   return year;
+}
+public void setYear(String year) {
+   this.year = year;
+}
+public String getMonth() {
+   return month;
+}
+public void setMonth(String month) {
+   this.month = month;
+}
+public String getDay() {
+   return day;
+}
+public void setDay(String day) {
+   this.day = day;
+}
 public int getStno() {
    return stno;
 }
 public void setStno(int stno) {
    this.stno = stno;
 }
-public String getSt_title() {
-   return st_title;
-}
-public void setSt_title(String st_title) {
-   this.st_title = st_title;
-}
-public String getSt_trash() {
+
+public int getSt_trash() {
    return st_trash;
 }
-public void setSt_trash(String st_trash) {
+public void setSt_trash(int st_trash) {
    this.st_trash = st_trash;
 }
-public String getSt_output() {
+public int getSt_output() {
    return st_output;
 }
-public void setSt_output(String st_output) {
+public void setSt_output(int st_output) {
    this.st_output = st_output;
 }
 public String getSt_location() {
@@ -70,4 +86,10 @@ public String getEndDate() {
 public void setEndDate(String endDate) {
    this.endDate = endDate;
 }
+      public String getStlabeldate() {
+         return stlabeldate;
+      }
+      public void setStlabeldate(String stlabeldate) {
+         this.stlabeldate = stlabeldate;
+      }
 }

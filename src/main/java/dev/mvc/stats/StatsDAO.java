@@ -33,6 +33,10 @@ public class StatsDAO {
      return mapper().readPeriod(statsVO);
   }
 
+  /** ¸®½ºÆ® */ //<select id='list' resultType='StatsVO'>
+  public ArrayList<StatsVO> list(){
+     return mapper().list();
+  }
 
 }
 

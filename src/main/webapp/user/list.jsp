@@ -200,12 +200,12 @@ function fun_confirm(uno, uconfirm){
     <div class="col-lg-12 text-center">
         <select id='email_dns' class='input-sm' name='col' style="width: 20%;">
            <option value=''>Total List</option>
-           <option value='id' ${search.col == "id" ? "selected=selected" : "" }>ID</option>
-           <option value='name' ${search.col == "name" ? "selected=selected" : "" }>Name</option>
-           <option value='email' ${search.col == "email" ? "selected=selected" : "" }>Email</option>
+           <option value='id' ${param.col == "id" ? "selected=selected" : "" }>ID</option>
+           <option value='name' ${param.col == "name" ? "selected=selected" : "" }>Name</option>
+           <option value='email' ${param.col == "email" ? "selected=selected" : "" }>Email</option>
         </select>
         <input type="text" class="input-sm" placeholder="search" id="word"
-                  name="word" maxlength="16" value='${search.word }'  style="width: 30%; ">
+                  name="word" maxlength="16" value='${param.word }'  style="width: 30%; ">
         <input type="submit" class="btn btn-success btn-sm" value="search">
     </div>
     </div>
