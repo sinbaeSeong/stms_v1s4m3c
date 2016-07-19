@@ -167,28 +167,7 @@
            
            
            
-           <br><hr style="border: solid 1px gray;">
-           <!--  답변 -->
-
-              
-              
-              
-              <c:forEach var="noticereplyVO" items="${listreply }">
-
-<label>${noticereplyVO.nreplyid } (${noticereplyVO.nreplydate })</label>
-<a href="javascript:delreply(${noticereplyVO.nreplyno },${noticereplyVO.nno })">
-<img src='../img/delete.png'></a>
-<input type="text" value="${noticereplyVO.nreplycontent }" readonly="readonly"  class="form-control">
-
-
-
-
-
-  
-  
-  
-    <br>
-      </c:forEach>
+           <br>
               
               
               
@@ -201,70 +180,7 @@
               
               
               
-              
-              
-              
-              
-              
-              
-              
-            <FORM name='frmreply' method="post" action='./createreply.do'>
-             <input type="hidden" name="nno" value="${noticeVO.nno}">
-              
-              
-              <%if(session.getAttribute("id")==null){ %>
-              
-              
-              <div class="row control-group"> 
-<div class="form-group col-xs-12 ">
-      <label for="capa">ID</label>
-      <input type="text" class="form-control" placeholder="비회원 아이디" id="nreplyid" name="nreplyid" required>
-   <p class="help-block text-danger"></p>
-  </div>
-</div>
-
-<div class="row control-group">
-<div class="form-group col-xs-12 ">
-      <label for="capa">PASSWORD</label>
-      <input type="text" class="form-control" placeholder="비회원 비밀번호" id="nreplypasswd" name="nreplypasswd" required>
-   <p class="help-block text-danger"></p>
-  </div>
-</div>
-             <%}else{
-               
-         
-             %> 
-              
-             <input type="hidden" id="nreplyid" name="nreplyid" value="${id }">
-              
-              <% 
-             } %>
-              
-              
-              
-              
-              
-<div class="row control-group">
-             <div class="form-group col-xs-12">
-                  <label>Content </label>
-                  <input type="text" class="form-control" placeholder="답변 내용을 입력하세요" id="nreplycontent" name="nreplycontent" required>
-                          
-                  <p class="help-block text-danger"></p>
-              </div>
-
-</div>
-              
-             
-           
-            <div id="success"></div>
-             <div class="row">
-             <div class="form-group col-xs-12">
-            <button type="submit" class="btn btn-success btn-lg">답변등록</button>
-
-            
-           </div>
-           </div>
-           </form>
+    
            
            
            

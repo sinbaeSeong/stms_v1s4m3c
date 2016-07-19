@@ -139,7 +139,7 @@ function del(nno){
           <tr class="row control-group" style="font-size: 20px;">
             <td class="td">${noticeVO.nno}</td>
             <td class="td_l">
-              <a href="./read.do?nno=${noticeVO.nno}"> ${noticeVO.ntitle }</a> (${noticeVO.replycount })
+              <a href="./read.do?nno=${noticeVO.nno}"> ${noticeVO.ntitle }</a>
             </td> 
             
 
