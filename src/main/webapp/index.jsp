@@ -112,7 +112,7 @@
           <li class="page-scroll"><a href="#services">Service</a></li>
           <li class="page-scroll"><a href="#team">Team</a></li>
           <li class="page-scroll"><a href="#about">About us</a></li>
-          <li class="page-scroll"><a href="#contact">Contact me</a>
+    
           <% if (session.getAttribute("id") == null){ %>
           <li class="page-scroll"><a href="./user/login.do">Login</a></li>
           <% }else{ %>
@@ -182,7 +182,7 @@
                       </a>
                     </span>
                     <h4 class="service-heading">F A Q</h4>
-                    <p class="text-muted">Frequently asked questions (FAQ) is listed questions and answers, all supposed of fixed questions to be commonly asked in some context, and pertaining to a particular topic.</p>
+                    <p class="text-muted">Frequently asked questions (FAQ) is listed questions and answers, all fixed questions supposed to be commonly asked in some context, and pertaining to a particular topic.</p>
                 </div>
                 
                 <div class="col-md-4">
@@ -204,8 +204,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Our Amazing Team</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading">Our Dream Team</h2>
+                    <h3 class="section-subheading text-muted">Introduction to STMS of Developers.</h3>
                 </div>
             </div>
             <br>
@@ -213,7 +213,7 @@
             <div class="row">
                 <div class="col-sm-4" style="width:25%;">
                     <div class="team-member">
-                        <img src="img/team/1.jpg" class="img-responsive img-circle" alt="">
+                        <img src="img/back.jpg" class="img-responsive img-circle" alt="">
                         <h4>Seong sinbae</h4>
                         <p class="text-muted">Project manager</p>
                         <ul class="list-inline social-buttons">
@@ -228,7 +228,7 @@
                 </div>
                 <div class="col-sm-4" style="width:25%;">
                     <div class="team-member">
-                        <img src="img/team/1.jpg" class="img-responsive img-circle" alt="">
+                        <img src="img/tube.jpg" class="img-responsive img-circle" alt="">
                         <h4>Lee Hoyeon</h4>
                         <p class="text-muted">Base Architect Developer</p>
                         <ul class="list-inline social-buttons">
@@ -243,7 +243,7 @@
                 </div>
                 <div class="col-sm-4" style="width:25%;">
                     <div class="team-member">
-                        <img src="img/team/2.jpg" class="img-responsive img-circle" alt="">
+                        <img src="img/apach.png" class="img-responsive img-circle" alt="">
                         <h4>Jeon Byongrok</h4>
                         <p class="text-muted">Spring Developer</p>
                         <ul class="list-inline social-buttons">
@@ -259,7 +259,7 @@
                 
                 <div class="col-sm-4" style="width:25%;">
                     <div class="team-member">
-                        <img src="img/team/4.jpg" class="img-responsive img-circle" alt="">
+                        <img src="img/lion.jpg" class="img-responsive img-circle" alt="">
                         <h4>Lee Jaeeun</h4>
                         <p class="text-muted">Ardurio Developer</p>
                         <ul class="list-inline social-buttons">
@@ -363,73 +363,6 @@
         </div>
     </section>
      
-    
-    <!-- Contact Section -->
-    <section id="contact" style="background-color: #EAEAEA;">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2>Contact US</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2">
-            <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-            <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-            <form name="sentMessage" id="contactForm" novalidate>
-              <div class="row control-group">
-                <div
-                  class="form-group col-xs-12 floating-label-form-group controls">
-                  <label>Name</label> <input type="text"
-                    class="form-control" placeholder="Name" id="name"
-                    required
-                    data-validation-required-message="Please enter your name.">
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="row control-group">
-                <div
-                  class="form-group col-xs-12 floating-label-form-group controls">
-                  <label>Email Address</label> <input type="email"
-                    class="form-control" placeholder="Email Address"
-                    id="email" required
-                    data-validation-required-message="ryunan0083@naver.com">
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="row control-group">
-                <div
-                  class="form-group col-xs-12 floating-label-form-group controls">
-                  <label>Phone Number</label> <input type="tel"
-                    class="form-control" placeholder="Phone Number"
-                    id="phone" required
-                    data-validation-required-message="Please enter your phone number.">
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="row control-group">
-                <div
-                  class="form-group col-xs-12 floating-label-form-group controls">
-                  <label>Message</label>
-                  <textarea rows="5" class="form-control"
-                    placeholder="Message" id="message" required
-                    data-validation-required-message="Please enter a message."></textarea>
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <br>
-              <div id="success"></div>
-              <div class="row">
-                <div class="form-group col-xs-12">
-                  <button type="submit" class="btn btn-success btn-lg">Send</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
 
   <!-- footer -->
      <footer class="text-center">
