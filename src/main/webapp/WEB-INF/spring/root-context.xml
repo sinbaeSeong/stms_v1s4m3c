@@ -33,6 +33,7 @@
               dev.mvc.notice,
               dev.mvc.faq,
               dev.mvc.stats
+              dev.mvc.faqcate
               
               "/>
     <property name="mapperLocations" value="classpath:dev/mvc/**/*.xml" />

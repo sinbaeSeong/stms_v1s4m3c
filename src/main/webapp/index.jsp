@@ -261,7 +261,7 @@
                     <div class="team-member">
                         <img src="img/lion.jpg" class="img-responsive img-circle" alt="">
                         <h4>Lee Jaeeun</h4>
-                        <p class="text-muted">Ardurio Developer</p>
+                        <p class="text-muted">Arduino Developer</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
