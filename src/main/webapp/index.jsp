@@ -229,7 +229,7 @@
                 <div class="col-sm-4" style="width:25%;">
                     <div class="team-member">
                         <img src="img/tube.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Lee Hoyeon</h4>
+                        <h4>Lee Hoyeon1</h4>
                         <p class="text-muted">Base Architect Developer</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
