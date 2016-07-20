@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dev.mvc.stats.StatsMapperInter">
+  <!-- readDay -->
+  <select id='readDay' parameterType="String" resultType="StatsVO">
+  SELECT stno, st_trash, st_output, st_location, stdate  
+  FROM stats
+  WHERE stdate=#{date}
+  </select>
+  
+  <!-- readPeriod -->
+  <select id='readPeriod' parameterType="StatsVO" resultType="StatsVO">
+  SELECT stno, st_trash, st_output, st_location, stdate  
+  FROM stats
+  WHERE stdate >=#{startDate} AND #{endDate} >= stdate
+  </select>
+
+  <!-- list -->
+  <select id='list' resultType='StatsVO'>
+  SELECT stno, stlabeldate,  st_trash, st_output, st_location, stdate  
+  FROM stats
+  </select>
+
+  </mapper>
