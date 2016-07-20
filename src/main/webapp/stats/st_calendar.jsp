@@ -4,6 +4,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <%@ page import ="java.text.*,java.util.*" %>
+<%@ page import ="dev.mvc.stats.*" %>
+
  
 <!DOCTYPE html> 
 <html lang="ko"> 
@@ -94,6 +96,15 @@ int month;
    int count = 0;
    int totalCount =0;
    int totalOutput = 0;
+   ArrayList<StatsVO> total = new ArrayList();
+   ArrayList trash = new ArrayList();
+   ArrayList output = new ArrayList();
+   ArrayList location = new ArrayList();
+   String s_year=String.valueOf(year);
+   String s_month=String.valueOf(month); 
+  
+   if(s_month.length()==1){ s_month="0"+s_month; }
+   
    %>
  <!-- colum & row -->
     <div class="cal-month-box">    
@@ -113,12 +124,11 @@ int month;
 
 
               <c:forEach var="statsVO" items="${list }">
-              <%String s_year=String.valueOf(year); %>
-              <%String s_month=String.valueOf(month); %>
-              <%String s_day=String.valueOf(i); %>
-              <%if(s_month.length()==1){ s_month="0"+s_month; }%>
-              <%if(s_day.length()==1){ s_day="0"+s_day; }%>
-              <% count = 0; %>
+
+              <% String s_day=String.valueOf(i); if(s_day.length()==1){ s_day="0"+s_day;} count = 0;%> 
+                   <!-- -------------------------------------------------- -->
+                      
+              <!-- -------------------------------------------------- -->
               <c:set var="s_year" value="<%=s_year%>" /> 
               <c:set var="s_month" value="<%=s_month%>" /> 
               <c:set var="s_day" value="<%=s_day%>" /> 
@@ -127,14 +137,17 @@ int month;
               <c:if test="${s_year eq statsVO.stlabeldate.substring(0,4)}">
               <c:if test="${s_month eq statsVO.stlabeldate.substring(5,7)}">
               <c:if test="${s_day eq statsVO.stlabeldate.substring(8,10)}">
-              <% count++; %>
+
               
+              <% count++; %>
               <c:set var="totalOutput" value="${totalOutput+statsVO.st_output}"/>
               <% if(count != 0){
                 out.println(count + "건");
                 out.println("<img src ='../images/star.jpg' style='width:20px;'>");
                 totalCount += count; 
               }%>
+              
+              <!-- ----------------------------------- -->
               </c:if></c:if></c:if>
               </c:forEach>
                
@@ -157,10 +170,41 @@ int month;
         <hr class="star-primary"/><h2><%=cal.get(Calendar.YEAR)%> / <%=(cal.get(Calendar.MONTH)+1)%> Report</h2> <br>
         
         처리된 쓰레기통 갯수 : <%=totalCount %><br>
-        총 배출된 양 : ${totalOutput } <br>
+        총 배출된 양 : ${totalOutput } <br><br>
         
         
+        List<br>
+        -------------------------------<br>
+        <!-- -------- 통계 계산 부분 --------- -->
+
+        <%
+        total = (ArrayList<StatsVO>)request.getAttribute("list");
+
         
+         for(int cnt=0; cnt<total.size();cnt++){
+            
+           if(s_year.equals(total.get(cnt).getStlabeldate().substring(0,4)) &&
+              s_month.equals(total.get(cnt).getStlabeldate().substring(5,7))){
+              
+              trash.add(total.get(cnt).getSt_trash());
+              output.add(total.get(cnt).getSt_output());
+              location.add(total.get(cnt).getSt_location());
+              
+           }
+        } 
+        %>
+
+        <%
+        for(int cnt=0; cnt<trash.size();cnt++){
+           out.print("쓰레기통번호 : "+trash.get(cnt));
+           out.print(" 처리량 : "+output.get(cnt));
+           out.print(" 지역 : "+location.get(cnt)+"<br>");
+        }
+        %>
+
+        
+        
+        <br>
       </DIV>
     </div>
 <!-- -------------------------------------------- -->

@@ -38,10 +38,11 @@ public class StatsCont {
          statsVO.setMonth("0"+statsVO.getMonth());
        if(statsVO.getDay().length()==1)
          statsVO.setDay("0"+statsVO.getDay());
-    
-       
        String labeldate = statsVO.getYear() +"-"+ statsVO.getMonth() +"-"+ statsVO.getDay();
        mav.setViewName("redirect:/schedule/list2.do?col=stlabeldate&word="+labeldate);
+       
+       
+       
     } catch (Exception e) {
       // TODO: handle exception
     }

@@ -87,7 +87,7 @@ function del(tno){
   
   <!--  테이블 시작 -->
            
-  <div class="content" style='width: 100%;'>
+  <div class="content" style='width: 100%;'>                                                 
     <table class="table" style='width: 100%;'>
    
       <thead>
