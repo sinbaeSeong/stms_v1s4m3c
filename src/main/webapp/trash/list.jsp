@@ -88,7 +88,7 @@ function del(tno){
   <div class="row">
     <div class="col-lg-12 text-center">
       <select id='email_dns' class='input-sm' name='col' style="width: 20%;">
-          <option value=''>검색</option>
+          <option value=''>Search</option>
           <option value='tname' ${search.col == "tname" ? "selected=selected" : "" }>ID</option>
           <option value='markerTitle' ${search.col == "markerTitle" ? "selected=selected" : "" }>Marker_Title</option>
           <option value='maxcapa' ${search.col == "maxcapa" ? "selected=selected" : "" }>Capacity</option>
