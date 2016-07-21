@@ -27,28 +27,13 @@
 
 <!-- Custom Fonts -->
 <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-
- <!--/.fluid-container-->
- <link rel="stylesheet" href="vendors/morris/morris.css">
- <script src="../vendors/jquery-1.9.1.min.js"></script>
- <script src="../vendors/jquery.knob.js"></script>
- <script src="../vendors/raphael-min.js"></script>
- <script src="../vendors/morris/morris.min.js"></script>
- <script src="../bootstrap/js/bootstrap.min.js"></script>
- <script src="../vendors/flot/jquery.flot.js"></script>
- <script src="../vendors/flot/jquery.flot.categories.js"></script>
- <script src="../vendors/flot/jquery.flot.pie.js"></script>
- <script src="../vendors/flot/jquery.flot.time.js"></script>
- <script src="../vendors/flot/jquery.flot.stack.js"></script>
- <script src="../vendors/flot/jquery.flot.resize.js"></script>
 
 <script type="text/JavaScript"
           src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
           
 <script type="text/javascript" src="../js/tool.js"></script>
+
+
 </head> 
 <!-- ----------------------------------------- -->
 <jsp:include page="/menu/top.jsp" flush='false' /> 
@@ -91,6 +76,20 @@ int month;
          <hr class="star-primary"/>
       </DIV>
     </div>         
+
+  <!-- 요일  -->
+<div id="calendar" class="cal-context" style="width: 60%; margin: 0px auto;">
+  <div class="cal-row-fluid cal-row-head">
+    <div class="cal-cell1">Sunday</div> 
+    <div class="cal-cell1">Monday</div>
+    <div class="cal-cell1">Tuesday</div>
+    <div class="cal-cell1">Wednesday</div>
+    <div class="cal-cell1">Thursday</div>
+    <div class="cal-cell1">Friday</div>
+    <div class="cal-cell1">Saturday</div>
+  </div>
+ 
+ 
   <%
    cal.set(year, month-1, 1); //현재 객체의 년, 월, 일 값을 다른 값으로 설정한다. 
    int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK); //현재 요일 (일요일은 1, 토요일은 7)
@@ -107,37 +106,68 @@ int month;
    if(s_month.length()==1){ s_month="0"+s_month; }
    
    %>
+ <!-- colum & row -->
+    <div class="cal-month-box">    
+   
+      <div class="cal-row-fluid cal-before-eventlist">
       <% for(int i=1;i<dayOfWeek;i++){  
+          %> 
+          <div class="cal-cell1 cal-cell" data-cal-row="-day" >  </div>      
+        <%
       }
         for(int i=1; i<=cal.getActualMaximum(Calendar.DAY_OF_MONTH); i++){  //현재 객체의 특정 필드의 최대 값을 반환한다.(달에 마지막 날짜 구하기)
         %>  
+           <div class="cal-cell1 cal-cell" data-cal-row="-day">           
+              <div class="cal-month-day cal-day-inmonth cal-day-weekend">
+              <a href='calendar.do?year=<%=cal.get(Calendar.YEAR)%>&month=<%=((cal.get(Calendar.MONTH)+1))%>&day=<%=i %>'>
+               <span class="pull-right" data-cal-date=""  data-toggle="tooltip" title="">
+
+
               <c:forEach var="statsVO" items="${list }">
+
               <% String s_day=String.valueOf(i); if(s_day.length()==1){ s_day="0"+s_day;} count = 0;%> 
-              <!-- -------------------------------------------------- -->
+                   <!-- -------------------------------------------------- -->
                       
               <!-- -------------------------------------------------- -->
               <c:set var="s_year" value="<%=s_year%>" /> 
               <c:set var="s_month" value="<%=s_month%>" /> 
               <c:set var="s_day" value="<%=s_day%>" /> 
               
+
               <c:if test="${s_year eq statsVO.stlabeldate.substring(0,4)}">
               <c:if test="${s_month eq statsVO.stlabeldate.substring(5,7)}">
               <c:if test="${s_day eq statsVO.stlabeldate.substring(8,10)}">
+
               
               <% count++; %>
               <c:set var="totalOutput" value="${totalOutput+statsVO.st_output}"/>
               <% if(count != 0){
+                out.println(count + "건");
+                out.println("<img src ='../images/star.jpg' style='width:20px;'>");
                 totalCount += count; 
               }%>
+              
               <!-- ----------------------------------- -->
               </c:if></c:if></c:if>
               </c:forEach>
+               
+              
+               <%=i %>
+              
+                              
+               </span></a>
+               </div>
+            </div>
             <%            
                 } %>
+        </div>
+       
+   </div>
+ </div>
  <!-- ----------------------------- 캘린더 끄읏 ------------------------ -->
     <div class="row">
       <DIV class='col-lg-12 text-center'>
-       <h2><%=cal.get(Calendar.YEAR)%> / <%=(cal.get(Calendar.MONTH)+1)%> Report</h2> <br>
+        <hr class="star-primary"/><h2><%=cal.get(Calendar.YEAR)%> / <%=(cal.get(Calendar.MONTH)+1)%> Report</h2> <br>
         
         처리된 쓰레기통 갯수 : <%=totalCount %><br>
         총 배출된 양 : ${totalOutput } <br><br>
@@ -146,8 +176,10 @@ int month;
         List<br>
         -------------------------------<br>
         <!-- -------- 통계 계산 부분 --------- -->
+
         <%
         total = (ArrayList<StatsVO>)request.getAttribute("list");
+
         
          for(int cnt=0; cnt<total.size();cnt++){
             
@@ -161,6 +193,7 @@ int month;
            }
         } 
         %>
+
         <%
         for(int cnt=0; cnt<trash.size();cnt++){
            out.print("쓰레기통번호 : "+trash.get(cnt));
@@ -168,126 +201,12 @@ int month;
            out.print(" 지역 : "+location.get(cnt)+"<br>");
         }
         %>
+
+        
+        
         <br>
       </DIV>
     </div>
-    
-    
- <!-- --------------- 그래프2  js --------------- -->       
-  <script>  
-        var tax_data = [
-            {"period": "2015-08", "Seoul": 2407},
-            {"period": "2015-07", "Seoul": 3351},
-            {"period": "2015-06", "Seoul": 2469},
-            {"period": "2015-05", "Seoul": 2246},
-            {"period": "2015-04", "Seoul": 3171},
-            {"period": "2015-03", "Seoul": 2155},
-            {"period": "2015-02", "Seoul": 1226},
-            {"period": "2015-01", "Seoul": 2245}
-        ];
-        Morris.Line({
-            element: 'hero-graph',
-            data: tax_data,
-            xkey: 'period',
-            xLabels: "month",
-            ykeys: ['Seoul'],
-            labels: ['Seoul_ko']
-        });
-        
-        </script>
-   
- <!-- --------------------------------------------- -->  
- <!-- --------------- 그래프2  폼 ---------------- -->             
-            <!-- morris graph chart -->
-              <div class="block-content collapse in">
-                <div class="row-fluid section" >     
-                   <!-- block -->
-                      <div class="block">
-                          <div class="block-content collapse in">
-                              <div class="span12" style="text-align: center;">
-                                <h5 style="color:#D8D8D8;">&nbsp;&nbsp; 〈Total Trash〉</h5>
-                                  <div id="hero-graph" style="height: 230px;"></div>
-                              </div>
-                          </div>
-                      </div>
-                      <!-- /block -->
-                  </div>
-            </div>
-             
-             
- <!-- --------------------------------------------- -->    
- <!-- ------------ 그래프1=>지역별  폼 ------------  -->
-     <section id="contact">
-      <div class="container">
-           <div class="row">
-          <div class="col-lg-8 col-lg-offset-2">
-              <!-- morris bar & donut charts -->
-                    <div class="row-fluid section">
-                         <!-- block -->
-                                <div class="block-content collapse in">
-                                <div class="span6 chart" style="text-align: center;">
-                                    <h5 style="color:#D8D8D8;">&nbsp;&nbsp; 〈local trash output〉</h5>
-                                    <div id="hero-bar" style="height: 250px;"></div>
-                                </div>
-                                <br><br><br>
-                                
-                            </div>
-                        </div>
-                        <!-- /block -->
-      </div>
-              </div>
-              </div>
-              </section>
- <!-- ------------ 그래프1 javascrip ------------ -->
-        <script src="../assets/scripts.js"></script>
-        <script>
-        $(function() {          
-           function doPlot(position) {
-            $.plot("#timechart", [
-                { data: oilprices, label: "Oil price ($)" },
-                { data: exchangerates, label: "USD/EUR exchange rate", yaxis: 2 }
-            ], {
-                xaxes: [ { mode: "time" } ],
-                yaxes: [ { min: 0 }, {
-                    // align if we are to the right
-                    alignTicksWithAxis: position == "right" ? 1 : null,
-                    position: position,
-                    tickFormatter: euroFormatter
-                } ],
-                legend: { position: "sw" }
-            });
-        }
-
-        doPlot("right");
-
-        });
- 
-        // Morris Bar Chart
-        Morris.Bar({
-          /*   var location = [document.getElementById('location').value];  */
-                    
-            element: 'hero-bar',
-            data: [
-                {device: 'seoul', sells: 1236},
-                {device: 'seoul2', sells: 3037},
-                {device: 'seoul3', sells: 175},
-                {device: 'seoul4', sells: 80},
-                {device: 'seoul5', sells: 152},
-                {device: 'seoul6', sells: 680}
-            ],
-            xkey: 'device',
-            ykeys: ['sells'],
-            labels: ['Sells'],
-            barRatio: 0.4,
-            xLabelMargin: 10,
-            hideHover: 'auto',
-            barColors: ["#3d88ba"]
-        });
-
-
-        </script>         
- 
- 
 <!-- -------------------------------------------- -->
 </body>
 <!-- -------------------------------------------- -->
