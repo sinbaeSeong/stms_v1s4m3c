@@ -65,17 +65,7 @@ $(function(){
              <%-- <input type="hidden" name="tno" value="${trashVO.tno}"> --%>
               
              <div class="row control-group">
-               <div class="form-group col-xs-12">
-                  <label style="font-size:20px; border-bottom-style:outset;">Number of trash </label>
-                  <span class="form-control" style="width:40%; margin-left: 5%;">50set</span><br>                  
-                  <p class="help-block text-danger"></p>
-               </div>
-              
-             <div class="form-group col-xs-12">
-                  <label style="font-size:20px; border-bottom-style:outset;">Average from output trash at month </label>
-                  <span class="form-control" style="width:40%; margin-left: 5%;">120t </span><br>                  
-                  <p class="help-block text-danger"></p>
-              </div>
+  
               
   <!-- ------------ 그래프1=>지역별  폼 ------------  -->
            
@@ -222,7 +212,6 @@ $(function(){
            </div>
            </div>
            </div>
-   <!--         </form>  -->
           </div>
          </div>
         </div>
