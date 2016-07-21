@@ -248,13 +248,16 @@ public class ScheduleCont {
   
   //ÄÌ¸°´õ
   @RequestMapping(value = "/schedule/calendar.do", method = RequestMethod.GET)
-  public ModelAndView calendar(ScheduleVO scheduleVO){
+  public ModelAndView calendar(ScheduleVO scheduleVO, int uno){
      ModelAndView mav = new ModelAndView();
      mav.setViewName("/schedule/calendar2");
      
      ArrayList<ScheduleVO> list = scheduleDAO.list();
      
      mav.addObject("list", list);
+     mav.addObject("scheduleVO", scheduleVO);     
+     UserVO vo = userDAO.read(uno);
+     mav.addObject("userVO", vo);
      
      try {
        
@@ -265,7 +268,8 @@ public class ScheduleCont {
     
        
        String labeldate = scheduleVO.getYear() +"-"+ scheduleVO.getMonth() +"-"+ scheduleVO.getDay();
-       mav.setViewName("redirect:/schedule/list2.do?col=slabeldate&word="+labeldate);
+       mav.setViewName("redirect:/schedule/list2.do?col=slabeldate&word="+labeldate+"&uno="+uno);
+       
     } catch (Exception e) {
      
     }
@@ -287,12 +291,6 @@ public class ScheduleCont {
       /*mav.addObject("welcome",welcome);*/
       return mav;
       }
-  
-  
-  
-  
-  
-  
   
   
 }

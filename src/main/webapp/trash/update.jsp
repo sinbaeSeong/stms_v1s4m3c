@@ -51,6 +51,26 @@ function search_lat_lng(){
 <body leftmargin="0" topmargin="0">
 <jsp:include page="/menu/top.jsp" flush='false' />
 <!-- ----------------------------------------- -->
+<!-- login 확인 -->
+<% if (session.getAttribute("id") == null){ %>
+    <section id="contact"> 
+      <div class="container">
+        <div class="row">
+          <DIV class='col-lg-12 text-center'><h2>Caution</h2>
+          <hr class="star-primary"/>
+          </DIV>
+         </div>
+         
+         <!--caution img -->         
+         <div class="row">
+           <div class="col-lg-12">
+             <a href="../user/login.do"><img style="margin:0px auto;" class="img-responsive" src='../images/caution.png' ></a>                    
+           </div>
+         </div>
+       </div>
+     </section>
+<%} else{%> 
+
      <section id="contact">
       <div class="container">
         <div class="row">
@@ -88,7 +108,7 @@ function search_lat_lng(){
                    Click:  <A href='javascript: search_lat_lng() '>Output of Latitube and Longitube </a>
                    <input class="form-control"  type='text' name='lat' id='lat' value="${trashVO.lat }" placeholder="위도">
                    <input class="form-control"  type='text' name='lng' id='lng' value="${trashVO.lng }" placeholder="경도">
-                   <input class="form-control"  type='text' name='markerTitle' id='markerTitle' value='${trashVO.markerTitle }' placeholder="Input from location">
+                   <input class="form-control"  type='text' name='markerTitle' id='markerTitle' value='${trashVO.markerTitle }' >
                    <input class="form-control"  type="button" onclick="initialize()" value="Search"><br>
                   </div>
                  <p class="help-block text-danger"></p>
@@ -150,11 +170,6 @@ function search_lat_lng(){
 </body>
 <!-- -------------------------구글맵 api ------------------------- -->
               
-              
-              
-              
-              
-              
               <br>
               <div id="success"></div>
               <div class="row">
@@ -167,6 +182,7 @@ function search_lat_lng(){
         </div>
       </div>
       </section>
+      <%} %>
  
 <!-- -------------------------------------------- -->
 

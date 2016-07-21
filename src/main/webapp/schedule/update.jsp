@@ -42,6 +42,27 @@ $(function(){
 <body leftmargin="0" topmargin="0">
 <jsp:include page="/menu/top.jsp" flush='false' />
 <!-- ----------------------------------------- -->
+<!-- 로그인 체크 -->
+<% if (session.getAttribute("id") == null){ %>
+    <section id="contact"> 
+      <div class="container">
+        <div class="row">
+          <DIV class='col-lg-12 text-center'><h2>Caution</h2>
+          <hr class="star-primary"/>
+          </DIV>
+         </div>
+         
+         <!--caution img -->         
+         <div class="row">
+           <div class="col-lg-12">
+             <a href="../user/login.do"><img style="margin:0px auto;" class="img-responsive" src='../images/caution.png' ></a>                    
+           </div>
+         </div>
+       </div>
+     </section>
+<%} else{%> 
+
+<!-- body 시작 -->
      <section id="contact">
       <div class="container">
         <div class="row">
@@ -54,8 +75,8 @@ $(function(){
           <div class="col-lg-8 col-lg-offset-2">
             <FORM name='frm' method='POST' action='./update.do' >
               <div class="row control-group">
-              <%--  <input type ="hidden" name='sno' id='sno' value='${scheduleVO.sno }' >    --%>
-              
+                <input type ="hidden" name='sno' id='sno' value='${scheduleVO.sno }' >   
+                <input type ="hidden" name='uno' id='uno' value='${scheduleVO.uno }' >              
                
                 <div class="form-group col-xs-12">
                   <label>Labeldate </label>
@@ -82,8 +103,7 @@ $(function(){
               </div>
             
               <div class="row control-group">
-                <div
-                  class="form-group col-xs-12">
+                <div class="form-group col-xs-12">
                   <label>Content</label>
                   <textarea rows="5" class="form-control" id="content" name='content' value="${scheduleVO.content}" required  ></textarea>
                   <p class="help-block text-danger"></p>
@@ -101,7 +121,7 @@ $(function(){
         </div>
       </div>
       </section>
- 
+ <%} %>
 <!-- -------------------------------------------- -->
 
 </body>

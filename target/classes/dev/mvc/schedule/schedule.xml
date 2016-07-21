@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    
 
   <select id='list' resultType='ScheduleVO'>
-    SELECT sno, slabeldate, slabel, stitle, sdate
+    SELECT sno, slabeldate, slabel, stitle, sdate, uno
     FROM schedule   
     ORDER BY sno DESC
   </select>
@@ -23,18 +23,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   <select id="count" resultType="int" parameterType="HashMap" >
     SELECT COUNT(*) as cnt
     FROM schedule
-        <if test="col!=''">
-          WHERE 
-        </if>
+     
+          WHERE uno = #{uno}   
+        
         <choose>
          <when test="col == 'slabel'">
-            slabel LIKE #{word}
+           AND slabel LIKE #{word}
           </when>
          <when test="col == 'stitle'">
-            stitle LIKE #{word}
+           AND stitle LIKE #{word}
          </when>
           <when test="col == 'slabeldate'">
-            slabeldate LIKE #{word}
+           AND slabeldate LIKE #{word}
          </when>      
         </choose>
   </select>        

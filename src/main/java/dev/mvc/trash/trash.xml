@@ -55,8 +55,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    
 
   <!-- ********** 검색에 따른 변경 종료 ********** -->     
-  
-  
+    
   <select id="read" resultType="TrashVO" parameterType="int">
     SELECT tno, tname, maxcapa, nowcapa, lat, lng, markerTitle, mdate
     FROM trash
@@ -65,7 +64,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
   <update id="update" parameterType="TrashVO">
     UPDATE trash
-    SET tname=#{tname}, maxcapa=#{maxcapa}, lat=#{lat}, lng=#{lng}, markerTilte=#{markerTItle} 
+    SET tname=#{tname}, maxcapa=#{maxcapa}, lat=#{lat}, lng=#{lng}, markerTitle=#{markerTitle} 
     WHERE tno=#{tno}
   </update>
   

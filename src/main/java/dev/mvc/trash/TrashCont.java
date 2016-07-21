@@ -132,14 +132,13 @@ public class TrashCont {
     mav.setViewName("/trash/update"); // /webapp/member/create.jsp
 
     TrashVO trashVO = trashDAO.read(tno);
-
     mav.addObject("trashVO", trashVO);
 
     return mav;
   }
 
   @RequestMapping(value = "/trash/update.do", method = RequestMethod.POST)
-  public ModelAndView update(TrashVO trashVO) {
+  public ModelAndView update(TrashVO trashVO, HttpSession session) {
     ModelAndView mav = new ModelAndView();
     mav.setViewName("/trash/message"); // /webapp/member/create.jsp
 
@@ -147,7 +146,7 @@ public class TrashCont {
     ArrayList<String> links = new ArrayList<String>();
 
     if (trashDAO.update(trashVO) == 1) {
-      mav.setViewName("redirect:/trash/list.do");
+      mav.setViewName("redirect:/trash/list2.do?tno="+session.getAttribute("tno")+"&uno="+session.getAttribute("uno"));
 
     } else {
 

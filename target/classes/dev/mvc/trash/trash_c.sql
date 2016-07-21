@@ -1,5 +1,7 @@
 1) Basic table
 
+Select * from trash;
+
 CREATE TABLE trash(
     tno                               NUMBER(10)      NOT NULL    PRIMARY KEY,
     tname                           VARCHAR2(10)   NOT NULL,

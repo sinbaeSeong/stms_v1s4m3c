@@ -53,7 +53,24 @@ function del(tno){
 <!-- ----------------------------------------- -->
 <jsp:include page="/menu/top.jsp" flush='false' />
 <!-- ----------------------------------------- -->
- 
+<% if (session.getAttribute("id") == null){ %>
+    <section id="contact"> 
+      <div class="container">
+        <div class="row">
+          <DIV class='col-lg-12 text-center'><h2>Caution</h2>
+          <hr class="star-primary"/>
+          </DIV>
+         </div>
+         
+         <!--caution img -->         
+         <div class="row">
+           <div class="col-lg-12">
+             <a href="../user/login.do"><img style="margin:0px auto;" class="img-responsive" src='../images/caution.png' ></a>                    
+           </div>
+         </div>
+       </div>
+     </section>
+<%} else{%> 
 
 <%-- body 시작 --%>
 <body>
@@ -114,8 +131,10 @@ function del(tno){
             <td class="col-lg-8 col-lg-offset-2" style="width: 20%; ">${trashVO.nowcapa*100/trashVO.maxcapa}</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 15%; ">${trashVO.mdate.substring(0, 10)} </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 15%; ">
+           
               <a href="./update.do?tno=${trashVO.tno}"><img src="../images/upload.jpg" title="Update" border='0'/></a>
               <a href="javascript:del(${trashVO.tno })"><img src="../images/delete.png" title="Delete"  border='0'/> </a>
+           
               ${vo.uno }
              </td>
           </tr>
@@ -132,6 +151,7 @@ function del(tno){
 <DIV>${paging}</DIV>
 
 </section>
+<%} %>
 
  
 <!-- -------------------------------------------- -->
