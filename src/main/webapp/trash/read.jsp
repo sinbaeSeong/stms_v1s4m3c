@@ -42,7 +42,7 @@ $(function(){
     <section id="contact">
       <div class="container">
         <div class="row">
-          <DIV class='col-lg-12 text-center'><h2>타이틀</h2>
+          <DIV class='col-lg-12 text-center'><h2> Trash Information</h2>
           <hr class="star-primary"/>
           </DIV>
          </div>     
@@ -50,24 +50,24 @@ $(function(){
       <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
            <FORM name='frm' method="get" action='./update.do'>
-             <input type="hidden" name="tno" value="${trashVO.tno}">
+             <input type="hidden" name="tno" value="${trashVO.tno}" >
               
               <div class="row control-group">
                <div class="form-group col-xs-12">
                   <label>Trash ID </label>
-                  <span class="form-control">${trashVO.tname}</span><br>                  
+                  <span class="form-control" style="width:40%;">${trashVO.tname}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
               
              <div class="form-group col-xs-12">
                   <label>Maximize Capacity </label>
-                  <span class="form-control">${trashVO.maxcapa}</span><br>                  
+                  <span class="form-control" style="width:40%;">${trashVO.maxcapa}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
               
              <div class="form-group col-xs-12">
                   <label>Current Capacity </label>
-                  <span class="form-control"> ${trashVO.maxcapa*100 / trashVO.maxcapa}%</span><br>                  
+                  <span class="form-control" style="width:40%;"> ${trashVO.maxcapa*100 / trashVO.maxcapa}%</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
               
@@ -145,7 +145,7 @@ $(function(){
               
              <div class="form-group col-xs-12">
                   <label>Date </label>
-                  <span class="form-control"> ${trashVO.mdate.substring(0, 10)} </span><br>                  
+                  <span class="form-control" style="width:40%;"> ${trashVO.mdate.substring(0, 10)} </span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
             <div id="success"></div>

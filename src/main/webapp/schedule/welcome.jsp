@@ -67,10 +67,10 @@
             <a href='./calendar.do'><img src = '../images/calendar_view.png' style="width:50%;"></a>
             <br> 
             &nbsp;&nbsp;&nbsp;
-            <a href='./create.do'><img src = '../images/schedule_create.png' style="width:50%;"></a> 
+            <a href='./create.do?uno=<%=session.getAttribute("uno")%>'><img src = '../images/schedule_create.png' style="width:50%;"></a> 
             &nbsp;&nbsp;&nbsp;
             <br>
-            <a href='./list2.do'><img src = '../images/schedule_list.png' style="width:50%;"></a> 
+            <a href='./list2.do?uno=<%=session.getAttribute("uno")%>'><img src = '../images/schedule_list.png' style="width:50%;"></a> 
             <br><Br>
            </div>      
           </div>

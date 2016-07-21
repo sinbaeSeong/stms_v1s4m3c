@@ -8,13 +8,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    <!-- create -->
    <insert id="create" parameterType="ScheduleVO">
     INSERT INTO schedule(uno, slabeldate, slabel, stitle, content, sdate)
-    VALUES(1, #{slabeldate}, #{slabel}, #{stitle}, #{content}, now())
+    VALUES(#{uno}, #{slabeldate}, #{slabel}, #{stitle}, #{content}, now())
    </insert> 
    
 
-<select id='list' resultType='ScheduleVO'>
+  <select id='list' resultType='ScheduleVO'>
     SELECT sno, slabeldate, slabel, stitle, sdate
-    FROM schedule
+    FROM schedule   
+    ORDER BY sno DESC
   </select>
   
 
@@ -23,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     SELECT COUNT(*) as cnt
     FROM schedule
         <if test="col!=''">
-          WHERE
+          WHERE 
         </if>
         <choose>
          <when test="col == 'slabel'">
@@ -40,24 +41,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         
   <!-- Search + Paging List -->
   <select id="list2" resultType="ScheduleVO" parameterType="HashMap" >
-           SELECT sno, slabeldate, slabel, stitle, sdate
-           FROM schedule
-           <if test="col!=''">
-           WHERE
-           </if>
-                         <choose>
-                             <when test="col == 'slabel'">
-                                   slabel LIKE #{word}
-                             </when>
-                            <when test="col == 'stitle'">
-                                  stitle LIKE #{word}
-                             </when>
-                             <when test="col == 'slabeldate'">
-                                  slabeldate LIKE #{word}
-                             </when>      
-                         </choose>
-            ORDER BY sno ASC
-            LIMIT #{offset}, 10;
+     SELECT sno, uno, slabeldate, slabel, stitle, sdate
+     FROM schedule
+     WHERE uno = #{uno}  
+      <choose>
+      <when test="col == 'slabel'">
+        AND slabel LIKE #{word}
+      </when>
+      <when test="col == 'stitle'">
+        AND stitle LIKE #{word}
+      </when>
+      <when test="col == 'slabeldate'">
+        AND slabeldate LIKE #{word}
+      </when>      
+      </choose>
+      ORDER BY sno ASC
+      LIMIT #{offset}, 10;
   </select>  
    
 

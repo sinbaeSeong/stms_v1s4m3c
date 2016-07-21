@@ -47,6 +47,7 @@
     <!-- Bootstrap CSS Start -->
     <section id="contact" style="width:100%;">
      <div class="container">
+      <input type ="hidden" name='uno' id='uno' value='${trashVO.uno }' >
         <!-- Title Sign up -->
         <div class="row">
         <DIV class='col-lg-12 text-center'><h2>Trash Menu</h2>
@@ -64,9 +65,11 @@
           <div id="success"></div>
           <div class="row">
            <div class="form-group col-xs-12">
-            <a href='./create.do'><img src = '../images/image1_trashcreate.png' style="width:20%;"></a> 
+           
+       
+            <a href='./create.do?uno=<%=session.getAttribute("uno") %>'><img src = '../images/image1_trashcreate.png' style="width:20%;"></a> 
             &nbsp;&nbsp;&nbsp;
-            <a href='./list2.do'><img src = '../images/image1_trashlist.png' style="width:20%;"></a> 
+            <a href='./list2.do?uno=<%=session.getAttribute("uno") %>'><img src = '../images/image1_trashlist.png' style="width:20%;"></a> 
             &nbsp;&nbsp;&nbsp;
             <img src = '../images/image1_trashmodify.png' style="width:20%;"> 
             <br><Br>

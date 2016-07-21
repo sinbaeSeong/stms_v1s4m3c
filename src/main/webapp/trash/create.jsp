@@ -104,13 +104,13 @@
       <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
             <FORM name='frm' method='POST' action='./create.do' >
+            <input type = "hidden" name='uno' id='uno' value='${param.uno }' >
              
         <!-- trash-type -->     
-              <div class="row control-group">
-          <%--      <input type = "hidden" name='uno' id='uno' value='${TrashVO.uno }' >  --%>
+              <div class="row control-group">                
                 <div class="form-group col-xs-12">
                   <label>Trash Id </label>
-                    <input type="text" class="form-control" placeholder="Type" id="tname" name="tname" autofocus required onkeyup="onkey()">    
+                    <input type="text" class="form-control" placeholder="Type" id="tname" name="tname" autofocus required onkeyup="onkey()" style="width:40%;">    
                     <span id='idck'></span>
                     <p class="help-block text-danger"></p>
                  </div>
@@ -120,7 +120,7 @@
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
                     <label for="capa">Capacity</label>
-                    <input type="text" class="form-control" placeholder="Capacity" id="maxcapa" name="maxcapa" value ="20.5"required data-validation-required-message="Please enter something capacity.">
+                    <input type="text" class="form-control" placeholder="Capacity" id="maxcapa" name="maxcapa" value ="20.5"required data-validation-required-message="Please enter something capacity." style="width:40%;">
                  <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -198,6 +198,18 @@
               
               
               <br>
+              
+              <!--  uno -->   
+              <div class="row control-group">
+              <div class="form-group col-xs-12 ">
+                    <label for="uno">User</label>
+                    <input type="text" class="form-control" id="uno" name="uno" value ="${param.uno }" required data-validation-required-message="Please enter something capacity." style="width:40%;">
+                 <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              
+              
+              <!-- 버튼 -->
               <div id="success"></div>
               <div class="row">
                 <div class="form-group col-xs-12">

@@ -76,7 +76,7 @@ function checkData(f){ // f == document.frmData 객체
           <div class="col-lg-8 col-lg-offset-2">
             <FORM name='frm' method='POST' action='./create.do' >
               <div class="row control-group">
-          <%--      <input type = "hidden" name='uno' id='uno' value='${TrashVO.uno }' >  --%>
+               <input type = "hidden" name='uno' id='uno' value='${param.uno }' >
                 <div class="form-group col-xs-12">
                   <label> Labeldate </label>
                   <input type="date" class="form-control"  id="slabeldate" name="slabeldate" required>    
@@ -84,7 +84,7 @@ function checkData(f){ // f == document.frmData 객체
                 </div>
               </div>
                          
-              
+              <!-- label -->
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
                     <label>Label</label>
@@ -101,12 +101,22 @@ function checkData(f){ // f == document.frmData 객체
                 </div>
               </div>
               
+              <!-- content -->
               <div class="row control-group">
                 <div
                   class="form-group col-xs-12">
                   <label>Content</label>
                   <textarea rows="10" class="form-control" id="content" name="content" placeholder="content" required ></textarea>
                   <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              
+              <!--  uno -->   
+              <div class="row control-group">
+              <div class="form-group col-xs-12 ">
+                    <label for="uno">User</label>
+                    <input type="text" class="form-control" id="uno" name="uno" value ="${param.uno }" required data-validation-required-message="Please enter something capacity." style="width:40%;">
+                 <p class="help-block text-danger"></p>
                 </div>
               </div>
               

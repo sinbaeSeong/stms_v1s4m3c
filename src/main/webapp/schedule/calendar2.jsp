@@ -59,6 +59,8 @@ int month;
    cal.set(Calendar.MONTH,(month-1));
    cal.set(Calendar.DATE,1);
 %>
+<section id="contact"> 
+  <div class="container">
 <!-- ----------------- -->
 <br><br>
  <!-- ◀2016/7▶ 부분 설정하는 곳 -->
@@ -139,6 +141,8 @@ int month;
        
    </div>
  </div>
+ </div>
+ </section>
  
 <!-- -------------------------------------------- -->
 </body>

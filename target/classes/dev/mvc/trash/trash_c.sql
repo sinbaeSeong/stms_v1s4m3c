@@ -30,3 +30,11 @@ CREATE TABLE trash(
   SELECT tno, uno, tname, maxcapa, currentcapa, location, replycnt, rdate
   FROM trash
   ORDER BY tno DESC;            
+
+  uno³¢¸®¸¸ 
+  SELECT tno, uno, tname, maxcapa, currentcapa, location, replycnt, rdate
+  FROM trash
+  WHERE uno = 1
+  ORDER BY tno DESC;            
+  
+  

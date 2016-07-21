@@ -2,10 +2,11 @@ package dev.mvc.schedule;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
+
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.jsp.tagext.TryCatchFinally;
+import javax.servlet.http.HttpSession;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
 
 import dev.mvc.user.UserDAO;
 import dev.mvc.user.UserVO;
@@ -40,11 +42,16 @@ public class ScheduleCont {
    * @return
    */
   @RequestMapping(value = "/schedule/create.do", method = RequestMethod.GET)
-  public ModelAndView create() {
+  public ModelAndView create(ScheduleVO scheduleVO, int uno) {
     System.out.println("--> create() GET called.");
     ModelAndView mav = new ModelAndView();
     mav.setViewName("/schedule/create"); // /webapp/member/create.jsp
-
+    
+    mav.addObject("scheduleVO", scheduleVO);
+    
+    UserVO vo = userDAO.read(uno);
+    mav.addObject("userVO", vo);
+    
     return mav;
   }
 
@@ -57,6 +64,7 @@ public class ScheduleCont {
     ArrayList<String> msgs = new ArrayList<String>();
     ArrayList<String> links = new ArrayList<String>();
 
+    
     if (scheduleDAO.create(scheduleVO) == 1) {
       msgs.add("Schedule is created.");
       links
@@ -194,7 +202,7 @@ public class ScheduleCont {
    */
   @RequestMapping(value = "/schedule/list2.do", method = RequestMethod.GET)
   public ModelAndView list2(
-        
+        int uno,
         ScheduleVO scheduleVO,
         SearchDTO searchDTO,
         HttpServletRequest request) {
@@ -202,6 +210,7 @@ public class ScheduleCont {
      mav.setViewName("/schedule/list");
      
      HashMap<String, Object> hashMap = new HashMap<String, Object>();
+     hashMap.put("uno", uno);
      hashMap.put("col", searchDTO.getCol());
      String word = searchDTO.getWord();
      word = "%"+word+"%";
@@ -218,6 +227,10 @@ public class ScheduleCont {
      ArrayList<ScheduleVO> list = scheduleDAO.list2(hashMap);
 
      mav.addObject("list", list);
+     
+     UserVO vo = userDAO.read(uno);
+     mav.addObject("userVO", vo);
+     
      mav.addObject("totalRecord", totalRecord);
      mav.addObject("root", request.getContextPath());
 
@@ -233,6 +246,7 @@ public class ScheduleCont {
      
   }
   
+  //ÄÌ¸°´õ
   @RequestMapping(value = "/schedule/calendar.do", method = RequestMethod.GET)
   public ModelAndView calendar(ScheduleVO scheduleVO){
      ModelAndView mav = new ModelAndView();
@@ -253,7 +267,7 @@ public class ScheduleCont {
        String labeldate = scheduleVO.getYear() +"-"+ scheduleVO.getMonth() +"-"+ scheduleVO.getDay();
        mav.setViewName("redirect:/schedule/list2.do?col=slabeldate&word="+labeldate);
     } catch (Exception e) {
-      // TODO: handle exception
+     
     }
 
      
@@ -261,7 +275,18 @@ public class ScheduleCont {
   }
 
   
-  
+  // welcome
+  @RequestMapping(value = "/schedule/welcome.do", method = RequestMethod.GET)
+      public ModelAndView welcome(ScheduleVO scheduleVO, int uno, HttpSession session) {
+      ModelAndView mav = new ModelAndView();
+      mav.setViewName("/trash/welcome");
+      mav.addObject("scheduleVO", scheduleVO);
+      
+      UserVO vo = userDAO.read(uno);
+      mav.addObject("userVO", vo);
+      /*mav.addObject("welcome",welcome);*/
+      return mav;
+      }
   
   
   

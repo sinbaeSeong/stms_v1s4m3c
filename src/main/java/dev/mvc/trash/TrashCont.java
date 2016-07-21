@@ -41,10 +41,14 @@ public class TrashCont {
    * @return
    */
   @RequestMapping(value = "/trash/create.do", method = RequestMethod.GET)
-  public ModelAndView create() {
-    System.out.println("--> create() GET called.");
+  public ModelAndView create(TrashVO trashVO, int uno) {
+   /* System.out.println("--> create() GET called.");*/
     ModelAndView mav = new ModelAndView();
     mav.setViewName("/trash/create"); // /webapp/member/create.jsp
+    mav.addObject("trashVO", trashVO);
+    
+    UserVO vo = userDAO.read(uno);
+    mav.addObject("userVO", vo);
 
     return mav;
   }
@@ -58,7 +62,9 @@ public class TrashCont {
     ArrayList<String> msgs = new ArrayList<String>();
     ArrayList<String> links = new ArrayList<String>();
 
+    trashVO.setUno(1);
     if (trashDAO.create(trashVO) == 1) {
+    
       mav.setViewName("redirect:/trash/list2.do?tno="+session.getAttribute("tno")+"&uno="+session.getAttribute("uno"));
      /* msgs.add("Trash type is created.");*/
       links.add("<button type='button' onclick=\"location.href='./login.do'\">Login</button>");
@@ -193,12 +199,14 @@ public class TrashCont {
    */
   @RequestMapping(value = "/trash/list2.do", method = RequestMethod.GET)
   public ModelAndView list2(
+        int uno,
         SearchDTO searchDTO,
         HttpServletRequest request) {
      ModelAndView mav = new ModelAndView();
      mav.setViewName("/trash/list");
      
      HashMap<String, Object> hashMap = new HashMap<String, Object>();
+     hashMap.put("uno", uno);
      hashMap.put("col", searchDTO.getCol());
      String word = searchDTO.getWord();
      word = "%"+word+"%";
@@ -212,6 +220,10 @@ public class TrashCont {
      ArrayList<TrashVO> list = trashDAO.list2(hashMap);
 
      mav.addObject("list", list);
+     
+     UserVO vo = userDAO.read(uno);
+     mav.addObject("userVO", vo);
+     
      mav.addObject("totalRecord", totalRecord);
      mav.addObject("root", request.getContextPath());
 
@@ -253,11 +265,14 @@ public class TrashCont {
          }
      
      // welcome
-     @RequestMapping(value = "/trash/welcome.do", 
-         method = RequestMethod.GET)
-         public ModelAndView welcome(HttpSession session) {
+     @RequestMapping(value = "/trash/welcome.do", method = RequestMethod.GET)
+         public ModelAndView welcome(TrashVO trashVO, int uno, HttpSession session) {
          ModelAndView mav = new ModelAndView();
          mav.setViewName("/trash/welcome");
+         mav.addObject("trashVO", trashVO);
+         
+         UserVO vo = userDAO.read(uno);
+         mav.addObject("userVO", vo);
          /*mav.addObject("welcome",welcome);*/
          return mav;
          }

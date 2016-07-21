@@ -31,7 +31,7 @@ public class ScheduleDAO {
   }
  
   // List
- public ArrayList<ScheduleVO> list() {
+   public ArrayList<ScheduleVO> list() {
       return mapper().list();
     }
     

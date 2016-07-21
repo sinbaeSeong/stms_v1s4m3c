@@ -57,7 +57,6 @@ function del(tno){
 
 <%-- body 시작 --%>
 <body>
-
  <section id="contact">
       <div class="container">
       
@@ -67,7 +66,8 @@ function del(tno){
           </DIV>
          </div>     
  
-  <FORM name='frm' method='GET' action='./list2.do' >        
+  <FORM name='frm' method='GET' action='./list2.do' >    
+  <input type="hidden" id="uno" name="uno" value="${param.uno }">    
   <div class="row">
     <div class="col-lg-12 text-center">
       <select id='email_dns' class='input-sm' name='col' style="width: 20%;">
@@ -116,7 +116,7 @@ function del(tno){
             <td class="col-lg-8 col-lg-offset-2" style="width: 15%; ">
               <a href="./update.do?tno=${trashVO.tno}"><img src="../images/upload.jpg" title="Update" border='0'/></a>
               <a href="javascript:del(${trashVO.tno })"><img src="../images/delete.png" title="Delete"  border='0'/> </a>
-      
+              ${vo.uno }
              </td>
           </tr>
       </c:forEach>

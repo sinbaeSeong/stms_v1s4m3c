@@ -94,7 +94,8 @@ int month;
           </DIV>
          </div>     
  
-  <FORM name='frms' method='GET' action='./list2.do' >        
+  <FORM name='frms' method='GET' action='./list2.do' > 
+  <input type='hidden' name='uno' id='uno' value="${scheduleVO.uno }">       
   <div class="row">
     <div class="col-lg-12 text-center">
       <select id='email_dns' class='input-sm' name='col' style="width: 20%;">
@@ -133,11 +134,12 @@ int month;
      
       <%-- table --%>
       <tbody>
+      
          <c:forEach var="scheduleVO" items="${list }">
           <tr class="row control-group" style="font-size: 20px;">
             <td class="td">${scheduleVO.sno}</td>
             <td class="td">
-              <a href="./read.do?sno=${scheduleVO.sno}&uno=1"> ${scheduleVO.slabeldate}</a> 
+              <a href="./read.do?sno=${scheduleVO.sno}&uno=${param.uno}"> ${scheduleVO.slabeldate}</a> 
             </td> 
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${scheduleVO.slabel }</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${scheduleVO.stitle }</td>
@@ -145,11 +147,11 @@ int month;
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
               <a href="./update.do?sno=${scheduleVO.sno}"><img src="../images/upload.jpg" title="Update" border='0'/></a>
               <a href="javascript:del(${scheduleVO.sno })"><img src="../images/delete.png" title="Delete"  border='0'/> </a>
-               
+              ${scheduleVO.uno }           
              </td>
           </tr>
       </c:forEach>
-        
+
       </tbody>
     </table>
    

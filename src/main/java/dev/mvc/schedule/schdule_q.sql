@@ -56,6 +56,21 @@ SELECT sno, slabeldate, slabel, stitle, sdate
 FROM schedule;
 ORDER BY sno ASC;
 
+SELECT sno, uno, slabeldate, slabel, stitle, sdate
+FROM schedule
+WHERE uno = 2
+ORDER BY sno ASC;
+
+sno uno slabeldate slabel stitle      sdate
+ --- --- ---------- ------ ----------- ---------------------
+   1   1 2013-10-17 ÈÞ°¡     xxx´Ô ÈÞ°¡ °©´Ï´Ù 2016-07-11 15:26:02.0
+   2   1 2016-07-11 ÈÞ°¡     ÈÞ°¡          2016-07-11 15:31:55.0
+   4   1 2016-07-11 label  title       2016-07-12 12:04:53.0
+   5   1 2016-07-12 ÈÞ°¡     ÈÞ°¡          2016-07-12 15:11:17.0
+   6   1 2016-07-20 °á±Ù     ¾ßºñ±º         2016-07-14 17:59:39.0
+
+
+
 5. Read
 SELECT slabeldate, slabel, stitle, content, sdate, uno
 FROM schedule;
