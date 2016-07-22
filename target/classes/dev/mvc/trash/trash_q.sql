@@ -59,10 +59,13 @@ WHERE tno = 1;
 UPDATE trash
 SET tname='CA-Type', maxcapa='12.5', location='Us1'
 WHERE tno=2;
+UPDATE trash
+SET maxcapa=100
+WHERE tno=1;
 
 UPDATE trash
 SET location='Us1'
-WHERE tno=2;
+SET location='Us1'
 
 7. Delete
 DELETE FROM trash
