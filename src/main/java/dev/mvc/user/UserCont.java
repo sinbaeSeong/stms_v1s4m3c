@@ -264,13 +264,12 @@ public class UserCont {
          }else{
             mav.setViewName("redirect:/user/welcome.do"); // 확장자 명시
          }
-
-      } else {
+         }else{
          mav.setViewName("/user/message");
          
          msgs.add("해당하는 아이디를 찾을 수 없습니다.");
          links.add("<button type='button' class='btn btn-success btn-sm' onclick='history.back();'>다시시도</button>");
-     }
+         }
 
       mav.addObject("msgs", msgs);
       mav.addObject("links", links);

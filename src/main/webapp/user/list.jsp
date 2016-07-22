@@ -275,7 +275,9 @@ function fun_confirm(uno, uconfirm){
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
             <a href="javascript:fun_confirm(${userVO.uno }, '${userVO.confirm }')">${userVO.confirm}</a></td>
             <td class="td">
-            <%if(session.getAttribute("act")=="admin"){ %>
+            <%
+           /*  System.out.println(session.getAttribute("act")); */
+            if(session.getAttribute("act").equals("admin")){ %>
             
               <a href="./update.do?uno=${userVO.uno}">Update</a>
               <a href="javascript:del(${userVO.uno })">Delete</a>
