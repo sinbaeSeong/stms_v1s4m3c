@@ -58,14 +58,10 @@
 <script type="text/javascript" src="../js/tool.js"></script>
 
 
-
-
 </head>
 <!-- ----------------------------------------- -->
 <jsp:include page="/menu/top.jsp" flush='false' />
 <body style="width: 100%;">
-
-
 
 
    <!-- 달력 기본 변수 설정 -->
@@ -187,8 +183,61 @@
       </DIV>
    </div>
 
+<script type="text/javascript">
+var js_trash = new Array(<%=trash.size()%>)
+<% for(int i=0; i<trash.size(); i++){%>
+js_trash[<%=i%>] = '<%=trash.get(i)%>';
+<%}%>
+var js_output = new Array(<%=output.size()%>)
+<% for(int i=0; i<output.size(); i++){%>
+js_output[<%=i%>] = '<%=output.get(i)%>';
+<%}%>
+var js_location = new Array(<%=location.size()%>)
+<% for(int i=0; i<location.size(); i++){%>
+js_location[<%=i%>] = '<%=location.get(i)%>';
+<%}%>
+alert(<%=location.size()%>);
+alert(js_output[1]);
+alert(js_output[<%=location.size()-1%>]);
 
 
+
+</script>
+ <!-- morris graph chart -->
+              <div class="block-content collapse in">
+                <div class="row-fluid section" >     
+                   <!-- block -->
+                      <div class="block">
+                          <div class="block-content collapse in">
+                                <div class="span5 chart" style="text-align: center;">
+                                   <h5 style="color:#D8D8D8;">&nbsp;&nbsp; 〈Output trash percentage〉 </h5>
+                                    <div id="hero-donut" style="height: 250px; text-align: center;"> </div>    
+                                </div>
+                          </div>
+                      </div>
+                      <!-- /block -->
+                  </div>
+            </div>
+             
+             
+ <!-- --------------------------------------------- -->    
+ <!-- --------------- 그래프2  js --------------- -->       
+  <script>  
+  var tax_data = [
+                  <% for(int i=0; i<location.size()-1; i++){%>
+                  {"label": js_location[<%=i%>], "value":js_output[<%=i%>]},
+                  <%}%>
+                  {"label": js_location[<%=location.size()-1%>], "value":js_output[<%=location.size()-1%>]}
+              ];
+  
+  Morris.Donut({
+     element: 'hero-donut',
+     data: tax_data,
+     colors: ["#30a1ec", "#76bdee", "#c4dafe"],
+     formatter: function (y) { return y  }
+ });
+        
+        </script>
   
 </body>
 <!-- -------------------------------------------- -->
