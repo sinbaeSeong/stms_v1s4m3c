@@ -31,49 +31,54 @@
 
 
  
- <script type="text/JavaScript">
- function del(qno){
-   var returnValue = prompt("비밀번호를 입력하세요", "");
-   
-   
-    if(!confirm("글을 삭제하겠습니까?")){
-       return;
-    } else {
-       var f = document.createElement("form");
-       f.setAttribute("method","post");
-       f.setAttribute("action","./delete.do");
-       document.body.appendChild(f);
-       
-       var i = document.createElement("input");
-       i.setAttribute("type","hidden");
-       i.setAttribute("name","qno");
-       i.setAttribute("value", qno);
-       f.appendChild(i);
-       
-       
-       
-       
-       var qp = document.createElement("input");
-       qp.setAttribute("type","hidden");
-       qp.setAttribute("name","qpasswd");
-       qp.setAttribute("value", returnValue);
-       f.appendChild(qp);
-       
-       
-       
-       
-       f.submit();
-    }
- }
+<script type="text/JavaScript">
+function del(qno){
+  
+  
+  
+   if(!confirm("글을 삭제하겠습니까?")){
+      return;
+   } else {
+     var returnValue = prompt("비밀번호를 입력하세요", "");
+     
+      var f = document.createElement("form");
+      f.setAttribute("method","post");
+      f.setAttribute("action","./delete.do");
+      document.body.appendChild(f);
+      
+      var i = document.createElement("input");
+      i.setAttribute("type","hidden");
+      i.setAttribute("name","qno");
+      i.setAttribute("value", qno);
+      f.appendChild(i);
+      
+      
+      
+      
+      var qp = document.createElement("input");
+      qp.setAttribute("type","hidden");
+      qp.setAttribute("name","qpasswd");
+      qp.setAttribute("value", returnValue);
+      f.appendChild(qp);
+      
+      
+      
+      
+      f.submit();
+   }
+}
+
+
  
  
  function delreply(qreplyno, qno){
-   var returnValue = prompt("비밀번호를 입력하세요", "");
+   
 
    
    if(!confirm("답변을 삭제하시겠습니까?")){
       return;
    } else {
+     var returnValue = prompt("비밀번호를 입력하세요", "");
       var f = document.createElement("form");
       f.setAttribute("method","post");
       f.setAttribute("action","./deletereply.do");
@@ -218,7 +223,7 @@
               <div class="row control-group"> 
 <div class="form-group col-xs-12 ">
       <label for="capa">ID</label>
-      <input type="text" class="form-control" placeholder="비회원 아이디" id="qreplyid" name="qreplyid" required>
+      <input type="text" class="form-control" placeholder="닉네임" id="qreplyid" name="qreplyid" required>
    <p class="help-block text-danger"></p>
   </div>
 </div>
@@ -237,7 +242,7 @@
               <div class="row control-group">
 <div class="form-group col-xs-12 ">
       <label for="capa">PASSWORD</label>
-      <input type="password" class="form-control" placeholder="비회원 비밀번호" id="qreplypasswd" name="qreplypasswd" required>
+      <input type="password" class="form-control" placeholder="댓글 비밀번호" id="qreplypasswd" name="qreplypasswd" required>
    <p class="help-block text-danger"></p>
   </div>
 </div>

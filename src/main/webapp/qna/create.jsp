@@ -82,7 +82,7 @@
 <div class="row control-group"> 
 <div class="form-group col-xs-12 ">
       <label for="capa">ID</label>
-      <input type="text" class="form-control" placeholder="비회원 아이디" id="qid" name="qid" required>
+      <input type="text" class="form-control" placeholder="닉네임" id="qid" name="qid" required>
    <p class="help-block text-danger"></p>
   </div>
 </div>

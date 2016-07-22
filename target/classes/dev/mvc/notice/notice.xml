@@ -22,13 +22,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </if>
         <choose>
          <when test="col == 'ntitle'">
-            qtitle LIKE #{word}
+            ntitle LIKE #{word}
           </when>
          <when test="col == 'ncontent'">
-            qcontent LIKE #{word}
+            ncontent LIKE #{word}
          </when>
           <when test="col == 'nid'">
-            qid LIKE #{word}
+            nid LIKE #{word}
          </when>      
         </choose>
   </select>        
@@ -56,7 +56,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   </select>  
    
 
-  <!-- ********** 검색에 따른 변경 종료 ********** -->     
+  <!-- ********** 검색에 따른 변경 종료 ********** -->    
   
   
   <select id="read" resultType="NoticeVO" parameterType="int">

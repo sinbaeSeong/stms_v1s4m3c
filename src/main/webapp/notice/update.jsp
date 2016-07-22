@@ -47,7 +47,11 @@ $(function(){
         <div class="row">
           <DIV class='col-lg-12 text-center'><h2>Notice Update</h2>
           <hr class="star-primary"/>
-         
+          
+     <% if (session.getAttribute("id") == null){ %>
+         <h1><div align=center>
+         로그인을 하십시오!</div><h1>
+         <%}else{ %> 
           </DIV>
          </div>          
       <div class="row">
@@ -93,3 +97,4 @@ $(function(){
 </body>
 <!-- -------------------------------------------- -->
 </html> 
+<%}%>

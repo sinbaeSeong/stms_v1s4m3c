@@ -88,12 +88,12 @@ function del(nno){
     <div class="col-lg-12 text-center">
       <select id='email_dns' class='input-sm' name='col' style="width: 20%;">
           <option value=''>검색</option>
-          <option value='qtitle' ${search.col == "ntitle" ? "selected=selected" : "" }>제목</option>
-          <option value='qcontent' ${search.col == "ncontent" ? "selected=selected" : "" }>내용</option>
-          <option value='qid' ${search.col == "nid" ? "selected=selected" : "" }>작성자</option>
+          <option value='ntitle' ${param.col == "ntitle" ? "selected=selected" : "" }>제목</option>
+          <option value='ncontent' ${param.col == "ncontent" ? "selected=selected" : "" }>내용</option>
+          <option value='nid' ${param.col == "nid" ? "selected=selected" : "" }>작성자</option>
        </select>
       <input type="text" class="input-sm" placeholder="search" id="word"
-                     name="word" maxlength="16" value='${search.word }' style="width: 30%; ">
+                     name="word" maxlength="16" value='${param.word }' style="width: 30%; ">
       <input type="submit" value='search' class='btn btn-success btn-sm'>
     </div>
   </div>       

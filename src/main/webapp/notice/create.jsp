@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.ArrayList" %>
   
+
+  
 <!DOCTYPE html> 
 <html lang="ko"> 
 <head> 
@@ -45,8 +47,13 @@
     <section id="contact">
       <div class="container">
         <div class="row">
-          <DIV class='col-lg-12 text-center'><h2>Q n A</h2>
+          <DIV class='col-lg-12 text-center'><h2>Notice</h2>
           <hr class="star-primary"/>
+         
+         <% if (session.getAttribute("id") == null){ %>
+         <h1><div align=center>
+         로그인을 하십시오!</div><h1>
+         <%}else{ %> 
          
           </DIV>
          </div>          
@@ -76,7 +83,7 @@
               
               
               
-              
+            
 
               
              <input type="hidden" id="nid" name="nid" value="${id }">
@@ -102,3 +109,5 @@
 </body>
 <!-- -------------------------------------------- -->
 </html> 
+  <%}%>
+

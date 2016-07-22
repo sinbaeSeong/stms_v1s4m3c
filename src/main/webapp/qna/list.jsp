@@ -6,12 +6,7 @@
 <!DOCTYPE html> 
 <html lang="ko"> 
 <head> 
-<style type="text/css">
-a:link {text-decoration: none; color: black;}
-a:visited {text-decoration: none; color: black;}
-a:active {text-decoration: none; color: black;}
-a:hover {text-decoration: none; color: black;}
-</style>
+
 
 <meta charset="UTF-8"> 
 <title></title> 
@@ -22,12 +17,14 @@ a:hover {text-decoration: none; color: black;}
 
 <script type="text/JavaScript">
 function del(qno){
-  var returnValue = prompt("비밀번호를 입력하세요", "");
+  
   
   
    if(!confirm("글을 삭제하겠습니까?")){
       return;
    } else {
+     var returnValue = prompt("비밀번호를 입력하세요", "");
+     
       var f = document.createElement("form");
       f.setAttribute("method","post");
       f.setAttribute("action","./delete.do");
@@ -89,8 +86,8 @@ function del(qno){
  <section id="contact">
       <div class="container">
       
-        <div class="row"><a href="./list2.do">
-          <DIV class='col-lg-12 text-center'><h2>Q & A</h2></a>
+        <div class="row">
+          <DIV class='col-lg-12 text-center'><h2>Q & A</h2>
           <hr class="star-primary"/>
           </DIV>
          </div>     

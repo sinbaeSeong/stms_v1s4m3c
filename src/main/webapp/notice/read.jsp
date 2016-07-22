@@ -33,81 +33,34 @@
  
  <script type="text/JavaScript">
  function del(nno){
-   var returnValue = prompt("비밀번호를 입력하세요", "");
-   
-   
-    if(!confirm("글을 삭제하겠습니까?")){
-       return;
-    } else {
-       var f = document.createElement("form");
-       f.setAttribute("method","post");
-       f.setAttribute("action","./delete.do");
-       document.body.appendChild(f);
-       
-       var i = document.createElement("input");
-       i.setAttribute("type","hidden");
-       i.setAttribute("name","nno");
-       i.setAttribute("value", nno);
-       f.appendChild(i);
-       
-       
-       
-       
-       var qp = document.createElement("input");
-       qp.setAttribute("type","hidden");
-       qp.setAttribute("name","npasswd");
-       qp.setAttribute("value", returnValue);
-       f.appendChild(qp);
-       
-       
-       
-       
-       f.submit();
-    }
- }
- 
- 
- function delreply(nreplyno, nno){
-   var returnValue = prompt("비밀번호를 입력하세요", "");
 
    
-   if(!confirm("답변을 삭제하시겠습니까?")){
+   
+   if(!confirm("글을 삭제하겠습니까?")){
       return;
    } else {
       var f = document.createElement("form");
       f.setAttribute("method","post");
-      f.setAttribute("action","./deletereply.do");
+      f.setAttribute("action","./delete.do");
       document.body.appendChild(f);
       
       var i = document.createElement("input");
       i.setAttribute("type","hidden");
-      i.setAttribute("name","nreplyno");
-      i.setAttribute("value", nreplyno);
-      
+      i.setAttribute("name","nno");
+      i.setAttribute("value", nno);
       f.appendChild(i);
       
       
-      var qno1 = document.createElement("input");
-      qno1.setAttribute("type","hidden");
-      qno1.setAttribute("name","nno");
-      qno1.setAttribute("value", nno);
-      f.appendChild(qno1);
       
+
       
-      
-      
-      
-      var qpr = document.createElement("input");
-      qpr.setAttribute("type","hidden");
-      qpr.setAttribute("name","nreplypasswd");
-      qpr.setAttribute("value", returnValue);
-      f.appendChild(qpr);
       
       
       
       f.submit();
    }
 }
+
 
 </script>
 </head>
@@ -157,8 +110,15 @@
              <div class="row">
              <div class="form-group col-xs-12">
             <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list2.do'">List</button>
+            
+            
+            <c:if test="${act eq 'admin' }">
+            
             <button type="button" class="btn btn-success btn-lg" onclick="location.href='./update.do?nno=${noticeVO.nno}'">Update</button>
             <button type="button" class="btn btn-success btn-lg" onclick="javascript:del(${noticeVO.nno })">Delete</button>
+           
+           </c:if>
+           
            </div>
            </div>
            </form> 
