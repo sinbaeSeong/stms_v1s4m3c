@@ -39,7 +39,7 @@
 
 
 <!--/.fluid-container-->
-<link rel="stylesheet" href="vendors/morris/morris.css">
+<link rel="stylesheet" href="../vendors/morris/morris.css">
 <script src="../vendors/jquery-1.9.1.min.js"></script>
 <script src="../vendors/jquery.knob.js"></script>
 <script src="../vendors/raphael-min.js"></script>
@@ -62,7 +62,8 @@
 <!-- ----------------------------------------- -->
 <jsp:include page="/menu/top.jsp" flush='false' />
 <body style="width: 100%;">
-
+<section id="contact">
+      <div class="container">
 
    <!-- 달력 기본 변수 설정 -->
    <%
@@ -196,12 +197,6 @@ var js_location = new Array(<%=location.size()%>)
 <% for(int i=0; i<location.size(); i++){%>
 js_location[<%=i%>] = '<%=location.get(i)%>';
 <%}%>
-alert(<%=location.size()%>);
-alert(js_output[1]);
-alert(js_output[<%=location.size()-1%>]);
-
-
-
 </script>
  <!-- morris graph chart -->
               <div class="block-content collapse in">
@@ -238,7 +233,8 @@ alert(js_output[<%=location.size()-1%>]);
  });
         
         </script>
-  
+  </div>
+  </section>
 </body>
 <!-- -------------------------------------------- -->
 </html>

@@ -358,7 +358,7 @@ try {
    if(vo.getId()!=null) { 
       msgs.add("해당하는 아이디는 ");
       msgs.add(vo.getId()+" 입니다.");
-      links.add("<button type='button' class='input-sm' onclick=\"self.close()\">닫기</button>");
+      links.add("<button type='button' class='btn btn-success btn-lg' onclick=\"self.close()\">닫기</button>");
    } 
 } catch (Exception e) {
    msgs.add("해당하는 아이디가 존재하지 않습니다.");
@@ -391,7 +391,7 @@ try {
    if(vo.getPasswd()!=null) { 
       msgs.add("해당하는 비밀번호는");
       msgs.add(vo.getPasswd()+" 입니다.");
-      links.add("<button type='button' class='input-sm' onclick=\"self.close()\">닫기</button>");
+      links.add("<button type='button' class='btn btn-success btn-lg' onclick=\"self.close()\">닫기</button>");
    } 
 } catch (Exception e) {
    msgs.add("필요한 정보를 잘못 입력하셨습니다.");

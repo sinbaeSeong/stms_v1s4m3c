@@ -117,7 +117,7 @@
        
           <% }else{ %>
           <li class="page-scroll"><a href="../trash/welcome.jsp">Trash</a></li>
-          <li class="page-scroll"><a href="../stats/read.jsp">Statistics</a></li>
+          <li class="page-scroll"><a href="../stats/st_calendar.do">Statistics</a></li>
           <li class="page-scroll"><a href="../schedule/welcome.jsp">Schedule</a></li>
           
           
