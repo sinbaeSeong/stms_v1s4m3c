@@ -64,6 +64,7 @@ function checkData(f){ // f == document.frmData 객체
 <body leftmargin="0" topmargin="0">
 <jsp:include page="/menu/top.jsp" flush='false' />
 <!-- ----------------------------------------- -->
+<!-- 로그인 확인 -->
 <% if (session.getAttribute("id") == null){ %>
     <section id="contact"> 
       <div class="container">
@@ -98,7 +99,7 @@ function checkData(f){ // f == document.frmData 객체
                <input type = "hidden" name='uno' id='uno' value='${param.uno }' >
                 <div class="form-group col-xs-12">
                   <label> Labeldate </label>
-                  <input type="date" class="form-control"  id="slabeldate" name="slabeldate" required>    
+                  <input type="date" class="form-control"  id="slabeldate" name="slabeldate" style="width:40%;" required >    
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -107,7 +108,7 @@ function checkData(f){ // f == document.frmData 객체
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
                     <label>Label</label>
-                    <input type="text" class="form-control" placeholder="label" id="slabel" name="slabel" required>
+                    <input type="text" class="form-control" placeholder="label" id="slabel" name="slabel" style="width:40%;" required>
                  <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -115,7 +116,7 @@ function checkData(f){ // f == document.frmData 객체
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
                     <label>Title </label>
-                    <input type="text" class="form-control" placeholder="title" id="stitle" name="stitle" required>
+                    <input type="text" class="form-control" placeholder="title" id="stitle" name="stitle" style="width:40%;" required>
                  <p class="help-block text-danger"></p>
                 </div>
               </div>
