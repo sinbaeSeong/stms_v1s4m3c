@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
- 
+ <% int uno = Integer.parseInt(request.getParameter("uno")); %>
 <!DOCTYPE html> 
 <html lang="ko"> 
 <head> 
@@ -76,7 +76,7 @@ $(function(){
             <FORM name='frm' method='POST' action='./update.do' >
               <div class="row control-group">
                 <input type ="hidden" name='sno' id='sno' value='${scheduleVO.sno }' >   
-                <input type ="hidden" name='uno' id='uno' value='${scheduleVO.uno }' >              
+                <input type ="hidden" name='uno' id='uno' value='<%=uno %>' >              
                
                 <div class="form-group col-xs-12">
                   <label>Labeldate </label>
@@ -88,8 +88,13 @@ $(function(){
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
                     <label for='file1'>Label</label>
-                    <input type="text" class="form-control" value="${scheduleVO.slabel }" id="slabel" name='slabel' >
-                 <p class="help-block text-danger"></p>
+                       <select id='slabel' class="form-control"name='slabel' style="width: 20%;" >
+                      <option>Schedule label</option>
+                        <option value='vacation' >Vacation</option>
+                        <option value='absenteeism' >Absenteeism</option>
+                        <option value='etc' >Etc...</option>
+                    </select> 
+                  <p class="help-block text-danger"></p>
                 </div>
               </div>
             
@@ -105,7 +110,7 @@ $(function(){
               <div class="row control-group">
                 <div class="form-group col-xs-12">
                   <label>Content</label>
-                  <textarea rows="5" class="form-control" id="content" name='content' value="${scheduleVO.content}" required  ></textarea>
+                   <textarea rows="5" class="form-control" id="content" name="content" required >${scheduleVO.content }</textarea>
                   <p class="help-block text-danger"></p>
                 </div>
               </div>

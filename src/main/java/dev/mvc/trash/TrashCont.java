@@ -226,7 +226,8 @@ public class TrashCont {
      mav.addObject("totalRecord", totalRecord);
      mav.addObject("root", request.getContextPath());
 
-     String paging = new Paging().paging(
+     String paging = new Paging().paging_trash(
+           uno,
            totalRecord, 
            searchDTO.getNowPage(), 
            recordPerPage, 

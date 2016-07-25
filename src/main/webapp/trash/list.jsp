@@ -97,7 +97,7 @@ function del(tno){
                      name="word" maxlength="16" value='${search.word }' style="width: 30%; ">
       <input type="submit" value='search' class='btn btn-success btn-sm'>
       <Br>
-      <a href="./create.do">Write new Trash information <img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
+      <a href="./create.do?uno=${param.uno }">Write new Trash information <img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
     </div>
   </div>       
   
@@ -128,7 +128,7 @@ function del(tno){
               <a href="./read.do?tno=${trashVO.tno}&uno=1"> ${trashVO.tname }</a> 
             </td> 
             <td class="col-lg-8 col-lg-offset-2" style="width: 20%; ">${trashVO.markerTitle }</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 20%; ">${trashVO.nowcapa*100/trashVO.maxcapa}</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 20%; ">${trashVO.nowcapa*100 / trashVO.maxcapa}%</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 15%; ">${trashVO.mdate.substring(0, 10)} </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 15%; ">
            

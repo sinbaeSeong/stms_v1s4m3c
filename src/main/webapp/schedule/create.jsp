@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
   
 <!DOCTYPE html> 
 <html lang="ko"> 
@@ -106,9 +108,14 @@ function checkData(f){ // f == document.frmData 객체
                          
               <!-- label -->
               <div class="row control-group">
-              <div class="form-group col-xs-12 ">
-                    <label>Label</label>
-                    <input type="text" class="form-control" placeholder="label" id="slabel" name="slabel" style="width:40%;" required>
+                <div class="form-group col-xs-12 ">
+                  <label>Label</label>
+                   <select id='slabel' class="form-control"name='slabel' style="width: 20%;" >
+                      <option>Schedule label</option>
+                        <option value='vacation' >Vacation</option>
+                        <option value='absenteeism' >Absenteeism</option>
+                        <option value='etc' >Etc...</option>
+                    </select> 
                  <p class="help-block text-danger"></p>
                 </div>
               </div>

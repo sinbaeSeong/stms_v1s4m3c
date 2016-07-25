@@ -16,7 +16,7 @@
 <meta name="author" content="">
 
 <script type="text/JavaScript">
-function del(sno){
+function del(sno, uno){
    if(!confirm("Delete a file? If this command deletes files, We can not restore.")){
       return;
    } else {
@@ -30,6 +30,12 @@ function del(sno){
       i.setAttribute("name","sno");
       i.setAttribute("value", sno);
       f.appendChild(i);
+    
+      var j = document.createElement("input");
+      j.setAttribute("type","hidden");
+      j.setAttribute("name","uno");
+      j.setAttribute("value", uno);
+      f.appendChild(j);
       
       f.submit();
    }
@@ -124,9 +130,9 @@ int month;
       <input type="text" class="input-sm" placeholder="search" id="word"
                      name="word" maxlength="16" value='${search.word }' style="width: 30%; ">
        <input type="submit" class="btn btn-success btn-sm" value="Search">
-       <a href="./calendar2.jsp" >Calendar</a>
+       
        <Br>
-       <a href="./create.do">Write new Schedule information <img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
+       <a href="./create.do?uno=${param.uno }">Write new Schedule information <img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
     </div>
    </div>       
 
@@ -158,13 +164,13 @@ int month;
             <td class="td">
               <a href="./read.do?sno=${scheduleVO.sno}&uno=${param.uno}"> ${scheduleVO.slabeldate}</a> 
             </td> 
-            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${scheduleVO.slabel }</td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${scheduleVO.slabel }</td>            
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${scheduleVO.stitle }</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${scheduleVO.sdate.substring(0, 10) } </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
-              <a href="./update.do?sno=${scheduleVO.sno}"><img src="../images/upload.jpg" title="Update" border='0'/></a>
-              <a href="javascript:del(${scheduleVO.sno })"><img src="../images/delete.png" title="Delete"  border='0'/> </a>
-              ${scheduleVO.uno }           
+              <a href="./update.do?sno=${scheduleVO.sno}&uno=${scheduleVO.uno}"><img src="../images/upload.jpg" title="Update" border='0'/></a>
+              <a href="javascript:del(${scheduleVO.sno}, ${scheduleVO.uno })"><img src="../images/delete.png" title="Delete"  border='0'/> </a>
+                     
              </td>
           </tr>
       </c:forEach>

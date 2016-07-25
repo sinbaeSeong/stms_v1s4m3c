@@ -88,10 +88,10 @@ int month;
    <div class="row">
       <DIV class='col-lg-12 text-center'><h2>Calendar</h2>
        
-         <a href='calendar.do?year=<%=cal.get(Calendar.YEAR)%>&month=<%=((cal.get(Calendar.MONTH)+1)-1)%>'>
+         <a href='calendar.do?year=<%=cal.get(Calendar.YEAR)%>&month=<%=((cal.get(Calendar.MONTH)+1)-1)%>&uno=${param.uno}'>
           <span style="font-size: 30px;">◀</span> </a>
           <span style="color: 484848; font-size: 30px;"><%=cal.get(Calendar.YEAR)%> / <%=(cal.get(Calendar.MONTH)+1)%></span>
-            <a href='calendar.do?year=<%=cal.get(Calendar.YEAR)%>&month=<%=((cal.get(Calendar.MONTH)+1)+1)%>'>
+            <a href='calendar.do?year=<%=cal.get(Calendar.YEAR)%>&month=<%=((cal.get(Calendar.MONTH)+1)+1)%>&uno=${param.uno}'>
               <span style="font-size: 30px;">▶ </span>
              </a>
          <hr class="star-primary"/>

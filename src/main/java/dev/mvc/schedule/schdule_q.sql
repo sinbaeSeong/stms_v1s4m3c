@@ -24,12 +24,8 @@ CREATE TABLE schedule(
     stitle VARCHAR(20) NOT NULL,
     content VARCHAR(600) NOT NULL,
     sdate DATETIME NOT NULL,
-<<<<<<< HEAD
-     uno INT,
-=======
     uno INT,
 
->>>>>>> branch 'master' of https://github.com/sinbaeSeong/stms_v1s4m3c.git
   FOREIGN KEY (uno) REFERENCES user1 (uno)
 );
 

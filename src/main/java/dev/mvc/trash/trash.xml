@@ -35,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         
   <!-- Search + Paging List -->
   <select id="list2" resultType="TrashVO" parameterType="HashMap" >
-           SELECT tno, uno, tname, nowcapa, lat, lng, markerTitle, mdate
+           SELECT tno, uno, tname, nowcapa, maxcapa, lat, lng, markerTitle, mdate
            FROM trash
            WHERE uno = #{uno}
                <choose>
