@@ -95,7 +95,7 @@
 
     <!-- Bootstrap CSS Start -->
     <section id="contact">
-    <div class="container">
+    <div class="container" >
         
         
         <!-- Title Sign up -->
@@ -110,7 +110,7 @@
 
 
           <!-- Form Start -->
-          <div class="row">
+          <div class="row" style="padding-left: 25%;">
           <div class="col-lg-8 col-lg-offset-2">
           <FORM id='frm' name='frm' method='POST' action='./update.do'>
               <input type='hidden' name='uno' id='uno' value='${userVO.uno}'>
@@ -120,7 +120,7 @@
               <div class="form-group col-xs-12">
                   <label>Id </label>
                      <input type="text" class="form-control" value="${userVO.id}" id="id"
-                     name="id" maxlength="16" autofocus required readonly>    
+                     name="id" maxlength="16" autofocus required readonly style='width:50%'>    
                   <p class="help-block text-danger"></p>
               </div>
               </div>
@@ -131,7 +131,7 @@
               <div class="form-group col-xs-12 ">
                  <label >Password</label>
                     <input type="password" class="form-control" placeholder="password" id="passwd"
-                    name="passwd" maxlength="16" required value="${userVO.passwd}">
+                    name="passwd" maxlength="16" required value="${userVO.passwd}" style='width:50%'>
                  <p class="help-block text-danger"></p>
               </div>
               </div>
@@ -142,7 +142,7 @@
               <div class="form-group col-xs-12 ">
                   <label>Confirm password</label>
                     <input type="password" class="form-control" placeholder="confirm password" id="repasswd"
-                    name="repasswd" maxlength="16" required value="${userVO.passwd}">
+                    name="repasswd" maxlength="16" required value="${userVO.passwd}" style='width:50%'>
                  <p class="help-block text-danger"></p>
               </div>
               </div>
@@ -154,7 +154,7 @@
               <div class="form-group col-xs-12 ">
                  <label>Name</label>
                     <input type="text" class="form-control" value="${userVO.uname}" id="uname"
-                   name ="uname" maxlength="16" required>
+                   name ="uname" maxlength="16" required style='width:50%'>
                  <p class="help-block text-danger"></p>
               </div>
               </div>
@@ -165,7 +165,7 @@
               <div class="form-group col-xs-12 ">
                  <label>Email</label>
                     <input type="email" class="form-control" value="${userVO.email}"  id="email"
-                    name="email" maxlength="40" required autocomplete="off" onkeyup="onkey_e()">
+                    name="email" maxlength="40" required autocomplete="off" onkeyup="onkey_e()" style='width:50%'>
                  <span id='emailck'></span>
                  <p class="help-block text-danger"></p>
               </div>

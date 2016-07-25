@@ -90,7 +90,7 @@
                         <label>Password</label> <input type="password"
                            class="form-control" placeholder="password"
                            id="passwd" name="passwd" maxlength="16"
-                           required>
+                           required style='width:50%'>
                         <p class="help-block text-danger"></p>
                      </div>
                   </div>
@@ -102,7 +102,7 @@
                         <label>Confirm password</label> <input
                            type="password" class="form-control"
                            placeholder="confirm password" id="repasswd"
-                           name="repasswd" maxlength="16" required>
+                           name="repasswd" maxlength="16" required style='width:50%'>
                         <p class="help-block text-danger"></p>
                      </div>
                   </div>

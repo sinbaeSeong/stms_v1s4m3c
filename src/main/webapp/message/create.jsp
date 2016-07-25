@@ -66,7 +66,7 @@
               <div class="form-group col-xs-12">
                   <label>Receiver </label>
                      <input type="text" class="form-control" placeholder="receiver id" id="receiver"
-                     name="receiver" maxlength="16" value="${param.receiver }" autofocus required>    
+                     name="receiver" maxlength="16" value="${param.receiver }" autofocus required style='width:40%;'>    
                   <p class="help-block text-danger"></p>
               </div>
               </div>
@@ -77,7 +77,7 @@
               <div class="form-group col-xs-12">
                   <label>Title </label>
                      <input type="text" class="form-control" placeholder="title" id="title"
-                     name="title" maxlength="40" required>    
+                     name="title" maxlength="40" required style="width:80%;">    
                   <p class="help-block text-danger"></p>
               </div>
               </div>
@@ -87,7 +87,7 @@
               <div class="row control-group">
               <div class="form-group col-xs-12 ">
                  <label>Content</label>
-                    <textarea rows="" cols="" class="form-control" placeholder="content"
+                    <textarea rows="4" cols="" class="form-control" placeholder="content"
                     id='mcontent' name='mcontent' required></textarea>
                  <p class="help-block text-danger"></p>
               </div>

@@ -10,17 +10,17 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Stats</title>
+<title>Statistics</title>
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="">
 <meta name="author" content="">
 
 <!--  CSS-calendar -->
-<link rel="stylesheet" href="css/bootstrap2/css/bootstrap.css">
+<!-- <link rel="stylesheet" href="./css/bootstrap2/css/bootstrap.css">
 <link rel="stylesheet"
-   href="css/bootstrap2/css/bootstrap-responsive.css">
-<link rel="stylesheet" href="css/calendar.css">
+   href="./css/bootstrap2/css/bootstrap-responsive.css">
+ -->
 
 <!-- Custom CSS -->
 <link href="../css/freelancer.css" rel="stylesheet">
@@ -39,7 +39,7 @@
 
 
 <!--/.fluid-container-->
-<link rel="stylesheet" href="../3.vendors/morris/morris.css">
+<link rel="stylesheet" href="../vendors/morris/morris.css">
 <script src="../vendors/jquery-1.9.1.min.js"></script>
 <script src="../vendors/jquery.knob.js"></script>
 <script src="../vendors/raphael-min.js"></script>
@@ -60,7 +60,7 @@
 
 </head>
 <!-- ----------------------------------------- -->
-<jsp:include page="/menu/top.jsp" flush='false' />
+<jsp:include page="../menu/top.jsp" flush='false' />
 <body style="width: 100%;">
 <section id="contact">
       <div class="container">
@@ -91,15 +91,10 @@
    			cal.set(Calendar.DATE, 1);
    %>
 
-   <br>
-   <c:if test="${act eq 'admin' }">
-   <a href="./create.do">Write new Trash Stats <img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
-   </c:if>
-   <br>
    <!-- ◀2016/7▶ 부분 설정하는 곳 -->
    <div class="row">
       <DIV class='col-lg-12 text-center'>
-         <h2>Stats</h2>
+         <h2>Statistics</h2>
 
          <a
             href='st_calendar.do?year=<%=cal.get(Calendar.YEAR)%>&month=<%=((cal.get(Calendar.MONTH) + 1) - 1)%>'>
@@ -163,9 +158,23 @@
    <!-- ----------------------------- 캘린더 끄읏 ------------------------ -->
    <div class="row">
       <DIV class='col-lg-12 text-center'>
-         <br> 처리된 쓰레기통 갯수 :
-         <%=totalCount%><br> 총 배출된 양 : ${totalOutput } <br>
-         <br> List<br> -------------------------------<br>
+      <img src='../images/st_view.jpg'>
+      <br>
+      
+      <font style="font-size:20px; font-weight: bold; text-align:center;">A number of total trash :
+
+         <%=totalCount%><br> Total output : ${totalOutput } <br>
+         <c:if test="${act eq 'admin' }">
+   <a href="./create.do">&nbsp;&nbsp;&nbsp; Write new Trash Statistics <img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
+   </c:if>
+        
+         <table style="width:100%; text-align:center;" >
+         <tr style="text-align:center; font-size:24px;">
+         <th style="text-align:center;"> Trash No</th>
+         <th style="text-align:center;"> Output </th>
+         <th style="text-align:center;"> Location </th>
+         <th style="text-align:center;"> Date </th>
+         </tr>
          <!-- -------- 통계 계산 부분 --------- -->
          <%
             total = (ArrayList<StatsVO>) request.getAttribute("list");
@@ -180,13 +189,14 @@
          				}
          			}
             for (int cnt = 0; cnt < trash.size(); cnt++) {
-         				out.print("쓰레기통번호 : " + trash.get(cnt));
-         				out.print(" | 처리량 : " + output.get(cnt));
-         				out.print(" | 지역 : " + location.get(cnt));
-         				out.print(" | 날짜 : " + stlabeldate.get(cnt) + "<br>");
+         				out.print("<tr><td>" + trash.get(cnt) + "</td>");
+         				out.print("<td>" + output.get(cnt) + "</td>");
+         				out.print("<td> " + location.get(cnt) + "</td>");
+         				out.print("<td>" + stlabeldate.get(cnt) + "</td></tr><br>");
          			}
          %>
-         <br>
+         </table>
+         <br></font><hr>
       </DIV>
    </div>
 
@@ -226,25 +236,8 @@ js_location[<%=i%>] = '<%=location.get(i)%>';
 
 </script>
 
- <!-- morris graph chart -->
-<<<<<<< HEAD
-              <div class="block-content collapse in"  align="center"   style="width: 450px;">
-                <div class="row-fluid section"  align="center">     
-                   <!-- block -->
-                      <div class="block"  align="center">
-                          <div class="block-content collapse in"  align="center">
-                                <div class="span5 chart" style="text-align: center;"  align="center">
-                                   <h5 style="color:#D8D8D8;">&nbsp;&nbsp; 〈Output trash percentage〉 </h5>
-                                    <div id="hero-donut" style="height: 250px; text-align: center;  width: 450px;"  align="center"> </div>    
-                                </div>
-                          </div>
-                      </div>
-                      <!-- /block -->
-                  </div>
-            </div>
 
 
-=======
   <div class="row-fluid section" >     
     <!-- block -->
     <div class="block">
@@ -259,7 +252,7 @@ js_location[<%=i%>] = '<%=location.get(i)%>';
     </div>
   </div>
              
->>>>>>> branch 'master' of https://github.com/sinbaeSeong/stms_v1s4m3c.git
+
              
  <!-- --------------------------------------------- -->    
  <!-- --------------- 그래프2  js --------------- -->       
