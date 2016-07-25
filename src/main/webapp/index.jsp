@@ -259,7 +259,7 @@
                 
                 <div class="col-sm-4" style="width:25%;">
                     <div class="team-member">
-                        <img src="img/lion.jpg" class="img-responsive img-circle" alt="">
+                        <img src="img/lion.jpg" class="img-responsive img-circle" alt=""> 
                         <h4>Lee Jaeeun</h4>
                         <p class="text-muted">Arduino Developer</p>
                         <ul class="list-inline social-buttons">
@@ -296,7 +296,7 @@
                     <ul class="timeline">
                         <li>
                             <div class="timeline-image">
-                             <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
+                             <img class="img-circle img-responsive" src="img/1_meeting.jpg" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
@@ -310,7 +310,7 @@
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
+                                <img class="img-circle img-responsive" src="img/2_coding.jpg" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
@@ -324,7 +324,7 @@
                         </li>
                         <li>
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
+                                <img class="img-circle img-responsive" src="img/Project-Team.jpg" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
@@ -338,7 +338,7 @@
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
+                                <img class="img-circle img-responsive" src="img/4_presentation.jpg" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
