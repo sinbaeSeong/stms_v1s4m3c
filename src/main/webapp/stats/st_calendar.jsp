@@ -198,21 +198,21 @@ var js_location = new Array(<%=location.size()%>)
 js_location[<%=i%>] = '<%=location.get(i)%>';
 <%}%>
 </script>
+
  <!-- morris graph chart -->
-              <div class="block-content collapse in">
-                <div class="row-fluid section" >     
-                   <!-- block -->
-                      <div class="block">
-                          <div class="block-content collapse in">
-                                <div class="span5 chart" style="text-align: center;">
-                                   <h5 style="color:#D8D8D8;">&nbsp;&nbsp; 〈Output trash percentage〉 </h5>
-                                    <div id="hero-donut" style="height: 250px; text-align: center;"> </div>    
-                                </div>
-                          </div>
-                      </div>
-                      <!-- /block -->
-                  </div>
-            </div>
+  <div class="row-fluid section" >     
+    <!-- block -->
+    <div class="block">
+      <div class="block-content collapse in">
+        <div class="span5 chart" style="text-align: center; width:100%;">
+         <h5 style="color:#D8D8D8;">&nbsp;&nbsp; 〈Output trash percentage〉 </h5>
+          <div id="hero-donut" style="height: 250px; text-align: center;"> </div>    
+        </div>
+      </div>
+     </div>
+    <!-- /block -->
+    </div>
+  </div>
              
              
  <!-- --------------------------------------------- -->    
@@ -232,8 +232,7 @@ js_location[<%=i%>] = '<%=location.get(i)%>';
      formatter: function (y) { return y  }
  });
         
-        </script>
-  </div>
+     </script>
   </section>
 </body>
 <!-- -------------------------------------------- -->
