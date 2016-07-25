@@ -64,12 +64,26 @@ $(function(){
                   <span class="form-control" style="width:40%;">${trashVO.maxcapa}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
+                           <div class="form-group col-xs-12">
+                  <label>Current Capacity(cm) </label>
+                  <span class="form-control" style="width:40%;">${trashVO.nowcapa}</span>
+                  
+                  <button type="button" class="btn btn-success btn-sm" onclick="window.location.reload()">Refresh</button><br>                  
+                  <p class="help-block text-danger"></p>
+                          
+              </div>
+              
+      
+              
               
              <div class="form-group col-xs-12">
-                  <label>Current Capacity </label>
-                  <span class="form-control" style="width:40%;"> ${trashVO.maxcapa*100 / trashVO.maxcapa}%</span><br>                  
+                  <label>Current Capacity(%) </label>
+                  <span class="form-control" style="width:40%;"> ${trashVO.nowcapa*100 / trashVO.maxcapa}%</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
+              
+              
+              
               
              <div class="form-group col-xs-12">
                   <label>Location </label><Br>

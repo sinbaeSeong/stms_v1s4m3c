@@ -59,7 +59,11 @@
               <div class="row control-group">
               <div class="form-group col-xs-12">
                   <label>Rules</label>
-                   <textarea class="form-control" readonly="readonly" >ㅇㅈ? ㅇ ㅇㅈ? 어그리? 어 어그리?</textarea>
+                   <textarea class="form-control" readonly="readonly"  rows=10>
+                   
+                   제1조 목적
+본 약관은 서비스 이용자가 주식회사 STMS(이하 “회사”라 합니다)가 제공하는 온라인상의 인터넷 서비스(이하 “서비스”라고 하며, 접속 가능한 유∙무선 단말기의 종류와는 상관없이 이용 가능한 “회사”가 제공하는 모든 “서비스”를 의미합니다. 이하 같습니다)에 회원으로 가입하고 이를 이용함에 있어 회사와 회원(본 약관에 동의하고 회원등록을 완료한 서비스 이용자를 말합니다. 이하 “회원”이라고 합니다)의 권리•의무 및 책임사항을 규정함을 목적으로 합니다.
+                   </textarea>
                   <p class="help-block text-danger"></p>
               </div>
               </div>
