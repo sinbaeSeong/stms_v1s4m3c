@@ -12,6 +12,9 @@ public interface StatsMapperInter {
 
    /** 리스트 */ //<select id='list' resultType='StatsVO'>
    public ArrayList<StatsVO> list();
+   
+   /** 만들기 **/ //<create id='create' parameterType="StatsVO">
+   public int create(StatsVO statsVO);
 }
 
 

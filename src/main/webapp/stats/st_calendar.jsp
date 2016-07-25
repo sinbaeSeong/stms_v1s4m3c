@@ -39,7 +39,7 @@
 
 
 <!--/.fluid-container-->
-<link rel="stylesheet" href="../vendors/morris/morris.css">
+<link rel="stylesheet" href="../3.vendors/morris/morris.css">
 <script src="../vendors/jquery-1.9.1.min.js"></script>
 <script src="../vendors/jquery.knob.js"></script>
 <script src="../vendors/raphael-min.js"></script>
@@ -92,6 +92,9 @@
    %>
 
    <br>
+   <c:if test="${act eq 'admin' }">
+   <a href="./create.do">Write new Trash Stats <img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
+   </c:if>
    <br>
    <!-- ◀2016/7▶ 부분 설정하는 곳 -->
    <div class="row">
@@ -119,6 +122,7 @@
    			ArrayList trash = new ArrayList();
    			ArrayList output = new ArrayList();
    			ArrayList location = new ArrayList();
+        ArrayList stlabeldate = new ArrayList();
    			String s_year = String.valueOf(year);
    			String s_month = String.valueOf(month);
 
@@ -172,12 +176,14 @@
          					trash.add(total.get(cnt).getSt_trash());
          					output.add(total.get(cnt).getSt_output());
          					location.add(total.get(cnt).getSt_location());
+                  stlabeldate.add(total.get(cnt).getStlabeldate());
          				}
          			}
             for (int cnt = 0; cnt < trash.size(); cnt++) {
          				out.print("쓰레기통번호 : " + trash.get(cnt));
-         				out.print(" 처리량 : " + output.get(cnt));
-         				out.print(" 지역 : " + location.get(cnt) + "<br>");
+         				out.print(" | 처리량 : " + output.get(cnt));
+         				out.print(" | 지역 : " + location.get(cnt));
+         				out.print(" | 날짜 : " + stlabeldate.get(cnt) + "<br>");
          			}
          %>
          <br>
@@ -185,6 +191,26 @@
    </div>
 
 <script type="text/javascript">
+<%
+for(int i=0; i<location.size();i++){
+   for(int j=i+1; j<location.size();j++){
+      if(location.get(i).equals(location.get(j))){
+        String temp_i = output.get(i).toString();
+        String temp_j = output.get(j).toString();
+        int inttemp_i = Integer.parseInt(temp_i);
+        int inttemp_j = Integer.parseInt(temp_j);
+
+        int output_temp = inttemp_i + inttemp_j;
+
+        output.set(i, output_temp); 
+        output.remove(j);
+        trash.remove(j);
+        location.remove(j);
+      } 
+   }
+}
+%>
+
 var js_trash = new Array(<%=trash.size()%>)
 <% for(int i=0; i<trash.size(); i++){%>
 js_trash[<%=i%>] = '<%=trash.get(i)%>';
@@ -197,23 +223,26 @@ var js_location = new Array(<%=location.size()%>)
 <% for(int i=0; i<location.size(); i++){%>
 js_location[<%=i%>] = '<%=location.get(i)%>';
 <%}%>
+
 </script>
+
  <!-- morris graph chart -->
-              <div class="block-content collapse in">
-                <div class="row-fluid section" >     
+              <div class="block-content collapse in"  align="center"   style="width: 450px;">
+                <div class="row-fluid section"  align="center">     
                    <!-- block -->
-                      <div class="block">
-                          <div class="block-content collapse in">
-                                <div class="span5 chart" style="text-align: center;">
+                      <div class="block"  align="center">
+                          <div class="block-content collapse in"  align="center">
+                                <div class="span5 chart" style="text-align: center;"  align="center">
                                    <h5 style="color:#D8D8D8;">&nbsp;&nbsp; 〈Output trash percentage〉 </h5>
-                                    <div id="hero-donut" style="height: 250px; text-align: center;"> </div>    
+                                    <div id="hero-donut" style="height: 250px; text-align: center;  width: 450px;"  align="center"> </div>    
                                 </div>
                           </div>
                       </div>
                       <!-- /block -->
                   </div>
             </div>
-             
+
+
              
  <!-- --------------------------------------------- -->    
  <!-- --------------- 그래프2  js --------------- -->       

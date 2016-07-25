@@ -24,4 +24,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   FROM stats
   </select>
 
+  <!-- CREATE -->
+   <insert id='create' parameterType="StatsVO">
+   INSERT INTO stats(st_trash, st_output, st_location, stlabeldate, stdate)
+   VALUES (#{st_trash}, #{st_output}, #{st_location}, #{stlabeldate}, now())
+   </insert>
+
+
   </mapper>

@@ -28,7 +28,7 @@ CREATE TABLE trash(
 
 
 
-select * from message;
+select * from trash;
 
 
 

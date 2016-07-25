@@ -37,6 +37,11 @@ public class StatsDAO {
   public ArrayList<StatsVO> list(){
      return mapper().list();
   }
+  
+  /** ¸¸µé±â **/ //<create id='create' parameterType="StatsVO">
+  public int create(StatsVO statsVO){
+     return mapper().create(statsVO);
+  }
 
 }
 
