@@ -147,7 +147,7 @@ function del(nno){
 
             ${noticeVO.nid }</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${noticeVO.ncount }</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${noticeVO.ndate} </td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${noticeVO.ndate.substring(0, 10)} </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
             
             

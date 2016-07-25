@@ -142,7 +142,13 @@ function del(qno){
               </div>
              <div class="form-group col-xs-12">
                   <label>Content </label>
-                  <span class="form-control">${qnaVO.qcontent}</span><br>                  
+               
+                  
+                  <textarea rows=10 class="form-control" readonly>
+                  ${qnaVO.qcontent}</textarea><br>      
+                  
+                  
+                              
                   <p class="help-block text-danger"></p>
               </div>
              <div class="form-group col-xs-12">
@@ -264,7 +270,7 @@ function del(qno){
             <div id="success"></div>
              <div class="row">
              <div class="form-group col-xs-12">
-            <button type="submit" class="btn btn-success btn-lg">답변등록</button>
+            <button type="submit" class="btn btn-success btn-lg">Reply</button>
 
             
            </div>

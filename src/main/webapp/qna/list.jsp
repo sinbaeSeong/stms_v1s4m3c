@@ -96,10 +96,10 @@ function del(qno){
   <div class="row">
     <div class="col-lg-12 text-center">
       <select id='email_dns' class='input-sm' name='col' style="width: 20%;">
-          <option value=''>검색</option>
-          <option value='qtitle' ${param.col == "qtitle" ? "selected=selected" : "" }>제목</option>
-          <option value='qcontent' ${param.col == "qcontent" ? "selected=selected" : "" }>내용</option>
-          <option value='qid' ${param.col == "qid" ? "selected=selected" : "" }>작성자</option>
+          <option value=''>search</option>
+          <option value='qtitle' ${param.col == "qtitle" ? "selected=selected" : "" }>title</option>
+          <option value='qcontent' ${param.col == "qcontent" ? "selected=selected" : "" }>content</option>
+          <option value='qid' ${param.col == "qid" ? "selected=selected" : "" }>id</option>
        </select>
       <input type="text" class="input-sm" placeholder="search" id="word"
                      name="word" maxlength="16" value='${param.word }' style="width: 30%; ">
@@ -107,8 +107,10 @@ function del(qno){
     </div>
   </div>       
   
-  <div align=right>
-  <a href="./create.do?qno=${qnaVO.qno}"><img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
+  <div align=center>
+
+  <a href="./create.do">Write new Q&A<img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
+ 
  </div>
  
   <!--  테이블 시작 -->
@@ -142,7 +144,7 @@ function del(qno){
 
             ${qnaVO.qid }</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${qnaVO.qcount }</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${qnaVO.qdate} </td>
+            <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${qnaVO.qdate.substring(0, 10)} </td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
               <a href="./update.do?qno=${qnaVO.qno}"><img src="../images/upload.jpg" title="Update" border='0'/></a>
               <a href="javascript:del(${qnaVO.qno })"><img src="../images/delete.png" title="Delete"  border='0'/> </a>
