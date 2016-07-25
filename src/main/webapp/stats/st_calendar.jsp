@@ -227,6 +227,7 @@ js_location[<%=i%>] = '<%=location.get(i)%>';
 </script>
 
  <!-- morris graph chart -->
+<<<<<<< HEAD
               <div class="block-content collapse in"  align="center"   style="width: 450px;">
                 <div class="row-fluid section"  align="center">     
                    <!-- block -->
@@ -243,6 +244,22 @@ js_location[<%=i%>] = '<%=location.get(i)%>';
             </div>
 
 
+=======
+  <div class="row-fluid section" >     
+    <!-- block -->
+    <div class="block">
+      <div class="block-content collapse in">
+        <div class="span5 chart" style="text-align: center; width:100%;">
+         <h5 style="color:#D8D8D8;">&nbsp;&nbsp; 〈Output trash percentage〉 </h5>
+          <div id="hero-donut" style="height: 250px; text-align: center;"> </div>    
+        </div>
+      </div>
+     </div>
+    <!-- /block -->
+    </div>
+  </div>
+             
+>>>>>>> branch 'master' of https://github.com/sinbaeSeong/stms_v1s4m3c.git
              
  <!-- --------------------------------------------- -->    
  <!-- --------------- 그래프2  js --------------- -->       
@@ -261,8 +278,7 @@ js_location[<%=i%>] = '<%=location.get(i)%>';
      formatter: function (y) { return y  }
  });
         
-        </script>
-  </div>
+     </script>
   </section>
 </body>
 <!-- -------------------------------------------- -->

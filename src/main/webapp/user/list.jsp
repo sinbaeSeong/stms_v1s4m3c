@@ -204,9 +204,6 @@ function fun_confirm(uno, uconfirm){
      </section>
 <%} else{%> 
 
-
-
-
  <section id="contact">
       <div class="container">
       
