@@ -32,82 +32,9 @@
 
  
  <script type="text/JavaScript">
- function del(fno){
-   var returnValue = prompt("비밀번호를 입력하세요", "");
+ $(function(){
    
-   
-    if(!confirm("글을 삭제하겠습니까?")){
-       return;
-    } else {
-       var f = document.createElement("form");
-       f.setAttribute("method","post");
-       f.setAttribute("action","./delete.do");
-       document.body.appendChild(f);
-       
-       var i = document.createElement("input");
-       i.setAttribute("type","hidden");
-       i.setAttribute("name","fno");
-       i.setAttribute("value", fno);
-       f.appendChild(i);
-       
-       
-       
-       
-       var fp = document.createElement("input");
-       fp.setAttribute("type","hidden");
-       fp.setAttribute("name","fpasswd");
-       fp.setAttribute("value", returnValue);
-       f.appendChild(fp);
-       
-       
-       
-       
-       f.submit();
-    }
- }
- 
- 
- function delreply(freplyno, fno){
-   var returnValue = prompt("비밀번호를 입력하세요", "");
-
-   
-   if(!confirm("답변을 삭제하시겠습니까?")){
-      return;
-   } else {
-      var f = document.createElement("form");
-      f.setAttribute("method","post");
-      f.setAttribute("action","./deletereply.do");
-      document.body.appendChild(f);
-      
-      var i = document.createElement("input");
-      i.setAttribute("type","hidden");
-      i.setAttribute("name","freplyno");
-      i.setAttribute("value", freplyno);
-      
-      f.appendChild(i);
-      
-      
-      var fno1 = document.createElement("input");
-      fno1.setAttribute("type","hidden");
-      fno1.setAttribute("name","fno");
-      fno1.setAttribute("value", fno);
-      f.appendChild(fno1);
-      
-      
-      
-      
-      
-      var fpr = document.createElement("input");
-      fpr.setAttribute("type","hidden");
-      fpr.setAttribute("name","freplypasswd");
-      fpr.setAttribute("value", returnValue);
-      f.appendChild(fpr);
-      
-      
-      
-      f.submit();
-   }
-}
+ });
 
 </script>
 </head>
@@ -130,11 +57,7 @@
              <input type="hidden" name="fno" value="${faqVO.fno}">
               
               <div class="row control-group">
-               <div class="form-group col-xs-12">
-                  <label>Sort </label>
-                  <span class="form-control">${faqVO.fcategory}</span><br>                  
-                  <p class="help-block text-danger"></p>
-              </div>
+            
                 <div class="form-group col-xs-12">
                   <label>Title </label>
                   <span class="form-control">${faqVO.ftitle}</span><br>                  
@@ -152,18 +75,18 @@
               </div>
              <div class="form-group col-xs-12">
                   <label>ID </label>
-                  <span class="form-control"> ${faqVO.fid}</span><br>                  
+                  <span class="form-control"> ${faqVO.uno}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
-              
+              </div>
              
            
             <div id="success"></div>
              <div class="row">
              <div class="form-group col-xs-12">
-            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list2.do'">LIST</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list2.do?cateno=${faqVO.cateno}&col=${searchDTO.col}&word=${searchDTO.word}'">LIST</button>
             <button type="button" class="btn btn-success btn-lg" onclick="location.href='./update.do?fno=${faqVO.fno}'">UPDATE</button>
-            <button type="button" class="btn btn-success btn-lg" onclick="javascript:del(${faqVO.fno })">DELETE</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./delete.do?fno=${faqVO.fno}&cateno=${faqVO.cateno}'">DELETE</button>
            </div>
            </div>
            </form> 
@@ -171,124 +94,7 @@
            
            
            
-           
-           <br><hr style="border: solid 1px gray;">
-           <!--  답변 -->
-
-              
-              
-              
-              <c:forEach var="faqreplyVO" items="${listreply }">
-
-<label>${faqreplyVO.freplyid } (${faqreplyVO.freplydate })</label>
-<a href="javascript:delreply(${faqreplyVO.freplyno },${faqreplyVO.fno })">
-<img src='../img/delete.png'></a>
-<input type="text" value="${faqreplyVO.freplycontent }" readonly="readonly"  class="form-control">
-
-
-
-
-
-  
-  
-  
-    <br>
-      </c:forEach>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            <FORM name='frmreply' method="post" action='./createreply.do'>
-             <input type="hidden" name="fno" value="${faqVO.fno}">
-              
-              
-              <%if(session.getAttribute("id")==null){ %>
-              
-              
-              <div class="row control-group"> 
-<div class="form-group col-xs-12 ">
-      <label for="capa">ID</label>
-      <input type="text" class="form-control" value="admin" placeholder="비회원 아이디" id="freplyid" name="freplyid" required>
-   <p class="help-block text-danger"></p>
-  </div>
-</div>
-
-<div class="row control-group">
-<div class="form-group col-xs-12 ">
-      <label for="capa">PASSWORD</label>
-      <input type="password" class="form-control" value="1234" placeholder="비회원 비밀번호" id="freplypasswd" name="freplypasswd" required>
-   <p class="help-block text-danger"></p>
-  </div>
-</div>
-             <%}else{
-               
-         
-             %> 
-              
-             <input type="hidden" id="freplyid" name="freplyid" value="${id }">
-              
-              <% 
-             } %>
-              
-              
-              
-              
-              
-<div class="row control-group">
-             <div class="form-group col-xs-12">
-                  <label>Content </label>
-                  <input type="text" class="form-control" value="내용" placeholder="답변 내용을 입력하세요" id="freplycontent" name="freplycontent" required>
-                          
-                  <p class="help-block text-danger"></p>
-              </div>
-
-</div>
-              
-             
-           
-            <div id="success"></div>
-             <div class="row">
-             <div class="form-group col-xs-12">
-            <button type="submit" class="btn btn-success btn-lg">답변등록</button>
-
-            
-           </div>
-           </div>
-           </form>
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
+       
            
            
            

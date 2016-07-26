@@ -1,11 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="dev.mvc.code.CodeVO" %>
+<%@ page import="dev.mvc.code.CodeVO" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
  
 <!DOCTYPE html> 
 <html lang="ko"> 
 <head> 
-<meta charset="UTF-8"> 
+<meta charset="UTF-8">  
 <title></title> 
  
 <link href="../css/style.css" rel="Stylesheet" type="text/css">
@@ -30,35 +32,33 @@ $(function(){
  
 <DIV class='content' style='width: 60%;'>
 <FORM name='frm' method='POST' action='./create.do'>
+
   <fieldset>
     <ul>
       <li>
         <label class='label' for='id'>그룹</label>
         게시판을 등록할 그룹을 선택하세요.
       </li>  
-        <%
-        ArrayList<CodeVO> code_list = (ArrayList<CodeVO>)request.getAttribute("code_list");
-        for (int i=0; i<code_list.size(); i++){
-          CodeVO codeVO = code_list.get(i);
-        %>
+
+        <c:forEach var="codeVO" items="${code_list}">
           <LI>
             <label>
-              <input type='radio' name='codeno' value='<%=codeVO.getCodeno() %>'>
-              <%=codeVO.getSeqno() %> - <%=codeVO.getSort() %>
+              <input type='radio' name='codeno' value='${codeVO.codeno }'
+              ${(codeVO.codeno == vo.codeno)? "checked=checked":"" }>
+              ${codeVO.seqno } - ${codeVO.sort }
             </label>
           </LI>
-        <%  
-        }
-        %>
+      </c:forEach>
+
       <li>
         <label class='label' for='title'>게시판 제목</label>
-        <input type='text' name='title' id='title' value='경기도' required="required">
+        <input type='text' name='title' id='title' value='개인정보변경' required="required">
       </li>
       <li>
         <label class='label' for='orderno'>출력 순서</label>
         <input type="number" name='seqno' id='seqno' value='1' step="1" min="1">
       </li>
-      <li>
+  <li>
         <label class='label' for='visible'>출력 모드</label>
         <input type='text' name='visible' id='visible' value='Y' placeholder="Y or N">
       </li>

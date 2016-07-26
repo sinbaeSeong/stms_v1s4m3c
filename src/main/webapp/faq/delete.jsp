@@ -1,5 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
+<%@ page import="dev.mvc.faq.FaqVO" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+  
+<%
+int fno = (Integer)request.getAttribute("fno");
+int cateno = (Integer)request.getAttribute("cateno");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -43,6 +50,26 @@
 <body leftmargin="0" topmargin="0">
 <jsp:include page="/menu/top.jsp" flush='false' />
   <!-- ----------------------------------------- -->
+  <!-- 로그인 체크 --> 
+ <% if (session.getAttribute("id") == null){ %>
+    <section id="contact"> 
+      <div class="container">
+        <div class="row">
+          <DIV class='col-lg-12 text-center'><h2>Caution</h2>
+          <hr class="star-primary"/>
+          </DIV>
+         </div>
+         
+         <!--caution img -->         
+         <div class="row">
+           <div class="col-lg-12">
+             <a href="../user/login.do"><img style="margin:0px auto;" class="img-responsive" src='../images/caution.png' ></a>                    
+           </div>
+         </div>
+       </div>
+     </section>
+<%} else{%> 
+ <!-- -------------------------------------------- -->
   <section id="contact">
     <div class="container">
       <div class="row">
@@ -55,7 +82,8 @@
         <div class="col-lg-8 col-lg-offset-2">
           <FORM name='frm' method='POST' action='./delete.do'
             onsubmit='return send();'>
-            <input type='hidden' name='fno' value='${faqVO.fno }'>
+            <input type='hidden' name='fno' value='${param.fno }'>
+            <input type="hidden" name="cateno" value="${param.cateno }">
           <%--   <input type="hidden" name="blogcategoryno" value="${blogcategoryno}"> --%>
             <div class="form-group col-xs-12" style="font-size: 20px">
               Are you deletion?<br> If this command deletes files,
@@ -73,6 +101,7 @@
       </div>
     </div>
   </section>
+  <%} %>
   <!-- -------------------------------------------- -->
 
 </body>
