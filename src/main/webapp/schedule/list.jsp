@@ -49,7 +49,7 @@ function del(sno, uno){
 <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Custom CSS -->
+<!-- Custom CSS -->3
 <link href="../css/freelancer.css" rel="stylesheet">
 
 <!-- Custom Fonts -->

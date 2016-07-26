@@ -16,6 +16,7 @@
     padding: 16px;
     font-size: 16px;
     border: none;
+    
     cursor: pointer;
 }
 
@@ -170,7 +171,7 @@
                         <i class="fa fa-list fa-stack-1x fa-inverse"></i>
                       </a>
                     </span>
-                    <h4 class="service-heading">Notice</h4></a>
+                    <h4 class="service-heading">Notice</h4>
                     <p class="text-muted">Notice concept is that are administer, schedule, environment and statistics. </p>
                 </div>
                 
@@ -275,7 +276,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                    <p class="large text-muted">Is composed of four team members, it is to do the development in the specialized field of underwriting respectively.</p>
                 </div>
             </div>
         </div>
@@ -300,11 +301,11 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>February 2016</h4>
-                                    <h4 class="subheading">Open the Class from Seoul</h4>
+                                    <h4>April 2016</h4>
+                                    <h4 class="subheading">Idea comforence for Team project</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">Idea comforence is the complete process of bringing a new product to market. This idea is described in the literature as the transformation of a market opportunity into a product available for sale and it can be tangible (that is, something physical you can touch) or intangible (like a service, experience, or belief).</p>
                                 </div>
                             </div>
                         </li>
@@ -314,11 +315,11 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>March 2016  </h4>
-                                    <h4 class="subheading">Expansion of project</h4>
+                                    <h4>May 2016  </h4>
+                                    <h4 class="subheading">Development of Team project</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">On the basis of the conclusions that came out through the idea conference, members of each team will start the development and acquire knowledge of the development field that respectively.</p>
                                 </div>
                             </div>
                         </li>
@@ -328,11 +329,11 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>May 2016</h4>
-                                    <h4 class="subheading">Idea comforence for Team project</h4>
+                                    <h4>June 2016</h4>
+                                    <h4 class="subheading">Grouping projects</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">Each members will be integrated into one of the Web page for the parts. This worked on a more perfect STMS Web page.</p>
                                 </div>
                             </div>
                         </li>
@@ -342,11 +343,11 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>June 2016</h4>
-                                    <h4 class="subheading">Development of Team project </h4>
+                                    <h4>July 2016</h4>
+                                    <h4 class="subheading">Team project analysis Presentation  </h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">Throughout the project announcement, the project has been completed successfully.</p>
                                 </div>
                             </div>
                         </li>

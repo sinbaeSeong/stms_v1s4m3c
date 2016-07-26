@@ -14,7 +14,7 @@
 <meta name="author" content="">
 
 <script type="text/JavaScript">
-function del(tno){
+function del(tno, uno){
    if(!confirm("Are you deletion? If this command deletes files, We can not restore.")){
       return;
    } else {
@@ -28,6 +28,13 @@ function del(tno){
       i.setAttribute("name","tno");
       i.setAttribute("value", tno);
       f.appendChild(i);
+      
+      var j = document.createElement("input");
+      j.setAttribute("type","hidden");
+      j.setAttribute("name","uno");
+      j.setAttribute("value", uno);
+      f.appendChild(j);
+      
       
       f.submit();
    }
@@ -125,7 +132,7 @@ function del(tno){
           <tr class="row control-group" style="font-size: 20px;">
             <td class="td" style="width:10%; ">${trashVO.tno}</td>
             <td class="td_l" style="width:20%; ">
-              <a href="./read.do?tno=${trashVO.tno}&uno=1"> ${trashVO.tname }</a> 
+              <a href="./read.do?tno=${trashVO.tno}&uno=${trashVO.uno}"> ${trashVO.tname }</a> 
             </td> 
             <td class="col-lg-8 col-lg-offset-2" style="width: 20%; ">${trashVO.markerTitle }</td>
             <td class="col-lg-8 col-lg-offset-2" style="width: 20%; ">${trashVO.nowcapa*100 / trashVO.maxcapa}%</td>
@@ -133,9 +140,8 @@ function del(tno){
             <td class="col-lg-8 col-lg-offset-2" style="width: 15%; ">
            
               <a href="./update.do?tno=${trashVO.tno}"><img src="../images/upload.jpg" title="Update" border='0'/></a>
-              <a href="javascript:del(${trashVO.tno })"><img src="../images/delete.png" title="Delete"  border='0'/> </a>
+              <a href="javascript:del(${trashVO.tno}, ${trashVO.uno})"><img src="../images/delete.png" title="Delete"  border='0'/> </a>
            
-              ${vo.uno }
              </td>
           </tr>
       </c:forEach>
