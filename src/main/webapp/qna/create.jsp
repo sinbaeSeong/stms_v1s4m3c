@@ -45,7 +45,7 @@
     <section id="contact">
       <div class="container">
         <div class="row">
-          <DIV class='col-lg-12 text-center'><h2>Q n A</h2>
+          <DIV class='col-lg-12 text-center'><h2>Q & A</h2>
           <hr class="star-primary"/>
          
           </DIV>
@@ -57,13 +57,13 @@
           <%--      <input type = "hidden" name='uno' id='uno' value='${TrashVO.uno }' >  --%>
                 <div class="form-group col-xs-12">
                   <label>TITLE </label>
-                  <input type="text" class="form-control" placeholder="제목" id="qtitle" name="qtitle" required>    
+                  <input type="text" class="form-control" placeholder="title" id="qtitle" name="qtitle" required style="width:50%;">    
                   <p class="help-block text-danger"></p>
                        <div class="row control-group">
                 <div
                   class="form-group col-xs-12">
                   <label>CONTENT</label>
-                  <textarea rows="5" class="form-control" id="qcontent" name="qcontent" placeholder="내용" required></textarea>
+                  <textarea rows="5" class="form-control" id="qcontent" name="qcontent" placeholder="content" required></textarea>
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -82,7 +82,7 @@
 <div class="row control-group"> 
 <div class="form-group col-xs-12 ">
       <label for="capa">ID</label>
-      <input type="text" class="form-control" placeholder="닉네임" id="qid" name="qid" required>
+      <input type="text" class="form-control" placeholder="nickname" id="qid" name="qid" required style="width:30%;">
    <p class="help-block text-danger"></p>
   </div>
 </div>
@@ -103,7 +103,7 @@
               <div class="row control-group">
 <div class="form-group col-xs-12 ">
       <label for="capa">PASSWORD</label>
-      <input type="password" class="form-control" placeholder="글 비밀번호" id="qpasswd" name="qpasswd" required>
+      <input type="password" class="form-control" placeholder="password" id="qpasswd" name="qpasswd" required style="width:30%;">
    <p class="help-block text-danger"></p>
   </div>
 </div>

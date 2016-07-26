@@ -52,7 +52,7 @@
          
          <% if (session.getAttribute("id") == null){ %>
          <h1><div align=center>
-         로그인을 하십시오!</div><h1>
+         Please Login</div><h1>
          <%}else{ %> 
          
           </DIV>
@@ -64,13 +64,13 @@
           <%--      <input type = "hidden" name='uno' id='uno' value='${TrashVO.uno }' >  --%>
                 <div class="form-group col-xs-12">
                   <label>TITLE </label>
-                  <input type="text" class="form-control" placeholder="제목" id="ntitle" name="ntitle" required>    
+                  <input type="text" class="form-control" placeholder="title" id="ntitle" name="ntitle" required size=50>    
                   <p class="help-block text-danger"></p>
                        <div class="row control-group">
                 <div
                   class="form-group col-xs-12">
                   <label>CONTENT</label>
-                  <textarea rows="5" class="form-control" id="ncontent" name="ncontent" placeholder="내용" required></textarea>
+                  <textarea rows="5" class="form-control" id="ncontent" name="ncontent" placeholder="content" required></textarea>
                   <p class="help-block text-danger"></p>
                 </div>
               </div>

@@ -36,7 +36,7 @@
 
    
    
-   if(!confirm("글을 삭제하겠습니까?")){
+   if(!confirm("Do you want to delete this notice?")){
       return;
    } else {
       var f = document.createElement("form");
