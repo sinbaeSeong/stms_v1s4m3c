@@ -168,15 +168,17 @@ public class TrashCont {
    * @return
    */
   @RequestMapping(value = "/trash/delete.do", method = RequestMethod.POST)
-  public ModelAndView delete(int tno) {
+  public ModelAndView delete(int tno, int uno) {
     ModelAndView mav = new ModelAndView();
     mav.setViewName("/trash/message");
 
     ArrayList<String> msgs = new ArrayList<String>();
     ArrayList<String> links = new ArrayList<String>();
 
+ /*   UserVO vo = userDAO.read(uno);*/
+       
     if (trashDAO.delete(tno) == 1) {
-      mav.setViewName("redirect:/trash/list2.do");
+      mav.setViewName("redirect:/trash/list2.do?uno="+uno);
 
     } else {
       msgs.add("File can't deletion.");
@@ -184,7 +186,7 @@ public class TrashCont {
       mav.addObject("links", links);
 
       links
-          .add("<button type='button' onclick=\"location.href='./list.do'\">Back</button>");
+          .add("<button type='button' onclick=\"location.href='./list2.do'\">Back</button>");
     }
 
     return mav;

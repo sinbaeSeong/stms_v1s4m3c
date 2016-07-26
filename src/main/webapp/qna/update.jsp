@@ -45,7 +45,7 @@ $(function(){
      <section id="contact">
       <div class="container">
         <div class="row">
-          <DIV class='col-lg-12 text-center'><h2>QNA Update</h2>
+          <DIV class='col-lg-12 text-center'><h2>Q&A Update</h2>
           <hr class="star-primary"/>
          
           </DIV>
@@ -59,7 +59,7 @@ $(function(){
                
                 <div class="form-group col-xs-12">
                   <label>Title </label>
-                  <input type="text" class="form-control" value="${qnaVO.qtitle}" id="qtitle" name='qtitle'>    
+                  <input type="text" class="form-control" value="${qnaVO.qtitle}" id="qtitle" name='qtitle' style="width:50%;">    
                   <p class="help-block text-danger"></p>
                   
                 </div>
@@ -74,7 +74,7 @@ $(function(){
                   <div class="row control-group">
               <div class="form-group col-xs-12 ">
                     <label>Password</label>
-                    <input type="text" class="form-control" value="" id="qpasswd" name='qpasswd' >
+                    <input type="text" class="form-control" value="" id="qpasswd" name='qpasswd'  style="width:30%;">
                  <p class="help-block text-danger"></p>
                 </div>
               </div>

@@ -55,7 +55,7 @@
        
      <% if (session.getAttribute("id") == null){ %>
          <h1><div align=center>
-         로그인을 하십시오!</div><h1>
+         Please Login</div><h1>
          <%}else{ %> 
         <div class="col-lg-8 col-lg-offset-2">
           <FORM name='frm' method='POST' action='./delete.do'

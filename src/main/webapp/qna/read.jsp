@@ -36,10 +36,10 @@ function del(qno){
   
   
   
-   if(!confirm("글을 삭제하겠습니까?")){
+   if(!confirm("Are you deletion?")){
       return;
    } else {
-     var returnValue = prompt("비밀번호를 입력하세요", "");
+     var returnValue = prompt("Please write password", "");
      
       var f = document.createElement("form");
       f.setAttribute("method","post");
@@ -75,10 +75,10 @@ function del(qno){
    
 
    
-   if(!confirm("답변을 삭제하시겠습니까?")){
+   if(!confirm("Do you want to delete reply?")){
       return;
    } else {
-     var returnValue = prompt("비밀번호를 입력하세요", "");
+     var returnValue = prompt("Please write password", "");
       var f = document.createElement("form");
       f.setAttribute("method","post");
       f.setAttribute("action","./deletereply.do");
@@ -137,15 +137,14 @@ function del(qno){
               <div class="row control-group">
                <div class="form-group col-xs-12">
                   <label>Title </label>
-                  <span class="form-control">${qnaVO.qtitle}</span><br>                  
+                  <span class="form-control" style="width:50%;">${qnaVO.qtitle}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
              <div class="form-group col-xs-12">
                   <label>Content </label>
                
                   
-                  <textarea rows=10 class="form-control" readonly>
-                  ${qnaVO.qcontent}</textarea><br>      
+                  <textarea rows=10 class="form-control" readonly>${qnaVO.qcontent}</textarea><br>      
                   
                   
                               
@@ -153,12 +152,12 @@ function del(qno){
               </div>
              <div class="form-group col-xs-12">
                   <label>Date </label>
-                  <span class="form-control"> ${qnaVO.qdate  }</span><br>                  
+                  <span class="form-control" style="width:50%;"> ${qnaVO.qdate  }</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
              <div class="form-group col-xs-12">
                   <label>ID </label>
-                  <span class="form-control"> ${qnaVO.qid}</span><br>                  
+                  <span class="form-control" style="width:50%;"> ${qnaVO.qid}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
               
@@ -229,7 +228,7 @@ function del(qno){
               <div class="row control-group"> 
 <div class="form-group col-xs-12 ">
       <label for="capa">ID</label>
-      <input type="text" class="form-control" placeholder="닉네임" id="qreplyid" name="qreplyid" required>
+      <input type="text" class="form-control" placeholder="nickname" id="qreplyid" name="qreplyid" required  style="width:30%;">
    <p class="help-block text-danger"></p>
   </div>
 </div>
@@ -248,7 +247,7 @@ function del(qno){
               <div class="row control-group">
 <div class="form-group col-xs-12 ">
       <label for="capa">PASSWORD</label>
-      <input type="password" class="form-control" placeholder="댓글 비밀번호" id="qreplypasswd" name="qreplypasswd" required>
+      <input type="password" class="form-control" placeholder="pasword" id="qreplypasswd" name="qreplypasswd" required style="width:30%;">
    <p class="help-block text-danger"></p>
   </div>
 </div>
@@ -258,7 +257,7 @@ function del(qno){
 <div class="row control-group">
              <div class="form-group col-xs-12">
                   <label>Content </label>
-                  <input type="text" class="form-control" placeholder="답변 내용을 입력하세요" id="qreplycontent" name="qreplycontent" required>
+                  <input type="text" class="form-control" placeholder="Please write the reply message" id="qreplycontent" name="qreplycontent" required>
                           
                   <p class="help-block text-danger"></p>
               </div>

@@ -166,9 +166,9 @@ $(function(){
             <div id="success"></div>
              <div class="row">
              <div class="form-group col-xs-12">
-            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list.do'">List</button>
-            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./update.do?tno=${trashVO.tno}'">Update</button>
-            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./delete.do?tno=${trashVO.tno}'">Delete</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list2.do?uno=${param.uno}'">List</button>
+            <button type="button" class="btn btn-success btn-lg" onclick="location.href='./update.do?tno=${trashVO.tno}&uno=${trashVO.uno }'">Update</button>
+            
            </div>
            </div>
            </div>
