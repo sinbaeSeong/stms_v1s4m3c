@@ -5,7 +5,7 @@ public class Paging {
    * SPAN태그를 이용한 박스 모델의 지원, 1 페이지부터 시작 
    * 현재 페이지: 11 / 22   [이전] 11 12 13 14 15 16 17 18 19 20 [다음] 
    *
-   * @param blogcategoryno 카테고리번호 
+   * @param cateno 카테고리번호 
    * @param totalRecord 전체 레코드수 
    * @param nowPage     현재 페이지
    * @param recordPerPage 페이지당 레코드 수
@@ -13,7 +13,7 @@ public class Paging {
    * @param word 검색어
    * @return 페이징 생성 문자열
    */ 
-  public String paging5(int blogcategoryno, int totalRecord, int nowPage, int recordPerPage, String col, String word){ 
+  public String paging5(int cateno, int totalRecord, int nowPage, int recordPerPage, String col, String word){ 
     int pagePerBlock = 10; // 블럭당 페이지 수 
     int totalPage = (int)(Math.ceil((double)totalRecord/recordPerPage)); // 전체 페이지  
     int totalGrp = (int)(Math.ceil((double)totalPage/pagePerBlock));// 전체 그룹 
@@ -54,7 +54,7 @@ public class Paging {
  
     int _nowPage = (nowGrp-1) * pagePerBlock; // 10개 이전 페이지로 이동 
     if (nowGrp >= 2){ 
-      str.append("<span class='span_box_1'><A href='./list2.do?col="+col+"&word="+word+"&nowPage="+_nowPage+"&blogcategoryno="+blogcategoryno+"'>이전</A></span>"); 
+      str.append("<span class='span_box_1'><A href='./list2.do?col="+col+"&word="+word+"&nowPage="+_nowPage+"&cateno="+cateno+"'>이전</A></span>"); 
     } 
  
     for(int i=startPage; i<=endPage; i++){ 
@@ -65,13 +65,13 @@ public class Paging {
       if (nowPage == i){ 
         str.append("<span class='span_box_2'>"+i+"</span>"); 
       }else{ 
-        str.append("<span class='span_box_1'><A href='./list2.do?col="+col+"&word="+word+"&nowPage="+i+"&blogcategoryno="+blogcategoryno+"'>"+i+"</A></span>");   
+        str.append("<span class='span_box_1'><A href='./list2.do?col="+col+"&word="+word+"&nowPage="+i+"&cateno="+cateno+"'>"+i+"</A></span>");   
       } 
     } 
      
     _nowPage = (nowGrp * pagePerBlock)+1; // 10개 다음 페이지로 이동 
     if (nowGrp < totalGrp){ 
-      str.append("<span class='span_box_1'><A href='./list2.do?col="+col+"&word="+word+"&nowPage="+_nowPage+"&blogcategoryno="+blogcategoryno+"'>다음</A></span>"); 
+      str.append("<span class='span_box_1'><A href='./list2.do?col="+col+"&word="+word+"&nowPage="+_nowPage+"&cateno="+cateno+"'>다음</A></span>"); 
     } 
     str.append("</DIV>"); 
      
@@ -83,7 +83,7 @@ public class Paging {
    * SPAN태그를 이용한 박스 모델의 지원, 1 페이지부터 시작 
    * 현재 페이지: 11 / 22   [이전] 11 12 13 14 15 16 17 18 19 20 [다음] 
    *
-   * blogcategoryno 카테고리번호 뺸 버전 <없음>
+   * cateno 카테고리번호 뺸 버전 <없음>
    * @param totalRecord 전체 레코드수 
    * @param nowPage     현재 페이지
    * @param recordPerPage 페이지당 레코드 수
@@ -319,7 +319,7 @@ public class Paging {
    * SPAN태그를 이용한 박스 모델의 지원, 1 페이지부터 시작 
    * 현재 페이지: 11 / 22   [이전] 11 12 13 14 15 16 17 18 19 20 [다음] 
    *
-   * blogcategoryno 카테고리번호 뺸 버전 <없음>
+   * cateno 카테고리번호 뺸 버전 <없음>
    * @param totalRecord 전체 레코드수 
    * @param nowPage     현재 페이지
    * @param recordPerPage 페이지당 레코드 수

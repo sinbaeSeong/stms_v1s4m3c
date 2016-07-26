@@ -4,14 +4,19 @@ DROP TABLE faqcate;
 CREATE TABLE faqcate(
   cateno INT    NOT NULL    PRIMARY KEY AUTO_INCREMENT,
   title                 VARCHAR(16)  NOT NULL ,
+  visible                 VARCHAR(16)  NOT NULL ,
+  ids                 VARCHAR(16)  NOT NULL ,
   cnt       INT   NULL,
-  seqno           INT       DEFAULT 1     NOT NULL
+  seqno           INT       DEFAULT 1     NOT NULL,
+  codeno           MEDIUMINT,
+  FOREIGN KEY (codeno) REFERENCES code (codeno)
 );
+
  
  
 2. 등록
-INSERT INTO blogcategory(codeno, title, orderno, visible, ids)
-VALUES(1, '캠핑장', 1, 'Y', 'admin');
+INSERT INTO faqcate(title, seqno)
+VALUES('질문1', 1);
  
 INSERT INTO blogcategory(codeno, title, orderno, visible, ids)
 VALUES(1, '산', 1, 'Y', 'admin');
@@ -28,9 +33,9 @@ SELECT * FROM blogcategory;
  
  
 3. 목록
-SELECT blogcategoryno, codeno, title, orderno, visible, ids, cnt
-FROM blogcategory
-ORDER BY codeno, orderno;
+SELECT cateno, codeno, sort, title, seqno, visible, ids, cnt
+FROM faqcate
+ORDER BY cateno;
  
  blogcategoryno codeno title orderno visible ids         cnt
  -------------- --- ----- ------- ------- ----------- ---
@@ -72,3 +77,12 @@ WHERE blogcategoryno=1;
 6. 삭제 기능
 DELETE FROM blogcategory
 WHERE blogcategoryno=1;
+
+ 
+게시판 글 수 조회
+
+SELECT COUNT(*) as cnt
+    FROM faq
+    WHERE cateno = 9;
+    
+    

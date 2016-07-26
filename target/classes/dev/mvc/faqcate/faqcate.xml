@@ -5,9 +5,80 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="dev.mvc.faqcate.FaqcateInter">
   <insert id="create" parameterType="FaqcateVO">
-    INSERT INTO faqcate(cateno, title, seqno)
-    VALUES((SELECT NVL(MAX(cateno), 0)+1 as cateno FROM faqcate),
-             #{cateno}, #{title}, #{seqno})
+    INSERT INTO faqcate(codeno, title, seqno, visible, ids)
+    VALUES(#{codeno}, #{title}, #{seqno}, #{visible}, #{ids})
   </insert>
- 
+  
+  <!-- 검색을하지 않는 전체 목록 -->
+  <select id="code_faqcategory_list" resultType="Code_Faqcate_VO">
+    SELECT c.codeno, c.sort, c.seqno, 
+           t.cateno, t.title, t.seqno, t.visible, t.ids, t.cnt
+    FROM code c LEFT OUTER JOIN faqcate t
+    ON c.codeno = t.codeno
+    ORDER BY c.seqno, t.seqno
+  </select>
+
+  <select id="countByCodeno" resultType="int" parameterType="int">
+    SELECT COUNT(*) as cnt
+    FROM faqcate
+    WHERE codeno = #{codeno}
+  </select>
+  
+  <!-- 검색을하지 않는 전체 목록 -->
+  <select id="list" resultType="Code_Faqcate_VO">
+    SELECT c.codeno, c.sort,
+           t.cateno, t.title, t.seqno, t.visible, t.ids, t.cnt
+    FROM code c, faqcate t
+    WHERE c.codeno = t.codeno
+    ORDER BY c.codeno, t.seqno
+  </select>
+
+  <select id="read" resultType="FaqcateVO" parameterType="int">
+    SELECT cateno, codeno, title, seqno, visible, ids, cnt
+    FROM faqcate
+    WHERE cateno = #{cateno} 
+  </select>
+  
+  <update id="update" parameterType="FaqcateVO">
+    UPDATE faqcate
+    SET codeno=#{codeno}, title=#{title}, seqno=#{seqno}, visible=#{visible}, ids=#{ids}
+    WHERE cateno = #{cateno}
+  </update> 
+
+  <delete id="delete" parameterType="int">
+    DELETE FROM faqcate
+    WHERE cateno = #{cateno}
+  </delete> 
+
+  <update id="up" parameterType="FaqcateVO">
+    UPDATE faqcate SET seqno=seqno - 1 
+    WHERE cateno=#{cateno}
+  </update>
+   
+  <update id="down" parameterType="FaqcateVO">
+    UPDATE faqcate SET seqno=seqno + 1 
+    WHERE cateno=#{cateno}
+  </update>
+
+  <!-- 등록된 글 수 증가 -->
+  <update id="increaseCnt" parameterType="int">
+    UPDATE faqcate 
+    SET cnt = cnt + 1 
+    WHERE cateno=cateno
+  </update>
+  
+  <!-- 등록된 글 수 감소 -->
+  <update id="decreaseCnt" parameterType="int">
+    UPDATE faqcate 
+    SET cnt = cnt - 1 
+    WHERE cateno=#{cateno}
+  </update>
+          
 </mapper>
+
+
+
+
+  
+  
+  

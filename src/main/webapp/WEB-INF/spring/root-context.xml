@@ -34,6 +34,7 @@
               dev.mvc.faq,
               dev.mvc.stats,
               dev.mvc.faqcate
+              dev.mvc.code
               
               "/>
     <property name="mapperLocations" value="classpath:dev/mvc/**/*.xml" />
