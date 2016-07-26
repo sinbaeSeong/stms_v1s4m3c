@@ -84,10 +84,9 @@
           <div id="success"></div>
           <div class="row">
            <div class="form-group col-xs-12">         
-            <c:if test="act eq admin">
-           
+                  
             <a href='./create.do?uno=<%=session.getAttribute("uno") %>'><img src = '../images/image1_trashcreate.png' style="width:20%;"></a> 
-           </c:if>
+        
             &nbsp;&nbsp;&nbsp;
             <a href='./list2.do?uno=<%=session.getAttribute("uno") %>'><img src = '../images/image1_trashlist.png' style="width:20%;"></a> 
             &nbsp;&nbsp;&nbsp;
