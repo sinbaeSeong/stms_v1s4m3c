@@ -51,10 +51,8 @@ public class FaqcateCont {
     ArrayList<String> links = new ArrayList<String>();
 
     if (faqcateDAO.create(faqcateVO) == 1) {
-      msgs.add("게시판이 생성되었습니다.");
-      links
-          .add("<button type='button' onclick=\"location.href='./create.do'\">계속 등록</button>");
-    } else {
+      mav.setViewName("redirect:/faqcate/list.do");
+      } else {
       msgs.add("게시판 생성에 실패했습니다.");
       msgs.add("죄송하지만 다시한번 시도해주세요.");
       links

@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %> 
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="dev.mvc.code.CodeVO" %> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
  
@@ -45,7 +47,7 @@ $(function(){
   <section id="contact">
       <div class="container">
         <div class="row">
-          <DIV class='col-lg-12 text-center'><h2>Update CATEGORY</h2>
+          <DIV class='col-lg-12 text-center'><h2>Update CODE</h2>
           <hr class="star-primary"/>
          
           </DIV>
@@ -55,7 +57,7 @@ $(function(){
           <div class="col-lg-8 col-lg-offset-2">
 <FORM name='frm' method='POST' action='./update.do'>
 <div class="row control-group">
-<input type='hidden' name='cateno' id='cateno' value='${param.cateno }'> 
+<input type='hidden' name='codeno' id='codeno' value='${param.codeno }'> 
                          <div class="row">
   
           </div>
@@ -65,7 +67,7 @@ $(function(){
       
    <div class="form-group col-xs-12">
         <label>TITLE</label>
-        <input type='text' class="form-control" name='title' id='title' value='${vo.title }' required="required">
+        <input type='text' class="form-control" name='sort' id='sort' value='${vo.sort }' required>
      <p class="help-block text-danger"></p>
      </div>
      </div>

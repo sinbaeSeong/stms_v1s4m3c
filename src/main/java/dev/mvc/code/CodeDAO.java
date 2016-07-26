@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import dev.mvc.code.CodeVO;
+import dev.mvc.faqcate.FaqcateVO;
 
  
 @Repository("dev.mvc.code.CodeDAO")
@@ -45,6 +46,10 @@ public class CodeDAO{
   }
   public int down(int codeno){
     return mapper().down(codeno);
+  }
+
+  public CodeVO read(int codeno) {
+    return mapper().read(codeno);
   }
 }
   

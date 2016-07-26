@@ -33,6 +33,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   SET seqno=seqno+1
   WHERE codeno=#{codeno }
   </update>
-  
+  <select id="read" resultType="CodeVO" parameterType="int">
+    SELECT codeno, sort, seqno
+    FROM code
+    WHERE codeno = #{codeno} 
+  </select>
  
 </mapper>

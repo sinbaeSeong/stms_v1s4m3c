@@ -1,152 +1,86 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page import="java.util.ArrayList" %>
+
 <%@ page import="dev.mvc.code.CodeVO" %> 
-  
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import="java.util.ArrayList" %> 
+<%@ page import="dev.mvc.faqcate.Code_Faqcate_VO" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+ 
 <!DOCTYPE html> 
 <html lang="ko"> 
 <head> 
 <meta charset="UTF-8"> 
 <title></title> 
  
-<link href="../css/style.css" rel="Stylesheet" type="text/css">
-<script type="text/JavaScript"
-          src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script type="text/javascript" src="../js/jquery.cookie.js"></script>
-<script type="text/javascript" src="../js/tool.js"></script>
-<script type="text/javascript">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<script type="text/JavaScript">
 $(function(){
-  $('#panel_frm').hide();
-  $('#panel_frm_remove').hide();
-  
+ 
 });
- 
-function create(){
-  $('#panel_frm').show();
-  $('#frm').attr('action', './create.do');
-  $('#sort').attr('value', '');
-  $('#seqno').attr('value', '');
-  $('#submit').html('등록');
-  $('#sort').focus();
-}
- 
-function create_cancel(){
-  $('#panel_frm').hide();
-}
- 
-function update(codeno, sort, seqno){
-  $('#panel_frm').show();
-  $('#frm').attr('action', './update.do');
-  // $('#codeno').val(codeno); // Chrome Elements에 변경이 안됨
-  $('#codeno').attr('value', codeno);
-  // $('#sort').val(sort);          // Chrome Elements에 변경이 안됨
-  $('#sort').attr('value', sort);
-  // $('#seqno').val(seqno); // Chrome Elements에 변경이 안됨
-  $('#seqno').attr('value', seqno);
-  $('#submit').html('저장');
-  $('#sort').focus();
-}
- 
-function remove(codeno){
-  $('#panel_frm_remove').show();
-  $('#codeno', frm_remove).attr('value', codeno);
-  
-  // alert 창 형태의 경우, GET
-  /*   
-  var sw = confirm('정말로 삭제하시겠습니까?');
-  
-  if (sw == true){
-    location.href='./delete.do?codeno=' + codeno;
-  }else{
-    return;
-  } */
-}
- 
-function delete_cancel(){
-  $('#panel_frm_remove').hide();
-}
 </script>
+<style type="text/css">
+
+</style>
 </head> 
 <!-- ----------------------------------------- -->
 <body leftmargin="0" topmargin="0">
 <jsp:include page="/menu/top.jsp" flush='false' />
 <!-- ----------------------------------------- -->
+
 <%
 ArrayList<CodeVO> list = (ArrayList<CodeVO>)request.getAttribute("list");
 %>
-<DIV class='title'>코드 목록</DIV>
- 
-<DIV id='panel_frm' class='content' style='padding: 10px 0px 10px 0px; background-color: #DDDDDD; width: 70%; text-align: center;'>
-<FORM name='frm' id='frm' method='POST' action='./create.do'>
-  <input type='hidden' name='codeno' id='codeno' value='0'> 
-  
-  <label for='sort'>분류</label>
-  <input type='text' name='sort' id='sort' size='15' value='카테고리' required="required">
- 
-  <label for='seqno'>출력 순서</label>
-  <input type='text' name='seqno' id='seqno' value='1' required="required">
- <Br>
-  <button type="submit" id='submit'>등록</button>
-  <button type="button" onclick="create_cancel()">취소</button>
-</FORM>
-</DIV>
+ <section id="contact">
+      <div class="container">
+      
+        <div class="row">
+          <DIV class='col-lg-12 text-center'><h2>CODE</h2>
+          <hr class="star-primary"/>
+          </DIV>
+          </div>
+          <div align=right>
+          
+          <a href="./create.do"><img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
+         </div>    
+<TABLE class='table'>
 
- 
-<DIV id='panel_frm_remove' class='content' style='padding: 10px 0px 10px 0px; background-color: #FFFF00; width: 70%; text-align: center;'>
-<FORM name='frm_remove' id='frm_remove' method='POST' action='./delete.do'>
-  <input type='hidden' name='codeno' id='codeno'> 
-  
-  삭제하면 복구 할 수 없습니다. 정말로 삭제하시겠습니까?
-    <br>
-  <button type="submit" id='submit'>삭제</button>
-  <button type="button" onclick="delete_cancel()">취소</button>
-</FORM>
-</DIV>
- 
-<TABLE class='table' style='width: 70%;'>
   <colgroup>
     <col style='width: 10%;'/>
     <col style='width: 20%;'/>
-    <col style='width: 50%;'/>
+    <col style='width: 20%;'/>
+    <col style='width: 20%;'/>
     <col style='width: 20%;'/>
   </colgroup>
-  <TR>
-    <TH class='th'>번호</TH>
-    <TH class='th'>코드 분류</TH>
-    <TH class='th'>출력 순서</TH>
-    <TH class='th'>기타</TH>
+  <tr class="row control-group" style="font-size: 23px;">
+    <th class="col-lg-8 col-lg-offset-2" style="width:10%; ">No</TH>
+    <th class="col-lg-8 col-lg-offset-2" style="width:30%; ">TITLE</TH>
+    <th class="col-lg-8 col-lg-offset-2" style="width:20%; ">Sequence</TH>
+    <th class="col-lg-8 col-lg-offset-2" style="width:20%; ">etc</TH>
   </TR>
  
-<%
-  for(int index=0; index < list.size(); index++){
-    CodeVO vo = list.get(index);
-    int codeno = vo.getCodeno();
- 
-%> 
-  <TR>
-    <TD class='td'><%=codeno %></TD>
-    <TD class='td'><%=vo.getSort() %></TD>
-    <TD class='td'><%=vo.getSeqno() %></TD>
-    <TD class='td'>
+<c:forEach var="vo" items="${list }">
+  <tr class="row control-group" style="font-size: 20px;">
+    <td class="col-lg-8 col-lg-offset-2" style="width: 50px; ">${vo.codeno }</TD>
+    <td class="col-lg-8 col-lg-offset-2" style="width: 50px; "><A href="/stms_v1s4m3c/faqcate/list.do">${vo.sort }</A></TD>
+    <td class="col-lg-8 col-lg-offset-2" style="width: 50px; ">${vo.seqno }</TD>
     
-      <A href="/stms_v1s4m3c/code/updown.do?codeno=<%=codeno%>&updown=1"><IMG src='./images/up.jpg' width='20px' title='up'></A>
-      <A href="/stms_v1s4m3c/code/updown.do?codeno=<%=codeno%>&updown=0"><IMG src='./images/down.jpg' width='20px' title='down'></A>
-      <A href="javascript:update(<%=codeno%>, '<%=vo.getSort() %>', '<%=vo.getSeqno() %>')"><IMG src='./images/update.png' title='수정'></A>
-      <A href="javascript:remove(<%=codeno%>)"><IMG src='./images/delete.png' title='삭제'></A>
+    <td class="col-lg-8 col-lg-offset-2" style="width: 50px; ">
+      <A href="./update.do?codeno=${vo.codeno }"><IMG src='../images/upload.jpg' title='수정'></A>
+      <A href="./delete.do?codeno=${vo.codeno }"><IMG src='../images/delete.png' title='삭제'></A>
     </TD>
     
   </TR>
-<%
-  }
-%>
+</c:forEach>
  
 </TABLE>
  
-<DIV class='bottom'>
-  <button type='button' onclick="create();">등록</button>
-  <button type='button' onclick="location.reload();">새로 고침</button>
-</DIV>
+
+</div>
+</section>
 <!-- -------------------------------------------- -->
-<jsp:include page="/menu/bottom.jsp" flush='false' />
 </body>
 <!-- -------------------------------------------- -->
 </html> 

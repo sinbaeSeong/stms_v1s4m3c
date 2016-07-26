@@ -1,25 +1,27 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.ArrayList" %> 
 <%@ page import="dev.mvc.faqcate.Code_Faqcate_VO" %>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-  
+ 
 <!DOCTYPE html> 
 <html lang="ko"> 
 <head> 
 <meta charset="UTF-8"> 
 <title></title> 
  
-<link href="../css/style.css" rel="Stylesheet" type="text/css">
-<script type="text/JavaScript"
-          src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script type="text/javascript" src="../js/jquery.cookie.js"></script>
-<script type="text/javascript" src="../js/tool.js"></script>
-<script type="text/javascript">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<script type="text/JavaScript">
 $(function(){
  
 });
 </script>
+<style type="text/css">
+
+</style>
 </head> 
 <!-- ----------------------------------------- -->
 <body leftmargin="0" topmargin="0">
@@ -28,12 +30,21 @@ $(function(){
 <%
 ArrayList<Code_Faqcate_VO> list = (ArrayList<Code_Faqcate_VO>)request.getAttribute("list");
 %>
-<DIV class='title'>게시판 목록</DIV>
- 
+ <section id="contact">
+      <div class="container">
+      
+        <div class="row">
+          <DIV class='col-lg-12 text-center'><h2>Category</h2>
+          <hr class="star-primary"/>
+          </DIV>
+          </div>
+          <div align=right>
+          
+          <a href="./create.do"><img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
+         </div>    
 <TABLE class='table'>
-  <caption>관리자만 접근 할 수 있습니다.</caption>
+
   <colgroup>
-    <col style='width: 5%;'/>
     <col style='width: 5%;'/>
     <col style='width: 15%;'/>
     <col style='width: 20%;'/>
@@ -43,32 +54,24 @@ ArrayList<Code_Faqcate_VO> list = (ArrayList<Code_Faqcate_VO>)request.getAttribu
     <col style='width: 10%;'/>
     <col style='width: 10%;'/>
   </colgroup>
-  <TR>
-    <TH class='th'>번호</TH>
-    <TH class='th'>그룹</TH>
-    <TH class='th'>그룹명</TH>
-    <TH class='th'>제목</TH>
-    <TH class='th'>순서</TH>
-    <TH class='th'>모드</TH>
-    <TH class='th'>접근계정</TH>
-    <TH class='th'>글수</TH>
-    <TH class='th'>기타</TH>
+  <tr class="row control-group" style="font-size: 23px;">
+    <th class="col-lg-8 col-lg-offset-2" style="width:10%; ">No</TH>
+    <th class="col-lg-8 col-lg-offset-2" style="width:20%; ">Group</TH>
+    <th class="col-lg-8 col-lg-offset-2" style="width:30%; ">Category</TH>
+    <th class="col-lg-8 col-lg-offset-2" style="width:20%; ">Sequence</TH>
+    <th class="col-lg-8 col-lg-offset-2" style="width:20%; ">etc</TH>
   </TR>
  
 <c:forEach var="vo" items="${list }">
-  <TR>
-    <TD class='td'>${vo.cateno }</TD>
-    <TD class='td'>${vo.codeno }</TD>
-    <TD class='td'>${vo.sort }</TD>
-    <TD class='td'><A href="/stms_v1s4m3c/faq/list2.do?cateno=${vo.cateno }">${vo.title }</A></TD>
-    <TD class='td'>${vo.seqno }</TD>
-        <TD class='td'>${vo.visible }</TD>
-    <TD class='td'>${vo.ids }</TD>
-   
-    <TD class='td'>${vo.cnt }</TD>
+  <tr class="row control-group" style="font-size: 20px;">
+    <td class="col-lg-8 col-lg-offset-2" style="width: 50px; ">${vo.cateno }</TD>
+    <td class="col-lg-8 col-lg-offset-2" style="width: 50px; "><A href="/stms_v1s4m3c/code/list.do">${vo.sort }</A></TD>
+    <td class="col-lg-8 col-lg-offset-2" style="width: 50px; "><A href="/stms_v1s4m3c/faq/list2.do?cateno=${vo.cateno }">${vo.title }</A></TD>
+    <td class="col-lg-8 col-lg-offset-2" style="width: 50px; ">${vo.seqno }</TD>
+    
     <TD class='td'>
-      <A href="./update.do?cateno=${vo.cateno }"><IMG src='./images/update.png' title='수정'></A>
-      <A href="./delete.do?cateno=${vo.cateno }"><IMG src='./images/delete.png' title='삭제'></A>
+      <A href="./update.do?cateno=${vo.cateno }"><IMG src='../images/upload.jpg' title='수정'></A>
+      <A href="./delete.do?cateno=${vo.cateno }"><IMG src='../images/delete.png' title='삭제'></A>
     </TD>
     
   </TR>
@@ -76,10 +79,9 @@ ArrayList<Code_Faqcate_VO> list = (ArrayList<Code_Faqcate_VO>)request.getAttribu
  
 </TABLE>
  
-<DIV class='bottom'>
-  <button type='button' onclick="location.href='./create.do'">등록</button>
-  <button type='button' onclick="location.reload();">새로 고침</button>
-</DIV>
+
+</div>
+</section>
 <!-- -------------------------------------------- -->
 </body>
 <!-- -------------------------------------------- -->

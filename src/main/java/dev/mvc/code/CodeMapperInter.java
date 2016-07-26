@@ -20,6 +20,8 @@ public interface CodeMapperInter {
   public int up(int codeno);
 
   public int down(int codeno);
+  
+  public CodeVO read(int codeno);
   /**
    * 한건의 레코드의 우선 순위를 높임입니다.
    * <update id="up" parameterType="BlogcateVO">

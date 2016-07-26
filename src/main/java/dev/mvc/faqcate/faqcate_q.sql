@@ -3,7 +3,7 @@ DROP TABLE faqcate;
  
 CREATE TABLE faqcate(
   cateno INT    NOT NULL    PRIMARY KEY AUTO_INCREMENT,
-  title                 VARCHAR(16)  NOT NULL ,
+  title                 VARCHAR(50)  NOT NULL ,
   visible                 VARCHAR(16)  NOT NULL ,
   ids                 VARCHAR(16)  NOT NULL ,
   cnt       INT   NULL,
@@ -12,7 +12,7 @@ CREATE TABLE faqcate(
   FOREIGN KEY (codeno) REFERENCES code (codeno)
 );
 
- 
+ ALTER TABLE faqcate MODIFY title varchar(50); 
  
 2. µî·Ï
 INSERT INTO faqcate(title, seqno)

@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
   <update id="update" parameterType="FaqcateVO">
     UPDATE faqcate
-    SET codeno=#{codeno}, title=#{title}, seqno=#{seqno}, visible=#{visible}, ids=#{ids}
+    SET title=#{title}, seqno=#{seqno}
     WHERE cateno = #{cateno}
   </update> 
 

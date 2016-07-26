@@ -61,8 +61,8 @@ $(function(){
         <div class="col-lg-8 col-lg-offset-2">
 <FORM name='frm' method='POST' action='./delete.do'>
   
-  <input type='hidden' name='cateno' id='cateno'
-            value='${param.cateno }'>
+  <input type='hidden' name='codeno' id='codeno'
+            value='${param.codeno }'>
   <div class="form-group col-xs-12" style="font-size: 20px">
               Are you deletion?<br> If this command deletes files,
               We can not restore.
