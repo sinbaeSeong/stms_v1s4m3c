@@ -36,6 +36,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   <select id="count" resultType="int" parameterType="HashMap" >
     SELECT COUNT(*) as cnt
     FROM faq
+    
+    <if test="cateno!=0">
     WHERE cateno=#{cateno}
     
         <choose>
@@ -48,12 +50,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       
              
         </choose>
+        </if>
   </select>        
         
   <!-- Search + Paging List -->
  <select id="list5" resultType="FaqVO" parameterType="HashMap" >
     SELECT fno, cateno, ftitle, fcontent, fcount, fdate, uno
     FROM faq
+    <if test="cateno!=0">
     WHERE cateno=#{cateno}
     
         <choose>
@@ -66,7 +70,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       
              
         </choose>
-    
+    </if>
     ORDER BY fno DESC
     LIMIT #{offset},10
   </select>
