@@ -100,9 +100,13 @@ function del(nno){
   
   <c:if test="${act eq 'admin' }">
   
-  <div align=right>
-  <a href="./create.do?nno=${noticeVO.nno}"><img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
+  <div align=center>
+
+  <a href="./create.do">Write new notice<img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
+ 
  </div>
+  
+
  
  </c:if>
  
