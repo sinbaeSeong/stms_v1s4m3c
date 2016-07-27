@@ -37,16 +37,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   <select id="list2" resultType="TrashVO" parameterType="HashMap" >
            SELECT tno, uno, tname, nowcapa, maxcapa, lat, lng, markerTitle, mdate
            FROM trash
-           WHERE uno = #{uno}
+           <if test="col!=''">
+          WHERE
+        </if>
                <choose>
                  <when test="col == 'tname'">
-                  AND tname LIKE #{word}
+                  tname LIKE #{word}
                  </when>
                  <when test="col == 'markerTitle'">
-                  AND markerTitle LIKE #{word}
+                  markerTitle LIKE #{word}
                  </when>
                  <when test="col == 'maxcapa'">
-                  AND maxcapa LIKE #{word}
+                  maxcapa LIKE #{word}
                  </when>      
               </choose>
             ORDER BY tno DESC
