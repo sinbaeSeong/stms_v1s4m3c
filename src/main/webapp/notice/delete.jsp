@@ -53,9 +53,9 @@
       </div>
       <div class="row">
        
-     <% if (session.getAttribute("id") == null){ %>
+<%if(session.getAttribute("id") == null || ((String)session.getAttribute("act")).equals("normal")){%>
          <h1><div align=center>
-         Please Login</div><h1>
+         Please Login Admin</div><h1>
          <%}else{ %> 
         <div class="col-lg-8 col-lg-offset-2">
           <FORM name='frm' method='POST' action='./delete.do'

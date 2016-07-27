@@ -48,9 +48,9 @@ $(function(){
           <DIV class='col-lg-12 text-center'><h2>Notice Update</h2>
           <hr class="star-primary"/>
           
-     <% if (session.getAttribute("id") == null){ %>
+<%if(session.getAttribute("id") == null || ((String)session.getAttribute("act")).equals("normal")){%>
          <h1><div align=center>
-         Please Login</div><h1>
+         Please Login Admin</div><h1>
          <%}else{ %> 
           </DIV>
          </div>          

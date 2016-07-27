@@ -79,6 +79,8 @@ function del(nno){
       
         <div class="row">
           <DIV class='col-lg-12 text-center'><h2>Notice</h2>
+
+ 
           <hr class="star-primary"/>
           </DIV>
          </div>     
