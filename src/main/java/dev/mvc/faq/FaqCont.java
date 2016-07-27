@@ -354,6 +354,7 @@ public class FaqCont {
     mav.setViewName("/faq/read"); // /blog/read.jsp
     
     FaqVO faqVO = faqDAO.read(fno);
+    faqVO.setId(userDAO.read(faqVO.getUno()).getId());
     mav.addObject("faqVO", faqVO);
 
     FaqcateVO faqcateVO = faqcateDAO.read(faqVO.getCateno());

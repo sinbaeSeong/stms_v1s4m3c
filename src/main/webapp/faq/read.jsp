@@ -55,9 +55,10 @@
           <div class="col-lg-8 col-lg-offset-2">
            <FORM name='frm'>
              <input type="hidden" name="fno" value="${faqVO.fno}">
+           
               
               <div class="row control-group">
-            
+             
              <div class="form-group col-xs-12">
                   <label>CATEGORY </label>
                   <span class="form-control">${faqcateVO.title}</span><br>                  
@@ -80,12 +81,14 @@
                   <p class="help-block text-danger"></p>
               </div>
              <div class="form-group col-xs-12">
+             
                   <label>ID </label>
-                  <span class="form-control"> ${faqVO.uno}</span><br>                  
+                  <span class="form-control"> ${faqVO.id}</span><br>                  
                   <p class="help-block text-danger"></p>
               </div>
+              
               </div>
-             
+            
            
             <div id="success"></div>
              <div class="row">

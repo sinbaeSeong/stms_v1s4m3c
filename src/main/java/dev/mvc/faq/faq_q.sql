@@ -15,10 +15,12 @@ CREATE TABLE faq(
     uno                               INT    NULL,
     cateno                            INT    NULL,
     grpno                            INT    NOT NULL,
+   
      FOREIGN KEY (cateno) REFERENCES faqcate (cateno)
 );
 
-
+ALERT TABLE faq ADD id VARCHAR(16) NOT NULL;
+ id                            VARCHAR(16)    NOT NULL,
 DROP TABLE faq;
 
 
