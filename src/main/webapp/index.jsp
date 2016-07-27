@@ -177,7 +177,7 @@
                 
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
-                      <a href="./faq/list2.do?cateno=2" class="portfolio-link" data-toggle="modal">
+                      <a href="./faq/list2.do?cateno=0" class="portfolio-link" data-toggle="modal">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-tag fa-stack-1x fa-inverse"></i>
                       </a>

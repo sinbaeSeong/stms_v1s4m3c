@@ -93,6 +93,7 @@
                   <span class="form-control">${faqcateVO.title}</span><br>                  
                  
               </div>
+        
     
                 <div class="form-group col-xs-12">
                   <input type='hidden' name='cateno' id='cateno' value='${faqcateVO.cateno }'>

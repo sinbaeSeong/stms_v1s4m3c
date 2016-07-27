@@ -64,14 +64,14 @@ $(function(){
  
  
   <FORM name='frm' method='GET' action='./list2.do' >  
-     <input type='hidden' name='cateno' id='cateno' value='${faqcateVO.cateno }'>
+     <input type='hidden' name='cateno' id='cateno' value='${param.cateno }'>
      <div class="row">
     <div class="col-lg-12 text-center">
       <select id='email_dns' class='input-sm' name='col' style="width: 20%;">
           <option value=''>search</option>
           <option value='ftitle' ${search.col == "ftitle" ? "selected=selected" : "" }>title</option>
           <option value='fcontent' ${search.col == "fcontent" ? "selected=selected" : "" }>content</option>
-          <option value='id' ${search.col == "fcontent" ? "selected=selected" : "" }>id</option>
+
           </select>
       <input type="text" class="input-sm" placeholder="search" id="word"
                      name="word" maxlength="16" value='${search.word }' style="width: 30%; ">
@@ -80,9 +80,11 @@ $(function(){
   </div>      
   
  <c:if test ="${act eq 'admin' }">  
+ <c:if test = "${param.cateno ne 0 }">
  <div align=center>
   <a href="./create.do?cateno=${faqcateVO.cateno}">Write new FAQ<img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
  </div>
+ </c:if>
 </c:if>
 
   <!--  테이블 시작 -->

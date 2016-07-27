@@ -97,6 +97,8 @@ public class FaqcateCont {
 
     for (int index = 0; index < sort_list.size(); index++) {
       String sort = sort_list.get(index);
+    
+      
       sort_title.add("<UI class='sort'><A href='../faq/list2.do?cateno=0'>" + sort + "</a></UI> "); // 코드 분류명
 
       for (int j = 0; j < list.size(); j++) {

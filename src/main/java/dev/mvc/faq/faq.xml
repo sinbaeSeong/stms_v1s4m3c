@@ -39,7 +39,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
     <if test="cateno!=0">
     WHERE cateno=#{cateno}
-    
+
+        
         <choose>
          <when test="col == 'ftitle'">
             AND ftitle LIKE #{word}
@@ -50,6 +51,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
              
         </choose>
         </if>
+        
+   <if test="cateno==0">
+    <if test="col=='ftitle'">
+      WHERE ftitle LIKE #{word}
+    </if>
+     <if test="col=='fcontent'">
+       WHERE fcontent LIKE #{word}
+     </if>
+   </if>
   </select>        
         
   <!-- Search + Paging List -->
@@ -70,6 +80,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
              
         </choose>
     </if>
+    
+    <if test="cateno==0">
+    <if test="col=='ftitle'">
+      WHERE ftitle LIKE #{word}
+    </if>
+     <if test="col=='fcontent'">
+       WHERE fcontent LIKE #{word}
+     </if>
+   </if>
     ORDER BY fno DESC
     LIMIT #{offset},10
   </select>
