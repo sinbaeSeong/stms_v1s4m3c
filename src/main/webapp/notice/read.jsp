@@ -90,8 +90,12 @@
               </div>
              <div class="form-group col-xs-12">
                   <label>Content </label>
-                  <textarea rows=10 class="form-control" readonly>
-                  ${noticeVO.ncontent}</textarea><br>                
+               
+                  
+                  <textarea rows=10 class="form-control" readonly>${noticeVO.ncontent}</textarea><br>      
+                  
+                  
+                              
                   <p class="help-block text-danger"></p>
               </div>
              <div class="form-group col-xs-12">
