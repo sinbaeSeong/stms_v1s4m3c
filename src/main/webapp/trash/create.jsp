@@ -75,6 +75,7 @@
 <!-- ----------------------------------------- -->
 
 <% if (session.getAttribute("id") == null){ %>
+  
     <section id="contact"> 
       <div class="container">
         <div class="row">
@@ -91,11 +92,11 @@
          </div>
        </div>
      </section>
-<%} else{%> 
-<c:if test="${act ne 'admin' }">
 
-</c:if>
-    <!-- Title Sign up -->
+<%} else{%> 
+
+  <c:if test="${act eq 'admin' }">  
+   <!-- Title Sign up -->
     <section id="contact">
       <div class="container">
         <div class="row">
@@ -225,6 +226,28 @@
         </div>
       </div>
       </section>
+     </c:if>
+     
+     
+     <c:if test="${act ne 'admin' }">
+     <section id="contact"> 
+      <div class="container">
+        <div class="row">
+          <DIV class='col-lg-12 text-center'><h2>Caution</h2>
+          <hr class="star-primary"/>
+          </DIV>
+         </div>
+         
+         <!--caution img -->         
+         <div class="row">
+           <div class="col-lg-12">
+             <a href="../user/login.do"><img style="margin:0px auto;" class="img-responsive" src='../images/caution.png' ></a>                    
+           </div>
+         </div>
+       </div>
+     </section>
+     </c:if>
+     
       
       
 
