@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.ArrayList" %>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  
 <!DOCTYPE html> 
 <html lang="ko"> 
@@ -72,6 +73,7 @@
 <body leftmargin="0" topmargin="0">
 <jsp:include page="/menu/top.jsp" flush='false' />
 <!-- ----------------------------------------- -->
+
 <% if (session.getAttribute("id") == null){ %>
     <section id="contact"> 
       <div class="container">
@@ -90,7 +92,9 @@
        </div>
      </section>
 <%} else{%> 
+<c:if test="${act ne 'admin' }">
 
+</c:if>
     <!-- Title Sign up -->
     <section id="contact">
       <div class="container">
