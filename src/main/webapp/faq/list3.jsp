@@ -57,9 +57,9 @@ $(function(){
           <hr class="star-primary"/>
           </DIV>
          </div>    
-        
+       
  
-  <c:import url="/faqcate/index_list.do" />      
+  <c:import url="/faqcate/index_list.do" />     
 
  
  
@@ -68,21 +68,22 @@ $(function(){
      <div class="row">
     <div class="col-lg-12 text-center">
       <select id='email_dns' class='input-sm' name='col' style="width: 20%;">
-          <option value=''>검색</option>
-          <option value='ftitle' ${search.col == "ftitle" ? "selected=selected" : "" }>제목</option>
-          <option value='fcontent' ${search.col == "fcontent" ? "selected=selected" : "" }>내용</option>
+          <option value=''>search</option>
+          <option value='ftitle' ${search.col == "ftitle" ? "selected=selected" : "" }>title</option>
+          <option value='fcontent' ${search.col == "fcontent" ? "selected=selected" : "" }>content</option>
+          <option value='id' ${search.col == "fcontent" ? "selected=selected" : "" }>id</option>
           </select>
       <input type="text" class="input-sm" placeholder="search" id="word"
                      name="word" maxlength="16" value='${search.word }' style="width: 30%; ">
       <input type="submit" value='search' class='btn btn-success btn-sm'>
     </div>
   </div>      
-   
-  <div align=right>
- 
-  <a href="./create.do?cateno=${faqcateVO.cateno}"><img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
- 
+  
+ <c:if test ="${act eq 'admin' }">  
+ <div align=center>
+  <a href="./create.do?cateno=${faqcateVO.cateno}">Write new FAQ<img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
  </div>
+</c:if>
 
   <!--  테이블 시작 -->
        
@@ -95,9 +96,11 @@ $(function(){
          
           <th class="col-lg-8 col-lg-offset-2" style="width:30%;">Title</th>
           <th class="col-lg-8 col-lg-offset-2" style="width:15%;">ID</th>
-          <th class="col-lg-8 col-lg-offset-2" style="width:5%; ">Count</th>          
+                  
           <th class="col-lg-8 col-lg-offset-2" style="width:15%; ">Date</th>
+          <c:if test ="${act eq 'admin' }">
           <th class="col-lg-8 col-lg-offset-2" style="width:10%; ">etc</th>
+          </c:if>
         </tr>
       
       </thead>
@@ -113,14 +116,17 @@ $(function(){
             
 
             <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${faqVO.id }</td>
-            <td class="col-lg-8 col-lg-offset-2" style="width: 200px; ">${faqVO.fcount }</td>
+      
             <td class="col-lg-8 col-lg-offset-2" style="width: 127px; ">${faqVO.fdate} </td>
+           
+           <c:if test ="${act eq 'admin' }">
             <td class="col-lg-8 col-lg-offset-2" style="width: 120px; ">
               <a href="./update.do?fno=${faqVO.fno}"><img src="../images/upload.jpg" title="Update" border='0'/></a>
               <a href="./delete.do?fno=${faqVO.fno}&cateno=${faqVO.cateno}"><img src="../images/delete.png" title="Delete"  border='0'/> </a>
               
       
              </td>
+             </c:if>
           </tr>
       </c:forEach>
         

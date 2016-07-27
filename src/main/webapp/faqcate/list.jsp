@@ -38,10 +38,14 @@ ArrayList<Code_Faqcate_VO> list = (ArrayList<Code_Faqcate_VO>)request.getAttribu
           <hr class="star-primary"/>
           </DIV>
           </div>
-          <div align=right>
           
-          <a href="./create.do"><img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
-         </div>    
+         
+         <div align=center>
+ 
+  <a href="./create.do">Create new category<img src="../images/create1.png" width=30px title="Create"  border='0'/> </a>
+ </div>
+         
+         
 <TABLE class='table'>
 
   <colgroup>

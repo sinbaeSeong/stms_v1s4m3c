@@ -32,9 +32,11 @@
  
  <c:forEach var="str" items="${list }">
  <ul>
+ 
 
-    ${str } 
+    ${str }
 
 </ul>
+
 </c:forEach>
 </fieldset>

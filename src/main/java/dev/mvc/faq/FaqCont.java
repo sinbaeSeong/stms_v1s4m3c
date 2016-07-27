@@ -22,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import dev.mvc.faqcate.FaqcateDAO;
 import dev.mvc.faqcate.FaqcateVO;
 import dev.mvc.user.UserDAO;
-
+ 
 
 @Controller
 public class FaqCont {

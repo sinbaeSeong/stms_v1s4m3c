@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
   
 <!DOCTYPE html> 
 <html lang="ko"> 
@@ -62,6 +64,7 @@
      </section>
 <%} else{%> 
  <!-- -------------------------------------------- -->
+ <c:if test ="${act eq 'admin' }">
     <section id="contact">
       <div class="container">
         <div class="row">
@@ -85,9 +88,17 @@
           </div>
           </div>
     
+             <div class="form-group col-xs-12">
+                  <label>CATEGORY </label>
+                  <span class="form-control">${faqcateVO.title}</span><br>                  
+                 
+              </div>
+    
                 <div class="form-group col-xs-12">
                   <input type='hidden' name='cateno' id='cateno' value='${faqcateVO.cateno }'>
                   <input type='hidden' name='uno' id='uno' value='${uno }'>
+                 
+           
                  
                   <label>TITLE </label>
                   <input type="text" class="form-control" value="제목" placeholder="제목" id="ftitle" name="ftitle" required>    
@@ -100,15 +111,8 @@
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
-              
-              
                 </div>
               </div>
-              
-              
-              
-              
- 
               <div id="success"></div>
               <div class="row">
                 <div class="form-group col-xs-12">
@@ -121,7 +125,29 @@
         </div>
       </div>
       </section>
+      </c:if>
       <%} %>
+      
+      <c:if test ="${act ne 'admin' }">
+      <section id="contact"> 
+      <div class="container">
+        <div class="row">
+          <DIV class='col-lg-12 text-center'><h2>Caution</h2>
+          <hr class="star-primary"/>
+          </DIV>
+         </div>
+         
+         <!--caution img -->         
+         <div class="row">
+           <div class="col-lg-12">
+             <a href="../user/login.do"><img style="margin:0px auto;" class="img-responsive" src='../images/caution.png' ></a>                    
+           </div>
+         </div>
+       </div>
+     </section>
+     </c:if>
+      
+      
 <!--         <label class='label' for='maxcapa'>Maximum Capacity</label>
         <input type='text' name='maxcapa' id='maxcapa' value='5m' required="required"> -->
 <!-- -------------------------------------------- -->

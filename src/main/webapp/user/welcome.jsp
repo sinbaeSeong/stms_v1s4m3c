@@ -118,6 +118,7 @@
                   You are admin. You can use admin menu.
                   <br><br>
                   <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list2.do'">Admin-Userlist</button> 
+                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='../faqcate/list.do'">FAQ Category</button> 
                   </c:if>
 
               </div>

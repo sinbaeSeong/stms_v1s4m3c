@@ -78,6 +78,12 @@ $(function(){
                                <div class="row">
   
           </div>
+          
+           <div class="form-group col-xs-12">
+                  <label>CATEGORY </label>
+                  <span class="form-control">${faqcateVO.title}</span><br>                  
+                 
+              </div>
                
                 <div class="form-group col-xs-12">
                   <label>Title </label>
