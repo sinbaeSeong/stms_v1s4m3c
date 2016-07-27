@@ -7,19 +7,34 @@
 <!DOCTYPE html> 
 <html lang="ko"> 
 <head> 
-<meta charset="UTF-8">  
+<meta charset="UTF-8"> 
 <title></title> 
- 
-<link href="../css/style.css" rel="Stylesheet" type="text/css">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="author" content="">
+ <!-- Basic CSS -->
+<!-- <link href="../css/style.css" rel="Stylesheet" type="text/css"> -->
+
+<!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../css/freelancer.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
 <script type="text/JavaScript"
           src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+
 <script type="text/javascript" src="../js/tool.js"></script>
  
-<script type="text/javascript">
-$(function(){
- 
-});
+<script type="text/JavaScript">
 </script>
  
 </head> 
@@ -27,15 +42,29 @@ $(function(){
 <body leftmargin="0" topmargin="0">
 <jsp:include page="/menu/top.jsp" flush='false' />
 <!-- ----------------------------------------- -->
- 
-<DIV class='title'>게시판 등록</DIV>
- 
-<DIV class='content' style='width: 60%;'>
-<FORM name='frm' method='POST' action='./create.do'>
+  <section id="contact">
+      <div class="container">
+        <div class="row">
+          <DIV class='col-lg-12 text-center'><h2>CREATE CATEGORY</h2>
+          <hr class="star-primary"/>
+         
+          </DIV>
+         </div> 
 
-  <fieldset>
-    <ul>
-      <li>
+<div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+<FORM name='frm' method='POST' action='./create.do'>
+<div class="row control-group">
+<input type='hidden' name='visible' id='visible' value='${vo.visible }'>
+<input type='hidden' name='ids' id='ids' value='${vo.ids }'>
+<c:forEach var="codeVO" items="${code_list}">
+<input type='hidden' name='codeno' id='codeno' value='${codeVO.codeno }'
+              ${(codeVO.codeno == vo.codeno)? "checked=checked":"" }>
+  </c:forEach>
+ 
+   
+    
+     <%--  <li>
         <label class='label' for='id'>그룹</label>
         게시판을 등록할 그룹을 선택하세요.
       </li>  
@@ -48,32 +77,46 @@ $(function(){
               ${codeVO.seqno } - ${codeVO.sort }
             </label>
           </LI>
-      </c:forEach>
+      </c:forEach> --%>
+                     <div class="row">
+    <div class="col-lg-12 text-center">
+    <ASIDE style='float: left; width: 12%;'>
+     
+   </ASIDE>
+   
+          </div>
+          </div>
 
-      <li>
-        <label class='label' for='title'>게시판 제목</label>
-        <input type='text' name='title' id='title' value='개인정보변경' required="required">
-      </li>
-      <li>
-        <label class='label' for='orderno'>출력 순서</label>
-        <input type="number" name='seqno' id='seqno' value='1' step="1" min="1">
-      </li>
-  <li>
-        <label class='label' for='visible'>출력 모드</label>
-        <input type='text' name='visible' id='visible' value='Y' placeholder="Y or N">
-      </li>
-      <li>
-        <label class='label' for='ids'>접근 계정</label>
-        <input type='text' name='ids' id='ids' value='admin' size='40' placeholder="admin/user1/guest...">  
-      </li>
-      <li class='right'>
-        <button type="submit">등록</button>
-        <button type="button" onclick="location.href='./list.do'">목록</button>
-      </li>         
-    </ul>
-  </fieldset>
+      <div class="form-group col-xs-12">
+        <label>TITLE</label>
+        <input type='text' class="form-control" name='title' id='title' value='개인정보변경' required>
+    <p class="help-block text-danger"></p>
+    <div class="row control-group">
+                <div
+                  class="form-group col-xs-12">
+        <label>SEQUENCE</label>
+        <input type="number" class="form-control" name='seqno' id='seqno' value='1' step="1" min="1">
+       <p class="help-block text-danger"></p>
+      </div>
+      </div>
+      </div>
+ </div>
+      
+        <div id="success"></div>
+              <div class="row">
+                <div class="form-group col-xs-12">
+                  <button type="submit" class="btn btn-success btn-lg">SEND</button>
+                  <button type="button" class="btn btn-success btn-lg" onclick="location.href='./list.do'">LIST</button>
+                </div>
+              </div>        
+    
+  
 </FORM>
 </DIV>
+</div>
+</DIV>
+
+</section>
  
 <!-- -------------------------------------------- -->
 </body>

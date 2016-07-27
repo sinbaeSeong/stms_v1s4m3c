@@ -14,7 +14,7 @@
  .sort{
     float: center;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px;
  }
  .sort_title{
     float: left;

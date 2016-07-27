@@ -174,7 +174,6 @@ public class ScheduleCont {
 
     ArrayList<String> msgs = new ArrayList<String>();
     ArrayList<String> links = new ArrayList<String>();
-   
 
     if (scheduleDAO.delete(sno) == 1) {
       mav.setViewName("redirect:/schedule/list2.do?uno="+uno);

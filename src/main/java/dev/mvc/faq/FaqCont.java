@@ -94,7 +94,7 @@ public class FaqCont {
     
     if (faqDAO.create2(faqVO) == 1) {
       faqcateDAO.increaseCnt(faqVO.getCateno());
-      msgs.add("글을 등록했습니다.");
+      msgs.add("Registration success.");
       links
           .add("<button type='button' onclick=\"location.href='./create.do?cateno="
               + faqVO.getCateno() + "'\">계속 등록</button>");

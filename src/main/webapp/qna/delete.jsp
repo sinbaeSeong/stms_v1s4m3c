@@ -47,7 +47,7 @@
     <div class="container">
       <div class="row">
         <DIV class='col-lg-12 text-center'>
-          <h2>Delete QnA</h2>
+          <h2>Delete Q&A</h2>
           <hr class="star-primary" />
         </DIV>
       </div>

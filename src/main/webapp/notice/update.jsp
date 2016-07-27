@@ -50,7 +50,7 @@ $(function(){
           
      <% if (session.getAttribute("id") == null){ %>
          <h1><div align=center>
-         로그인을 하십시오!</div><h1>
+         Please Login</div><h1>
          <%}else{ %> 
           </DIV>
          </div>          
@@ -63,7 +63,7 @@ $(function(){
                
                 <div class="form-group col-xs-12">
                   <label>Title </label>
-                  <input type="text" class="form-control" value="${noticeVO.ntitle}" id="ntitle" name='ntitle'>    
+                  <input type="text" class="form-control" value="${noticeVO.ntitle}" id="ntitle" name='ntitle' size=50>    
                   <p class="help-block text-danger"></p>
                   
                 </div>

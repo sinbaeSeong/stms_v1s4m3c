@@ -1,5 +1,9 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
-
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="dev.mvc.code.CodeVO" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+ 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -33,54 +37,47 @@
 <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="../js/tool.js"></script>
 <script type="text/javascript">
-	$(function() {
-		CKEDITOR.replace('content'); // <TEXTAREA>태그 id 값
-	});
+$(function(){
+ 
+});
 </script>
-
-</head>
+ 
+</head> 
 <!-- ----------------------------------------- -->
 <body leftmargin="0" topmargin="0">
 <jsp:include page="/menu/top.jsp" flush='false' />
-  <!-- ----------------------------------------- -->
+<!-- ----------------------------------------- -->
  
   <section id="contact">
     <div class="container">
       <div class="row">
         <DIV class='col-lg-12 text-center'>
+          <h2>Delete CATEGORY</h2>
           <hr class="star-primary" />
         </DIV>
       </div>
-      <div class="row">
-       
-     <% if (session.getAttribute("id") == null){ %>
-         <h1><div align=center>
-         Please Login</div><h1>
-         <%}else{ %> 
+ 
+ <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
-          <FORM name='frm' method='POST' action='./delete.do'
-            onsubmit='return send();'>
-            <input type='hidden' name='nno' value='${noticeVO.nno }'>
-          <%--   <input type="hidden" name="blogcategoryno" value="${blogcategoryno}"> --%>
-            <div class="form-group col-xs-12" style="font-size: 20px">
+<FORM name='frm' method='POST' action='./delete.do'>
+  
+  <input type='hidden' name='codeno' id='codeno'
+            value='${param.codeno }'>
+  <div class="form-group col-xs-12" style="font-size: 20px">
               Are you deletion?<br> If this command deletes files,
               We can not restore.
               <p class="help-block text-danger"></p>
             </div>
-            
-            <div class="form-group col-xs-12">
+  <div class="form-group col-xs-12">
               <button type="submit" class="btn btn-success btn-lg">Delete</button>
               <button type="button" onclick="history.back()" class="btn btn-success btn-lg">Cancel</button>
-            </div>
-
-          </FORM>
-        </DIV>
-      </div>
-    </div>
-  </section>
-  <!-- -------------------------------------------- -->
+            </div></FORM>
+</DIV>
+ </div>
+ </div>
+ </section>
+<!-- -------------------------------------------- -->
 
 </body>
 <!-- -------------------------------------------- -->
-</html>
-<%}%>
+</html> 
