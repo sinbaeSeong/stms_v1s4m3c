@@ -50,7 +50,7 @@ public class UserCont {
     mav.setViewName("/user/create"); // /webapp/member/create.jsp
 
     return mav;
-  }
+  } 
 
   @RequestMapping(value = "/user/create.do", 
                              method = RequestMethod.POST)

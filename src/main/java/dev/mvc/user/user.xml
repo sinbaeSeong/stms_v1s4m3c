@@ -126,7 +126,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                              </when>      
                          </choose>
             ORDER BY uno DESC
-            LIMIT #{offset}, 10;
+            LIMIT #{offset}, 10
   </select>  
   
   <!-- Check ID -->

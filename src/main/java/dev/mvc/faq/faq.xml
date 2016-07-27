@@ -45,7 +45,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          <when test="col == 'fcontent'">
             AND fcontent LIKE #{word}
          </when>
-      
              
         </choose>
   </select>        
