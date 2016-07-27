@@ -89,8 +89,8 @@
                 </c:if>
             &nbsp;&nbsp;&nbsp;
             <a href='./list2.do?uno=<%=session.getAttribute("uno") %>'><img src = '../images/image1_trashlist.png' style="width:20%;"></a> 
-            &nbsp;&nbsp;&nbsp;
-            <img src = '../images/image1_trashmodify.png' style="width:20%;"> 
+      <!--       &nbsp;&nbsp;&nbsp; -->
+            <!-- <img src = '../images/image1_trashmodify.png' style="width:20%;"> --> 
             <br><Br>
            </div>      
           </div>
