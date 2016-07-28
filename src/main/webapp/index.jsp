@@ -218,12 +218,12 @@
                         <h4>Seong sinbae</h4>
                         <p class="text-muted">Project manager</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        <!--     <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li> -->
+                            <li><a href="https://www.facebook.com/robotsung"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
+<!--                             <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -233,12 +233,12 @@
                         <h4>Lee Hoyeon</h4>
                         <p class="text-muted">Data Architect</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                       <!--      <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li> -->
+                            <li><a href="https://www.facebook.com/hoyeon.lee.9659"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
+                         <!--    <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -248,12 +248,12 @@
                         <h4>Jeon Byongrok</h4>
                         <p class="text-muted">Spring Developer</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                 <!--            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li> -->
+                            <li><a href="https://www.facebook.com/byungrok.jeon"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
+                       <!--      <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -264,12 +264,12 @@
                         <h4>Lee Jaeeun</h4>
                         <p class="text-muted">Arduino Developer</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                           <!--  <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li> -->
+                            <li><a href="https://www.facebook.com/flyingcastlemusic"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
+                    <!--         <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
