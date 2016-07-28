@@ -51,7 +51,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                   maxcapa LIKE #{word}
                  </when>      
               </choose>
-            ORDER BY tno DESC
+            ORDER BY nowcapa DESC
             LIMIT #{offset}, 10;
   </select>  
    
