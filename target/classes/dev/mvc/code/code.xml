@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="dev.mvc.code.CodeMapperInter">
+ 
+ <insert id="create" parameterType="CodeVO">
+    INSERT INTO code(sort, seqno)
+    VALUES (#{sort}, #{seqno})
+  </insert>
+  <select id="list" resultType="CodeVO">
+    SELECT codeno, sort, seqno
+    FROM code
+    ORDER BY seqno ASC
+  </select> 
+   <update id="update" parameterType="CodeVO">
+    UPDATE code 
+    SET sort=#{sort}, seqno=#{seqno}
+    WHERE codeno=#{codeno}
+  </update> 
+  <delete id="delete" parameterType="int">
+    DELETE FROM code
+    WHERE codeno=#{codeno}
+  </delete>
+  <update id="up" parameterType='int'>
+  UPDATE code
+  SET seqno=seqno-1
+  WHERE codeno=#{codeno }
+  </update>
+  <update id="down" parameterType='int'>
+  UPDATE code
+  SET seqno=seqno+1
+  WHERE codeno=#{codeno }
+  </update>
+  <select id="read" resultType="CodeVO" parameterType="int">
+    SELECT codeno, sort, seqno
+    FROM code
+    WHERE codeno = #{codeno} 
+  </select>
+ 
+</mapper>
